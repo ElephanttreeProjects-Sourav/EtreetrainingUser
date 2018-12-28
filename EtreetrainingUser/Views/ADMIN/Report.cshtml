@@ -1,0 +1,113 @@
+﻿@model IEnumerable<EtreetrainingUser.Models.Institute_Paymnt>
+
+@{
+    ViewBag.Title = "EOTA: Reports";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="main-page">
+
+        <div class="grids">
+            <div class="progressbar-heading grids-heading">
+                <h2>Institute Reports</h2>
+            </div>
+            <div class="panel panel-widget" style="background-color:cadetblue">
+                <div class="block-page">
+                    <p>
+                   
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Institute Name
+                            </th>
+                            <th>
+                               Institute ID
+                            </th>
+                            <th>
+                               Paid
+                            </th>
+                            <th>
+                               Course Code
+                            </th>
+                            <th>Course Name</th>
+                        </tr>
+                    
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @{
+                                        
+                                        var count1 = 1;
+                                        foreach (var i1 in ViewBag.inst)
+                                        {
+                                            if (count1 == 1)
+                                            {
+                                                var j1 = (item.Institute_Id);
+
+                                                if (@i1.Institute_Id == j1)
+                                                {
+                                                    @i1.Institute_Name_
+                                                    count1++;
+                                                }
+
+                                            }
+
+                                        }
+
+                                    }
+
+
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Institute_Id)
+                                </td>
+                                <td>
+                                    @{
+                                        if (item.IsPaid_ == true)
+                                        {
+                                            <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                                        }
+                                    }
+                                    
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Course_Code)
+                                </td>
+                                <td>
+                                    @{
+                                        var k = 0;
+                                        var count = 1;
+                                        foreach (var i in ViewBag.crs)
+                                        {
+                                            if (count == 1)
+                                            {
+                                                var j = int.Parse(item.Course_Code);
+                                              
+                                                if (@i.Secret_Code == j)
+                                                {
+                                                        @i.Title
+                                                    count++;
+                                                }
+                                                
+                                            }
+
+                                        }
+
+                                    }
+                                   
+                                    
+                                </td>
+                                
+                            </tr>
+                        }
+
+                    </table>
+                        </p>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>

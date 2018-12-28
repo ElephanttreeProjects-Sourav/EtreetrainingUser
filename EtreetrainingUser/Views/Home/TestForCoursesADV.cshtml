@@ -1,0 +1,152 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TestForCoursesADV</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    
+</head>
+<body>
+    <div class=" col-xxs-8 col-lg-6 col-md-6 left-col" style="float: left;">
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Chapter 1</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="lectures-container collapse in">
+                            <div class="lecture-container lecture-container--preview" style="display: flex;
+    padding: 12px 30px 12px 43px;
+    background-color: #fff;
+    border: 1px solid #e8e9eb;
+    border-top: none;
+    color: #686f7a;
+    letter-spacing: .3px;
+    line-height: 1.33;" data-purpose="lecture-item-1-1">
+                                <div class="left-content" style="display: flex;
+    align-items: flex-start;
+    width: 50%;">
+                                    <span class="udi udi-play-circle"></span>
+                                    <div class="top">
+                                        <div class="description collapse">
+
+                                        </div><div class="title"><span><a href="javascript:void(0)">Welcome to the PMP Exam Prep Seminar</a></span>  <a class="down-arrow" href="javascript:void(0)"><span data-purpose="lecture-caret-1-1" class="udi udi-caret-down"></span></a></div>
+                                    </div>
+                                </div>
+                                <div class="details" style="display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    margin-left: auto;
+    width: 50%;
+    font-size: 14px;"><span><a data-purpose="preview-course" data-toggle="modal" style="cursor:pointer" data-target="#myModal"><span class="preview-text">Preview</span></a></span><span class="content-summary">02:10</span></div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="myModal" role="dialog" style="left: 450px;padding-top: 200px;
+    padding-bottom: 30px;">
+                            <div style="
+    font-size: 18px;
+    padding: 16px 64px 16px 16px;color:white;background-color:black;width:304px">
+                                Course Preview &nbsp;&nbsp;&nbsp;
+                                <div style="float:right">
+                                    <button onclick="modelfunc()" style=" margin-left:0px; margin-right:0px;float:right;text-align:right; color:black"> <span aria-hidden="true">×</span></button>
+                                </div>
+                            </div>
+
+                            <iframe id="playerID" src="https://www.youtube.com/embed/V3dFHt9p5W8" allowfullscreen=""></iframe>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Chapter 2</a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="lectures-container collapse in">
+                            <div class="lecture-container lecture-container--preview" style="display: flex;
+    padding: 12px 30px 12px 43px;
+    background-color: #fff;
+    border: 1px solid #e8e9eb;
+    border-top: none;
+    color: #686f7a;
+    letter-spacing: .3px;
+    line-height: 1.33;" data-purpose="lecture-item-1-1">
+                                <div class="left-content" style="display: flex;
+    align-items: flex-start;
+    width: 50%;">
+                                    <span class="udi udi-play-circle"></span>
+                                    <div class="top">
+                                        <div class="description collapse">
+
+                                        </div><div class="title"><span><a href="javascript:void(0)">Welcome to the PMP Exam Prep Seminar</a></span>  <a class="down-arrow" href="javascript:void(0)"><span data-purpose="lecture-caret-1-1" class="udi udi-caret-down"></span></a></div>
+                                    </div>
+                                </div>
+                                <div class="details" style="display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    margin-left: auto;
+    width: 50%;
+    font-size: 14px;"><span><a data-purpose="preview-course" data-toggle="modal" style="cursor:pointer" data-target="#myModal1"><span class="preview-text">Preview</span></a></span><span class="content-summary">02:10</span></div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="myModal1" role="dialog" style="left: 450px;padding-top: 200px;
+    padding-bottom: 30px;">
+                            <div style="
+    font-size: 18px;
+    padding: 16px 64px 16px 16px;color:white;background-color:black;width:304px">
+                                Course Preview &nbsp;&nbsp;&nbsp;
+                                <div style="float:right">
+                                    <button onclick="modelfunc1()" style=" margin-left:0px; margin-right:0px;float:right;text-align:right; color:black"> <span aria-hidden="true">×</span></button>
+                                </div>
+                            </div>
+
+                            <iframe id="playerID" src="https://www.youtube.com/embed/V3dFHt9p5W8" allowfullscreen=""></iframe>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+   
+    </div>
+    
+                    <script>
+                        function modelfunc()
+                        {
+                            
+                            $('#myModal').modal('toggle');
+                           // document.getElementById("myModal").style.display = "none";
+                         
+                            
+                        }
+                        function modelfunc1() {
+
+                            $('#myModal1').modal('toggle');
+                            // document.getElementById("myModal").style.display = "none";
+
+
+                        }
+                    </script>
+</body>
+</html>

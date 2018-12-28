@@ -1,0 +1,279 @@
+﻿
+@model EtreetrainingUser.Models.Mock_Test
+@{
+    ViewBag.Title = "EOTA: Exam updation";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="main-page">
+        <!--grids-->
+        <div class="grids">
+            @{
+        var cnt = @ViewBag.pgno;
+        var cnt1 = cnt - 1;
+        var cnt2 = cnt + 1;
+        var lpgno = @ViewBag.lpgno;
+            }
+            <div class="progressbar-heading grids-heading">
+                <h2>Test Setter</h2>
+                <p hidden>@ViewBag.pgno</p>
+                @ViewBag.Message
+                @if (lpgno == cnt)
+        {
+            @ViewBag.UploadStatus
+}
+else
+{
+    if (cnt1 > 0)
+    {
+        @cnt1 @ViewBag.UploadStatus
+}
+else
+{
+        @ViewBag.UploadStatus
+}
+}
+            </div>
+            @{
+        var updtstrng = @cnt + "]" + @ViewBag.exmcd;
+        var updtstrngback = @cnt1 + "]" + @ViewBag.exmcd;
+        var updtstrngfrwrd = @cnt2 + "]" + @ViewBag.exmcd;
+            }
+            <script type="text/javascript">
+                function isNumberKey(evt) {
+                    var charCode = (evt.which) ? evt.which : event.keyCode;
+                    if (charCode > 31
+                        && (charCode < 48 || charCode > 57))
+                        return false;
+
+                    return true;
+                }
+            </script>
+            <div class="panel panel-widget">
+                <div class="block-page">
+
+                    <p>
+
+                        @using (Html.BeginForm("exmupdate", "ADMIN", new { Id = @updtstrng }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+            if (cnt == 1)
+            {
+                if (cnt == lpgno)
+                {
+
+                    <a href="~/ADMIN/ExamTest/@updtstrngfrwrd">
+                        <button type="button" class="glyphicon glyphicon-forward" onclick="Myfunction()" style="background-color:yellow; color:black; float:right;"></button>
+                    </a>
+
+        }
+        else
+        {
+            <a href="~/ADMIN/exmupdate/@updtstrngfrwrd">
+
+                <button type="button" class="glyphicon glyphicon-forward" style="background-color:yellow; color:black; float:right;"></button>
+            </a>
+}
+}
+else if (cnt > 1)
+{
+if (cnt == lpgno)
+{
+        <a href="~/ADMIN/ExamTest/@updtstrngfrwrd" method="post">
+
+            <button type="button" class="glyphicon glyphicon-forward" style="background-color:yellow; color:black; float:right;"></button>
+        </a>
+
+        <a href="~/ADMIN/exmupdate/@updtstrngback">
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            <button type="button" class="glyphicon glyphicon-backward" style="background-color:yellow; color:black; float:right;"></button>
+
+        </a>
+
+
+}
+else
+{
+        <a href="~/ADMIN/exmupdate/@updtstrngfrwrd">
+
+            <button type="button" class="glyphicon glyphicon-forward" style="background-color:yellow; color:black; float:right;"></button>
+        </a>
+        <a href="~/ADMIN/exmupdate/@updtstrngback">
+            <button type="button" class="glyphicon glyphicon-backward" style="background-color:yellow; color:black; float:right;"></button>
+
+        </a>
+
+}
+}
+else
+{
+
+}
+        <br />
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Exam_Code, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Exam_Code, new { htmlAttributes = new { id = "email", placeholder = "           Exam Code", @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.Exam_Code, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Course_Code, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Course_Code, new { htmlAttributes = new { id = "email", placeholder = "           Course Code", onkeypress = "return isNumberKey(event)" } })
+                    @Html.ValidationMessageFor(model => model.Course_Code, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Question_Type, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @Html.DropDownListFor(m => m.Question_Type, new List<SelectListItem>
+                                                       { new SelectListItem{Text="Optional", Value="O"},
+                                                         new SelectListItem{Text="Multi Optional", Value="MO"}, new SelectListItem{Text="Text", Value="T"}}, "Please Select your question type", new { id = "email", type = "dropdown" })
+                    @Html.ValidationMessageFor(model => model.Question_Type, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Ques_No, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Ques_No, new { htmlAttributes = new { id = "email", placeholder = "        Question No. ", onkeypress = "return isNumberKey(event)" } })
+                    @Html.ValidationMessageFor(model => model.Ques_No, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Question, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Question, new { htmlAttributes = new { @class = "form-control", placeholder = "           Question " } })
+                    @Html.ValidationMessageFor(model => model.Question, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Option1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Option1, new { htmlAttributes = new { @class = "form-control", placeholder = "           First Option " } })
+                    @Html.ValidationMessageFor(model => model.Option1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Option2, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Option2, new { htmlAttributes = new { @class = "form-control", placeholder = "           Second Option " } })
+                    @Html.ValidationMessageFor(model => model.Option2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Option3, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Option3, new { htmlAttributes = new { @class = "form-control", placeholder = "           Third Option(Null Acceptable) " } })
+                    @Html.ValidationMessageFor(model => model.Option3, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Option4, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Option4, new { htmlAttributes = new { @class = "form-control", placeholder = "           Fourth Option(Null Acceptable) " } })
+                    @Html.ValidationMessageFor(model => model.Option4, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Option5, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Option5, new { htmlAttributes = new { @class = "form-control", placeholder = "           Fifth Option(Null Acceptable) " } })
+                    @Html.ValidationMessageFor(model => model.Option5, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Option6, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Option6, new { htmlAttributes = new { @class = "form-control", placeholder = "           Sixth Option(Null Acceptable) " } })
+                    @Html.ValidationMessageFor(model => model.Option6, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Currect_Option, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Currect_Option, new { htmlAttributes = new { id = "email", placeholder = "           Correct Option/s " } })
+                    @Html.ValidationMessageFor(model => model.Currect_Option, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EnableDisable, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EnableDisable, new { htmlAttributes = new { id = "email" , disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.EnableDisable, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Exam_Time, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Exam_Time, new { htmlAttributes = new { id = "email", placeholder = "  Exam Session(minute) ", min = "1", onkeypress = "return isNumberKey(event)", @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.Exam_Time, "", new { @class = "text-danger" })
+                    <label>Minute</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Exam_Posting_Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Exam_Posting_Date, new { htmlAttributes = new { id = "email" , @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.Exam_Posting_Date, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="clearfix"></div>
+
+            <input type="submit" style="background-color:yellow; color:black; float:right;width:15%;" value="Update & Continue">
+
+            <div class="clearfix"></div>
+        </div>
+}
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--//grids-->
+    </div>
+    <script>
+        function myFunction() {
+            var txt;
+            var r = confirm("Are you sure to finish!\nIf you don't save your current page data will be lost.");
+            if (r == true) {
+                window.location.href = "/ADMIN/Dashboard";
+            } else {
+
+            }
+
+        }
+
+
+
+    </script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>

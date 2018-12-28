@@ -1,0 +1,300 @@
+﻿
+@model EtreetrainingUser.Models.Mock_Test
+@{
+    ViewBag.Title = "EOTA: Create a test";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+<script type="text/javascript">
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode > 31
+            && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+</script>
+
+<div id="page-wrapper" style="margin-top:10px;margin-right:50px;margin-bottom:20px; margin-left:10px">
+    <div class="main-page">
+        <!--grids-->
+        <div class="grids">
+            @{
+                var cnt = @ViewBag.pgno;
+                var cnt1 = cnt - 1;
+            }
+            <div class="progressbar-heading grids-heading">
+            
+                <p hidden>@ViewBag.pgno</p>
+                @ViewBag.Message
+                @if (cnt1 > 0)
+                {
+                    @cnt1 @ViewBag.UploadStatus
+                }
+                else
+                {
+                    @ViewBag.UploadStatus
+                }
+            </div>
+            @{
+                var updtstrng = @cnt1 + "]" + @ViewBag.exmcd;
+            }
+
+            <div class="panel panel-widget">
+                <div class="block-page">
+
+                    <p>
+
+                        @using (Html.BeginForm("ExamTestpgsnd", "ADMIN", new { Id = @cnt }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            if (cnt > 1)
+                            {
+                                <a href="~/ADMIN/exmupdate/@updtstrng">
+                                    <button type="button" class="glyphicon glyphicon-backward" style="background-color:yellow; color:black; float:right;"></button>
+                                </a>
+                            }
+                            <div class="form-horizontal">
+                                @if (cnt == 1)
+                                {
+                                    <div class="form-group">
+                            <p>
+
+
+                                <h5 class="control-label col-md-2"><b> Select as: </b></h5>
+                                <div class="col-md-10">
+                                    @{
+                                        @Html.RadioButton("searchBy", "Mock", false) <text>Mock Test</text>
+                                        @Html.RadioButton("searchBy", "Course", true) <text>Course Test</text>
+                                    }
+                                </div>
+                                <br />
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2" style="color:red;">*</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Pass_mark, new { htmlAttributes = new { id = "email", placeholder = "           Pass mark ", min="0", onkeypress = "return isNumberKey(event)" } })
+                                @Html.ValidationMessageFor(model => model.Pass_mark, "", new { @class = "text-danger" })
+                            </div>
+                            <br />
+                        </div>
+                    }
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Exam_Code, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2" style="color:red;">*</label>
+                                    <div class="col-md-6">
+                                        @if (cnt > 1)
+                                        {
+                                            <p>
+                                                <h4> Last exam-code: <u> @ViewBag.exmcd</u></h4>
+                                            </p>
+                                            <br />
+
+                                            @Html.EditorFor(model => model.Exam_Code, new { htmlAttributes = new { id = "email", placeholder = "           Exam Code " } })
+                                            @Html.ValidationMessageFor(model => model.Exam_Code, "", new { @class = "text-danger" })
+                                        }
+                                        else
+                                        {
+
+                                            @Html.EditorFor(model => model.Exam_Code, new { htmlAttributes = new { id = "email", placeholder = "           Exam Code" } })
+                                            @Html.ValidationMessageFor(model => model.Exam_Code, "", new { @class = "text-danger" })
+                                        }
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Course_Code, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2" style="color:red;">*</label>
+                                    <div class="col-md-10">
+                                        @if (cnt > 1)
+                                        {
+                                            <p>
+                                                <h4> Last Course-code: <u> @ViewBag.crscd</u></h4>
+
+                                            </p>
+
+                                        }
+                                        else
+                                        {
+                                            @Html.EditorFor(model => model.Course_Code, new { htmlAttributes = new { id = "email", placeholder = "           Course Code",  onkeypress = "return isNumberKey(event)" } })
+                                            @Html.ValidationMessageFor(model => model.Course_Code, "", new { @class = "text-danger" })
+                                        }
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Question_Type, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2" style="color:red;">*</label>
+                                    <div class="col-md-10">
+                                        @Html.DropDownListFor(m => m.Question_Type, new List<SelectListItem>
+                                                       { new SelectListItem{Text="Optional", Value="O"},
+                                                         new SelectListItem{Text="Multi Optional", Value="MO"}, new SelectListItem{Text="Text", Value="T"}}, "Please Select your question type", new { id = "email", type = "dropdown" })
+                                        @Html.ValidationMessageFor(model => model.Question_Type, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                   
+                                    <label class="control-label col-md-2" style="color:red;">*</label>
+
+                                    <div class="col-md-10">
+
+                                        @Html.EditorFor(model => model.Question, new { htmlAttributes = new { @class = "form-control", placeholder = "           Question " } })
+                                        @Html.ValidationMessageFor(model => model.Question, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Option1, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2" style="color:red;">*</label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Option1, new { htmlAttributes = new { @class = "form-control", placeholder = "           First Option " } })
+                                        @Html.ValidationMessageFor(model => model.Option1, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Option2, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2" style="color:red;">*</label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Option2, new { htmlAttributes = new { @class = "form-control", placeholder = "           Second Option " } })
+                                        @Html.ValidationMessageFor(model => model.Option2, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Option3, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2"></label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Option3, new { htmlAttributes = new { @class = "form-control", placeholder = "           Third Option " } })
+                                        @Html.ValidationMessageFor(model => model.Option3, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Option4, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2"></label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Option4, new { htmlAttributes = new { @class = "form-control", placeholder = "           Fourth Option " } })
+                                        @Html.ValidationMessageFor(model => model.Option4, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Option5, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2"></label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Option5, new { htmlAttributes = new { @class = "form-control", placeholder = "           Fifth Option " } })
+                                        @Html.ValidationMessageFor(model => model.Option5, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Option6, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2"></label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Option6, new { htmlAttributes = new { @class = "form-control", placeholder = "           Sixth Option " } })
+                                        @Html.ValidationMessageFor(model => model.Option6, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Currect_Option, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2" style="color:red;">*</label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Currect_Option, new { htmlAttributes = new { id = "email", placeholder = "           Correct Option/s " } })
+                                        @Html.ValidationMessageFor(model => model.Currect_Option, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Exam_Time, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2" style="color:red;">*</label>
+                                    <div class="col-md-10">
+                                        @if (cnt > 1)
+                                        {
+
+                                            <p>
+                                                <h4> Exam-time:  @ViewBag.exmtm minute</h4>
+
+                                            </p>
+
+                                        }
+                                        else
+                                        {
+
+                                            @Html.EditorFor(model => model.Exam_Time, new { htmlAttributes = new { id = "email", placeholder = "  Exam Session(minute) ", onkeypress = "return isNumberKey(event)", min = "1" } })
+                                            @Html.ValidationMessageFor(model => model.Exam_Time, "", new { @class = "text-danger" })
+                                        }
+                                    </div>
+                                </div>
+
+
+                                @*@Html.EditorFor(model => model.Cand_id, new { htmlAttributes = new { placeholder = "Give user id", type = "number", min = "1", required = "required" } })
+                                    <br />
+                                    <div class="clearfix"></div>
+
+
+                                    @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { placeholder = "Give user mail", type = "email", required = "required" } })
+                                    <br />
+                                    <div class="clearfix"></div>
+                                    @Html.EditorFor(model => model.Cand_DocTitle, new { htmlAttributes = new { placeholder = "Course Name", type = "text" } })
+                                    <div class="clearfix"></div>
+                                    <label>Certificate <span>*</span></label>
+                                    <tr>
+                                        <td>
+                                            @Html.TextBoxFor(model => model.Certificate, "", new { @type = "file", name = "Certificate" })
+                                        </td>
+                                    </tr>
+                                    <br />
+                                    <div class="clearfix"></div>
+                                    <label>Message <span>*</span></label>
+                                    <tr>
+                                        <td>
+
+                                            @Html.EditorFor(model => model.msgbox, new { htmlAttributes = new { placeholder = "Leave a message", rows = "5", cols = "40" } })
+                                        </td>
+                                    </tr>*@
+
+
+                                <div class="clearfix"></div>
+                                @*<a href="~/ADMIN/ExamTestpgsnd/@cnt">*@
+                                @if (cnt1 > 0)
+                                {
+                                    <button onclick="myFunction()" style="background-color:dimgrey; color:yellow; float:right;width:8%;">Finish</button>
+                                }
+
+                                @*</a>*@
+
+                                &nbsp;&nbsp;&nbsp;
+                                <input type="submit" style="background-color:yellow; color:black; float:right;width:15%;" value="Post & Continue">
+
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--//grids-->
+          
+            <script>
+                function myFunction() {
+                    var txt;
+                    var r = confirm("Are you sure to finish!\nIf you don't save your current page data will be lost.");
+                    if (r == true) {
+                        window.location.href = "/ADMIN/Dashboard";
+                    } else {
+
+                    }
+
+                }
+            </script>
+            <script src="~/Scripts/jquery.validate.js"></script>
+            <script src="~/Scripts/jquery.validate.min.js"></script>
+            <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>

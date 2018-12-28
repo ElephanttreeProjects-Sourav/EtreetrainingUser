@@ -1,0 +1,499 @@
+﻿@*@model EtreetrainingUser.Models.Post_Cours*@
+@model IEnumerable<EtreetrainingUser.Models.Post_Cours>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EOTA :: MERIT TRAINING | Post Ad :: EOTA</title>
+    <link rel="stylesheet" href="~/Sale_FrontUsersPro/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Sale_FrontUsersPro/css/bootstrap-select.css">
+    <link href="~/Sale_FrontUsersPro/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="EOTA :: MERIT TRAINING" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <!--fonts-->
+    <link href='~/Sale_FrontUsersPro/fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <link href='~/Sale_FrontUsersPro/fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!--//fonts-->
+    <!-- js -->
+    <script type="text/javascript" src="~/Sale_FrontUsersPro/js/jquery.min.js"></script>
+    <!-- js -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Sale_FrontUsersPro/js/bootstrap.min.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/bootstrap-select.js"></script>
+    <script>
+  $(document).ready(function () {
+    var mySelect = $('#first-disabled2');
+
+    $('#special').on('click', function () {
+      mySelect.find('option:selected').prop('disabled', true);
+      mySelect.selectpicker('refresh');
+    });
+
+    $('#special2').on('click', function () {
+      mySelect.find('option:disabled').prop('disabled', false);
+      mySelect.selectpicker('refresh');
+    });
+
+    $('#basic2').selectpicker({
+      liveSearch: true,
+      maxOptions: 1
+    });
+  });
+    </script>
+    <script type="text/javascript" src="~/Sale_FrontUsersPro/js/jquery.leanModal.min.js"></script>
+    <link href="~/Sale_FrontUsersPro/css/jquery.uls.css" rel="stylesheet" />
+    <link href="~/Sale_FrontUsersPro/css/jquery.uls.grid.css" rel="stylesheet" />
+    <link href="~/Sale_FrontUsersPro/css/jquery.uls.lcd.css" rel="stylesheet" />
+    <!-- Source -->
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.data.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.data.utils.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.lcd.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.languagefilter.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.regionfilter.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.core.js"></script>
+    <script>
+			$( document ).ready( function() {
+				$( '.uls-trigger' ).uls( {
+					onSelect : function( language ) {
+						var languageName = $.uls.data.getAutonym( language );
+						$( '.uls-trigger' ).text( languageName );
+					},
+					quickList: ['en', 'hi', 'he', 'ml', 'ta', 'fr'] //FIXME
+				} );
+			} );
+    </script>
+    <link rel="stylesheet" type="text/css" href="~/Sale_FrontUsersPro/css/easy-responsive-tabs.css " />
+    <script src="~/Sale_FrontUsersPro/js/easyResponsiveTabs.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="~/Training_main/Doc_upload"><span>EOTA</span>UPLODER</a>
+            </div>
+            <div class="header-right">
+
+
+                <!-- Large modal -->
+
+                <div class="selectregion">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="">
+                        <a class="" href="@ViewBag.url">Home</a>
+                    </button>
+                   
+                    <script>
+                            $('#myModal').modal('');
+                    </script>
+                    <script>
+                            function jsFunction() {
+                                // set text box value here
+                                var txt = document.getElementById('txtBox');
+                                txt.value = "assign_here";
+                            }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-banner banner text-center">
+        <div class="container">
+            <h1>Mostly viewed <span class="segment-heading">    and popular </span> courses</h1>
+            <p>Please try courses in what you have interest</p>
+            <a href="~/Training_main/Doc_upload">Post a new Course</a>
+
+          
+        </div>
+    </div>
+    <!-- content-starts-here -->
+    <div class="content">
+        <div class="categories">
+            <div class="container">
+               
+                @*@foreach (var item in Model.Select(s => s.Title).Distinct().ToArray())
+                {*@
+                <h2>Technical Courses</h2>
+                <br />
+                @*<form>*@
+                    @foreach (var crs in Model.Select(s => new { s.Title, s.Old_Price, s.New_Price, s.Course_Type, s.Secret_Code, s.EnableDisable }).Distinct().Where(x => x.Course_Type == "T" && x.EnableDisable == true).ToArray())
+                    {
+
+                        <div class="col-md-2 ">
+
+                            <div class="hover14 column" style=" box-shadow:2px 4px 1px #ebeaea">
+                                <div class="agile_top_brand_left_grid" style="position: relative;display: block;">
+
+                                    <div class="agile_top_brand_left_grid1" style="">
+                                        <figure>
+                                            <div class="snipcart-item block">
+                                                <div class="snipcart-thumb" style="  text-align: center;margin: 1em auto 1em">
+
+                                                    <br />
+                                                    <a href="~/Training_main/CrsDetails/@crs.Secret_Code"><img title=" " alt=" " src="~/Sale_FrontUsersPro/images/technicalcrs.jpg"></a>
+                                                    <br />
+                                                    <h4 class="clrchg"> @crs.Title</h4>
+
+                                                    <h4>
+                                                        &#8377; @crs.New_Price
+                                                        @if (@crs.Old_Price != null)
+    {
+                                                    <span style="text-decoration: line-through;">  &#8377; @crs.Old_Price </span>
+
+}
+                                                      
+                                                    </h4>
+                                                </div>
+
+                                            </div>
+                                        </figure>
+                                    </div>
+
+                                </div>
+                                </div>
+                            </div>
+                     }
+
+                            </div>
+                            <br />
+                            <div class="container">
+                                <h2>Academic Courses</h2>
+                                <br />
+                                <form>
+                                    @foreach (var crs in Model.Select(s => new { s.Title, s.Old_Price, s.New_Price, s.Course_Type, s.Secret_Code, s.EnableDisable }).Distinct().Where(x => x.Course_Type == "A" && x.EnableDisable == true).ToArray())
+                                    {
+                                        <div class="col-md-2 ">
+
+                                            <div class="hover14 column" style=" box-shadow:2px 4px 1px #ebeaea">
+                                                <div class="agile_top_brand_left_grid" style="position: relative;display: block;">
+
+                                                    <div class="agile_top_brand_left_grid1" style="">
+                                                        <figure>
+                                                            <div class="snipcart-item block">
+                                                                <div class="snipcart-thumb" style="  text-align: center;margin: 1em auto 1em">
+
+                                                                    <br />
+                                                                    <a href="~/Training_main/CrsDetails/@crs.Secret_Code"><img title=" " alt=" " src="~/Sale_FrontUsersPro/images/academic.jpg"></a>
+                                                                    <br />
+                                                                    <h4 class="clrchg"> @crs.Title</h4>
+
+                                                                    <h4>
+                                                                        &#8377; @crs.New_Price
+                                                                        @if (@crs.Old_Price != null)
+    {
+                                                                    <span style="text-decoration: line-through;">  &#8377; @crs.Old_Price </span>
+
+}
+                                                                       
+                                                                    </h4>
+                                                                </div>
+
+                                                            </div>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </form>
+
+
+
+                            </div>
+                            <br />
+
+                            <div class="container">
+                                <h2>Management Courses</h2>
+                                <br />
+                                <form>
+                                    @foreach (var crs in Model.Select(s => new { s.Title, s.Old_Price, s.New_Price, s.Course_Type, s.Secret_Code, s.EnableDisable }).Distinct().Where(x => x.Course_Type == "M" && x.EnableDisable == true).ToArray())
+                                    {
+
+                                        <div class="col-md-2 ">
+
+                                            <div class="hover14 column" style=" box-shadow:2px 4px 1px #ebeaea">
+                                                <div class="agile_top_brand_left_grid" style="position: relative;display: block;">
+
+                                                    <div class="agile_top_brand_left_grid1" style="">
+                                                        <figure>
+                                                            <div class="snipcart-item block">
+                                                                <div class="snipcart-thumb" style="  text-align: center;margin: 1em auto 1em">
+
+                                                                    <br />
+                                                                    <a href="~/Training_main/CrsDetails/@crs.Secret_Code"><img title=" " alt=" " src="~/Sale_FrontUsersPro/images/mngmnt.gif"></a>
+                                                                    <br />
+                                                                    <h4 class="clrchg"> @crs.Title</h4>
+
+                                                                    <h4>
+                                                                        &#8377; @crs.New_Price
+                                                                        @if (@crs.Old_Price != null)
+    {
+                                                                    <span style="text-decoration: line-through;">  &#8377; @crs.Old_Price </span>
+
+}
+                                                                      
+                                                                    </h4>
+                                                                </div>
+
+                                                            </div>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                    }
+                                </form>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+        </div>
+        <div class="trending-ads">
+            <div class="container">
+                <!-- slider -->
+                <div class="trend-ads">
+                    <h2>Course Trending</h2>
+                    <ul id="flexiselDemo3">
+                        <li>
+                        @foreach (var crs in Model.Select(s => new { s.Title, s.Old_Price, s.New_Price, s.Course_Type ,s.Secret_Code,s.EnableDisable}).Distinct().Where(x => x.Course_Type == "T" && x.EnableDisable == true).ToArray())
+                        {
+                            <div class="col-md-3 biseller-column">
+                                <a href="~/Training_main/CrsDetails/@crs.Secret_Code">
+                                <br />
+                                <img title=" " alt=" " src="~/Sale_FrontUsersPro/images/technicalcrs.jpg">
+                                    <span class="price">&#8377;  @crs.New_Price</span>
+                                </a>
+                                @*<a href="single.html">
+                                    <br />
+                                    <img src="~/Sale_FrontUsersPro/images/technicalcrs.jpg" />
+                                    <span class="price">&#8377;  @crs.New_Price</span>
+                                </a>*@
+                                <div class="ad-info">
+                                    <h5>@crs.Title</h5>
+                                    
+                                </div>
+                             
+                            </div>
+                            }
+                            
+                        </li>
+                        <li>
+@foreach (var crs in Model.Select(s => new { s.Title, s.Old_Price, s.New_Price, s.Course_Type ,s.Secret_Code,s.EnableDisable}).Distinct().Where(x => x.Course_Type == "A" && x.EnableDisable == true).ToArray())
+{
+    <div class="col-md-3 biseller-column">
+        <a href="~/Training_main/CrsDetails/@crs.Secret_Code">
+            <br />
+            <img title=" " alt=" " src="~/Sale_FrontUsersPro/images/academic.jpg">
+            <span class="price">&#8377;  @crs.New_Price</span>
+        </a>
+
+        <div class="ad-info">
+            <h5>@crs.Title</h5>
+
+        </div>
+
+    </div>
+}
+                    
+                        </li>
+                        <li>
+@foreach (var crs in Model.Select(s => new { s.Title, s.Old_Price, s.New_Price, s.Course_Type ,s.Secret_Code,s.EnableDisable}).Distinct().Where(x => x.Course_Type == "M" && x.EnableDisable == true).ToArray())
+{
+    <div class="col-md-3 biseller-column">
+        <a href="~/Training_main/CrsDetails/@crs.Secret_Code">
+            <br />
+            <img title=" " alt=" " src="~/Sale_FrontUsersPro/images/mngmnt.gif">
+            <span class="price">&#8377;  @crs.New_Price</span>
+        </a>
+        @*<a href="single.html">
+            <img src="~/Sale_FrontUsersPro/images/mngmnt.gif" />
+            <span class="price">&#8377;  @crs.New_Price</span>
+        </a>*@
+        <div class="ad-info">
+            <h5>@crs.Title</h5>
+
+        </div>
+
+    </div>
+}
+                            @*<div class="col-md-3 biseller-column">
+                                <a href="single.html">
+                                    <img src="~/Sale_FrontUsersPro/images/p9.jpg" />
+                                    <span class="price">&#36; 2599</span>
+                                </a>
+                                <div class="ad-info">
+                                    <h5>Lorem Ipsum is simply dummy</h5>
+                                    <span>3 hour ago</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 biseller-column">
+                                <a href="single.html">
+                                    <img src="images/p10.jpg" />
+                                    <span class="price">&#36; 3999</span>
+                                </a>
+                                <div class="ad-info">
+                                    <h5>It is a long established fact that a reader</h5>
+                                    <span>9 hour ago</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 biseller-column">
+                                <a href="single.html">
+                                    <img src="images/p11.jpg" />
+                                    <span class="price">&#36; 2699</span>
+                                </a>
+                                <div class="ad-info">
+                                    <h5>passage of Lorem Ipsum you need to be</h5>
+                                    <span>1 day ago</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 biseller-column">
+                                <a href="single.html">
+                                    <img src="images/p12.jpg" />
+                                    <span class="price">&#36; 899</span>
+                                </a>
+                                <div class="ad-info">
+                                    <h5>There are many variations of passages</h5>
+                                    <span>1 hour ago</span>
+                                </div>
+                            </div>*@
+                        </li>
+                    </ul>
+                    <script type="text/javascript">
+                            $(window).load(function () {
+                                $("#flexiselDemo3").flexisel({
+                                    visibleItems: 1,
+                                    animationSpeed: 1000,
+                                    autoPlay: true,
+                                    autoPlaySpeed: 5000,
+                                    pauseOnHover: true,
+                                    enableResponsiveBreakpoints: true,
+                                    responsiveBreakpoints: {
+                                        portrait: {
+                                            changePoint: 480,
+                                            visibleItems: 1
+                                        },
+                                        landscape: {
+                                            changePoint: 640,
+                                            visibleItems: 1
+                                        },
+                                        tablet: {
+                                            changePoint: 768,
+                                            visibleItems: 1
+                                        }
+                                    }
+                                });
+
+                            });
+                    </script>
+                    <script type="text/javascript" src="~/Sale_FrontUsersPro/js/jquery.flexisel.js"></script>
+                </div>
+            </div>
+            <!-- //slider -->
+        </div>
+        @*<div class="mobile-app">
+            <div class="container">
+                <div class="col-md-5 app-left">
+                    <a href="mobileapp.html"><img src="~/Sale_FrontUsersPro/images/app.png" alt=""></a>
+                </div>
+                <div class="col-md-7 app-right">
+                    <h3>Resale App is the <span>Easiest</span> way for Selling and buying second-hand goods</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor Sed bibendum varius euismod. Integer eget turpis sit amet lorem rutrum ullamcorper sed sed dui. vestibulum odio at elementum. Suspendisse et condimentum nibh.</p>
+                    <div class="app-buttons">
+                        <div class="app-button">
+                            <a href="#"><img src="~/Sale_FrontUsersPro/images/1.png" alt=""></a>
+                        </div>
+                        <div class="app-button">
+                            <a href="#"><img src="~/Sale_FrontUsersPro/images/2.png" alt=""></a>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>*@
+
+    <!-- // Submit Ad -->
+    <!--footer section start-->
+    <footer>
+        @*<div class="footer-top">
+                <div class="container">
+                    <div class="foo-grids">
+                        <div class="col-md-3 footer-grid">
+                            <h4 class="footer-head">Who We Are</h4>
+                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                            <p>The point of using Lorem Ipsum is that it has a more-or-less normal letters, as opposed to using 'Content here.</p>
+                        </div>
+                        <div class="col-md-3 footer-grid">
+                            <h4 class="footer-head">Help</h4>
+                            <ul>
+                                <li><a href="howitworks.html">How it Works</a></li>
+                                <li><a href="sitemap.html">Sitemap</a></li>
+                                <li><a href="faq.html">Faq</a></li>
+                                <li><a href="feedback.html">Feedback</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="typography.html">Shortcodes</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 footer-grid">
+                            <h4 class="footer-head">Information</h4>
+                            <ul>
+                                <li><a href="regions.html">Locations Map</a></li>
+                                <li><a href="terms.html">Terms of Use</a></li>
+                                <li><a href="popular-search.html">Popular searches</a></li>
+                                <li><a href="privacy.html">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 footer-grid">
+                            <h4 class="footer-head">Contact Us</h4>
+                            <span class="hq">Our headquarters</span>
+                            <address>
+                                <ul class="location">
+                                    <li><span class="glyphicon glyphicon-map-marker"></span></li>
+                                    <li>CENTER FOR FINANCIAL ASSISTANCE TO DEPOSED NIGERIAN ROYALTY</li>
+                                    <div class="clearfix"></div>
+                                </ul>
+                                <ul class="location">
+                                    <li><span class="glyphicon glyphicon-earphone"></span></li>
+                                    <li>+0 561 111 235</li>
+                                    <div class="clearfix"></div>
+                                </ul>
+                                <ul class="location">
+                                    <li><span class="glyphicon glyphicon-envelope"></span></li>
+                                    <li><a href="mailto:info@example.com">mail@example.com</a></li>
+                                    <div class="clearfix"></div>
+                                </ul>
+                            </address>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>*@
+        <div class="footer-bottom text-center">
+            <div class="container; footer-bottom text-center">
+                <div class="footer-logo">
+                    <a href="~/Training_main/Doc_upload"><span>EOTA</span>UPLOADER</a>
+                </div>
+                <div class="footer-social-icons">
+                    <ul>
+                        <li><a class="facebook" href="#"><span>Facebook</span></a></li>
+                        <li><a class="twitter" href="#"><span>Twitter</span></a></li>
+                        <li><a class="flickr" href="#"><span>Flickr</span></a></li>
+                        <li><a class="googleplus" href="#"><span>Google+</span></a></li>
+                        <li><a class="dribbble" href="#"><span>Dribbble</span></a></li>
+                    </ul>
+                </div>
+                <div class="copyrights">
+                    <p> © 2017 EOTA MERIT TRAINING. All rights reserved | Design and Developed by <a href="http://www.elephanttreetech.com/">ELEPHANTTREE TECH PVT.LTD.</a></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </footer>
+    <!--footer section end-->
+</body>
+</html>

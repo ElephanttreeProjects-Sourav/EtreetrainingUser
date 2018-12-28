@@ -1,0 +1,112 @@
+﻿
+@model EtreetrainingUser.Models.Tbl_Cand_Main
+@{
+    ViewBag.Title = "Your Users";
+    Layout = "~/Views/Shared/_TrainersMaster.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="main-page">
+        <!--grids-->
+        <div class="grids">
+            <div class="progressbar-heading grids-heading">
+                <h2>Trainer's Course Users</h2>
+                <br />
+                <h4 style="color:green"> @ViewBag.Message</h4>
+            </div>
+            <div class="panel panel-widget" style="background-color:cadetblue">
+                <div class="block-page">
+                    <style>
+                        #customers {
+                            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                            border-collapse: collapse;
+                            width: 100%;
+                        }
+
+                            #customers td, #customers th {
+                                border: 1px solid #ddd;
+                                padding: 8px;
+                            }
+
+                            #customers tr:nth-child(even) {
+                                background-color: #f2f2f2;
+                            }
+
+                            #customers tr:nth-child(odd) {
+                                background-color: #ded1d1;
+                            }
+
+                            #customers tr:hover {
+                                background-color: #ddd;
+                            }
+
+                            #customers th {
+                                padding-top: 12px;
+                                padding-bottom: 12px;
+                                text-align: left;
+                                background-color: #4CAF50;
+                                color: white;
+                            }
+                    </style>
+                    <p>
+                        @*@using (Html.BeginForm("CFUploader", "Trainers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {*@
+                        @Html.AntiForgeryToken()
+
+                    <p>
+                        @using (Html.BeginForm("MyUsers", "Trainers", new { id = @ViewBag.id }, FormMethod.Get))
+        {
+                <b> Search By: </b> @Html.RadioButton("searchBy", "Course", true) <text>Course Name</text>
+                <br />
+                @Html.TextBox("search") <input type="submit" value="Search" />
+}
+                    </p>
+                    <br />
+                    @if (ViewBag.myusers.Count == 0)
+                    {
+                    <table id="customers">
+                        <tr>
+                            <th>User ID</th>
+                            <th>User Name</th>
+                            <th>Course Name</th>
+                        </tr>
+                        <tr style="color:red" >
+                            <td colspan="3"> No rows match search criteria</td>
+                       </tr>
+                    </table>
+
+                    }
+                    else
+                    {
+                        <table id="customers">
+                            <tr>
+                                <th>User ID</th>
+                                <th>User Name</th>
+                                <th>Course Name</th>
+                            </tr>
+                            @{
+
+                                foreach (var users in (IEnumerable<EtreetrainingUser.Controllers.MyCategory>)ViewBag.myusers)
+                                {
+
+                    <tr>
+                        <td>@users.uid</td>
+
+                        <td>@users.uemail</td>
+
+                        <td>@users.ctitle</td>
+
+                    </tr>
+                                }
+                            }
+                        </table>
+                                }
+                        @*}*@
+
+                        </p>
+                </div>
+            </div>
+        </div>
+        <!--//grids-->
+
+    </div>

@@ -1,0 +1,85 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Bootstrap Responsive Templates, Iphone Compatible Templates, Smartphone Compatible Templates, Ipad Compatible Templates, Flat Responsive Templates" />
+
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 9pt;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="Grid">
+
+        <div class="newsletter-box">
+
+            <div style="background-color:#0aa072">
+                <h2 style="text-align:left;padding-top: 20px;padding-left: 20px;color:white">
+                    EOTA
+
+                </h2>
+                <h2 style="text-align:left;padding-bottom: 10px;padding-left: 20px;color:white">
+                    <span> Certificate of Completion </span>
+                </h2>
+            </div>
+            <div style="background-color:rgba(222, 216, 216, 0.00);padding-top: 30px;padding-left: 40px;padding-bottom: 5px;">
+                <p style="font-size:170%">@ViewBag.name</p>
+
+                <p class="newsletter-content-subtitle">Has been awarded this certificate for successfully passing the course</p>
+                <div class="clearfix"> </div>
+                <p class="newsletter-content-subtitle">@ViewBag.sub</p>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div id="Grid1">
+
+        <div>
+            <div style="background-color:rgba(222, 216, 216, 0.00);padding-top: 10px;padding-left: 40px;padding-bottom: 30px;">
+
+                <p style="font-size:12px">Mallikarjuna G D</p>
+                <div class="clearfix"> </div>
+                <p style="font-size:12px">Director & CEO</p>
+            </div>
+            <div style="background-color:#000000;max-height:45px;text-align:match-parent">
+                <p style="text-align:left;padding-top: 5px;padding-left: 20px;color:white;font-size:10px">
+                    Certificate Number:
+                </p>
+                <p style="text-align:left;padding-bottom: 5px;padding-left: 20px;color:white;font-size:10px">
+                    Date of Achivement: @ViewBag.dt
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <br />
+    @using (Html.BeginForm("Export", "Home", FormMethod.Post))
+    {
+        <input type="hidden" name="GridHtml" />
+        <input type="hidden" name="GridHtml1" />
+        <input type="submit" id="btnSubmit" value="Generate certificate" />
+    }
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnSubmit").click(function () {
+                $("input[name='GridHtml']").val($("#Grid").html());
+                $("input[name='GridHtml1']").val($("#Grid1").html());
+            });
+        });
+    </script>
+</body>
+</html>

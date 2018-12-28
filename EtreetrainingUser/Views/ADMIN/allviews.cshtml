@@ -1,0 +1,511 @@
+﻿@model EtreetrainingUser.Models.Tbl_ADMN
+@{
+    ViewBag.Title = "All Views";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+@*@if (Request.IsAuthenticated)
+    {
+        using (Html.BeginForm("Adm_Logout", "ADMIN", FormMethod.Post, new { id = "logoutform" }))
+        {
+            <a href="javascript:document.getElementById('logoutform').submit()">Logout</a>
+        }
+    }*@
+<link href="~/admnfont/css/hover.css" rel='stylesheet' type='text/css' />
+<script src="~/admnfont/js/jquery.nicescroll.js"></script>
+<script src="~/admnfont/js/scripts.js"></script>
+
+<style>
+    body {
+        height: 5000px;
+    }
+</style>
+<script>
+    function scrollWin() {
+        window.scrollBy(100, 0);
+    }
+</script>
+<div id="page-wrapper">
+    <div class="main-page">
+        @*@HttpContext.Current.User.Identity.Name*@
+
+
+        <!--grids-->
+        <div class="grids">
+            <div class="progressbar-heading grids-heading">
+                <h2>All Views</h2>
+            </div>
+            <div class="panel panel-widget">
+                <div class="block-page">
+                    <p>
+                        <h4> @ViewBag.error</h4>
+
+                        <br />
+                        <div class="but_list">
+                            <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                                <ul id="myTab" class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class=""><a href="#crs" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Courses</a></li>
+                                    <li role="presentation"><a href="#trnr" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Trainers' list</a></li>
+
+                                    @*<li role="presentation" class="dropdown">
+            <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">User List  <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
+                <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Paid Users</a></li>
+                <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">NON Paid</a></li>
+            </ul>
+        </li>*@
+                                    <li role="presentation"><a href="#usrtb" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">User list</a></li>
+                                    <li role="presentation"><a href="#inst" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Institution list</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="myTabContent" class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade " id="crs" aria-labelledby="home-tab">
+                    <p>Hello Admin Welcome to Course Section. If you want to see all courses or to upload course then please click on below button</p>
+                    @*@foreach (var crs in ViewBag.id)
+                        {
+                            <a href="#" class="hvr-icon-wobble-horizontal">click here</a>@*<a href="~/Training_main/AllCourseView">Courses</a>
+
+                                    }*@
+                    <a href="#" class="hvr-icon-wobble-horizontal">click here</a>@*<a href="~/Training_main/AllCourseView">Courses</a>*@
+                    @Html.ActionLink("Courses", "AllCourseView", "Training_main", new
+                    {@*id = crs.Admin_id*@}, null)
+                    <br />
+                    <p>Thank you for viewing</p>
+
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="trnr" aria-labelledby="profile-tab">
+                    <div class="row">
+                        <div class="col-md-8">
+                            @using (Html.BeginForm("allviews", "ADMIN", FormMethod.Get))
+            {
+                <b> Search By: </b> @Html.RadioButton("searchBytrnr", "Trnrnm", true) <text>Trainer's Name</text> <text> &nbsp;</text>
+        
+                <br /><br />
+                @Html.TextBox("search") <input type="submit" value="Search" />
+}
+                        </div>
+                 
+                    </div>
+                    <br />
+                    @*<p><b><u> EOTA Trainers</u></b></p>*@
+                    <table class="table">
+                        <tr>
+                            <th>
+                                <b>ID</b>
+                            </th>
+                            <th>
+                                <b>Name</b>
+                            </th>
+                            <th>
+                                <b> Email Id</b>
+                            </th>
+                            @*<th>
+                    <b>Number</b>
+                </th>*@
+                            <th></th>
+
+                        </tr>
+
+                        @foreach (var crs in ViewBag.trainers)
+        {
+            if (crs == null)
+            {
+                <tr> No trainers available</tr>
+}
+else
+{
+                <tr>
+                    <td>
+                        @crs.Id
+                    </td>
+                    <td>
+                        @crs.Name
+                    </td>
+                    <td>
+                        @crs.Email_Id
+                    </td>
+                    @*<td>
+            @crs.Number
+
+        </td>*@
+                    <td>
+
+                        ||  @Html.ActionLink("Details", "TRainersdetails", "ADMIN", new
+        { id = crs.Id }, null) ||
+
+                    </td>
+                    @if (crs.IsActive == true)
+    {
+                <td>
+
+                    @Html.ActionLink("Disable", "trainerenabledisable", new { controller = "ADMIN", id = crs.Id }, new { @class = "btn btn-default", style = "background-color:gray; color:white; " })
+
+                    @*<input type="checkbox"
+               id="checkbox1"
+               onclick="disable()" checked="checked" />
+        <script>
+
+
+                function disable() {
+                    var txt;
+                    var r = confirm("Are you sure to disable!");
+                    if (r == true) {
+                        window.location.href = "/ADMIN/trainerenabledisable/@crs.Id";
+                    } else {
+
+                    }
+
+                }
+        </script>*@
+                </td>
+}
+else
+{
+                <td>
+                    @Html.ActionLink("Enable", "trainerenabledisable", new { controller = "ADMIN", id = crs.Id }, new { @class = "btn btn-default", style = "background-color:darkcyan; color:white; " })
+                    @*<input type="checkbox"
+               name="checkbox2"
+               onclick="enable()"  />
+        <script>
+            $("#checkbox2").removeAttr("checked");
+            function enable() {
+                var txt;
+                var r = confirm("Are you sure to enable!");
+                if (r == true) {
+                    window.location.href = "/ADMIN/trainerenabledisable/id=@crs.Id ";
+                } else {
+
+                }
+
+            }
+
+        </script>*@
+                </td>
+}
+
+                </tr>
+
+}
+}
+
+                    </table>
+
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="usrtb" aria-labelledby="dropdown1-tab">
+                    <div class="row">
+                        <div class="col-md-8">
+                            @using (Html.BeginForm("allviews", "ADMIN", FormMethod.Get))
+            {
+                <b> Search By: </b> @Html.RadioButton("searchByUsr", "Usrnm", true) <text>User Name</text> <text> &nbsp;</text>
+
+                <br /><br />
+                @Html.TextBox("search") <input type="submit" value="Search" />
+}
+                        </div>
+
+                        <div class="col-md-4">
+                            @if (@ViewBag.ispaid != "IP")
+            {
+                <input type="checkbox" value="True" onchange="myFunctionallusr(this.value)"> <text> Click for paid users</text>
+}
+else if (@ViewBag.ispaid == "IP")
+{
+                <input type="checkbox" value="False" onchange="myFunctionallusr(this.value)" checked> <text>Click for all users</text>
+}
+else
+{ <input type="checkbox" value="True" onchange="myFunctionallusr(this.value)"> <text> All users</text>
+}
+                        </div>
+                    </div>
+                    <br />
+                    @if (@ViewBag.ispaid == "IP")
+    {
+                <p><b><u> Paid Users</u>.</b></p>
+                <table class="table">
+                    <tr>
+                        <th>
+                            <b>ID</b>
+                        </th>
+                        <th>
+                            <b>Name</b>
+                        </th>
+                        <th>
+                            <b> Email Id</b>
+                        </th>
+                        <th>
+                            <b>Reference Code</b>
+                        </th>
+                        <th></th>
+                    </tr>
+                    @foreach (var chkid in ViewBag.chkpaidid)
+    {
+
+        foreach (var crs in ViewBag.allusrs)
+        {
+            if (chkid == @crs.Cand_id)
+            {
+
+                <tr>
+                    <td>
+                        @crs.Cand_id
+                    </td>
+                    <td>
+                        @crs.CandName
+                    </td>
+                    <td>
+                        @crs.Cand_EmailId
+                    </td>
+                    <td>
+                        @crs.cand_ReferenceCode
+
+                    </td>
+                    <td>
+                        ||  @Html.ActionLink("Details", "pdcanddetails", "ADMIN", new
+        { id = crs.Cand_id }, null) ||
+
+
+                    </td>
+                </tr>
+}
+}
+}
+                </table>
+}
+
+                @*</div>
+    <div role="tabpanel" class="tab-pane fade" id="dropdown2" aria-labelledby="dropdown2-tab">*@
+                    @if (@ViewBag.ispaid != "IP")
+                    {
+
+                <p><b><u> Users</u>.</b></p>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                <b>ID</b>
+                            </th>
+                            <th>
+                                <b>Name</b>
+                            </th>
+                            <th>
+                                <b> Email Id</b>
+                            </th>
+                            <th>
+                                <b>Reference Code</b>
+                            </th>
+                            <th></th>
+                        </tr>
+                        @*@foreach (var chkid in ViewBag.chkpaidid)
+                        {*@
+                            @foreach (var crs in ViewBag.allusrs)
+                            {
+                                //if (@crs.Cand_id != chkid)
+                                //{
+                    <tr>
+                        <td>
+                            @crs.Cand_id
+                        </td>
+                        <td>
+                            @crs.CandName
+                        </td>
+                        <td>
+                            @crs.Cand_EmailId
+                        </td>
+                        <td>
+                            @crs.cand_ReferenceCode
+
+                        </td>
+                        <td>
+                            ||  @Html.ActionLink("Details", "pdcanddetails", "ADMIN", new
+            { id = crs.Cand_id }, null) ||
+
+
+                        </td>
+                    </tr>
+//}
+//}
+}
+                    </table>
+                    }
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="inst" aria-labelledby="profile-tab">
+                    <div class="row">
+                        <div class="col-md-8">
+                            @using (Html.BeginForm("allviews", "ADMIN", FormMethod.Get))
+        {
+                    <b> Search By: </b> @Html.RadioButton("searchBy", "Instnm", false) <text>Institute Name</text> <text> &nbsp;</text>
+                    @Html.RadioButton("searchBy", "InstId", false) <text>Institute Id</text> <text> &nbsp;</text>
+                    @Html.RadioButton("searchBy", "Prmcd", false) <text>Promocode</text> <text> &nbsp;</text>
+                    @Html.RadioButton("searchBy", "Prmper", false) <text>Promo percentage</text> <text> &nbsp;</text>
+                    @*@Html.CheckBox("searchBy", false) <text>All HODS</text>*@
+                    @*<input type="checkbox" id="chk1" onchange="myFunctionallhod(this.value)"><text>All HODS</text>*@
+
+
+
+                    <br /><br />
+                    @Html.TextBox("search") <input type="submit" value="Search" />
+}
+                        </div>
+                        <div class="col-md-4">
+                            @if (@ViewBag.ishod != "T")
+    {
+                        <input type="checkbox" value="True" onchange="myFunctionallhod(this.value)"> <text> HODS</text>
+}
+else if (@ViewBag.ishod == "T")
+{
+                        <input type="checkbox" value="False" onchange="myFunctionallhod(this.value)" checked> <text>Non HODS</text>
+}
+else
+{ <input type="checkbox" value="True" onchange="myFunctionallhod(this.value)"> <text>All HODS</text>
+                            }
+                        </div>
+                    </div>
+                    <br />
+                    <p><b><u> Institions</u></b></p>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                <b>Institute Id</b>
+                            </th>
+                            <th>
+                                <b>Institute Name </b>
+                            </th>
+                            <th>
+                                <b> Promocode</b>
+                            </th>
+                            <th>
+                                <b> Discount Percent</b>
+                            </th>
+                            <th>
+                                <b> HOD status</b>
+                            </th>
+                            <th>
+                                <b> Status</b>
+                            </th>
+
+                        </tr>
+
+                        @foreach (var crs in ViewBag.institutions)
+        {
+            if (crs == null)
+            {
+                <tr> No Institution available</tr>
+}
+else
+{
+                <tr>
+                    <td class="hidden">
+                        @crs.Id
+                    </td>
+                    <td>
+                        @crs.Institute_Id
+                    </td>
+                    <td>
+                        @crs.Institute_Name_
+                    </td>
+                    <td>
+                        @crs.Promocode
+                    </td>
+                    <td>
+                        @crs.Discount_Percent
+                    </td>
+                    <td>
+                        @if (@crs.IsHOD == true)
+        {
+                <input type="checkbox" checked disabled />
+}
+else
+{
+                <input type="checkbox" disabled />
+}
+                    </td>
+                    @if (crs.IsActive == true)
+    {
+                <td>
+                    <input type="checkbox" id="chk1" value="@crs.Id" onchange="myFunction(this.value)" checked>
+
+                    <span class="slider round"></span>
+                    @*@Html.ActionLink("Disable", "trainerenabledisable", new { controller = "ADMIN", id = crs.Id }, new { @class = "btn btn-default", style = "background-color:gray; color:white; ", @onchange = "myFunction(this.value)" })*@
+
+                    @*<input type="checkbox"
+               id="checkbox1"
+               onclick="disable()" checked="checked" />
+        <script>
+
+
+                function disable() {
+                    var txt;
+                    var r = confirm("Are you sure to disable!");
+                    if (r == true) {
+                        window.location.href = "/ADMIN/trainerenabledisable/@crs.Id";
+                    } else {
+
+                    }
+
+                }
+        </script>*@
+                </td>
+}
+else
+{
+                <td>
+                    <input type="checkbox" id="chk2" value="@crs.Id" onchange="myFunction(this.value)">
+                    <span class="slider round"></span>
+                    @*@Html.ActionLink("Enable", "trainerenabledisable", new { controller = "ADMIN", id = crs.Id }, new { @class = "btn btn-default", style = "background-color:darkcyan; color:white; " })*@
+                    @*<input type="checkbox"
+               name="checkbox2"
+               onclick="enable()"  />
+        <script>
+            $("#checkbox2").removeAttr("checked");
+            function enable() {
+                var txt;
+                var r = confirm("Are you sure to enable!");
+                if (r == true) {
+                    window.location.href = "/ADMIN/trainerenabledisable/id=@crs.Id ";
+                } else {
+
+                }
+
+            }
+
+        </script>*@
+                </td>
+}
+
+                </tr>
+
+}
+}
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    function myFunction(val) {
+        $.ajax({
+            url: "PostActivate/" + val, success: function (result) {
+                alert(" Changed successfully")
+            }
+        });
+    }
+
+
+    function myFunctionallhod(d) {
+      
+        window.location.href = "allviews?searchBy=" + d;
+    }
+
+    function myFunctionallusr(e) {
+
+        window.location.href = "allviews?searchByUsr=" + e;
+    }
+</script>
+
+

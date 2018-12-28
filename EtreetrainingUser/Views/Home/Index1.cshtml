@@ -1,0 +1,1337 @@
+﻿@model EtreetrainingUser.Models.Tbl_Cand_Main
+@*@{
+        ViewBag.Title = "Cand_Login";
+
+    }*@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>EOTA :: Merit and Training Category For Freshers and Experience| Home :: ElephantTree Online Training Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="EOTA :: GIVES A SPECIAL CATEGORY OF TRAINING TO HELP ANYONE WHO IS INTERESTED TO GROW UP BY ACADEMICALLY, TECHNICALLY AND AS PART OF MANAGEMENT" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- css -->
+    <link href="~/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" />
+    <link href="~/css/font-awesome.css" rel="stylesheet">		<!-- font-awesome icons -->
+    <!--// css -->
+    <!-- font -->
+
+    <link href="~/fonts/fontawesome-webfont.eot" rel="stylesheet">
+    <link href="~/fonts/fontawesome-webfont.woff" rel="stylesheet">
+    <link href="~/fonts/fontawesome-webfont.ttf" rel="stylesheet">
+    <link href="~/fonts/fontawesome-webfont.woff2" rel="stylesheet">
+    <link href="~/fonts/FontAwesome.otf" rel="stylesheet">
+    <link href="~/fonts/glyphicons-halflings-regular.eot" rel="stylesheet">
+    <link href="~/fonts/glyphicons-halflings-regular.woff" rel="stylesheet">
+    <link href="~/fonts/glyphicons-halflings-regular.ttf" rel="stylesheet">
+    <link href="~/fonts/glyphicons-halflings-regular.woff2" rel="stylesheet">
+
+
+    <link href="//fonts.googleapis.com/css?family=Montserrat+Alternates:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Libre+Franklin:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- //font -->
+    <script src="~/js/jquery-1.11.1.min.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+
+    <!-- start-smooth-scrolling -->
+    <script type="text/javascript" src="~/js/move-top.js"></script>
+    <script type="text/javascript" src="~/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!-- //start-smoth-scrolling -->
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+
+
+    </script>
+
+</head>
+<body>
+    <div class="w3-banner-edu">
+        <div class="agileits_top_menu">
+
+            <div class="w3l_header_left">
+                <ul>
+
+                    <li><i class="fa fa-phone" aria-hidden="true"></i> +91 080-41141398  </li>
+                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@elephanttreetech.com" target="_blank">info@elephanttreetech.com </a></li>
+                </ul>
+            </div>
+            <div class="w3l_header_right">
+                <div class="w3ls-social-icons text-left">
+                    <a class="youtube" href="https://www.facebook.com/12Elephanttrees/" target="_blank"><i class="fa fa-youtube"></i></a>
+                    <a class="facebook" href="https://www.facebook.com/12Elephanttrees/" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a class="twitter" href="https://twitter.com/12Elephanttrees" target="_blank"><i class="fa fa-twitter"></i></a>
+
+                    <a class="linkedin" href="https://www.linkedin.com/in/elephanttree-technologies-private-limited-174699145/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="agileits_w3layouts_banner_nav">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header navbar-left">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <h1><a class="navbar-brand" style="font-size:30px" href="~/Home/Index"><i class="fa fa-graduation-cap" aria-hidden="true"></i><span>EOTA</span></a></h1>
+
+                </div>
+                <ul class="agile_forms">
+                    @*@if (Request.IsAuthenticated)
+                        {
+                        using (Html.BeginForm("Cand_Logout", "Student", FormMethod.Post, new { id = "logoutform" }))
+
+                        {
+                        <li> <a class="active" href="javascript:document.getElementById('logoutform').submit()"><i class="fa fa-sign-out" aria-hidden="true"></i>Sign Out</a></li>
+
+
+                        }
+                        }
+                        else
+                        {
+
+                        <li><a class="active" href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a> </li>
+                        <li><a class="active" href="#" data-toggle="modal" data-target="#myModal3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up</a> </li>
+
+
+                        }*@
+                    <li><a class="active" href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a> </li>
+                    <li><a class="active" href="#" data-toggle="modal" data-target="#myModal3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up</a> </li>
+
+                </ul>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <nav>
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="~/Home/Index" class="hvr-underline-from-center">Home</a></li>
+                            @*<li><a href="#about" class="scroll hvr-underline-from-center">About</a></li>
+                                <li><a href="#services" class="scroll hvr-underline-from-center">Services</a></li>
+                                <li><a href="#gallery" class="scroll hvr-underline-from-center">Gallery</a></li>
+                                <li><a href="#blog" class="scroll hvr-underline-from-center">Certificates</a></li>
+                                <li><a href="#team" class="scroll hvr-underline-from-center">Demo videos</a></li>*@
+
+                            <li><a href="#about" class="scroll hvr-underline-from-center" style=" text-transform:none">Academic Course</a></li>
+                            <li><a href="#services" class="scroll hvr-underline-from-center" style=" text-transform:none">Technical Course</a></li>
+                            <li><a href="#gallery" class="scroll hvr-underline-from-center" style=" text-transform:none">Management Course</a></li>
+                            <li><a href="#blog" class="scroll hvr-underline-from-center" style=" text-transform:none">Certificates</a></li>
+
+                            <li><a href="#contact" class=" scroll hvr-underline-from-center" style=" text-transform:none">Contact</a></li>
+
+                        </ul>
+                    </nav>
+
+                </div>
+            </nav>
+
+            <div class="clearfix"> </div>
+        </div>
+        <!--Popup model-->
+
+        <div class="modal fade" id="myModalpopup" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                        <div class="signin-form profile ">
+                            @if (@ViewBag.errrid == "1")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Login Error</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:red"> Invalid credentials, Please Check your details and try again!</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "2")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Email Exists</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Your email already exists. Please try with another email or </h4>
+                                    <br />
+                                    <h4> <a href="#" data-toggle="modal" data-target="#myModalfgps" onClick="PopUperror('hide')" style="color:blue">reset your password</a></h4>
+                                    <br /><br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "3")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Successfull Registration</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Registration Successfully done. Account activation link has been sent to your email id. Please check.</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "4")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Registration Error</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:red"> Invalid registration. Please Try again</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "14")
+                            {
+                                @*<h3 class="agileinfo_sign" style="text-align:center">Registration Error</h3>
+                                    <br />*@
+                                <div class="login-form">
+                                    <h4 style="color:red"> @ViewBag.errrmsg14</h4>
+                                    @*<br />
+                                        <h4>Thank You</h4>*@
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "5")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Password Recovery</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Please check Your Email. Password recovery link has been sent.</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "6")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Password Recovery</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Something went wrong. Please try again</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "7")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Password Recovery</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:red"> Email does not Exist. Please try again.</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "23")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center"></h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Account has been updated. Please re-login.</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "15")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center"></h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Thank You for your query! We will revert back you soon...</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+
+                            }
+                            @if (@ViewBag.errrid == "16")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center"></h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Thank You for subscription! We will get all updation of this site...</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $('#myModalpopup').modal('hide');
+            function PopUp1(hideOrshow) {
+                if (hideOrshow == 'hide') {
+
+                    $('#myModalpopup').modal('hide');
+                }
+                else document.getElementById('myModalpopup').removeAttribute('style');
+
+            }
+        </script>
+        <!--end of Email recovery sucess popup model-->
+        <!--Invalid-->
+        <!-- Modal1 -->
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                        <div class="signin-form profile ">
+
+                            <h3 class="agileinfo_sign" style="text-align:center">Sign In</h3>
+
+                            <div class="login-form">
+                                @Html.AntiForgeryToken()
+                                <form action="~/Student/Cand_Login" method="post">
+                                    @Html.AntiForgeryToken()
+                                    @Html.LabelFor(model => model.Cand_EmailId, htmlAttributes: new { @class = "control-label col-md-2 ", style = "text-align: left;" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { @class = "form-control", required = "required", style = "text - align: left;", maxlength = "254", minlength = "4" } })
+                                        @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+                                    </div>
+                                    @Html.LabelFor(model => model.Cand_Pass, htmlAttributes: new { @class = "control-label col-md-2", style = "text-align: left;" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Cand_Pass, new { htmlAttributes = new { @class = "form-control", required = "required", maxlength = "16", minlength = "6" } })
+                                        @Html.ValidationMessageFor(model => model.Cand_Pass, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="tp">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Sign In" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="col-md-offset-2 col-md-10">
+                                @*<div class="login-social-grids">
+                                    <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+
+                                    </ul>
+                                    </div>*@
+                                <br />
+                                <div>
+
+                                    <a href="#" data-toggle="modal" data-target="#myModalfgps" onClick="PopUp1('hide')">@*<i class="fa fa-key">*@</i> Forgot password?</a>
+                                    <br /><br />
+                                    <p><a href="#" data-toggle="modal" data-target="#myModal3" onClick="PopUp1('hide')"> <i class="fa fa-ban"></i> Don't have an account?</a></p>
+
+                                    <br />
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //Modal1 -->
+        <!-- JS includes -->
+        <script type="text/javascript">
+            /**/
+            if (@ViewBag.errrid=="23")
+/**/ {
+
+                $('#myModalpopup').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="1")
+/**/ {
+
+                $('#myModalpopup').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="2")
+/**/ {
+
+                $('#myModalpopup').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="3")
+/**/ {
+
+                $('#myModalpopup').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="4")
+/**/ {
+
+                $('#myModalpopup').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="5")
+/**/ {
+
+                $('#myModalpopup').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="6")
+/**/ {
+
+                $('#myModalpopup').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="7")
+/**/ {
+
+                $('#myModalpopup').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="14")
+/**/ {
+
+                $('#myModalpopup').modal('show');
+            }
+
+            if (@ViewBag.errrid=="15")
+/**/ {
+
+                $('#myModalpopup').modal('show');
+            }
+            if (@ViewBag.errrid=="16")
+/**/ {
+
+                $('#myModalpopup').modal('show');
+            }
+        </script>
+
+
+        <script type="text/javascript">
+
+            function PopUp1(hideOrshow) {
+                if (hideOrshow == 'hide') {
+
+                    $('#myModal2').modal('hide');
+                }
+                else document.getElementById('myModal2').removeAttribute('style');
+
+            }
+        </script>
+        <script type="text/javascript">
+
+            function PopUperror(hideOrshow) {
+                if (hideOrshow == 'hide') {
+
+                    $('#myModalpopup').modal('hide');
+                }
+                else document.getElementById('myModalpopup').removeAttribute('style');
+
+            }
+        </script>
+        <script type="text/javascript">
+            function PopUp(hideOrshow) {
+                if (hideOrshow == 'hide') document.getElementById('ac-wrapper').style.display = "none";
+                else document.getElementById('ac-wrapper').removeAttribute('style');
+            }
+            window.onload = function () {
+                setTimeout(function () {
+                    PopUp('show');
+                }, 100);
+            }
+            var countDownDate = new Date().getTime();
+
+            var nowtm = new Date().getTime();
+            /**/
+            var cntminutes = new Date(countDownDate + (@ViewBag.disabledt * 60 * 1000));
+            /**/
+            var mnstm = cntminutes - nowtm;
+
+            // Update the count down every 1 second
+            var x = setInterval(function () {
+
+                // Get todays date and time
+                var now = new Date().getTime();
+
+                var distance = cntminutes - now;
+                var sp = cntminutes - now;
+
+
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                // Output the result in an element with id="demo"
+
+                document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                    + minutes + "m " + seconds + "s ";
+
+
+                if (distance < 0) {
+                    clearInterval(x);
+
+                    document.getElementById("demo").innerHTML = "EXPIRED";
+
+                    window.location.href = "/Home/Index";
+
+                }
+
+            }, 1000);
+
+        </script>
+        <div id="ac-wrapper" style='display:none'>
+            <div id="popup" style="background-color:darkgrey">
+                <center>
+                    <br />
+                    <h4 style="color:cornsilk">
+                        Keep pace with change| Keep your competitive edge with courses for @ViewBag.disper% discount Promocode
+                        <h2>@ViewBag.discocde</h2>
+                        Ends in
+                    </h4><h4 style="color:cornsilk" id="demo"></h4>
+                    <br />
+                    <input type="submit" name="submit" value="Close" onClick="PopUp('hide')" />
+                </center>
+            </div>
+        </div>
+        <!--  For forgot pass-->
+        <div class="modal fade" id="myModalfgps" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+
+                        <div class="signin-form profile">
+                            <h3 class="agileinfo_sign">Forget Password Recovery Box</h3>
+                            <div class="login-form">
+                                @Html.AntiForgeryToken()
+                                <form action="~/Student/Cand_Forgotpass" method="post">
+                                    @Html.AntiForgeryToken()
+                                    <br />
+                                    <div class="form-group">
+                                        <label class="control-label col-md-1"></label>
+                                        @*@Html.LabelFor(model => model.Cand_EmailId, htmlAttributes: new { @class = "control-label col-md-2", style = "color: black;" })*@
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { @class = "form-control", style = "color: darkblue;", placeholder = "User email", required = "required", maxlength = "254", minlength = "4" } })
+                                            @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="tp">
+                                        <div class="col-md-offset-2 col-md-8">
+                                            <input type="submit" value="Submit" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                    <br /> <br /> <br />
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- // forgt pass-->
+        <!-- Modal2 -->
+        @using (Html.BeginForm("Cand_reg", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                            <div class="signin-form profile">
+                                <h3 class="agileinfo_sign">Sign Up</h3>
+                                <div class="login-form">
+
+                                    <div class="form-horizontal">
+
+                                        <hr />
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.CandName, htmlAttributes: new { @class = "control-label col-md-2", style = "text-align:left" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.CandName, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                                @Html.ValidationMessageFor(model => model.CandName, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Cand_EmailId, htmlAttributes: new { @class = "control-label col-md-2", style = "text-align:left" })
+                                            <div class="col-md-10">
+
+                                                @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { @class = "form-control", @type = "email", required = "required", maxlength = "254", minlength = "4" } })
+                                                @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+                                                @Html.ValidationMessage("EmailExist", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Cand_MNum, htmlAttributes: new { @class = "control-label col-md-2", style = "text-align:left" })
+
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Cand_MNum, new
+                                                {
+                                                    htmlAttributes = new
+                                                    {
+                                                        @class = "form-control"@*, @type = "number"*@,
+      onkeypress = "return isNumberKey(event)",
+      maxlength = "10",
+      minlength = "10"
+  }
+})
+                                                @Html.ValidationMessageFor(model => model.Cand_MNum, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <script type="text/javascript">
+                                            function isNumberKey(evt) {
+                                                var charCode = (evt.which) ? evt.which : event.keyCode;
+                                                if (charCode > 31
+                                                    && (charCode < 48 || charCode > 57))
+                                                    return false;
+
+                                                return true;
+                                            }
+                                        </script>
+                                        @*<div class="form-group">
+                                            @Html.LabelFor(model => model.Cand_PicTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Cand_PicTitle, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Cand_PicTitle, "", new { @class = "text-danger" })
+                                            </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                            @Html.LabelFor(model => model.Cand_ImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                            <input type="file" name="image" required />
+                                            </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                            @Html.LabelFor(model => model.Cand_DocTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Cand_DocTitle, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Cand_DocTitle, "", new { @class = "text-danger" })
+                                            </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                            @Html.LabelFor(model => model.Cand_DocPath, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                            <input type="file" name="DocFile" required />
+                                            </div>
+                                            </div>*@
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Cand_Pass, htmlAttributes: new { @class = "control-label col-md-2", style = "text-align:left" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Cand_Pass, new { htmlAttributes = new { @class = "form-control", required = "required", maxlength = "16", minlength = "6" } })
+                                                @Html.ValidationMessageFor(model => model.Cand_Pass, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            @Html.LabelFor(model => model.Cand_RePass, htmlAttributes: new { @class = "control-label col-md-2", style = "text-align:left" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Cand_RePass, new
+                                                {
+                                                    htmlAttributes = new
+                                                    {
+                                                        @class = "form-control",
+                                                        required = "required",
+                                                        maxlength = "16",
+                                                        minlength = "6"
+                                                    }
+                                                })
+                                                @Html.ValidationMessageFor(model => model.Cand_RePass, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        @*<div class="form-group">
+                                            <div class="control-label col-md-2" >
+
+                                            </div>
+                                            <div class="col-md-4">
+                                            @Html.CheckBox("Condition", false, new { @id = "chkcondition" }) <a href="~/Home/termscond">Term and condition</a>
+                                            </div>
+
+                                            </div>*@
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Register" class="btn btn-default" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    @*</form>*@
+                                </div>
+
+                                <p><a href="~/Home/termscond"> By clicking Register, you agree to our Terms and that you have read our Policy</a></p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }    <!-- //Modal2 -->
+
+
+        <div class="banner" style="max-height: 50px;">
+
+            <h3> <p class="test" style="color:#000000; text-transform:none">"Technology is a useful servant but a dangerous master"</p></h3>
+            <h2 class="test" style=" text-transform:none">Welcome to our training application <br /> <span><u>"EOTA"</u></span></h2>
+            <br />
+
+            <p>Hello world! This is a training application developed by Elephanttree Tech. Pvt. Ltd.</p>
+
+        </div>
+
+    </div>
+
+    <!-- About -->
+    <div id="about" class="about">
+        <div class="container">
+            <div class="w3-about-head">
+                <h3>ABOUT US</h3>
+            </div>
+            <div class="w3-agileitsline">
+                <h3>Welcome to <span>" EOTA Merit Training "</span> The target of this application, To keep you people updated for the real life scenario in IT Industry. </h3>
+
+            </div>
+            <!-- banner-bottom -->
+            <div class="banner-bottom">
+                <div class="col-md-4 agileits_banner_bottom_left">
+                    <div class="agileinfo_banner_bottom_pos">
+                        <div class="w3_agileits_banner_bottom_pos_grid">
+                            <div class=" wthree_banner_bottom_grid_left">
+                                <div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class=" wthree_banner_bottom_grid_right">
+                                <h4>Friendly Behaviour</h4>
+                                <p>We trigger your knowldge and experience to integrate with the best technologies all over the worlds.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 agileits_banner_bottom_left1">
+                    <div class="agileinfo_banner_bottom_pos">
+                        <div class="w3_agileits_banner_bottom_pos_grid">
+                            <div class=" wthree_banner_bottom_grid_left">
+                                <div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
+                                    <i class="fa fa-book" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class=" wthree_banner_bottom_grid_right">
+                                <h4>24/7 Support</h4>
+                                <p>You cannot change yesterday, but you can Change today.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 agileits_banner_bottom_left2">
+                    <div class="agileinfo_banner_bottom_pos">
+                        <div class="w3_agileits_banner_bottom_pos_grid">
+                            <div class=" wthree_banner_bottom_grid_left">
+                                <div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
+                                    <i class="fa fa-yelp" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class=" wthree_banner_bottom_grid_right">
+                                <h4>Unique Facility</h4>
+                                <p>Leadership and learning indispensable to each other.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <!-- //banner-bottom -->
+        </div>
+    </div>
+    <!-- //About -->
+    <!-- //services -->
+    <div class="w3-services" id="services">
+
+        <div class="w3-services-head">
+            <h3>our sevices</h3>
+        </div>
+        <div class="w3-services-grids">
+            <div class="col-md-6 w3-services-left-grid">
+                <img src="~/images/ban4.jpg" alt="img">
+            </div>
+            <div class="col-md-6 w3-services-right-grid">
+                <div class="col-md-6 w3-services-right1-grid">
+                    <h3>Academic Courses</h3>
+                    <ul>
+                        <li><span class="col-md-2">01</span><p class="col-md-10">Education is passport to your enlightened future.</p></li>
+                        <li><span class="col-md-2">02</span><p class="col-md-10">We provide you bset ever study materials in different formats such as PDF, Video, Images and all.</p></li>
+                        <li><span class="col-md-2">03</span><p class="col-md-10">We hire best teachers for you. in different aspect of technology.</p></li>
+                        <li><span class="col-md-2">04</span><p class="col-md-10">We are tied up with different institutions providing payment solutions to every students</p></li>
+
+                    </ul>
+                </div>
+
+                <div class="col-md-6 w3-services-right1-grid">
+                    <h3>Technical Courses</h3>
+                    <ul>
+                        <li><span class="col-md-2">06</span><p class="col-md-10">The Technical matters are not just machinery things. These are disposition to life</p></li>
+                        <li><span class="col-md-2">07</span><p class="col-md-10">We have nice and presentable technical counselors also</p></li>
+                        <li><span class="col-md-2">08</span><p class="col-md-10">We provide free ebooks for emproving your technical skill growth. </p></li>
+                        <li><span class="col-md-2">09</span><p class="col-md-10">We charge very less amount, for that we can challenge to any other companies.</p></li>
+
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- //services -->
+    <!-- gallery -->
+    <div class="gallery" id="gallery">
+        <div class="container">
+            <div class="gallery-w3-head">
+                <h4>Our Gallery</h4>
+            </div>
+            <div id="jzBox" class="jzBox">
+                <div id="jzBoxNextBig"></div>
+                <div id="jzBoxPrevBig"></div>
+                <img src="#" id="jzBoxTargetImg" alt="">
+                <div id="jzBoxBottom">
+                    <div id="jzBoxTitle"></div>
+                    <div id="jzBoxCounter"></div>
+                    <span id="jzBoxMoreItems">
+                        <i class="glyphicon glyphicon-chevron-left" id="jzBoxPrev"></i> &nbsp;
+                        <i class="glyphicon glyphicon-chevron-right" id="jzBoxNext"></i> &nbsp;
+                    </span>
+                    <i class="glyphicon glyphicon-remove-circle" id="jzBoxClose"></i>
+                </div>
+            </div>
+            <div class="gallery-grids-row">
+                <div class="col-md-4 gallery-grid">
+                    <div class="wpf-demo-4">
+                        <a href="~/images/g111.jpg" class="jzBoxLink item-hover" title="Maecenas sodales tortor ac ligula ultrices dictum et quis urna.">
+                            <img src="~/images/g111.jpg" class="img-responsive" alt=" " />
+                            <div class="view-caption">
+                                <p>Our Gallery</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="wpf-demo-4">
+                        <a href="~/images/g222.jpg" class="jzBoxLink item-hover" title="Etiam pulvinar metus neque eget porttitor massa.">
+                            <img src="~/images/g222.jpg" alt=" " class="img-responsive" />
+                            <div class="view-caption">
+                                <p>Our Gallery</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="wpf-demo-4">
+                        <a href="~/images/g333.jpg" class="jzBoxLink item-hover" title="Etiam pulvinar metus neque eget porttitor massa.">
+                            <img src="~/images/g333.jpg" alt=" " class="img-responsive" />
+                            <div class="view-caption">
+                                <p>Our Gallery</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="col-md-4 gallery-grid">
+                    <div class="wpf-demo-4">
+                        <a href="~/images/g4.jpg" class="jzBoxLink item-hover" title="Etiam pulvinar metus neque eget porttitor massa.">
+                            <img src="~/images/g4.jpg" alt=" " class="img-responsive" />
+                            <div class="view-caption">
+                                <p>Our Gallery</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="wpf-demo-4">
+                        <a href="~/images/g444.jpg" class="jzBoxLink item-hover" title="Etiam pulvinar metus neque eget porttitor massa.">
+                            <img src="~/images/g444.jpg" alt=" " class="img-responsive" />
+                            <div class="view-caption">
+                                <p>Our Gallery</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="col-md-4 gallery-grid">
+                    <div class="wpf-demo-4">
+                        <a href="~/images/g555.jpg" class="jzBoxLink item-hover" title="Etiam pulvinar metus neque eget porttitor massa.">
+                            <img src="~/images/g555.jpg" alt=" " class="img-responsive" />
+                            <div class="view-caption">
+                                <p>Our Gallery</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="wpf-demo-4">
+                        <a href="~/images/g666.jpg" class="jzBoxLink item-hover" title="Etiam pulvinar metus neque eget porttitor massa.">
+                            <img src="~/images/g666.jpg" alt=" " class="img-responsive" />
+                            <div class="view-caption">
+                                <p>Our Gallery</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="wpf-demo-4">
+                        <a href="~/images/g777.jpg" class="jzBoxLink item-hover" title="Etiam pulvinar metus neque eget porttitor massa.">
+                            <img src="~/images/g777.jpg" alt=" " class="img-responsive" />
+                            <div class="view-caption">
+                                <p>Our Gallery</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!-- //gallery -->
+    <!-- our team -->
+
+    <div class="team" id="team">
+        <div class="container">
+            <div class="w3ls-heading">
+                <h3>DEMO VIDEOS</h3>
+            </div>
+            <div class="w3-team-grids">
+                <div class="col-md-4 chef agile_team_grid">
+                    <div class="agileits_w3layouts_team_grid">
+
+                        <iframe width="360" height="345" src="https://www.youtube.com/embed/yh2SrzCkNQA" allowfullscreen="allowfullscreen"
+                                mozallowfullscreen="mozallowfullscreen"
+                                msallowfullscreen="msallowfullscreen"
+                                oallowfullscreen="oallowfullscreen"
+                                webkitallowfullscreen="webkitallowfullscreen"></iframe>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 chef agile_team_grid">
+                    <div class="agileits_w3layouts_team_grid">
+
+                        <iframe width="360" height="345" src="https://www.youtube.com/embed/Cig3Blr0gm8" allowfullscreen="allowfullscreen"
+                                mozallowfullscreen="mozallowfullscreen"
+                                msallowfullscreen="msallowfullscreen"
+                                oallowfullscreen="oallowfullscreen"
+                                webkitallowfullscreen="webkitallowfullscreen"></iframe>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 chef agile_team_grid">
+                    <div class="agileits_w3layouts_team_grid">
+
+                        <iframe width="360" height="345" src="https://www.youtube.com/embed/SEIp-Gfgf1g" allowfullscreen="allowfullscreen"
+                                mozallowfullscreen="mozallowfullscreen"
+                                msallowfullscreen="msallowfullscreen"
+                                oallowfullscreen="oallowfullscreen"
+                                webkitallowfullscreen="webkitallowfullscreen"></iframe>
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- //our team -->
+    <!-- news -->
+    <section class="news" id="blog">
+        <div class="container">
+            <div class="heading">
+                <h3>Our Certificates</h3>
+            </div>
+            <div class="news-grids">
+                <div class="col-md-4 news-grid1">
+                    <img src="~/images/eotapic.png" alt="" />
+                    <div class="absolute">
+                        <div class="absolute-left">
+                            <p class="p1"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>  18/12/2017</p>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="absolute-right">
+                            <p class="left"><i class="fa fa-thumbs-up" aria-hidden="true"></i> <span class="span1">50</span></p>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <h3>Academic Education and Certificate </h3>
+
+                </div>
+                <div class="col-md-4 news-grid1">
+                    <img src="~/images/eotaios.png" alt="" />
+                    <div class="absolute">
+                        <div class="absolute-left">
+                            <p class="p1"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>  18/12/2017</p>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="absolute-right">
+                            <p class="left"><i class="fa fa-thumbs-up" aria-hidden="true"></i> <span class="span1">70</span></p>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <h3>Technical Education and Certificate</h3>
+
+                </div>
+                <div class="col-md-4 news-grid1">
+                    <img src="~/images/EOTAJAVA.png" alt="" />
+                    <div class="absolute">
+                        <div class="absolute-left">
+                            <p class="p1"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>  18/12/2017</p>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="absolute-right">
+                            <p class="left"><i class="fa fa-thumbs-up" aria-hidden="true"></i> <span class="span1">64</span></p>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <h3> Managemental Education and Certificate</h3>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </section>
+    <!-- news -->
+    <!-- modal -->
+    <div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="span2" aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">EOTA Merit education </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="agileits-w3layouts-info">
+                        <img src="~/images/3.jpg" alt="" />
+                        <p>Duis venenatis, turpis eu bibendum porttitor, sapien quam ultricies tellus, ac rhoncus risus odio eget nunc. Pellentesque ac fermentum diam. Integer eu facilisis nunc, a iaculis felis. Pellentesque pellentesque tempor enim, in dapibus turpis porttitor quis. Suspendisse ultrices hendrerit massa. Nam id metus id tellus ultrices ullamcorper.  Cras tempor massa luctus, varius lacus sit amet, blandit lorem. Duis auctor in tortor sed tristique. Proin sed finibus sem.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal about-modal fade" id="myModalTCH" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="span2" aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">EOTA Merit Technical Education </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="agileits-w3layouts-info">
+                        <img src="~/images/3.jpg" alt="" />
+                        <p>Duis venenatis, turpis eu bibendum porttitor, sapien quam ultricies tellus, ac rhoncus risus odio eget nunc. Pellentesque ac fermentum diam. Integer eu facilisis nunc, a iaculis felis. Pellentesque pellentesque tempor enim, in dapibus turpis porttitor quis. Suspendisse ultrices hendrerit massa. Nam id metus id tellus ultrices ullamcorper.  Cras tempor massa luctus, varius lacus sit amet, blandit lorem. Duis auctor in tortor sed tristique. Proin sed finibus sem.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal about-modal fade" id="myModalMNG" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="span2" aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">EOTA Merit Managerial Education </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="agileits-w3layouts-info">
+                        <img src="~/images/3.jpg" alt="" />
+                        <p>Duis venenatis, turpis eu bibendum porttitor, sapien quam ultricies tellus, ac rhoncus risus odio eget nunc. Pellentesque ac fermentum diam. Integer eu facilisis nunc, a iaculis felis. Pellentesque pellentesque tempor enim, in dapibus turpis porttitor quis. Suspendisse ultrices hendrerit massa. Nam id metus id tellus ultrices ullamcorper.  Cras tempor massa luctus, varius lacus sit amet, blandit lorem. Duis auctor in tortor sed tristique. Proin sed finibus sem.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //modal -->
+    <!--count-->
+    <div class="count-agileits">
+
+        <div class="count-grids">
+            <div class="count-bgcolor-w3ls">
+                <div class="col-md-4 count-grid">
+                    <i class="fa fa-hand-paper-o" aria-hidden="true"></i>
+                    <div class="count hvr-bounce-to-bottom">
+                        <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='1052' data-delay='.5' data-increment="2">1052</div>
+                        <span></span>
+                        <h5>NUMBER OF REGISTERED CANDIDATES</h5>
+                    </div>
+                </div>
+                <div class="col-md-4 count-grid">
+                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    <div class="count hvr-bounce-to-bottom">
+                        <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='679' data-delay='.5' data-increment="2">679</div>
+                        <span></span>
+                        <h5>PLACED CANDIDATES </h5>
+                    </div>
+                </div>
+                <div class="col-md-4 count-grid">
+                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    <div class="count hvr-bounce-to-bottom">
+                        <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='37' data-delay='.5' data-increment="1">37</div>
+                        <span></span>
+                        <h5>WINING AWARDS </h5>
+                    </div>
+                </div>
+                <div class="col-md-4 count-grid">
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>
+                    <div class="count hvr-bounce-to-bottom">
+                        <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='976' data-delay='.5' data-increment="2">976</div>
+                        <span></span>
+                        <h5>SATISFIED CANDIDATES</h5>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!--count-->
+    <!-- coureses online -->
+    <div class="w3-edu-main content " id="contact">
+        <div class="w3-edu-head">
+            <h3>contact us</h3>
+        </div>
+        <div class="w3-online-edu-grids">
+            <div class="col-md-6 w3-online-course-grid">
+                <div class="w3-online-course-left-head">
+                    <h3>GET ONLINE DEMO COURSES </h3>
+                    <h4>Register now</h4>
+                </div>
+
+                <div class="agileits-timer">
+                    <div class="clock">
+                        <div class="column days">
+                            <div class="timer" id="days"></div>
+                            <div class="text">DAYS</div>
+                        </div>
+                        <div class="timer days"></div>
+                        <div class="column">
+                            <div class="timer" id="hours"></div>
+                            <div class="text">HOURS</div>
+                        </div>
+                        <div class="timer"></div>
+                        <div class="column">
+                            <div class="timer" id="minutes"></div>
+                            <div class="text">MINUTES</div>
+                        </div>
+                        <div class="timer"></div>
+                        <div class="column">
+                            <div class="timer" id="seconds"></div>
+                            <div class="text">SECONDS</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6 w3-edu-online-form w3_mail_grids">
+                <h3>Enroll Your Query</h3>
+                <form action="~/Home/Mailsender" method="post">
+                    <div class="w3_agile_mail_grid">
+                        <input type="text" name="name" placeholder="Your Name" required="">
+                        <input type="email" name="email" id="email" placeholder="Your Email" required="">
+                        <input type="tel" name="tel" placeholder="Your Phone Number">
+
+                        @Html.DropDownListFor(m => m.CRSTP, new List<SelectListItem>
+                                                            { new SelectListItem{Text="Academic", Value="A"},
+                                                            new SelectListItem{Text="Technical", Value="T"},new SelectListItem{Text="Management", Value="M"},new SelectListItem{Text="Does not exist in list", Value="NA"}}, "Course type", new { required = "required", id = "category1" })
+                        <input type="text" name="other" placeholder="Write Your Option if there is not exist in above list">
+                        <textarea name="Message" placeholder="Your Message" required=""></textarea>
+                        <input type="submit" value="Send">
+                    </div>
+                </form>
+
+            </div>
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- map  -->
+    <div class="w3-agile-map1">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423.06487321164405!2d77.55409151055133!3d12.985151399317844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x205e875ded5398a7!2sElephanttree+Tech!5e0!3m2!1sen!2sin!4v1510907984152"></iframe>
+    </div>
+    <!-- map -->
+    <!-- coureses online -->
+    <!-- footer-top -->
+    <div class="footer-top">
+        <div class="container">
+            <div class="w3-edu-footer-grids foot-left1">
+                <div class="col-md-4 foot-left">
+                    <h3>About Us</h3>
+
+                    <p>
+                        In 2016 a visionary group of talented professionals joined hands to create a dream that has evolved into a new company Elephanttree Pvt Ltd based in Bangalore. It is an evolution from Snipe IT Solutions – a company that is delivering quality services and trusted by customers from many years. We have research and development team working on products for healthcare application
+                        Starting with Product development, Elephanttree Pvt Ltd diversified into IT Design Services, Product maintenance and build solutions. The company has grown to around 50 employees along with good number of customers.
+                    </p>
+                    <p>
+                        In 2017, December Elephanttree Tech. Pvt Ltd Developers Introduce EOTA(Elephanttree online training application) for support people at every branch as upto the mark.
+                    </p>
+                </div>
+                <div class="col-md-4 foot-left">
+                    <h3>Get In Touch</h3>
+                    <p>Show Value,</p>
+                    <p>Create an Experience and</p>
+                    <p>Always Strive to Exceed to grow up</p>
+
+                    <div class="contact-btm">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <p>
+                            #182/Y, Above ICICI Bank
+                            3rd Block, 12th Main
+                            Near Bhashyam Circle
+                            Rajaji Nagara,Bangalore - 560010
+                        </p>
+
+
+                    </div>
+                    <div class="contact-btm">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <p>+91 080-41141398</p>
+                        <div class="contact-btm">
+                        </div>
+                        <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                        <p><a href="mailto:example@email.com">hr@elephanttreetech.com</a></p>
+                        <p><a href="mailto:example@email.com">info@elephanttreetech.com</a></p>
+                        <br />
+                        <p>Design and Developed by : <br /> Sourav Ganguly</p>
+                        <br />
+                        <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                        <p><a href="mailto:souravganguly707@gmail.com">souravganguly707@gmail.com</a></p>
+                        <br />
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <p>+91-8334895299</p>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+                <div class="col-md-4 foot-left">
+                    <h3>Subscribe</h3>
+                    <p>ENROLL FOR FUTHER SUBSCRIPTION</p>
+                    <form action="~/Home/Subscribe" method="post">
+                        <input type="email" Name="email" placeholder="Enter Your Email" required="">
+                        <input type="submit" value="Subscribe">
+                    </form>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /footer-top -->
+    <!-- footer -->
+    <div class="copy-right">
+        <p>&copy; 2017 EOTA MERIT TRAINING. All rights reserved | Design and Developed by <a href="http://www.elephanttreetech.com/">ELEPHANTTREE TECH PVT.LTD.</a></p>
+    </div>
+
+    <!-- //footer -->
+    <!--  countdown-js -->
+    <script type="text/javascript" src="~/js/moment.js"></script>
+    <script type="text/javascript" src="~/js/moment-timezone-with-data.js"></script>
+    <script type="text/javascript" src="~/js/timer.js"></script>
+    <!-- //countdown-js -->
+    <!--light-box-files -->
+    <script src="~/js/jquery.chocolat.js"></script>
+    <link rel="stylesheet" href="~/css/chocolat.css" type="text/css" media="screen">
+
+    <!--//light-box-files -->
+    <script type="text/javascript">
+        $(function () {
+            $('.gallery a').Chocolat();
+        });
+    </script>
+    <!-- //js -->
+    <script type="text/javascript" src="~/js/numscroller-1.0.js"></script>
+    <script src="~/js/particles.js"></script>
+
+    <!-- text-effect -->
+    <script type="text/javascript" src="~/js/jquery.transit.js"></script>
+    <script type="text/javascript" src="~/js/jquery.textFx.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.test').textFx({
+                type: 'fadeIn',
+                iChar: 100,
+                iAnim: 1000
+            });
+        });
+    </script>
+    <!-- //text-effect -->
+    <script src="~/js/SmoothScroll.min.js"></script>
+    <script type="text/javascript">
+        /* init Jarallax */
+        $('.jarallax').jarallax({
+            speed: 0.5,
+            imgWidth: 1366,
+            imgHeight: 768
+        })
+    </script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+
+    <!-- smooth scrolling -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+    <a href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    <!-- //smooth scrolling -->
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
+</html>

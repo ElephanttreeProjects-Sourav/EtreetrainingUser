@@ -1,0 +1,169 @@
+﻿@model IEnumerable<EtreetrainingUser.Models.Tbl_Doc>
+
+@{
+    ViewBag.Title = "EOTA: Trainer's details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br /><br /><br /><br /><br />
+<h2> Hey there, this is page for view of candidate and trainer views </h2>
+<head>
+    <style type="text/css">
+        /*----- Tabs -----*/
+        .tabs {
+            width: 100%;
+            display: inline-block;
+        }
+
+        /*----- Tab Links -----*/
+        /* Clearfix */
+        .tab-links:after {
+            display: block;
+            clear: both;
+            content: '';
+        }
+
+        .tab-links li {
+            margin: 0px 5px;
+            float: left;
+            list-style: none;
+        }
+
+        .tab-links a {
+            padding: 9px 15px;
+            display: inline-block;
+            border-radius: 3px 3px 0px 0px;
+            background: #7FB5DA;
+            font-size: 16px;
+            font-weight: 600;
+            color: #4c4c4c;
+            transition: all linear 0.15s;
+        }
+
+            .tab-links a:hover {
+                background: #a7cce5;
+                text-decoration: none;
+            }
+
+        li.active a, li.active a:hover {
+            background: #fff;
+            color: #4c4c4c;
+        }
+
+        /*----- Content of Tabs -----*/
+        .tab-content {
+            padding: 15px;
+            border-radius: 3px;
+            box-shadow: -1px 1px 1px rgba(0,0,0,0.15);
+            background: #fff;
+        }
+
+        .tab {
+            display: none;
+        }
+
+            .tab.active {
+                display: block;
+            }
+    </style>
+
+
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Tabs.js"></script>
+    <script type="text/javascript" src="../assets/js/analytics.js"></script>
+</head>
+<body>
+
+    <div class="wrap pull-left">
+        <div class="main pull-left">
+            <h2>Please click on tabs to see details of candidates and trainers...</h2>
+
+            <div class="tabs standard">
+                <ul class="tab-links">
+                    <li class="active"><a href="~/ADMIN/AllstuView"><b> Candidate </b></a></li>
+
+                    <li><a href="~/ADMIN/TrainView">Trainers</a></li>
+
+                </ul>
+
+                <div class="tab-content pull-left" style="background-color:black ;width:1200px;">
+                    <div id="tab1" class="tab ">
+
+
+
+                    </div>
+                    <div id="tab2" class="tab active">
+
+
+                        <table class="table">
+                            <tr>
+                                <th style="color:yellow; font-size:x-large;">
+                                    @Html.DisplayNameFor(model => model.Doc_id)
+                                </th>
+                                <th style="color:yellow; font-size:x-large;">
+                                    @Html.DisplayNameFor(model => model.Doc_Title)
+                                </th>
+                                <th style="color:yellow; font-size:x-large;">
+                                    @Html.DisplayNameFor(model => model.Doc_Path)
+                                </th>
+
+                                <th style="color:yellow; font-size:x-large;">
+                                    @Html.DisplayNameFor(model => model.Doc_ImagePath)
+                                </th>
+
+                               
+                                <th style="color:yellow; font-size:x-large;">
+                                    Actions
+                                </th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td style="color:yellow; font-size:medium;">
+                                        @Html.DisplayFor(modelItem => item.Doc_id)
+                                    </td>
+                                    <td style="color:yellow; font-size:medium">
+                                        @Html.DisplayFor(modelItem => item.Doc_Title)
+                                    </td>
+                                    <td style="color:yellow">
+                                        @Html.DisplayFor(modelItem => item.Doc_Path)
+                                        @*<img src="@Url.Content(item.Doc_Path)" width="150" height="150" />*@
+                                    </td>
+
+                                    <td >
+                                        @*@Html.DisplayFor(modelItem => item.Cand_ImagePath)*@
+                                        <img src="@Url.Content(item.Doc_ImagePath)" width="150" height="150" />
+                                    </td>
+
+                                   
+                                    <td>
+                                        <a class="btn btn-default" style=";font-size:x-small; font-weight:50;border:groove;border-color:brown" href="~/Student/Cand_reg"> &nbsp;<b>ADD</b> &nbsp; </a>
+                                        <br /><br />
+                                        @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })*@
+                                        <a class="btn btn-default" style=";font-size:x-small; font-weight:50;border:groove;border-color:brown" href="~/ADMIN/Cand_Edit"> &nbsp;<b>EDIT</b> &nbsp; </a>
+                                        <br /><br />
+                                        <a class="btn btn-default" style="font-size:x-small; font-weight:50;border:groove;border-color:brown" href="~/ADMIN/Cand_Details"> &nbsp;<b>DETAILS</b> &nbsp; </a>
+                                        @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                                        <br /><br />
+                                        <p><a class="btn btn-default" style="font-size:x-small; font-weight:50;border:groove;border-color:brown" href="~/ADMIN/Cand_Delete"> &nbsp;<b>DELETE</b> &nbsp; </a></p>
+                                        @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>

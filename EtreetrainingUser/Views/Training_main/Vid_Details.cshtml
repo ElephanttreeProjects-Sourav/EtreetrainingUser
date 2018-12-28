@@ -1,0 +1,53 @@
+﻿@model EtreetrainingUser.Models.Tbl_Video
+
+@{
+    ViewBag.Title = "Vid_Details";
+}
+<br /><br /><br /><br /><br />
+<h2>Details of Video</h2>
+
+<div>
+    <h4>Tbl_Video</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Video_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Video_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Video_Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Video_Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Video_Path)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.Video_Path)*@
+            <div id="videoContainer" style="text-align:left; padding-top:0%">
+
+                <video id="vid" controls src="@Url.Content(Model.Video_Path)" typeof="video/mp4" width="550" height="350">
+                    @*<source src="@Url.Content(Model.Video_Path)" type="video/mp4" width="50" height="1000">*@
+                    @*<video src="@Url.Content(Model.Video_Path)" typeof="video/mp4" width="1250" height="1250" />*@
+                    <source src="this-is-my-movie.ogv" />
+                </video>
+
+
+            </div>
+
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Vid_Edit", new { id = Model.Video_id }) |
+    @Html.ActionLink("Back to List", "Vid_AllView")
+</p>

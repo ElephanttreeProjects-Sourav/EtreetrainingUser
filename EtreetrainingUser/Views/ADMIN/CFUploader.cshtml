@@ -1,0 +1,103 @@
+﻿
+@model EtreetrainingUser.Models.Tbl_Cand_Main
+@{
+    ViewBag.Title = "EOTA: Certificate upload";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="main-page">
+        <!--grids-->
+        <div class="grids">
+            <div class="progressbar-heading grids-heading">
+                <h2>Certificate Uploader</h2>
+                @if (@ViewBag.Message != null)
+                {
+                    <br />
+                    <h4 style="color:green"> @ViewBag.Message</h4>
+                }
+
+            </div>
+            <div class="panel panel-widget" style="background-color:cadetblue">
+                <div class="block-page">
+
+                    <p>
+                        @using (Html.BeginForm("CFUploader", "ADMIN", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+                    @Html.AntiForgeryToken()
+
+                    @Html.EditorFor(model => model.Cand_id, new { htmlAttributes = new { @class = "form-control", onkeypress = "return isNumberKey(event)", placeholder = "Give user id", min = "1", style = "width:30%" } })
+                    @Html.ValidationMessageFor(model => model.Cand_id, "", new { @class = "text-danger" })
+                    <script type="text/javascript">
+                        function isNumberKey(evt) {
+                            var charCode = (evt.which) ? evt.which : event.keyCode;
+                            if (charCode > 31
+                                && (charCode < 48 || charCode > 57))
+                                return false;
+
+                            return true;
+                        }
+                    </script>
+                    <div class="clearfix"></div>
+                    <br />
+                    @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { @class = "form-control", placeholder = "Give user mail", type = "email", style = "width:30%", id = "emailid2" } })
+                    @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+                    <h4 id="emailerror2" class="text-danger text-left"></h4>
+                    <script language="Javascript">
+                        function validateForm2(event) {
+                            var pattern2 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+                            var userName2 = document.getElementById("emailid2").value;
+
+                            if (userName2.match(pattern2)) {
+
+                                return true;
+                            } else {
+
+                                document.getElementById("emailerror2").innerHTML = "Email is not valid";
+
+                                return false;
+                            }
+
+                        }
+
+                    </script>
+                    <div class="clearfix"></div>
+                    <br />
+                    @Html.EditorFor(model => model.Cand_DocTitle, new { htmlAttributes = new { @class = "form-control", placeholder = "Course Name", type = "text", style = "width:30%" } })
+                    @Html.ValidationMessageFor(model => model.Cand_DocTitle, "", new { @class = "text-danger" })
+                    <div class="clearfix"></div>
+                    <br />
+                    <tr>
+                        <td>
+                            @Html.TextBoxFor(model => model.Certificate, "", new { @type = "file", name = "Certificate" })
+                            @Html.ValidationMessageFor(model => model.Certificate, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <br />
+                    <div class="clearfix"></div>
+
+                    <tr>
+                        <td>
+
+                            @Html.EditorFor(model => model.msgbox, new { htmlAttributes = new { placeholder = "Leave a message", rows = "5", cols = "33" } })
+                            @Html.ValidationMessageFor(model => model.msgbox, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                    <div class="clearfix"></div>
+                    <input type="submit" style="background-color:yellow; color:black; float:left;width:10%;" value="Send">
+                    <div class="clearfix"></div>
+
+}
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--//grids-->
+
+    </div>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>

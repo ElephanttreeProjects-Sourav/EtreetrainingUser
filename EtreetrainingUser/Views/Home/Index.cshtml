@@ -1,0 +1,1451 @@
+﻿@model EtreetrainingUser.Models.Tbl_Cand_Main
+@{
+    Html.EnableClientValidation(true);
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Snipe Learning  | Home page :: Snipe IT</title>
+    <!-- Meta-tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="SNL is the world's largest destination for online courses. Discover an online course on etreetraining.com and start learning a new skill today." />
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#sgnin").hide();
+            $("#fg").hide();
+            $("#sgnin").click(function () {
+                $("#sgnin").hide();
+                $("#sgnup").show();
+            });
+            $("#sgnup").click(function () {
+                $("#sgnup").hide();
+                $("#sgnin").show();
+            });
+            $("#fg").click(function () {
+                $("#fg").hide();
+                $("#sgnup2").show();
+            });
+            $("#sgnup2").click(function () {
+                $("#sgnup2").hide();
+                $("#fg").show();
+            });
+        });
+    </script>
+    <style>
+        .navbar-inverse {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+
+        .header_topw3layouts_bar {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+
+        .carousel-caption p {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+    </style>
+    <!--// Metga-tags -->
+    <!-- Styleshets -->
+    <!--// Bootstrap-css -->
+    <link href="~/css/newcss/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+    <!--// Responsive-tabs -->
+    <link href="~/css/newcss/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// Pop-up -->
+    <link href="~/css/newcss/css/banner.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// banner-css -->
+    <link rel="stylesheet" href="~/css/newcss/css/shop.css" type="text/css" media="screen" property="" />
+    <!--// shop-css -->
+    <link href="~/css/newcss/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- common-css -->
+    <link rel="stylesheet" href="~/css/newcss/css/client.css" type="text/css" media="all" />
+    <!-- // client-css -->
+    <link href="~/css/newcss/css/font-awesome.css" rel="stylesheet">
+    <link href="~/css/newcss/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- // Font-awesome-css -->
+    <!--// Styleshets -->
+    <!-- Online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Montserrat:300,500,600,700,800" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <!--// Online-fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Snipe/css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <link href="~/Snipe/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/Snipe/css/screenshot_view.css" rel='stylesheet' type='text/css' />
+
+   
+</head>
+
+<body>
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- header -->
+
+
+    <div class="header" id="home">
+
+
+        <!-- header-top -->
+        @*<div class="header_topw3layouts_bar">
+                <div class="container">
+                    <div class="header_agileits_left">
+                        <ul>
+                            <li><i class="fa fa-phone" aria-hidden="true"></i> +91 080-41141398</li>
+                            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@elephanttreetech.com">info@elephanttreetech.com</a></li>
+                        </ul>
+                    </div>
+                    <div class="header_right">
+                        <a href="#" class="log" data-toggle="modal" data-target="#myModal">Sign In/Up</a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>*@
+        <!--// header-top -->
+        <!--Popup model-->
+
+        <div class="modal fade" id="myModalpopup" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                        <div class="signin-form profile ">
+                            @if (@ViewBag.errrid == "1")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Login Error</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:red"> Invalid credentials, Please Check your details and try again!</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "2")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Email Exists</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Your email already exists. Please try with another email or </h4>
+                                    <br />
+                                    <h4> <a href="#" data-toggle="modal" data-target="#myModalfgps" onClick="PopUperror('hide')" style="color:blue">reset your password</a></h4>
+                                    <br /><br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "3")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Successfull Registration</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Registration Successfully done. Account activation link has been sent to your email id. Please check.</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "4")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Registration Error</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:red"> Invalid registration. Please Try again</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "14")
+                            {
+                                @*<h3 class="agileinfo_sign" style="text-align:center">Registration Error</h3>
+                                    <br />*@
+                                <div class="login-form">
+                                    <h4 style="color:red"> @ViewBag.errrmsg14</h4>
+                                    @*<br />
+                                        <h4>Thank You</h4>*@
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "5")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Password Recovery</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Please check Your Email. Password recovery link has been sent.</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "6")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Password Recovery</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Something went wrong. Please try again</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "7")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Password Recovery</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:red"> Email does not Exist. Please try again.</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "23")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center"></h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Account has been updated. Please re-login.</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "15")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center"></h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Thank You for your query! We will revert back you soon...</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+
+                            }
+                            @if (@ViewBag.errrid == "16")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center"></h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Thank You for subscription! We will get all updation of this site...</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="header-middle" style="background:#131313">
+            <div class="container">
+                <div class="logof-w3-agile">
+                    <h4>
+                        <a href="~/" class="text-white"><span style="margin-right:0px;color: #ff1949;">S</span><span style="color:white">nipe</span> <span style="margin-right:0px;color: #ff1949;">L</span><span style="color:white">earning [SNL]</span></a>
+                    </h4>
+                </div>
+                <div class="searchf-w3-agileits-headr" style="background-color: transparent;
+    border-color: transparent;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    font-size: 13px;display: table-cell;width: 40%;">
+
+                    <form action="~/Home/Search" method="get" accept-charset="ISO-8859-1">
+
+                        <input type="search" name="Search" style="background-color:#f2f3f5;" placeholder="Search for a course..." required="" maxlength="500" onkeyup="javascript:RemoveSpecialChar(this)">
+
+                        <button aria-label="Search" type="submit" class="btn btn-link search" id="btnb" style="border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    color: #ec5252;width: 44px;
+    height: 40px;padding: 11px 12px;
+    font-size: 15px;border-color: transparent;background-color:#f2f3f5;">
+                            <i class="fa fa-search" aria-hidden="true" id="icn" style="color: #ff1949;"> </i>
+                        </button>
+
+
+                    </form>
+
+                </div>
+
+                <div class="dropdown" style="float:left; padding:0px 0px 0px 70px;padding-left: 13em;">
+                    <span class="fa fa-arrows-alt flash animated infinite" style="color:#ff1949"></span><a href="#" class="text-white" style="color:white">&nbsp; Admin</a>
+                    <div class="dropdown-content" style="width:30%;right:-80px;min-width: 350px;text-align:center">
+                        <div style="padding:15px 15px 15px 15px">
+                            Turn what you know into an opportunity and reach millions around the world.
+                            <br />
+                            <a href="~/ADMIN/ADM_Login" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: #007791;">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+                <style>
+
+                    .dropdown {
+                        position: relative;
+                        display: inline-block;
+                    }
+
+                    .dropdown-content {
+                        display: none;
+                        position: absolute;
+                        background-color: #f1f1f1;
+                        min-width: 90px;
+                        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                        z-index: 1;
+                    }
+
+                        .dropdown-content a {
+                            color: black;
+                            padding: 12px 16px;
+                            text-decoration: none;
+                            display: block;
+                        }
+
+                            .dropdown-content a:hover {
+                                background-color: #ddd;
+                            }
+
+                    .dropdown:hover .dropdown-content {
+                        display: block;
+                    }
+
+                    .dropdown:hover .dropbtn {
+                        background-color: #3e8e41;
+                    }
+                </style>
+                @*<div class="logof-w3-agile" >
+                        <h4>
+
+
+                            <a href="~/" class="text-white"><span style="margin-right:0px">A</span>admin</a>
+
+                        </h4>
+                    </div>*@
+                <div class="login-wthree my-auto">
+                    <a href="#" class="text-white text-capitalize" style="padding-left:50px;color:white" data-toggle="modal" data-target="#myModal">login <span style="color:#ff1949" class="fa fa-sign-in flash animated infinite"></span></a>
+                </div>
+                @*<div style="float:right">
+                        <a href="#" class="log" data-toggle="modal" data-target="#myModal">Login</a>
+                    </div>*@
+                @*<div class="clearfix"></div>*@
+            </div>
+
+        </div>
+        <!--// header-middle -->
+        <nav @*class="navbar navbar-inverse"*@ style="background:#131313">
+            @*<div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>*@
+
+            <div class="collapse navbar-collapse js-navbar-collapse">
+                <ul class="head">
+
+                    <li style="margin-top:0px;" class="dropdown">
+
+
+                        <div>
+                            <h4> <a href="#" class="text-white">&nbsp; NEET </a></h4>
+                            <div class="dropdown-content" style="width:30%;min-width: 350px;margin-top:17px;float:left;text-align:center">
+                                <div style="padding:15px 15px 15px 15px; color:black">
+                                    The National Eligibility cum Entrance Test or NEET is an entrance examination in India, for students who wish to study graduate and postgraduate medical
+                                    course and dental course in government or private medical colleges and dental colleges respectively in India.
+                                    <br />
+                                    <a href="~/Home/singlecrs/@ViewBag.resultforGetNEETCourses" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: #007791;">Prepare your schedule</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li style="margin-top:0px;" class="dropdown">
+                        <div>
+                            <h4> <a href="#" class="text-white">&nbsp; KCET</a></h4>
+                            <div class="dropdown-content" style="width:30%;min-width: 350px;margin-top:17px;text-align:center">
+                                <div style="padding:15px 15px 15px 15px; color:black">
+                                    Karnataka Common Entrance Test (KCET) is a state level exam that offers admission
+                                    in various government and private colleges in the state of Karnataka.
+                                    <br />
+                                    <a href="#" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: #007791;">We will meet very soon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li style="margin-top:0px;" class="dropdown">
+                        <div>
+                            <h4> <a href="#" class="text-white">&nbsp; JEE</a></h4>
+                            <div class="dropdown-content" style="width:30%;min-width: 350px;margin-top:17px;text-align:center">
+                                <div style="padding:15px 15px 15px 15px; color:black">
+                                    Joint Entrance Examination is an engineering entrance examination conducted for admission to various
+                                    engineering colleges in India. It is constituted by two different examinations - JEE Main and the JEE Advanced.
+                                    <br />
+                                    <a href="#" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: #007791;">We will meet very soon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                    @*<li><a href="~/Home/SearchOne/A">Academic courses</a></li>
+                        <li><a href="~/Home/SearchOne/T">Technical courses</a></li>
+                        <li><a href="~/Home/SearchOne/M">Management courses</a></li>*@
+                </ul>
+            </div>
+            <!-- /.nav-collapse -->
+        </nav>
+
+    </div>
+    <!-- banner -->
+    <!--//banner -->
+    <!-- about -->
+    <!-- //about-->
+    <!-- Materials -->
+    <!-- //Materials-->
+    <!-- Reviews -->
+    <div class="reviewf-main" style="padding-bottom:0; padding-left:0; padding-right:0;padding-top:0;margin-bottom:0;margin-left:0;margin-right:0;margin-top:0;width:100%">
+        <div class="container" style="padding-bottom:0; padding-left:0; padding-right:0;padding-top:0;margin-bottom:0;margin-left:0;margin-right:0;margin-top:0;width:100%">
+            <div class="screenview_bg row bg-theme px-3 header col-lg-12 col-md-12 col-sm-12" style="position:relative;padding-left:90px;width:100%;margin-right:0;padding-right:0">
+
+                <div class=" col-lg-6 col-md-6 screen-view-img order-md-0 order-0 img-fluid" style="position:relative;padding-left:50px">
+                    <h2 style="font-size:34px;color:#fff;font-weight:bold;line-height:1;margin-bottom:16px">Learn, Prepare &amp; Grow.</h2>
+                    <p style="color:#fff;margin-bottom:16px">
+                        SNL gives both professional and aspiring guidance for NEET with proper tutorial and practice tests, be part of SNL and meet our talented teachers
+                        who will take you at the door of success.
+                    </p>
+                    <ul class="info-list" style="list-style-type:none">
+                        <li style="line-height:28px;padding-left:26px;color:#fff;background-image:url(../../Snipe/check.svg);background-repeat:no-repeat;background-position:left 6px">Access courses</li>
+                        <li style="line-height:28px;padding-left:26px;color:#fff;background-image:url(../../Snipe/check.svg);background-repeat:no-repeat;background-position:left 6px">Participate our course tests</li>
+                        <li style="line-height:28px;padding-left:26px;color:#fff;background-image:url(../../Snipe/check.svg);background-repeat:no-repeat;background-position:left 6px">Showcase Skills </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-md-6  signup-top-block" style="width:50%;float:right">
+
+                    <div class="register-area " style="padding:16px;width:368px;background:rgba(255,255,255,0.7);border-radius:3px;margin-bottom:24px">
+                        <h5 style="margin-bottom:12px;font-family:'lato', Arial, Helvetica, sans-serif;margin-top:0px">Signup with:</h5>
+                        <div class="sociable " style="margin-bottom:24px;font-family:'lato', Arial, Helvetica, sans-serif;">
+                            <p style="margin-bottom:0px;margin:0 0 10px">
+                                <a style="background:#3b5998;width:80px;height:32px;display:inline-block;margin-right:1px;text-align:center;border-radius:3px;line-height:34px" href="javascript:void(0);" class="facebook" onclick="fb_login('https://www.techgig.com/home?login=true');">
+                                    <svg width="7px" height="16px" viewBox="0 0 7 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <defs></defs>
+                                        <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Fb" fill="#FFFFFF" fill-rule="nonzero">
+                                                <path d="M1.55086906,16 L4.65504056,16 L4.65504056,7.99913616 L6.72584009,7.99913616 L7,5.24263039 L4.65504056,5.24263039 L4.65828505,3.8622179 C4.65828505,3.14350502 4.72236385,2.75823345 5.69084589,2.75823345 L6.98539977,2.75823345 L6.98539977,0 L4.91378911,0 C2.42607184,0 1.55086906,1.33808444 1.55086906,3.58665371 L1.55086906,5.24176655 L0,5.24176655 L0,7.99913616 L1.55086906,7.99913616 L1.55086906,16 L1.55086906,16 Z"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </a> <a style="background:#dc4e41;width:80px;height:32px;display:inline-block;margin-right:1px;text-align:center;border-radius:3px;line-height:34px" href="https://www.techgig.com/social_connect?provider=Google&amp;user_type=external&amp;return_url=https://www.techgig.com/home" class="google">
+                                    <svg width="20px" height="13px" viewBox="0 0 20 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <defs></defs>
+                                        <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Google" fill="#FFFFFF" fill-rule="nonzero">
+                                                <path d="M6.34313725,5.21505792 L6.34313725,7.78996139 C6.34313725,7.78996139 8.77941176,7.78494208 9.7745098,7.78494208 C9.23529412,9.45135135 8.40196078,10.3598456 6.34313725,10.3598456 C4.25980392,10.3598456 2.6372549,8.63320463 2.6372549,6.5 C2.6372549,4.36679537 4.26470588,2.64015444 6.34313725,2.64015444 C7.44607843,2.64015444 8.15686275,3.03667954 8.80882353,3.58880309 C9.33333333,3.05173745 9.28921569,2.97644788 10.6176471,1.69150579 C9.49019608,0.642471042 7.99019608,0 6.34803922,0 C2.84313725,0 0,2.91119691 0,6.5 C0,10.0888031 2.84313725,13 6.34803922,13 C11.5882353,13 12.8676471,8.32702703 12.4411765,5.21505792 L6.34313725,5.21505792 Z M17.7843137,5.34054054 L17.7843137,3.08687259 L16.2156863,3.08687259 L16.2156863,5.34054054 L13.9558824,5.34054054 L13.9558824,6.94671815 L16.2156863,6.94671815 L16.2156863,9.26061776 L17.7843137,9.26061776 L17.7843137,6.94671815 L19.9852941,6.94671815 L19.9852941,5.34054054 L17.7843137,5.34054054 Z"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </a> <a style="background:#3b5998;width:80px;height:32px;display:inline-block;margin-right:1px;text-align:center;border-radius:3px;line-height:34px" href="https://www.techgig.com/social_connect?provider=LinkedIn&amp;user_type=external&amp;return_url=https://www.techgig.com/home" class="linkedin">
+                                    <svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <defs></defs>
+                                        <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Linkedin" fill="#FFFFFF" fill-rule="nonzero">
+                                                <path d="M0.242307692,4.64864865 L3.13923077,4.64864865 L3.13923077,14 L0.242307692,14 L0.242307692,4.64864865 Z M1.69615385,0 C2.62230769,0 3.37615385,0.756756757 3.37615385,1.68648649 C3.37615385,2.61621622 2.62230769,3.37297297 1.69615385,3.37297297 C0.764615385,3.37297297 0.0161538462,2.61621622 0.0161538462,1.68648649 C0.0161538462,0.756756757 0.764615385,0 1.69615385,0 Z M4.95923077,4.64864865 L7.73230769,4.64864865 L7.73230769,5.92972973 L7.77,5.92972973 C8.15769231,5.19459459 9.1,4.42162162 10.5107692,4.42162162 C13.44,4.42162162 13.9838462,6.35675676 13.9838462,8.87567568 L13.9838462,14 L11.0923077,14 L11.0923077,9.45405405 C11.0923077,8.36756757 11.0761538,6.97297297 9.59,6.97297297 C8.08230769,6.97297297 7.85615385,8.15675676 7.85615385,9.37297297 L7.85615385,14 L4.96461538,14 L4.95923077,4.64864865 Z"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </a> <a style="background:#161514;width:80px;height:32px;display:inline-block;margin-right:0px;text-align:center;border-radius:3px;line-height:34px" href="https://www.techgig.com/social_connect?provider=GitHub&amp;user_type=external&amp;return_url=https://www.techgig.com/home" class="github">
+                                    <svg width="17px" height="16px" viewBox="0 0 17 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                                        <title>Fill 4</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <defs></defs>
+                                        <g id="01_Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-912.000000, -176.000000)">
+                                            <path d="M920.135661,176 C915.643048,176 912,179.672316 912,184.202538 C912,187.826634 914.331114,190.901295 917.563661,191.985902 C917.970256,192.061832 918.119529,191.807964 918.119529,191.591314 C918.119529,191.395718 918.111984,190.749572 918.108482,190.064171 C915.845133,190.56036 915.367539,189.096378 915.367539,189.096378 C914.997455,188.148281 914.464221,187.896179 914.464221,187.896179 C913.726073,187.387086 914.519861,187.397545 914.519861,187.397545 C915.336823,187.455409 915.766994,188.242819 915.766994,188.242819 C916.492612,189.496807 917.670227,189.134275 918.134483,188.924688 C918.207503,188.394541 918.418345,188.032689 918.651012,187.827856 C916.84397,187.620443 914.944374,186.917112 914.944374,183.774128 C914.944374,182.878597 915.262186,182.146878 915.782621,181.57245 C915.69815,181.365852 915.419677,180.53158 915.861434,179.401741 C915.861434,179.401741 916.544615,179.181288 918.09932,180.242533 C918.748282,180.060791 919.444261,179.969649 920.135661,179.966525 C920.82706,179.969649 921.523578,180.060791 922.173752,180.242533 C923.726571,179.181288 924.408809,179.401741 924.408809,179.401741 C924.851644,180.53158 924.573036,181.365852 924.488565,181.57245 C925.010213,182.146878 925.325869,182.878597 925.325869,183.774128 C925.325869,186.924583 923.422636,187.61827 921.611014,187.821336 C921.902824,188.075883 922.16284,188.57506 922.16284,189.34033 C922.16284,190.437841 922.153409,191.321147 922.153409,191.591314 C922.153409,191.809594 922.299853,192.065363 922.712241,191.984816 C925.943036,190.898986 928.271186,187.825411 928.271186,184.202538 C928.271186,179.672316 924.628677,176 920.135661,176" id="Fill-4" fill="#FFFFFF"></path>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </p>
+                        </div>
+                        <h5 style="margin-bottom:12px;font-family:'lato', Arial, Helvetica, sans-serif;margin-top:0px">Signup with Email:</h5>
+                        <div id="newsletter-form" class="form1" style="height:32px;padding:0px;border-radius:0px;background-color:rgba(255, 255, 255, 0.15)">
+                            <form style="padding:0px;border-radius:0px;" id="frm-email-signup" action="https://www.techgig.com/register?tab=signup" method="post" class="clearfix" name="hiring_email">
+                                <input style="width:240px;background:#fff;padding:0px 8px;border-radius:3px 0px 0px 3px;float:left;border:0;height:32px" type="text" placeholder="Enter Email" class="form-control" id="register_email" name="email" maxlength="200" required="" pattern="@*[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$*@">
+                                <input style="width:96px;background:#d7263d;color:#fff;padding:7px 10px;border-radius:0px 3px 3px 0px;float:right;border:0;height:32px;line-height:16px" type="button" class="btn button1" value="Continue" onclick="return Tg_CommonFunction.validateEmailSignup();">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <section id="practice-level-up" class="landing-sections" style="background:#f8f8f8;padding-bottom:40px;padding:40px 0px 32px 0px;font-family:'lato', Arial, Helvetica, sans-serif;line-height:1.4;font-size:1em">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-6">
+                            <h2 style="margin-top:24px; font-size:28px; font-weight:bold;color:#19171a;margin-bottom:16px">Practice and Level Up</h2>
+                            <p class="lead" style="font-size: 16px;line-height: 25px;color: #666666;font-weight: normal;margin-bottom: 24px;">Improve your coding skills with TechGig, by browsing through our collection of tutorials, solving easy to complex coding problems and attempting past challenges which were organised by top IT companies.</p>
+                            <!-- Stats -->
+                            <ul class="stats clearfix" style="margin:0 0 30px; padding:0;list-style: none;">
+                                <li style="padding-left: 0;font-size: 18px;
+    color: #19171a;
+    float: left;
+    border-right: 1px solid #dadada;
+    padding: 0px 24px 0px 24px;
+    font-weight: 600;">
+                                    <span>50,000+<small>Practice Problems</small></span>
+                                </li>
+                                <li style="border-right: 0;font-size: 18px;
+    color: #19171a;
+    float: left;
+    border-right: 1px solid #dadada;
+    padding: 0px 24px 0px 24px;
+    font-weight: 600;">
+                                    <span>50+<small>Past Challenges</small></span>
+                                </li>
+                            </ul>
+                            <!-- /Stats -->
+                            <div class="dropdown">
+                                <h4>
+                                    <a href="~/Home/singlecrs/@ViewBag.resultforGetNEETCourses" class="btn button1" style="min-width: 160px;border-radius: 3px;background: #d7263d;
+    color: #fff;
+    text-transform: capitalize;
+    border: 0;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 7px 10px;
+    font-weight: bold;">Begin Practice</a>
+                                </h4>
+                                <div class="dropdown-content" style="width:10%;min-width: 160px;text-align:center">
+                                    <div style="padding:15px 15px 15px 15px">
+
+                                        NEET
+                                        <br />
+                                        <a href="~/Home/singlecrs/@ViewBag.resultforGetNEETCourses" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: #007791;">Take test</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-5 col-md-6">
+                            <div class="inner-wrap">
+                                <h2 style="margin-top:24px; font-size:28px; font-weight:bold;color:#19171a;margin-bottom:16px">Introduction for NEET </h2>
+
+                                <!-- Fade Slider -->
+                                <div id="practice-levelup-slider" class="moving-slides hidden-xs fade-slider moving-left">
+                                    <div class="scroller">
+                                        <div class="wrapper">
+                                            <div class="item">
+                                                <div class="story">
+                                                    @*@{
+                                                            var count = 1;
+                                                        }
+                                                        @foreach (var vid in ViewBag.vidlist)
+                                                        {
+                                                            if (count == 1)
+                                                            {*@
+                                                    <div class="col-md-4 video-t2">
+                                                        <div class="demo-left small-demo">
+
+                                                            <video controls controlsList="nodownload" id="mp4Source" width="360" height="240">
+                                                                <source src="@Url.Content(@ViewBag.firstdemovideo)" type="video/mp4">
+
+                                                            </video>
+                                                            @*<iframe src="https://www.youtube.com/embed/V3dFHt9p5W8" allowfullscreen=""></iframe>*@
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    @*}
+                                                            count++;
+                                                        }*@
+                                                    <br />
+                                                    <div class="col-md-4 video-t2">
+                                                        <a href="~/Home/singlecrs/@ViewBag.resultforGetNEETCourses" class="btn button1" style="min-width: 360px;border-radius: 3px;background: #d7263d;
+    color: #fff;
+    text-transform: capitalize;
+    border: 0;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 7px 10px;
+    font-weight: bold;">More videos for NEET</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="prev-arrow">
+                                        <div class="arrow"></div>
+                                    </div>
+                                    <div class="next-arrow">
+                                        <div class="arrow"></div>
+                                    </div>
+                                </div>
+                                <!-- /Fade Slider -->
+                                <!-- Topic-List -->
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //Reviews -->
+    <!--//mobile-app -->
+    <!--//mobile-app -->
+    <!-- Subscribe -->
+    @*<div class="wthree-subscribef-w3ls">
+            <div class="container">
+                <h3 class="tittlef-agileits-w3layouts white-clrf">Sign up for our Newsletter</h3>
+                <p class="white-clrf">Recieve our latest news straight to your inbox</p>
+                <div class="footer_w3layouts_gridf_right">
+
+                    <form action="~/Home/Subscribe" method="post">
+                        <input type="email" name="Email" placeholder="Email address..." required="">
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>*@
+    <!--// Subscribe -->
+    <!-- footer -->
+    <div class="footer_agileinfo_topf" style="background:#887a7a ; color:white">
+        <div class="container">
+            <div class="container">
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <h2><a href="~/Home/Index" style="color:white">SNL</a></h2>
+                    <p class="paragraphf" style="color:white">Providing best coaching at affordable prices.</p>
+                </div>
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <nav>
+                        <ul class="footer_w3layouts_gridf_list">
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#About" target="_blank" style="color:white">About Us</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#service" target="_blank" style="color:white">Services</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#products" target="_blank" style="color:white">Products</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <nav>
+                        <ul class="footer_w3layouts_gridf_list">
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#jobs" target="_blank" style="color:white">Careers</a>
+                            </li>
+
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#technology" target="_blank" style="color:white">Technology</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#contact" target="_blank" style="color:white">Contact</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+
+                </div>
+                <div class="clearfix"> </div>
+                <div class="w3ls-fsocial-grid" style="float:left">
+                    <h3 class="sub-w3ls-headf" style="color:white">Follow Us</h3>
+                    <div class="social-ficons">
+                        <ul>
+                            <li><a href="https://www.facebook.com/12Elephanttrees/" target="_blank" style="color:white"><span class="fa fa-facebook"></span> Facebook</a></li>
+                            <li><a href="https://twitter.com/12Elephanttrees" target="_blank"><span class="fa fa-twitter" style="color:white"></span> Twitter</a></li>
+                            <li><a href="https://www.linkedin.com/in/elephanttree-technologies-private-limited-174699145/" style="color:white" target="_blank"><span class="fa fa-linkedin-square"></span>Linkdin</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w3ls-fsocial-grid" style="float:right">
+
+                    <p style="float:right;color:white"><span class="fa fa-mail-forward" aria-hidden="true"></span>Recieve our latest news straight to your inbox.</p>
+                    <br /> <br />
+                    <div style="float:right">
+                        <form action="~/Home/Subscribe" method="post">
+                            <input type="email" name="Email" placeholder="Email address..." required="">
+                            <input type="submit" value="Submit" style="padding:2px 2px 2px 2px;color:black">
+                        </form>
+                    </div>
+
+                </div>
+                <br />
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-wthree-copyf">
+        <div class="container">
+            @*<div class="addressf-agileits-w3layouts">
+                    <p style="float:left"><span class="fa fa-mail-forward" aria-hidden="true"></span>Recieve our latest news straight to your inbox.</p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="float:right">
+                        <form action="~/Home/Subscribe" method="post">
+                            <input type="email" name="Email" placeholder="Email address..." required="">
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>*@
+            <p>© 2018 SNL MERIT TRAINING. All rights reserved | Design and Developed by <a href="http://www.elephanttreetech.com/" target="_blank"> ELEPHANTTREE TECH PVT.LTD.</a></p>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //footer -->
+    <!-- js -->
+    <!-- Common js -->
+    <script type="text/javascript" src="~/css/newcss/js/jquery-2.1.4.min.js"></script>
+    <!--// Common js -->
+    <!-- cart-js -->
+    <script src="~/css/newcss/js/minicart.js"></script>
+    <script>
+        edu.render();
+
+        edu.cart.on('edu_checkout', function (evt) {
+            var items, len, i;
+
+            if (this.subtotal() > 0) {
+                items = this.items();
+
+                for (i = 0, len = items.length; i < len; i++) { }
+            }
+        });
+    </script>
+    <!-- //cart-js -->
+    <!-- reviews -->
+    <script>
+        function blinker() {
+            $('.blinking').fadeOut(500);
+            $('.blinking').fadeIn(500);
+        }
+        setInterval(blinker, 1000);
+    </script>
+    <script>
+        function cycle($item, $cycler) {
+            setTimeout(cycle, 2000, $item.next(), $cycler);
+
+            $item.slideUp(1000, function () {
+                $item.appendTo($cycler).show();
+            });
+        }
+        cycle($('#cycler div:first'), $('#cycler'));
+    </script>
+    <!--// reviews -->
+    <!-- responsive-tabs -->
+    <script src="~/css/newcss/js/easy-responsive-tabs.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#verticalTab').easyResponsiveTabs({
+                type: 'vertical',
+                width: 'auto',
+                fit: true
+            });
+        });
+    </script>
+    <!-- //responsive-tabs -->
+    <!-- Carousel Auto-Cycle -->
+    <script>
+        $(document).ready(function () {
+            $('.carousel').carousel({
+                interval: 6000
+            })
+        });
+    </script>
+    <!-- // Carousel Auto-Cycle -->
+    <!-- Nav Js -->
+    <script type="text/javascript" src="~/css/newcss/js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!--// Nav Js -->
+    <!-- bootstrap-pop-up -->
+    <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Sign In/Up
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <section>
+
+                    <div class="modal-body">
+                        <div class="loginf_module">
+                            <div class="module form-module">
+                                <div class="toggle">
+                                    <i class="fa fa-times fa-pencil"></i>
+
+
+                                    <div class="tooltip" id="sgnin">Sign in </div>
+                                    <div class="tooltip" id="sgnup">Sign Up </div>
+
+                                </div>
+                                <div class="form">
+                                    <h3>Login to your account</h3>
+                                    <form action="~/Student/Cand_Login" method="post" onsubmit="return validateForm1(event)">
+                                        @Html.AntiForgeryToken()
+                                        <h4 id="emailerror1" class="text-danger text-center"></h4>
+                                        @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { id = "emailid1", placeholder = "Email", style = "text - align: left;", maxlength = "254", minlength = "4" } })
+
+                                        <h5 id="Upasswordtxt1" class="text-danger text-center"></h5>
+                                        @Html.ValidationMessageFor(model => model.Cand_Pass, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_Pass, new { htmlAttributes = new { id = "Upassword1", placeholder = "Password", maxlength = "16", minlength = "6" } })
+
+
+                                        <input type="submit" value="Login" style="background-color:lightseagreen">
+                                    </form>
+                                    <script language="Javascript">
+                                        function validateForm1(event) {
+                                            var pattern1 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                                            var re1 = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,16})$/;
+                                            var userName1 = document.getElementById("emailid1").value;
+                                            var upassword1 = document.getElementById("Upassword1").value;
+
+                                            if (userName1.match(pattern1)) {
+
+                                                if (upassword1.match(re1)) {
+
+
+
+                                                } else {
+
+                                                    document.getElementById("Upasswordtxt1").innerHTML = "Password must be between 8 to 16 characters,only contain at least one digit and one alphabetic character and no special characters";
+                                                    document.getElementById("emailerror1").innerHTML = "";
+
+                                                    return false;
+                                                }
+
+                                            } else {
+
+                                                document.getElementById("emailerror1").innerHTML = "Email is not valid";
+
+                                                document.getElementById("Upasswordtxt1").innerHTML = "";
+                                                return false;
+                                            }
+
+                                        }
+
+                                    </script>
+                                    <div class="cta">
+                                        <a href="#" class="log" data-toggle="modal" onClick="PopUp('hide')" data-target="#myModal1">Forgot password?</a>
+                                    </div>
+
+                                </div>
+                                <div class="form">
+                                    <h3>Sign Up</h3>
+                                    @using (Html.BeginForm("Cand_reg", "Student", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return validateForm(event)" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationMessageFor(model => model.CandName, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.CandName, new { htmlAttributes = new { placeholder = "Name" } })
+
+                                        <h4 id="emailerror" class="text-danger text-center"></h4>
+
+                                        @Html.ValidationMessage("EmailExist", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { id = "emailid", @type = "email", placeholder = "Email", maxlength = "254", minlength = "4" } })
+
+                                        @Html.ValidationMessageFor(model => model.Cand_MNum, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_MNum, new
+                                        {
+                                            htmlAttributes = new
+                                            {
+                                                @class = "form-control"@*, @type = "number"*@,
+onkeypress = "return isNumberKey(event)",
+maxlength = "10",
+minlength = "10",
+placeholder = "Phone Number"
+}
+})
+
+                                        <script type="text/javascript">
+                                            function isNumberKey(evt) {
+                                                var charCode = (evt.which) ? evt.which : event.keyCode;
+                                                if (charCode > 31
+                                                    && (charCode < 48 || charCode > 57))
+                                                    return false;
+
+                                                return true;
+                                            }
+                                        </script>
+
+                                        <h5 id="Upasswordtxt" class="text-danger text-center"></h5>
+                                        @Html.ValidationMessageFor(model => model.Cand_Pass, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_Pass, new { htmlAttributes = new { id = "Upassword", placeholder = "Password", maxlength = "16", minlength = "6" } })
+
+
+                                        <h5 id="Urepasswordtxt" class="text-danger text-center"></h5>
+                                        @Html.ValidationMessageFor(model => model.Cand_RePass, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_RePass, new
+                                        {
+                                            htmlAttributes = new
+                                            {
+                                                id = "Urepassword",
+
+                                                maxlength = "16",
+                                                minlength = "6",
+                                                placeholder = "Confirm Password"
+                                            }
+                                        })
+
+
+                                        <input type="submit" value="Register" style="background-color:lightseagreen">
+                                    }
+                                    <br />
+                                    <h6><a href="~/Home/termscond" target="_blank"> By clicking Register, you agree to our Terms and that you have read our Policy</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script language="Javascript">
+                        function validateForm(event) {
+                            var pattern = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                            var re = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,16})$/;
+                            var userName = document.getElementById("emailid").value;
+                            var upassword = document.getElementById("Upassword").value;
+                            var urepassword = document.getElementById("Urepassword").value;
+                            if (userName.match(pattern)) {
+
+                                if (upassword.match(re)) {
+
+                                    if (upassword == urepassword) {
+
+                                        return true;
+                                    } else {
+
+                                        document.getElementById("Urepasswordtxt").innerHTML = "Password and confirm password is not match";
+                                        document.getElementById("Upasswordtxt").innerHTML = "";
+                                        document.getElementById("emailerror").innerHTML = "";
+                                        return false;
+                                    }
+
+                                } else {
+
+                                    document.getElementById("Upasswordtxt").innerHTML = "Password must be between 8 to 16 characters,only contain at least one digit and one alphabetic character and no special characters";
+                                    document.getElementById("emailerror").innerHTML = "";
+                                    document.getElementById("Urepasswordtxt").innerHTML = "";
+                                    return false;
+                                }
+
+                            } else {
+
+                                document.getElementById("emailerror").innerHTML = "Email is not valid";
+                                document.getElementById("Urepasswordtxt").innerHTML = "";
+                                document.getElementById("Upasswordtxt").innerHTML = "";
+                                return false;
+                            }
+
+                        }
+
+                    </script>
+                    @if (@ViewBag.errrid == "1")
+                    {
+                        <h4 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Login Error</h4>
+                        <br />
+
+                        <h5 style="color:red;text-align:center"> Invalid credentials, Please Check your details and try again!</h5>
+                        <br />
+
+
+                    }
+                    @if (@ViewBag.errrid == "2")
+                    {
+                        <h4 class="agileinfo_sign" style="color:black;text-align:center">Email Exists</h4>
+                        <br />
+
+                        <h5 style="color:darkcyan;text-align:center"> Your email already exists. Please try with another email. </h5>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "3")
+                    {
+                        <h4 class="agileinfo_sign" style="color:black;text-align:center">Successfull Registration</h4>
+                        <br />
+
+                        <h5 style="color:darkcyan;text-align:center"> Registration Successfully done. Account activation link has been sent to your email id. Please check.</h5>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "4")
+                    {
+                        <h4 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Registration Error</h4>
+                        <br />
+
+                        <h5 style="color:red;text-align:center"> Invalid registration. Please Try again</h5>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "12")
+                    {
+                        <h4 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Login Error</h4>
+                        <br />
+
+                        <h5 style="color:red;text-align:center"> @ViewBag.errrmsg14</h5>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "13")
+                    {
+                        <h4 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Registration Error</h4>
+                        <br />
+
+                        <h5 style="color:red;text-align:center"> @ViewBag.errrmsg14</h5>
+                        <br />
+
+                    }
+
+                </section>
+            </div>
+        </div>
+    </div>
+    <script>
+        function PopUp(hideOrshow) {
+            if (hideOrshow == 'hide') $('#myModal').modal('hide');
+
+        }
+        function PopUp1(hideOrshow) {
+            if (hideOrshow == 'hide') $('#myModal1').modal('hide');
+
+        }
+    </script>
+    <div class="modal video-modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Sign In/Up
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <section>
+
+                    <div class="modal-body">
+                        <div class="loginf_module">
+                            <div class="module form-module">
+                                <div class="toggle">
+                                    <i class="fa fa-times fa-pencil"></i>
+                                    <div class="tooltip" id="fg">Back </div>
+                                    <div class="tooltip" id="sgnup2">Sign Up </div>
+
+                                </div>
+                                <div class="form">
+                                    <h3>Forgot Password Recovery</h3>
+
+                                    <form action="~/Student/Cand_Forgotpass" method="post" onsubmit="return validateForm2(event)">
+                                        <h4 id="emailerror2" class="text-danger text-center"></h4>
+                                        @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { id = "emailid2", style = "color: darkblue;", placeholder = "User email", @type = "email", maxlength = "254", minlength = "4" } })
+
+                                        <input type="submit" value="Submit" class="btn btn-default" style="background-color:lightseagreen" />
+                                    </form>
+                                    <script language="Javascript">
+                                        function validateForm2(event) {
+                                            var pattern2 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+                                            var userName2 = document.getElementById("emailid2").value;
+
+                                            if (userName2.match(pattern2)) {
+
+                                                return true;
+                                            } else {
+
+                                                document.getElementById("emailerror2").innerHTML = "Email is not valid";
+
+                                                return false;
+                                            }
+
+                                        }
+
+                                    </script>
+
+                                    <div class="cta">
+                                        <a href="#" class="log" data-toggle="modal" onClick="PopUp1('hide')" data-target="#myModal">Login</a>
+                                    </div>
+
+                                </div>
+
+                                <div class="form">
+                                    <h3>Sign Up</h3>
+                                    @using (Html.BeginForm("Cand_reg", "Student", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return validateForm3(event)" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationMessageFor(model => model.CandName, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.CandName, new { htmlAttributes = new { placeholder = "Name" } })
+
+                                        <h4 id="emailerror3" class="text-danger text-center"></h4>
+                                        @Html.ValidationMessage("EmailExist", new { @class = "text-danger" })
+                                        @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { id = "emailid3", @type = "email", placeholder = "Email", maxlength = "254", minlength = "4" } })
+
+
+                                        @Html.ValidationMessageFor(model => model.Cand_MNum, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_MNum, new
+                                        {
+                                            htmlAttributes = new
+                                            {
+                                                @class = "form-control"@*, @type = "number"*@,
+onkeypress = "return isNumberKey(event)",
+maxlength = "10",
+minlength = "10",
+placeholder = "Phone Number"
+}
+})
+
+                                        <script type="text/javascript">
+                                            function isNumberKey(evt) {
+                                                var charCode = (evt.which) ? evt.which : event.keyCode;
+                                                if (charCode > 31
+                                                    && (charCode < 48 || charCode > 57))
+                                                    return false;
+
+                                                return true;
+                                            }
+                                        </script>
+
+                                        <h5 id="Upasswordtxt3" class="text-danger text-center"></h5>
+                                        @Html.ValidationMessageFor(model => model.Cand_Pass, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_Pass, new { htmlAttributes = new { id = "Upassword3", placeholder = "Password", maxlength = "16", minlength = "6" } })
+
+
+                                        <h5 id="Urepasswordtxt3" class="text-danger text-center"></h5>
+                                        @Html.ValidationMessageFor(model => model.Cand_RePass, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_RePass, new
+                                        {
+                                            htmlAttributes = new
+                                            {
+                                                id = "Urepassword3",
+                                                required = "required",
+                                                maxlength = "16",
+                                                minlength = "6",
+                                                placeholder = "Confirm Password"
+                                            }
+                                        })
+
+
+                                        <input type="submit" value="Register" style="background-color:lightseagreen">
+                                    }
+                                    <br />
+                                    <h6><a href="~/Home/termscond" target="_blank"> By clicking Register, you agree to our Terms and that you have read our Policy</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script language="Javascript">
+                        function validateForm3(event) {
+                            var pattern3 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                            var re3 = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,16})$/;
+                            var userName3 = document.getElementById("emailid3").value;
+                            var upassword3 = document.getElementById("Upassword3").value;
+                            var urepassword3 = document.getElementById("Urepassword3").value;
+                            if (userName3.match(pattern3)) {
+
+                                if (upassword3.match(re3)) {
+
+                                    if (upassword3 == urepassword3) {
+
+                                        return true;
+                                    } else {
+
+                                        document.getElementById("Urepasswordtxt3").innerHTML = "Password and confirm password is not match";
+                                        document.getElementById("Upasswordtxt3").innerHTML = "";
+                                        document.getElementById("emailerror3").innerHTML = "";
+                                        return false;
+                                    }
+
+                                } else {
+
+                                    document.getElementById("Upasswordtxt3").innerHTML = "Password must be between 8 to 16 characters,only contain at least one digit and one alphabetic character and no special characters";
+                                    document.getElementById("emailerror3").innerHTML = "";
+                                    document.getElementById("Urepasswordtxt3").innerHTML = "";
+                                    return false;
+                                }
+
+                            } else {
+
+                                document.getElementById("emailerror3").innerHTML = "Email is not valid";
+                                document.getElementById("Urepasswordtxt3").innerHTML = "";
+                                document.getElementById("Upasswordtxt3").innerHTML = "";
+                                return false;
+                            }
+
+                        }
+
+                    </script>
+                    @if (@ViewBag.errrid == "2")
+                    {
+                        <h3 class="agileinfo_sign" style="color:black;text-align:center">Email Exists</h3>
+                        <br />
+
+                        <h4 style="color:darkcyan;text-align:center"> Your email already exists. Please try with another email. </h4>
+                        <br />
+
+
+                    }
+                    @if (@ViewBag.errrid == "14")
+                    {
+                        <h3 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Recovery Error</h3>
+                        <br />
+
+                        <h4 style="color:red;text-align:center"> @ViewBag.errrmsg14</h4>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "5")
+                    {
+                        <h3 class="agileinfo_sign" style="color:black;text-align:center">Password Recovery</h3>
+                        <br />
+
+                        <h4 style="color:darkcyan;text-align:center"> Please check Your Email. Password recovery link has been sent.</h4>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "6")
+                    {
+                        <h3 class="agileinfo_sign" style="color:lightseagreen;text-align:center"> Recovery Error</h3>
+                        <br />
+
+                        <h4 style="color:red;text-align:center"> Something went wrong. Please try again</h4>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "7")
+                    {
+                        <h3 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Password Recovery</h3>
+                        <br />
+
+                        <h4 style="color:red;text-align:center"> Email does not Exist. Please try again.</h4>
+                        <br />
+
+                    }
+                </section>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="modal video-modal fade" id="subcribeModel" tabindex="-1" role="dialog" aria-labelledby="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <section>
+                    <div class="modal-body">
+                        <div class="loginf_module">
+                            <div class="module form-module">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <div class="form">
+                                    <h3>Subscription Box</h3>
+
+                                    <h4 style="color:lightseagreen"> Thank you for keeping in touch!</h4>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('#myModal').modal('hide');
+        function PopUp1(hideOrshow) {
+            if (hideOrshow == 'hide') {
+
+                $('#myModal1').modal('hide');
+            }
+            else document.getElementById('myModal1').removeAttribute('style');
+
+        }
+    </script>
+    <!-- JS includes -->
+    <script type="text/javascript">
+            /**/
+
+            /**/
+            if (@ViewBag.errrid=="1")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="2")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="3")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="4")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="5")
+/**/ {
+
+                $('#myModal1').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="6")
+/**/ {
+
+                $('#myModal1').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="7")
+/**/ {
+
+                $('#myModal1').modal('show');
+            }
+            /**/
+        if (@ViewBag.errrid=="12")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+        if (@ViewBag.errrid=="13")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            if (@ViewBag.errrid=="14")
+/**/ {
+
+                $('#myModal1').modal('show');
+            }
+
+            if (@ViewBag.errrid=="15")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            if (@ViewBag.errrid=="16")
+/**/ {
+
+                $('#subcribeModel').modal('show');
+            }
+    </script>
+
+    <script type="text/javascript">
+
+        function PopUperror(hideOrshow) {
+            if (hideOrshow == 'hide') {
+
+                $('#myModal').modal('hide');
+            }
+            else document.getElementById('myModal').removeAttribute('style');
+
+        }
+    </script>
+
+    <script>
+        $('.toggle').click(function () {
+            // Switches the Icon
+            $(this).children('i').toggleClass('fa-pencil');
+            // Switches the forms
+            $('.form').animate({
+                height: "toggle",
+                'padding-top': 'toggle',
+                'padding-bottom': 'toggle',
+                opacity: "toggle"
+            }, "slow");
+        });
+    </script>
+    <!-- //bootstrap-pop-up -->
+    <!--pop-up-box -->
+    <script src="~/css/newcss/js/jquery.magnific-popup.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+
+        });
+    </script>
+    <!-- //pop-up-box -->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/css/newcss/js/move-top.js"></script>
+    <script type="text/javascript" src="~/css/newcss/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+    <!-- smoothscroll -->
+    <script src="~/css/newcss/js/SmoothScroll.min.js"></script>
+    <!-- //smoothscroll -->
+
+
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</body>
+
+</html>

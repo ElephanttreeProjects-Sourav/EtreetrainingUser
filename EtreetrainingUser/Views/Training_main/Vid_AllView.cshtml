@@ -1,0 +1,55 @@
+﻿@model IEnumerable<EtreetrainingUser.Models.Tbl_Video>
+
+@{
+    ViewBag.Title = "Vid_AllView";
+}
+<br /><br /><br /><br /><br />
+<h2>Hello here is shown all the videos that you Uploaded</h2>
+
+<p>
+    @Html.ActionLink("Add New Videos", "Ved_upload")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Video_id)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Video_Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Video_Path)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Video_id)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Video_Title)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.Video_Path)*@
+            <div id="videoContainer" style="text-align:left; padding-top:0%">
+
+                <video id="vid" controls src="@Url.Content(item.Video_Path)" typeof="video/mp4" width="550" height="350">
+                    @*<source src="@Url.Content(Model.Video_Path)" type="video/mp4" width="50" height="1000">*@
+                    @*<video src="@Url.Content(Model.Video_Path)" typeof="video/mp4" width="1250" height="1250" />*@
+                    <source src="this-is-my-movie.ogv" />
+                </video>
+
+            </div>
+
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Vid_Edit", new {  id=item.Video_id }) |
+            @Html.ActionLink("Details", "Vid_Details", new { id = item.Video_id  }) |
+            @Html.ActionLink("Delete", "Vid_Delete", new { id = item.Video_id })
+        </td>
+    </tr>
+}
+
+</table>

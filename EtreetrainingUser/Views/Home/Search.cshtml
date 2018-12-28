@@ -1,0 +1,2894 @@
+﻿@model EtreetrainingUser.Models.Tbl_Cand_Main
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EOTA :: Search for courses</title>
+    <!-- Meta-tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="EOTA is the world's largest destination for online courses. Discover an online course on etreetraining.com and start learning a new skill today." />
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#sgnin").hide();
+            $("#fg").hide();
+            $("#sgnin").click(function () {
+                $("#sgnin").hide();
+                $("#sgnup").show();
+            });
+            $("#sgnup").click(function () {
+                $("#sgnup").hide();
+                $("#sgnin").show();
+            });
+            $("#fg").click(function () {
+                $("#fg").hide();
+                $("#sgnup2").show();
+            });
+            $("#sgnup2").click(function () {
+                $("#sgnup2").hide();
+                $("#fg").show();
+            });
+        });
+    </script>
+    <style>
+        .navbar-inverse {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+
+        .header_topw3layouts_bar {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+
+        .carousel-caption p {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+    </style>
+    <!--// Metga-tags -->
+    <!-- Styleshets -->
+    <link href="~/css/newcss/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// Bootstrap-css -->
+    <link href="~/css/newcss/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+    <!--// Responsive-tabs -->
+    <link href="~/css/newcss/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// Pop-up -->
+    <link href="~/css/newcss/css/banner.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// banner-css -->
+    <link rel="stylesheet" href="~/css/newcss/css/shop.css" type="text/css" media="screen" property="" />
+    <!--// shop-css -->
+    <link href="~/css/newcss/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- common-css -->
+    <link rel="stylesheet" href="~/css/newcss/css/client.css" type="text/css" media="all" />
+    <!-- // client-css -->
+    <link href="~/css/newcss/css/font-awesome.css" rel="stylesheet">
+
+    <!-- // Font-awesome-css -->
+    <!--// Styleshets -->
+    <!-- Online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Montserrat:300,500,600,700,800" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <!--// Online-fonts -->
+
+</head>
+
+<body>
+    <!-- header -->
+
+    <div class="header" id="home">
+        <!-- header-top -->
+        <div class="header_topw3layouts_bar">
+            <div class="container">
+                <div class="header_agileits_left">
+                    <ul>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> +91 080-41141398</li>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@elephanttreetech.com">info@elephanttreetech.com</a></li>
+                    </ul>
+                </div>
+                <div class="header_right">
+                    <a href="#" class="log" data-toggle="modal" data-target="#myModal">Sign In/Up</a>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <!--// header-top -->
+        <!--Popup model-->
+        <div class="modal fade" id="myModalpopup" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                        <div class="signin-form profile ">
+                            @if (@ViewBag.errrid == "1")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Login Error</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:red"> Invalid credentials, Please Check your details and try again!</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "2")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Email Exists</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Your email already exists. Please try with another email or </h4>
+                                    <br />
+                                    <h4> <a href="#" data-toggle="modal" data-target="#myModalfgps" onClick="PopUperror('hide')" style="color:blue">reset your password</a></h4>
+                                    <br /><br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "3")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Successfull Registration</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Registration Successfully done. Account activation link has been sent to your email id. Please check.</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "4")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Registration Error</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:red"> Invalid registration. Please Try again</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "14")
+                            {
+                                @*<h3 class="agileinfo_sign" style="text-align:center">Registration Error</h3>
+                                    <br />*@
+                                <div class="login-form">
+                                    <h4 style="color:red"> @ViewBag.errrmsg14</h4>
+                                    @*<br />
+                                        <h4>Thank You</h4>*@
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "5")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Password Recovery</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Please check Your Email. Password recovery link has been sent.</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "6")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Password Recovery</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Something went wrong. Please try again</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "7")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Password Recovery</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:red"> Email does not Exist. Please try again.</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "23")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center"></h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Account has been updated. Please re-login.</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "15")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center"></h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Thank You for your query! We will revert back you soon...</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+
+                            }
+                            @if (@ViewBag.errrid == "16")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center"></h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Thank You for subscription! We will get all updation of this site...</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- header-middle -->
+        <div class="header-middle">
+            <div class="container">
+                <div class="logof-w3-agile">
+                    <h1 style="padding-left: 70px;"><a href="~/Home/Index">@*<i class="fa fa-graduation-cap" aria-hidden="true"></i><span>*@EOTA@*</span>*@</a></h1>
+                </div>
+                <div class="searchf-w3-agileits-headr">
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+                    {
+                        <input type="search" name="Search" placeholder="Search for a course..." required="" maxlength="500" onkeyup="javascript:RemoveSpecialChar(this)">
+                        <button type="submit" class="btn btn-default search" aria-label="Left Align" id="btnb">
+                            <i class="fa fa-search" aria-hidden="true" id="icn"> </i>
+                        </button>
+                    }
+                </div>
+                <div class="cart-mainf">
+                    <a class="shop" href="~/Trainers/Trainrs_Login">Instructor</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+        <!--// header-middle -->
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse js-navbar-collapse">
+                <ul class="head">
+
+
+                    <li><a href="~/Home/SearchOne/A">Academic courses</a></li>
+                    <li><a href="~/Home/SearchOne/T">Technical courses</a></li>
+                    <li><a href="~/Home/SearchOne/M">Management courses</a></li>
+                </ul>
+            </div>
+            <!-- /.nav-collapse -->
+        </nav>
+
+    </div>
+    <!-- banner -->
+    <!--//banner -->
+    <!-- about -->
+    <div class="aboutf">
+        <div class="container">
+            @if (@ViewBag.longreq != null)
+            {
+                @ViewBag.searchname @ViewBag.longreq
+            }
+            else
+            {
+                <h4 class="">
+                    <br /><br />
+                    Top most results for <b>
+                        @ViewBag.searchname
+                    </b>
+                </h4>
+            }
+        </div>
+        <div class="banner_bottom_tab_grids">
+            @{
+                var chk = @ViewBag.academiccourses;
+                var chk1 = @ViewBag.technicalcourses;
+                var chk2 = @ViewBag.managementcourses;
+
+
+                int count = 1; var scrt = 0;
+                int count1 = 1; var scrt1 = 0;
+                int count2 = 1; var scrt2 = 0;
+            }
+            @if (chk.Count == 0 && chk1.Count == 0 && chk2.Count == 0)
+            {
+                {
+                    <h4 style="color:red">No match found.</h4>
+                }
+            }
+            else if (chk.Count != 0 && chk1.Count == 0 && chk2.Count == 0)
+            {
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Academic Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+
+                                @if (chk.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found.</h4>
+                                }
+                                @foreach (var crs in @ViewBag.academiccourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count++;
+                                        scrt = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+                <!-- //tab1 -->
+                <br />
+                <!-- tab2 -->
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Technical Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+                                @{ chk1 = @ViewBag.technicalcourses; }
+
+                                @if (chk1.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found.</h4>
+                                }
+                                @foreach (var crs in @ViewBag.technicalcourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count1 == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt1 != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count1++;
+                                        scrt1 = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+                <!--// tab2 -->
+                <br />
+                <!-- tab3 -->
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Management Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+                                @{ chk2 = @ViewBag.managementcourses; }
+
+                                @if (chk2.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found</h4>
+                                }
+                                @foreach (var crs in @ViewBag.managementcourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count2 == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt2 != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count2++;
+                                        scrt2 = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+            }
+            else if (chk.Count == 0 && chk1.Count != 0 && chk2.Count == 0)
+            {
+
+                <!-- tab2 -->
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Technical Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+                                @{ chk1 = @ViewBag.technicalcourses; }
+
+                                @if (chk1.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found.</h4>
+                                }
+                                @foreach (var crs in @ViewBag.technicalcourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count1 == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt1 != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count1++;
+                                        scrt1 = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+                <!--// tab2 -->
+                <br />
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Academic Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+
+                                @if (chk.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found.</h4>
+                                }
+                                @foreach (var crs in @ViewBag.academiccourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count++;
+                                        scrt = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+                <!-- //tab1 -->
+                <br />
+                <!-- tab3 -->
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Management Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+                                @{ chk2 = @ViewBag.managementcourses; }
+
+                                @if (chk2.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found</h4>
+                                }
+                                @foreach (var crs in @ViewBag.managementcourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count2 == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt2 != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count2++;
+                                        scrt2 = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+            }
+            else if (chk.Count == 0 && chk1.Count == 0 && chk2.Count != 0)
+            {
+
+                <!-- tab3 -->
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Management Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+                                @{ chk2 = @ViewBag.managementcourses; }
+
+                                @if (chk2.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found</h4>
+                                }
+                                @foreach (var crs in @ViewBag.managementcourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count2 == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt2 != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count2++;
+                                        scrt2 = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+                <!-- tab2 -->
+                <br />
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Technical Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+                                @{ chk1 = @ViewBag.technicalcourses; }
+
+                                @if (chk1.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found.</h4>
+                                }
+                                @foreach (var crs in @ViewBag.technicalcourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count1 == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt1 != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count1++;
+                                        scrt1 = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+                <!--// tab2 -->
+                <br />
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Academic Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+
+                                @if (chk.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found.</h4>
+                                }
+                                @foreach (var crs in @ViewBag.academiccourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count++;
+                                        scrt = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+                <!-- //tab1 -->
+
+            }
+            else if (chk.Count == 0 && chk1.Count != 0 && chk2.Count != 0)
+            {
+
+                <!-- tab3 -->
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Management Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+                                @{ chk2 = @ViewBag.managementcourses; }
+
+                                @if (chk2.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found</h4>
+                                }
+                                @foreach (var crs in @ViewBag.managementcourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count2 == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt2 != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count2++;
+                                        scrt2 = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+                <!-- tab2 -->
+                <br />
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Technical Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+                                @{ chk1 = @ViewBag.technicalcourses; }
+
+                                @if (chk1.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found.</h4>
+                                }
+                                @foreach (var crs in @ViewBag.technicalcourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count1 == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt1 != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count1++;
+                                        scrt1 = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+                <!--// tab2 -->
+                <br />
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Academic Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+
+                                @if (chk.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found.</h4>
+                                }
+                                @foreach (var crs in @ViewBag.academiccourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count++;
+                                        scrt = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+                <!-- //tab1 -->
+
+            }
+            else if (chk.Count != 0 && chk1.Count == 0 && chk2.Count != 0)
+            {
+
+                <!-- tab3 -->
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Management Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+                                @{ chk2 = @ViewBag.managementcourses; }
+
+                                @if (chk2.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found</h4>
+                                }
+                                @foreach (var crs in @ViewBag.managementcourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count2 == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt2 != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count2++;
+                                        scrt2 = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+                <!-- tab2 -->
+                <br />
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Academic Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+
+                                @if (chk.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found.</h4>
+                                }
+                                @foreach (var crs in @ViewBag.academiccourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count++;
+                                        scrt = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+                <!-- //tab1 -->
+                <br />
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Technical Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+                                @{ chk1 = @ViewBag.technicalcourses; }
+
+                                @if (chk1.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found.</h4>
+                                }
+                                @foreach (var crs in @ViewBag.technicalcourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count1 == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt1 != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count1++;
+                                        scrt1 = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+                <!--// tab2 -->
+
+
+            }
+            else
+            {
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Academic Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+
+                                @if (chk.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found.</h4>
+                                }
+                                @foreach (var crs in @ViewBag.academiccourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count++;
+                                        scrt = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+                <!-- //tab1 -->
+                <br />
+                <!-- tab2 -->
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Technical Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+                                @{ chk1 = @ViewBag.technicalcourses; }
+
+                                @if (chk1.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found.</h4>
+                                }
+                                @foreach (var crs in @ViewBag.technicalcourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count1 == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt1 != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count1++;
+                                        scrt1 = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+                <!--// tab2 -->
+                <br />
+                <!-- tab3 -->
+                <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+
+                        <li class="resp-tab-item " style=" float:none;">Management Courses</li>
+
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <!-- tab1 -->
+                        <div class="resp-tab-content" style="display:block">
+                            <!-- tabs-info -->
+                            <div class="main-topicsf">
+                                @{ chk2 = @ViewBag.managementcourses; }
+
+                                @if (chk2.Count == 0)
+                                {
+                                    <h4 style="color:red">No match found</h4>
+                                }
+                                @foreach (var crs in @ViewBag.managementcourses)
+                                {
+                                    if (crs != null)
+                                    {
+
+                                        if (count2 == 1)
+                                        {
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt2 != @crs.Secret_Code)
+                                            {
+
+
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                        count2++;
+                                        scrt2 = @crs.Secret_Code;
+                                    }
+
+                                }
+
+
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <!-- //tabs-info -->
+                            <!-- tabs-info -->
+                            <!-- //tabs-info -->
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- //about-->
+    <!-- footer -->
+    <div class="footer_agileinfo_topf">
+        <div class="container">
+            <div class="container">
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <h2><a href="~/Home/Index">EOTA</a></h2>
+                    <p class="paragraphf">Providing best coaching at affordable prices.</p>
+                </div>
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <nav>
+                        <ul class="footer_w3layouts_gridf_list">
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#About" target="_blank">About Us</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#service" target="_blank">Services</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#products" target="_blank">Products</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <nav>
+                        <ul class="footer_w3layouts_gridf_list">
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#jobs" target="_blank">Careers</a>
+                            </li>
+
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#technology" target="_blank">Technology</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#contact" target="_blank">Contact</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+
+                </div>
+                <div class="clearfix"> </div>
+                <div class="w3ls-fsocial-grid" style="float:left">
+                    <h3 class="sub-w3ls-headf">Follow Us</h3>
+                    <div class="social-ficons">
+                        <ul>
+                            <li><a href="https://www.facebook.com/12Elephanttrees/" target="_blank"><span class="fa fa-facebook"></span> Facebook</a></li>
+                            <li><a href="https://twitter.com/12Elephanttrees" target="_blank"><span class="fa fa-twitter"></span> Twitter</a></li>
+                            <li><a href="https://www.linkedin.com/in/elephanttree-technologies-private-limited-174699145/" target="_blank"><span class="fa fa-linkedin-square"></span>Linkdin</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w3ls-fsocial-grid" style="float:right">
+
+                    <p style="float:right"><span class="fa fa-mail-forward" aria-hidden="true"></span>Recieve our latest news straight to your inbox.</p>
+                    <br /> <br />
+                    <div style="float:right">
+                        <form action="~/Home/Subscribe" method="post">
+                            <input type="email" name="Email" placeholder="Email address..." required="">
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+
+                </div>
+                <br />
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-wthree-copyf">
+        <div class="container">
+
+            <p>© 2018 EOTA MERIT TRAINING. All rights reserved | Design and Developed by <a href="http://www.elephanttreetech.com/" target="_blank"> ELEPHANTTREE TECH PVT.LTD.</a></p>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //footer -->
+    <!-- js -->
+    <!-- Common js -->
+    <script type="text/javascript" src="~/css/newcss/js/jquery-2.1.4.min.js"></script>
+    <!--// Common js -->
+    <!-- cart-js -->
+    <script src="~/css/newcss/js/minicart.js"></script>
+    <script>
+        edu.render();
+
+        edu.cart.on('edu_checkout', function (evt) {
+            var items, len, i;
+
+            if (this.subtotal() > 0) {
+                items = this.items();
+
+                for (i = 0, len = items.length; i < len; i++) { }
+            }
+        });
+    </script>
+    <!-- //cart-js -->
+    <!-- reviews -->
+    <script>
+        function blinker() {
+            $('.blinking').fadeOut(500);
+            $('.blinking').fadeIn(500);
+        }
+        setInterval(blinker, 1000);
+    </script>
+    <script>
+        function cycle($item, $cycler) {
+            setTimeout(cycle, 2000, $item.next(), $cycler);
+
+            $item.slideUp(1000, function () {
+                $item.appendTo($cycler).show();
+            });
+        }
+        cycle($('#cycler div:first'), $('#cycler'));
+    </script>
+    <!--// reviews -->
+    <!-- responsive-tabs -->
+    <script src="~/css/newcss/js/easy-responsive-tabs.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#verticalTab').easyResponsiveTabs({
+                type: 'vertical',
+                width: 'auto',
+                fit: true
+            });
+        });
+    </script>
+    <!-- //responsive-tabs -->
+    <!-- Carousel Auto-Cycle -->
+    <script>
+        $(document).ready(function () {
+            $('.carousel').carousel({
+                interval: 6000
+            })
+        });
+    </script>
+    <!-- // Carousel Auto-Cycle -->
+    <!-- Nav Js -->
+    <script type="text/javascript" src="~/css/newcss/js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!--// Nav Js -->
+    <!-- bootstrap-pop-up -->
+    <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Sign In/Up
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <section>
+
+                    <div class="modal-body">
+                        <div class="loginf_module">
+                            <div class="module form-module">
+                                <div class="toggle">
+                                    <i class="fa fa-times fa-pencil"></i>
+                                    <div class="tooltip" id="sgnin">Sign in </div>
+                                    <div class="tooltip" id="sgnup">Sign Up </div>
+                                </div>
+                                <div class="form">
+                                    <h3>Login to your account</h3>
+                                    <form action="~/Student/Cand_Login" method="post">
+                                        @Html.AntiForgeryToken()
+
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { @class = "form-control", placeholder = "Email", required = "required", style = "text - align: left;", maxlength = "254", minlength = "4" } })
+                                        @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+
+                                        @Html.EditorFor(model => model.Cand_Pass, new { htmlAttributes = new { @class = "form-control", placeholder = "Password", required = "required", maxlength = "16", minlength = "6" } })
+                                        @Html.ValidationMessageFor(model => model.Cand_Pass, "", new { @class = "text-danger" })
+
+                                        <input type="submit" value="Login" style="background-color:lightseagreen">
+                                    </form>
+
+                                    <div class="cta">
+                                        <a href="#" class="log" data-toggle="modal" onClick="PopUp('hide')" data-target="#myModal1">Forgot password?</a>
+                                    </div>
+
+                                </div>
+                                <div class="form">
+                                    <h3>Sign Up</h3>
+                                    @using (Html.BeginForm("Cand_reg", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        @Html.EditorFor(model => model.CandName, new { htmlAttributes = new { @class = "form-control", required = "required", placeholder = "Name" } })
+                                        @Html.ValidationMessageFor(model => model.CandName, "", new { @class = "text-danger" })
+
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { @class = "form-control", @type = "email", placeholder = "Email", required = "required", maxlength = "254", minlength = "4" } })
+                                        @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+                                        @Html.ValidationMessage("EmailExist", new { @class = "text-danger" })
+
+                                        @Html.EditorFor(model => model.Cand_MNum, new
+                                        {
+                                            htmlAttributes = new
+                                            {
+                                                @class = "form-control"@*, @type = "number"*@,
+onkeypress = "return isNumberKey(event)",
+maxlength = "10",
+minlength = "10",
+placeholder = "Phone Number"
+}
+})
+                                        @Html.ValidationMessageFor(model => model.Cand_MNum, "", new { @class = "text-danger" })
+                                        <script type="text/javascript">
+                                            function isNumberKey(evt) {
+                                                var charCode = (evt.which) ? evt.which : event.keyCode;
+                                                if (charCode > 31
+                                                    && (charCode < 48 || charCode > 57))
+                                                    return false;
+
+                                                return true;
+                                            }
+                                        </script>
+
+                                        @Html.EditorFor(model => model.Cand_Pass, new { htmlAttributes = new { @class = "form-control", placeholder = "Password", required = "required", maxlength = "16", minlength = "6" } })
+                                        @Html.ValidationMessageFor(model => model.Cand_Pass, "", new { @class = "text-danger" })
+
+                                        @Html.EditorFor(model => model.Cand_RePass, new
+                                        {
+                                            htmlAttributes = new
+                                            {
+                                                @class = "form-control",
+                                                required = "required",
+                                                maxlength = "16",
+                                                minlength = "6",
+                                                placeholder = "Confirm Password"
+                                            }
+                                        })
+                                        @Html.ValidationMessageFor(model => model.Cand_RePass, "", new { @class = "text-danger" })
+
+                                        <input type="submit" value="Register" style="background-color:lightseagreen">
+                                    }
+                                    <br />
+                                    <h6><a href="~/Home/termscond" target="_blank"> By clicking Register, you agree to our Terms and that you have read our Policy</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @if (@ViewBag.errrid == "1")
+                    {
+                        <h4 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Login Error</h4>
+                        <br />
+
+                        <h5 style="color:red;text-align:center"> Invalid credentials, Please Check your details and try again!</h5>
+                        <br />
+
+
+                    }
+                    @if (@ViewBag.errrid == "2")
+                    {
+                        <h4 class="agileinfo_sign" style="color:black;text-align:center">Email Exists</h4>
+                        <br />
+
+                        <h5 style="color:darkcyan;text-align:center"> Your email already exists. Please try with another email. </h5>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "3")
+                    {
+                        <h4 class="agileinfo_sign" style="color:black;text-align:center">Successfull Registration</h4>
+                        <br />
+
+                        <h5 style="color:darkcyan;text-align:center"> Registration Successfully done. Account activation link has been sent to your email id. Please check.</h5>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "4")
+                    {
+                        <h4 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Registration Error</h4>
+                        <br />
+
+                        <h5 style="color:red;text-align:center"> Invalid registration. Please Try again</h5>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "12")
+                    {
+                        <h4 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Login Error</h4>
+                        <br />
+
+                        <h5 style="color:red;text-align:center"> @ViewBag.errrmsg14</h5>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "13")
+                    {
+                        <h4 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Registration Error</h4>
+                        <br />
+
+                        <h5 style="color:red;text-align:center"> @ViewBag.errrmsg14</h5>
+                        <br />
+
+                    }
+
+                </section>
+            </div>
+        </div>
+    </div>
+    <script>
+        function PopUp(hideOrshow) {
+            if (hideOrshow == 'hide') $('#myModal').modal('hide');
+
+        }
+        function PopUp1(hideOrshow) {
+            if (hideOrshow == 'hide') $('#myModal1').modal('hide');
+
+        }
+    </script>
+    <div class="modal video-modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Sign In/Up
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <section>
+
+                    <div class="modal-body">
+                        <div class="loginf_module">
+                            <div class="module form-module">
+                                <div class="toggle">
+                                    <i class="fa fa-times fa-pencil"></i>
+                                    <div class="tooltip" id="fg">Back </div>
+                                    <div class="tooltip" id="sgnup2">Sign Up </div>
+                                </div>
+                                <div class="form">
+                                    <h3>Forgot Password Recovery</h3>
+                                    <form action="~/Student/Cand_Forgotpass" method="post">
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { @class = "form-control", style = "color: darkblue;", placeholder = "User email", @type = "email", required = "required", maxlength = "254", minlength = "4" } })
+                                        @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+                                        <input type="submit" value="Submit" class="btn btn-default" style="background-color:lightseagreen" />
+                                    </form>
+
+                                    <div class="cta">
+                                        <a href="#" class="log" data-toggle="modal" onClick="PopUp1('hide')" data-target="#myModal">Login</a>
+                                    </div>
+
+                                </div>
+                                <div class="form">
+                                    <h3>Sign Up</h3>
+                                    @using (Html.BeginForm("Cand_reg", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        @Html.EditorFor(model => model.CandName, new { htmlAttributes = new { @class = "form-control", required = "required", placeholder = "Name" } })
+                                        @Html.ValidationMessageFor(model => model.CandName, "", new { @class = "text-danger" })
+
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { @class = "form-control", @type = "email", placeholder = "Email", required = "required", maxlength = "254", minlength = "4" } })
+                                        @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+                                        @Html.ValidationMessage("EmailExist", new { @class = "text-danger" })
+
+                                        @Html.EditorFor(model => model.Cand_MNum, new
+                                        {
+                                            htmlAttributes = new
+                                            {
+                                                @class = "form-control"@*, @type = "number"*@,
+onkeypress = "return isNumberKey(event)",
+maxlength = "10",
+minlength = "10",
+placeholder = "Phone Number"
+}
+})
+                                        @Html.ValidationMessageFor(model => model.Cand_MNum, "", new { @class = "text-danger" })
+                                        <script type="text/javascript">
+                                            function isNumberKey(evt) {
+                                                var charCode = (evt.which) ? evt.which : event.keyCode;
+                                                if (charCode > 31
+                                                    && (charCode < 48 || charCode > 57))
+                                                    return false;
+
+                                                return true;
+                                            }
+                                        </script>
+
+                                        @Html.EditorFor(model => model.Cand_Pass, new { htmlAttributes = new { @class = "form-control", placeholder = "Password", required = "required", maxlength = "16", minlength = "6" } })
+                                        @Html.ValidationMessageFor(model => model.Cand_Pass, "", new { @class = "text-danger" })
+
+                                        @Html.EditorFor(model => model.Cand_RePass, new
+                                        {
+                                            htmlAttributes = new
+                                            {
+                                                @class = "form-control",
+                                                required = "required",
+                                                maxlength = "16",
+                                                minlength = "6",
+                                                placeholder = "Confirm Password"
+                                            }
+                                        })
+                                        @Html.ValidationMessageFor(model => model.Cand_RePass, "", new { @class = "text-danger" })
+
+                                        <input type="submit" value="Register" style="background-color:lightseagreen">
+                                    }
+                                    <br />
+                                    <h6><a href="~/Home/termscond" target="_blank"> By clicking Register, you agree to our Terms and that you have read our Policy</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @if (@ViewBag.errrid == "2")
+                    {
+                        <h3 class="agileinfo_sign" style="color:black;text-align:center">Email Exists</h3>
+                        <br />
+
+                        <h4 style="color:darkcyan;text-align:center"> Your email already exists. Please try with another email. </h4>
+                        <br />
+
+
+                    }
+                    @if (@ViewBag.errrid == "14")
+                    {
+                        <h3 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Recovery Error</h3>
+                        <br />
+
+                        <h4 style="color:red;text-align:center"> @ViewBag.errrmsg14</h4>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "5")
+                    {
+                        <h3 class="agileinfo_sign" style="color:black;text-align:center">Password Recovery</h3>
+                        <br />
+
+                        <h4 style="color:darkcyan;text-align:center"> Please check Your Email. Password recovery link has been sent.</h4>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "6")
+                    {
+                        <h3 class="agileinfo_sign" style="color:lightseagreen;text-align:center"> Recovery Error</h3>
+                        <br />
+
+                        <h4 style="color:red;text-align:center"> Something went wrong. Please try again</h4>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "7")
+                    {
+                        <h3 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Password Recovery</h3>
+                        <br />
+
+                        <h4 style="color:red;text-align:center"> Email does not Exist. Please try again.</h4>
+                        <br />
+
+                    }
+                </section>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="modal video-modal fade" id="subcribeModel" tabindex="-1" role="dialog" aria-labelledby="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <section>
+                    <div class="modal-body">
+                        <div class="loginf_module">
+                            <div class="module form-module">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <div class="form">
+                                    <h3>Subscription Box</h3>
+
+                                    <h4 style="color:lightseagreen"> Thank you for keeping in touch!</h4>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('#myModal').modal('hide');
+        function PopUp1(hideOrshow) {
+            if (hideOrshow == 'hide') {
+
+                $('#myModal1').modal('hide');
+            }
+            else document.getElementById('myModal1').removeAttribute('style');
+
+        }
+    </script>
+    <!-- JS includes -->
+    <script type="text/javascript">
+            /**/
+
+            /**/
+            if (@ViewBag.errrid=="1")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="2")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="3")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="4")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="5")
+/**/ {
+
+                $('#myModal1').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="6")
+/**/ {
+
+                $('#myModal1').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="7")
+/**/ {
+
+                $('#myModal1').modal('show');
+            }
+            /**/
+        if (@ViewBag.errrid=="12")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+        if (@ViewBag.errrid=="13")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            if (@ViewBag.errrid=="14")
+/**/ {
+
+                $('#myModal1').modal('show');
+            }
+
+            if (@ViewBag.errrid=="15")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            if (@ViewBag.errrid=="16")
+/**/ {
+
+                $('#subcribeModel').modal('show');
+            }
+    </script>
+
+    <script type="text/javascript">
+
+        function PopUperror(hideOrshow) {
+            if (hideOrshow == 'hide') {
+
+                $('#myModal').modal('hide');
+            }
+            else document.getElementById('myModal').removeAttribute('style');
+
+        }
+    </script>
+
+
+    <script>
+        $('.toggle').click(function () {
+            // Switches the Icon
+            $(this).children('i').toggleClass('fa-pencil');
+            // Switches the forms
+            $('.form').animate({
+                height: "toggle",
+                'padding-top': 'toggle',
+                'padding-bottom': 'toggle',
+                opacity: "toggle"
+            }, "slow");
+        });
+    </script>
+    <!-- //bootstrap-pop-up -->
+    <!--pop-up-box -->
+    <script src="~/css/newcss/js/jquery.magnific-popup.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+
+        });
+    </script>
+    <!-- //pop-up-box -->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/css/newcss/js/move-top.js"></script>
+    <script type="text/javascript" src="~/css/newcss/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+    <!-- smoothscroll -->
+    <script src="~/css/newcss/js/SmoothScroll.min.js"></script>
+    <!-- //smoothscroll -->
+
+
+
+</body>
+
+</html>

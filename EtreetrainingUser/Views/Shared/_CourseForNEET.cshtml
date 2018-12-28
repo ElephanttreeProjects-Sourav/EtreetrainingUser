@@ -1,0 +1,86 @@
+﻿@model IEnumerable<EtreetrainingUser.Models.Post_Cours>
+@{
+    Layout = null;
+}
+@if (Model.Count() != 0)
+{ 
+using (Html.BeginForm("Edit", "Home", FormMethod.Post, new { enctype = "multipart/form-data", role = "form" }))
+{
+
+    @*@Html.AntiForgeryToken()*@
+
+
+    <label style="text-align:center;color:white;padding:10px 0px 0px 0px">Videos for NEET </label>
+    <button type="button" class="close" onclick="closeryv1function1()" aria-label="Close" style="padding:5px 5px 5px 5px">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+    <div style="padding: 5px 15px 5px 30px;">
+        @*<button id="submitforvideo" type="button" style="width:80px;margin-top:20px ; float:right;padding:5px 5px 5px 5px" class="btn btn-success"><i class="fas fa-save"></i></button>*@
+        <label style="float:left;color:white;padding:10px 10px 10px 10px">Price </label>
+        @*@Html.EditorFor(model => model.New_Price, new { htmlAttributes = new { @type = "text", @style = "float:left; width:100px;margin-left:20px; padding:10px 10px 10px 5px", @placeholder = "Price" } })*@
+
+        <input type="text" name="New_Price" style="float:left; width:100px;margin-left:20px; padding:10px 10px 10px 5px" placeholder="Price" value="@Model.FirstOrDefault().New_Price" />
+       
+        @{
+            var count = 1;
+        }
+        @foreach (var item in Model)
+        {
+            if (count == 1)
+            {
+
+                @Html.HiddenFor(model => item.Id)
+                <input type="hidden" name="Id" value="@item.Id" />
+            }
+            count++;
+        }
+    </div>
+            foreach (var item in Model)
+            {
+        @Html.HiddenFor(model => item.Id)
+    <div style="padding:15px 15px 15px 15px" id="mainrowforvideos" class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <label style="float:left;color:white;padding:10px 10px 10px 10px">Chapter </label>
+            @Html.EditorFor(model => item.Chapter_number, new { htmlAttributes = new { @type = "text", @style = "float:left; width:50px;padding:10px 10px 10px 5px", @placeholder = "No." } })
+            @Html.EditorFor(model => item.Title, new { htmlAttributes = new { @type = "text", @style = "float:left;padding:10px 10px 10px 10px", @placeholder = "Title" } })
+            @*<input type="text" name="Chapter_number" style="float:left; width:50px;padding:10px 10px 10px 5px" placeholder="No." />*@
+            @*<input type="text" name="Title" style="float:left;padding:10px 10px 10px 10px" placeholder="Title" />*@
+            <label style="float:left;color:white;padding:10px 10px 10px 10px">Course video </label>
+            <input type="file" name="VidFile" required="required" style="float:left;padding:10px 10px 10px 10px" />
+            @if (item.Video_Url == null || item.Video_Url == "")
+            {
+                <input type="checkbox"  />
+            }
+            else
+            {
+                <input type="checkbox" checked  />
+            }
+
+        </div>
+        <div style="float:left" class="col-lg-12 col-md-12 col-sm-12">
+            <label style="float:left; text-align:left; color:white;padding:10px 10px 10px 10px;margin-left:325px">Demo video </label>
+            <input type="file" name="DemoFile" required="required" style="float:left;padding:10px 10px 10px 10px;margin-left:5px" />
+            @if (item.Demo_video_Path == null || item.Demo_video_Path == "")
+            {
+                <input type="checkbox" readonly />
+            }
+            else
+            {
+                <input type="checkbox" checked readonly />
+            }
+        </div>
+        
+    </div>
+            }
+    <input   class="btn btn-success" type="submit" style="background-color:yellow; margin-top:20px ; float:right;padding:5px 5px 5px 5px; color:black; width:10%;" value="Update">
+            }
+            }
+<script>
+
+    $(document).ready(function()
+    {
+        document.getElementById('pyc3').style.display = 'none'; document.getElementById('pyc4').style.display = 'none'; document.getElementById('ryv1').style.display = 'none'; document.getElementById('ryv28').style.display = 'block';
+    })
+</script>
+            

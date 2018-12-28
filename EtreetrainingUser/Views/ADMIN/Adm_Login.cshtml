@@ -1,0 +1,588 @@
+﻿   @model EtreetrainingUser.Models.Tbl_ADMN
+
+        @{
+            ViewBag.Title = "EOTA: Admin login";
+
+        }
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Snipe Learning  | Admin page :: Snipe IT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="EOTA Admin Panel" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/admnfont/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="~/admnfont/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- font CSS -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- font-awesome icons -->
+    <link href="~/admnfont/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!-- chart -->
+    <script src="~/admnfont/js/Chart.js"></script>
+    <!-- //chart -->
+    <!-- js-->
+    <script src="~/admnfont/js/jquery-1.11.1.min.js"></script>
+    <script src="~/admnfont/js/modernizr.custom.js"></script>
+    <!--webfonts-->
+    <link href='//admnfont/fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <!--//webfonts-->
+    <!--animate-->
+    <link href="~/admnfont/css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script src="~/admnfont/js/wow.min.js"></script>
+    <script>
+		 new WOW().init();
+    </script>
+    <!--//end-animate-->
+    <!-- Metis Menu -->
+    <script src="~/admnfont/js/metisMenu.min.js"></script>
+    <script src="~/admnfont/js/custom.js"></script>
+    <link href="~/admnfont/css/custom.css" rel="stylesheet">
+
+    <!--//Metis Menu -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#sgnin").hide();
+            $("#fg").hide();
+            $("#sgnin").click(function () {
+                $("#sgnin").hide();
+                $("#sgnup").show();
+            });
+            $("#sgnup").click(function () {
+                $("#sgnup").hide();
+                $("#sgnin").show();
+            });
+            $("#fg").click(function () {
+                $("#fg").hide();
+                $("#sgnup2").show();
+            });
+            $("#sgnup2").click(function () {
+                $("#sgnup2").hide();
+                $("#fg").show();
+            });
+        });
+    </script>
+    <style>
+        .navbar-inverse {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+
+        .header_topw3layouts_bar {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+
+        .carousel-caption p {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+    </style>
+    <!--// Metga-tags -->
+    <!-- Styleshets -->
+    <!--// Bootstrap-css -->
+    <link href="~/css/newcss/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+    <!--// Responsive-tabs -->
+    <link href="~/css/newcss/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// Pop-up -->
+    <link href="~/css/newcss/css/banner.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// banner-css -->
+    <link rel="stylesheet" href="~/css/newcss/css/shop.css" type="text/css" media="screen" property="" />
+    <!--// shop-css -->
+    <link href="~/css/newcss/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- common-css -->
+    <link rel="stylesheet" href="~/css/newcss/css/client.css" type="text/css" media="all" />
+    <!-- // client-css -->
+    <link href="~/css/newcss/css/font-awesome.css" rel="stylesheet">
+    <link href="~/css/newcss/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- // Font-awesome-css -->
+    <!--// Styleshets -->
+    <!-- Online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Montserrat:300,500,600,700,800" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <!--// Online-fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Snipe/css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <link href="~/Snipe/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/Snipe/css/screenshot_view.css" rel='stylesheet' type='text/css' />
+</head>
+<body class="cbp-spmenu-push">
+    <div class="main-content">
+
+        <!--left-fixed -navigation-->
+        <!-- header-starts -->
+        <div class="header" id="home" style="height: 20px">
+
+            <div class="header-middle" style="background:#131313">
+                <div class="container">
+                    <div class="logof-w3-agile">
+                        <h4>
+                            <a href="~/" class="text-white"><span style="margin-right:0px;color: #ff1949;">S</span><span style="color:white">nipe</span> <span style="margin-right:0px;color: #ff1949;">L</span><span style="color:white">earning [SNL]</span></a>
+                        </h4>
+                    </div>
+                    <div class="searchf-w3-agileits-headr" style="background-color: transparent;
+    border-color: transparent;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    font-size: 13px;display: table-cell;width: 40%;">
+                        @*@using (Html.BeginForm("Search", "Home", FormMethod.Get,new { accept - charset = "ISO-8859-1" }))
+                        {*@
+                        <form action="~/Home/Search" method="get" accept-charset="ISO-8859-1">
+
+                            <input type="search" name="Search" style="background-color:#f2f3f5;" placeholder="Search for a course..." required="" maxlength="500" onkeyup="javascript:RemoveSpecialChar(this)">
+
+                            <button aria-label="Search" type="submit" class="btn btn-link search" id="btnb" style="border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    color: #ec5252;width: 44px;
+    height: 40px;padding: 11px 12px;
+    font-size: 15px;border-color: transparent;background-color:#f2f3f5;">
+                                <i class="fa fa-search" aria-hidden="true" id="icn" style="color: #ff1949;"> </i>
+                            </button>
+
+                            @*<button type="submit" class="btn btn-default search" aria-label="Left Align" id="btnb">
+                                <i class="fa fa-search" aria-hidden="true" id="icn"> </i>
+                            </button>*@
+                        </form>
+                        @*}*@
+                    </div>
+
+                    <div class="dropdown" style="float:left; padding:0px 0px 0px 70px;padding-left: 13em;">
+                        <span class="fa fa-arrows-alt flash animated infinite" style="color:#ff1949"></span><a href="#" class="text-white">&nbsp; Admin</a>
+                        <div class="dropdown-content" style="width:30%;right:-80px;min-width: 350px;text-align:center">
+                            <div style="padding:15px 15px 15px 15px">
+                                Turn what you know into an opportunity and reach millions around the world.
+                                <br />
+                                <a href="~/ADMIN/ADM_Login" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: #007791;">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+
+                        .dropdown {
+                            position: relative;
+                            display: inline-block;
+                        }
+
+                        .dropdown-content {
+                            display: none;
+                            position: absolute;
+                            background-color: #f1f1f1;
+                            min-width: 90px;
+                            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                            z-index: 1;
+                        }
+
+                            .dropdown-content a {
+                                color: black;
+                                padding: 12px 16px;
+                                text-decoration: none;
+                                display: block;
+                            }
+
+                                .dropdown-content a:hover {
+                                    background-color: #ddd;
+                                }
+
+                        .dropdown:hover .dropdown-content {
+                            display: block;
+                        }
+
+                        .dropdown:hover .dropbtn {
+                            background-color: #3e8e41;
+                        }
+                    </style>
+                    @*<div class="logof-w3-agile" >
+                        <h4>
+
+
+                            <a href="~/" class="text-white"><span style="margin-right:0px">A</span>admin</a>
+
+                        </h4>
+                    </div>*@
+
+                    @*<div style="float:right">
+                        <a href="#" class="log" data-toggle="modal" data-target="#myModal">Login</a>
+                    </div>*@
+                    @*<div class="clearfix"></div>*@
+                </div>
+
+            </div>
+            <!--// header-middle -->
+            <nav @*class="navbar navbar-inverse"*@ style="background:#131313">
+                @*<div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>*@
+
+                <div class="collapse navbar-collapse js-navbar-collapse">
+                    <ul class="head">
+
+                        <li style="margin-top:0px;" class="dropdown">
+
+
+                            <div>
+                                <h4> <a href="#" class="text-white">&nbsp; NEET </a></h4>
+                                <div class="dropdown-content" style="width:30%;min-width: 350px;margin-top:17px;float:left;text-align:center">
+                                    <div style="padding:15px 15px 15px 15px; color:black">
+                                        The National Eligibility cum Entrance Test or NEET is an entrance examination in India, for students who wish to study graduate and postgraduate medical
+                                        course and dental course in government or private medical colleges and dental colleges respectively in India.
+                                        <br />
+                                        <a href="~/Home/singlecrs/@ViewBag.resultforGetNEETCourses" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: #007791;">Prepare your schedule</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+                        <li style="margin-top:0px;" class="dropdown">
+                            <div>
+                                <h4> <a href="#" class="text-white">&nbsp; KCET</a></h4>
+                                <div class="dropdown-content" style="width:30%;min-width: 350px;margin-top:17px;text-align:center">
+                                    <div style="padding:15px 15px 15px 15px; color:black">
+                                        Karnataka Common Entrance Test (KCET) is a state level exam that offers admission
+                                        in various government and private colleges in the state of Karnataka.
+                                        <br />
+                                        <a href="#" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: #007791;">We will meet very soon</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+                        <li style="margin-top:0px;" class="dropdown">
+                            <div>
+                                <h4> <a href="#" class="text-white">&nbsp; JEE</a></h4>
+                                <div class="dropdown-content" style="width:30%;min-width: 350px;margin-top:17px;text-align:center">
+                                    <div style="padding:15px 15px 15px 15px; color:black">
+                                        Joint Entrance Examination is an engineering entrance examination conducted for admission to various
+                                        engineering colleges in India. It is constituted by two different examinations - JEE Main and the JEE Advanced.
+                                        <br />
+                                        <a href="#" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: #007791;">We will meet very soon</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+                        @*<li><a href="~/Home/SearchOne/A">Academic courses</a></li>
+                        <li><a href="~/Home/SearchOne/T">Technical courses</a></li>
+                        <li><a href="~/Home/SearchOne/M">Management courses</a></li>*@
+                    </ul>
+                </div>
+                <!-- /.nav-collapse -->
+            </nav>
+
+        </div>
+        <!-- //header-ends -->
+        <!-- main content start-->
+        <div id="page-wrapper">
+            <div class="main-page">
+                <!--grids-->
+                <div class="grids">
+                    <div class="progressbar-heading grids-heading">
+                        <h2>Welcome to Admin login</h2>
+
+                        <h3 style="color:forestgreen">@ViewBag.successmessage</h3>
+                    </div>
+                    <div class="panel panel-widget">
+                        <div class="block-page">
+                            <p>
+
+                            <p>
+                                &nbsp;&nbsp; @Html.ActionLink("New in Elephanttree? Register first ", "Adm_reg", "ADMIN")
+                            </p>
+
+                            @using (Html.BeginForm("Adm_Login", "ADMIN", FormMethod.Post, new { onsubmit = "return validateForm2(event)" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+
+                                    <hr />
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                                    <div class="form-group">
+                                        @*@Html.LabelFor(model => model.Admin_EmailId, htmlAttributes: new { @class = "col-md-2", style = "text-align: left;" })*@
+                                        <label class="col-md-2 col-xs-4" style="text-align: left;">Email ID <span style="color:red">*</span> </label>
+                                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.Admin_EmailId, new { htmlAttributes = new { @class = "form-control", id = "emailid2", onmouseout = "mailcheck(this)" } })
+                                            @Html.ValidationMessageFor(model => model.Admin_EmailId, "", new { @class = "text-danger" })
+                                            <h4 id="emailerror2" class="text-danger text-left"></h4>
+                                            <script language="Javascript">
+                                                function validateForm2(event) {
+                                                    var pattern2 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                                                    document.getElementById("emailerror2").innerHTML = "";
+                                                    var userName2 = document.getElementById("emailid2").value;
+                                                    if (userName2 == null || userName2 == "") {
+                                                        document.getElementById("emailerror2").innerHTML = "";
+                                                        return true;
+                                                    } else {
+                                                        if (userName2.match(pattern2)) {
+                                                            document.getElementById("emailerror2").innerHTML = "";
+                                                            return true;
+                                                        } else {
+
+                                                            document.getElementById("emailerror2").innerHTML = "Email is not valid";
+
+                                                            return false;
+                                                        }
+
+                                                    }
+
+                                                }
+
+                                            </script>
+                                            <script language="Javascript">
+                                                function mailcheck(event) {
+                                                    var pattern2 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                                                    document.getElementById("emailerror2").innerHTML = "";
+                                                    var userName2 = document.getElementById("emailid2").value;
+                                                    if (userName2 == null || userName2 == "") {
+                                                        document.getElementById("emailerror2").innerHTML = "";
+                                                        return true;
+                                                    } else {
+                                                        if (userName2.match(pattern2)) {
+                                                            document.getElementById("emailerror2").innerHTML = "";
+                                                            return true;
+                                                        } else {
+
+                                                            document.getElementById("emailerror2").innerHTML = "Email is not valid";
+
+                                                            return false;
+                                                        }
+
+                                                    }
+
+                                                }
+
+                                            </script>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @*@Html.LabelFor(model => model.Admin_Pass, htmlAttributes: new { @class = "control-label col-md-2" , style = "text-align: left;" })*@
+                                        <label class="col-md-2 col-xs-5" style="text-align: left;">Password <span style="color:red">*</span> </label>
+                                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.Admin_Pass, new { htmlAttributes = new { @class = "form-control", id = "pss" } })
+                                            @Html.ValidationMessageFor(model => model.Admin_Pass, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Login" class="btn btn-default" />
+                                            &nbsp; &nbsp;
+                                            <input type="button" id="clearButton" value="Clear" class="btn btn-default" />
+
+                                        </div>
+
+                                    </div>
+                                    @if (@ViewBag.Duplicatemessage != null)
+                                    {
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-20">
+                                                <label class="label-danger">@ViewBag.Duplicatemessage</label>
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                            }
+                            <p class="col-md-offset-2 col-md-20">
+                                <a href="#" onclick="PopUp()"> Forgot password?</a>
+                                &nbsp;&nbsp;&nbsp;
+                                @*<form action="~/ADMIN/Forgotpass" method="post">*@
+                                @using (Html.BeginForm("Forgotpass", "ADMIN", FormMethod.Post, new { @class = "col-md-offset-2 col-md-20" }))
+                                {
+                                    <input type="email" id="myModalfgps1" name="myModalfgps1" placeholder="Email" required />
+
+                                    <input type="submit" id="myModalfgps2" value="Submit" />
+                                }
+                                @*</form>*@
+                                <h4 style="color:forestgreen">@ViewBag.successmessage1</h4>
+                                <h4 style="color:red">@ViewBag.error</h4>
+                            </p>
+
+                            <script type="text/javascript">
+                                document.getElementById('myModalfgps1').style.visibility = "hidden";
+                                document.getElementById('myModalfgps2').style.visibility = "hidden";
+                                function PopUp() {
+                                    document.getElementById('myModalfgps1').style.visibility = "visible";
+                                    document.getElementById('myModalfgps2').style.visibility = "visible";
+                                }
+                            </script>
+                            <script>
+
+                                $("#clearButton").click(function () {
+                                    $("#id1").val("");
+                                    $("#eid").val("");
+                                    $("#pss").val("");
+                                });
+                            </script>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!--//grids-->
+
+            </div>
+        </div>
+
+        <!--footer-->
+        <!-- footer -->
+        <div class="footer_agileinfo_topf" style="background:#887a7a ; color:white">
+            <div class="container">
+                <div class="container">
+                    <div class="col-md-4 footer_w3layouts_gridf">
+                        <h2><a href="~/Home/Index" style="color:white">SNL</a></h2>
+                        <p class="paragraphf" style="color:white">Providing best coaching at affordable prices.</p>
+                    </div>
+                    <div class="col-md-4 footer_w3layouts_gridf">
+                        <nav>
+                            <ul class="footer_w3layouts_gridf_list">
+                                <li>
+                                    <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                    <a href="http://www.elephanttreetech.com/#About" target="_blank" style="color:white">About Us</a>
+                                </li>
+                                <li>
+                                    <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                    <a href="http://www.elephanttreetech.com/#service" target="_blank" style="color:white">Services</a>
+                                </li>
+                                <li>
+                                    <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                    <a href="http://www.elephanttreetech.com/#products" target="_blank" style="color:white">Products</a>
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-md-4 footer_w3layouts_gridf">
+                        <nav>
+                            <ul class="footer_w3layouts_gridf_list">
+                                <li>
+                                    <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                    <a href="http://www.elephanttreetech.com/#jobs" target="_blank" style="color:white">Careers</a>
+                                </li>
+
+                                <li>
+                                    <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                    <a href="http://www.elephanttreetech.com/#technology" target="_blank" style="color:white">Technology</a>
+                                </li>
+                                <li>
+                                    <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                    <a href="http://www.elephanttreetech.com/#contact" target="_blank" style="color:white">Contact</a>
+                                </li>
+
+                            </ul>
+                        </nav>
+
+
+                    </div>
+                    <div class="clearfix"> </div>
+                    <div class="w3ls-fsocial-grid" style="float:left">
+                        <h3 class="sub-w3ls-headf" style="color:white">Follow Us</h3>
+                        <div class="social-ficons">
+                            <ul>
+                                <li><a href="https://www.facebook.com/12Elephanttrees/" target="_blank" style="color:white"><span class="fa fa-facebook"></span> Facebook</a></li>
+                                <li><a href="https://twitter.com/12Elephanttrees" target="_blank"><span class="fa fa-twitter" style="color:white"></span> Twitter</a></li>
+                                <li><a href="https://www.linkedin.com/in/elephanttree-technologies-private-limited-174699145/" style="color:white" target="_blank"><span class="fa fa-linkedin-square"></span>Linkdin</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="w3ls-fsocial-grid" style="float:right">
+
+                        <p style="float:right;color:white"><span class="fa fa-mail-forward" aria-hidden="true"></span>Recieve our latest news straight to your inbox.</p>
+                        <br /> <br />
+                        <div style="float:right">
+                            <form action="~/Home/Subscribe" method="post">
+                                <input type="email" name="Email" placeholder="Email address..." required="">
+                                <input type="submit" value="Submit" style="padding:2px 2px 2px 2px;color:black">
+                            </form>
+                        </div>
+
+                    </div>
+                    <br />
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-wthree-copyf">
+            <div class="container">
+                @*<div class="addressf-agileits-w3layouts">
+                    <p style="float:left"><span class="fa fa-mail-forward" aria-hidden="true"></span>Recieve our latest news straight to your inbox.</p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="float:right">
+                        <form action="~/Home/Subscribe" method="post">
+                            <input type="email" name="Email" placeholder="Email address..." required="">
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>*@
+                <p>© 2018 SNL MERIT TRAINING. All rights reserved | Design and Developed by <a href="http://www.elephanttreetech.com/" target="_blank"> ELEPHANTTREE TECH PVT.LTD.</a></p>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <!-- //footer -->
+        
+        <!--//footer-->
+    </div>
+    <!-- Classie -->
+    <script src="~/admnfont/js/classie.js"></script>
+    <script>
+        //window.location.href = "~/Home/Index";
+        var menuLeft = document.getElementById('cbp-spmenu-s1'),
+            showLeftPush = document.getElementById('showLeftPush'),
+            body = document.body;
+
+        showLeftPush.onclick = function () {
+            window.location.href = "/Home/Index";
+            //	classie.toggle( this, 'active' );
+            //	classie.toggle( body, 'cbp-spmenu-push-toright' );
+            //	classie.toggle( menuLeft, 'cbp-spmenu-open' );
+            //	disableOther( 'showLeftPush' );
+        };
+
+
+        //function disableOther( button ) {
+        //	if( button !== 'showLeftPush' ) {
+        //		classie.toggle( showLeftPush, 'disabled' );
+        //	}
+        //}
+    </script>
+    <!-- Bootstrap Core JavaScript -->
+
+    <script type="text/javascript" src="~/admnfont/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="~/admnfont/js/dev-loaders.js"></script>
+    <script type="text/javascript" src="~/admnfont/js/dev-layout-default.js"></script>
+    <script type="text/javascript" src="~/admnfont/js/jquery.marquee.js"></script>
+    <link href="~/admnfont/css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="~/admnfont/js/jquery.jqcandlestick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/admnfont/css/jqcandlestick.css" />
+
+    <!--max-plugin-->
+    <script type="text/javascript" src="~/admnfont/js/plugins.js"></script>
+    <!--//max-plugin-->
+    <!--scrolling js-->
+    <script src="~/admnfont/js/jquery.nicescroll.js"></script>
+    <script src="~/admnfont/js/scripts.js"></script>
+    <!--//scrolling js-->
+    <script type="text/javascript">
+        function myFunction() {
+            var x = document.getElementById("eye");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>

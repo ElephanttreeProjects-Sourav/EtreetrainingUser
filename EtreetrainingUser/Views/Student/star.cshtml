@@ -1,0 +1,66 @@
+﻿<!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EOTA: Feedback Form </title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Elegant Feedback Form  Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //custom-theme -->
+    <link href="~/Sale_FrontUsersPro/feedback/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+    <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <script>
+$(document).ready(function(c) {
+	$('.close').on('click', function(c){
+        $('.wrap').fadeOut('slow', function(c){
+            $('.wrap').remove();
+		});
+	});
+});
+    </script>
+</head>
+<body class="agileits_w3layouts">
+    <h1 class="agile_head text-center">User Feedback Form</h1>
+    <div class="wrap">
+        <h3 style="color:red">@ViewBag.error</h3>
+        <h3>Please help us to serve you better by taking a couple of minutes. </h3>
+
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+        <link href="~/Sale_FrontUsersPro/css/ratings.css" rel="stylesheet" />
+
+        <form action="~/Student/star" method="post" class="agile_form">
+            <h2>How satisfied were you with our Product/Service?</h2>
+
+            <div class="stars">
+                <input class="star star-5" id="star-5" type="radio" value="1" name="star" />
+                <label class="star star-5" for="star-5"></label>
+                <input class="star star-4" id="star-4" type="radio" value="2" name="star" />
+                <label class="star star-4" for="star-4"></label>
+                <input class="star star-3" id="star-3" type="radio" value="3" name="star" />
+                <label class="star star-3" for="star-3"></label>
+                <input class="star star-2" id="star-2" type="radio" value="4" name="star" />
+                <label class="star star-2" for="star-2"></label>
+                <input class="star star-5" id="star-1" type="radio" value="5" name="star" />
+                <label class="star star-5" for="star-1"></label>
+
+            </div>
+            <h2>If you have specific feedback, please write to us...</h2>
+            <textarea placeholder="Additional comments" name="cmmnts" class="w3l_summary"></textarea>
+
+            <input type="submit" value="Submit" class="agileinfo" />
+        </form>
+    </div>
+    <div class="agileits_copyright text-center">
+        <p>© 2017 Elegant Feedback Form. All rights reserved | Design by <a href="//w3layouts.com/" class="w3_agile">W3layouts</a></p>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<EtreetrainingUser.Models.Tbl_Doc>
+
+@{
+    ViewBag.Title = "AllView";
+}
+<br /><br /><br /><br /><br /><br />
+<h2>All Documents</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Doc_upload")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Doc_id)
+        </th>*@
+        <th>
+            <b> @Html.DisplayNameFor(model => model.Doc_Title)</b>
+        </th>
+        <th>
+            <b>  @Html.DisplayNameFor(model => model.Doc_Path)</b>
+        </th>
+        <th>
+            <b> @Html.DisplayNameFor(model => model.Doc_ImagePath)</b>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Doc_id)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Doc_Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Doc_Path)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.Doc_ImagePath)*@
+
+            @if (@Url.Content(item.Doc_ImagePath) != null)
+            {
+                <img src="@Url.Content(item.Doc_ImagePath)" width="150" height="150" />
+            }
+            else
+            {
+                @Html.DisplayFor(modelItem => item.Doc_ImagePath)
+            }
+
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Doc_id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Doc_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Doc_id })
+        </td>
+    </tr>
+}
+
+</table>

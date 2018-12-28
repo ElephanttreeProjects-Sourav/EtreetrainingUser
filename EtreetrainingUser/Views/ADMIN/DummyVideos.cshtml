@@ -1,0 +1,94 @@
+﻿@model List<EtreetrainingUser.Models.Tbl_Video>
+
+@{
+    ViewBag.Title = "EOTA: Demo videos";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="main-page">
+        <!--grids-->
+        <div class="grids">
+            <div class="progressbar-heading grids-heading">
+                <h2>Demo videos</h2>
+
+            </div>
+            <div class="panel panel-widget col-md-12" style="background-color:cadetblue">
+                <div class="block-page">
+
+                    <p>
+                        @if (@ViewBag.error!=null)
+                        {
+                        <h3 style="color:red">@ViewBag.error</h3>
+                        
+                        }
+                        <div class="row">
+                            <div class="col-md-12">
+                                @using (Html.BeginForm("DummyVideos", "ADMIN", FormMethod.Post, new { @id = "frmform", @enctype = "multipart/form-data" }))
+            {
+                    <br />
+                    <table>
+                        @if (@ViewBag.error1 == "1")
+    {
+                    <h3 style="color:burlywood"> You have reached maximum number of videos</h3>
+}
+else
+{
+                    <tr>
+                        <td width="50px"> Video</td>
+                        <td class="text-center" >
+                            <input type="file" name="file" id="file" />
+                        </td>
+                        <td>
+                            <button type="submit">Submit</button>
+                        </td>
+                    </tr>
+}
+                    </table>
+}
+                            </div>
+                        </div>
+                        <div class="row">
+
+
+                            @foreach (var item in Model)
+        {
+                    <div class="col-md-12">
+                        <ul>
+                            <li>
+                                @*<video width="100" height="240" controls>
+                <source src="@Url.Action(item.Video_Path)" type="video/mp4">
+                <source src="@Url.Action("VideoStream","ADMIN", new { id=@item.Video_id})" type="video/mp4">
+                                            </video>*@
+                                <div class="col-md-6">
+                                    <video controls controlsList="nodownload" id="mp4Source" width="360" height="240">
+                                        <source src="@Url.Content(item.Video_Path)" type="video/mp4">
+
+                                    </video>
+                                </div>
+                                <div class="col-md-6">
+                                    <br /><br />
+                                    <h3>@item.Video_Title</h3>
+                                    <br />
+                                    <i class="glyphicon glyphicon-remove"> </i> <a href="@Url.Action("DeleteVideo","ADMIN", new { id=item.Video_id})"> <b> Remove</b> </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr />
+}
+
+
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

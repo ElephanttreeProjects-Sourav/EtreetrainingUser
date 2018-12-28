@@ -1,0 +1,529 @@
+﻿@*@model EtreetrainingUser.Models.Post_Cours*@
+@model IEnumerable<EtreetrainingUser.Models.Post_Cours>
+@using System.Configuration
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EOTA :: MERIT TRAINING | Post Ad :: EOTA</title>
+    <link rel="stylesheet" href="~/Sale_FrontUsersPro/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Sale_FrontUsersPro/css/bootstrap-select.css">
+    <link href="~/Sale_FrontUsersPro/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="EOTA :: MERIT TRAINING" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <link href="~/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Content/st.css" type="text/css" media="all" />
+    <link href="~/css/font-awesome.css" rel="stylesheet">
+
+    <!--fonts-->
+    <link href='~/Sale_FrontUsersPro/fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <link href='~/Sale_FrontUsersPro/fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!--//fonts-->
+    <!-- js -->
+    <script type="text/javascript" src="~/Sale_FrontUsersPro/js/jquery.min.js"></script>
+    <!-- js -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Sale_FrontUsersPro/js/bootstrap.min.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/bootstrap-select.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var mySelect = $('#first-disabled2');
+
+            $('#special').on('click', function () {
+                mySelect.find('option:selected').prop('disabled', true);
+                mySelect.selectpicker('refresh');
+            });
+
+            $('#special2').on('click', function () {
+                mySelect.find('option:disabled').prop('disabled', false);
+                mySelect.selectpicker('refresh');
+            });
+
+            $('#basic2').selectpicker({
+                liveSearch: true,
+                maxOptions: 1
+            });
+        });
+    </script>
+    <script type="text/javascript" src="~/Sale_FrontUsersPro/js/jquery.leanModal.min.js"></script>
+    <link href="~/Sale_FrontUsersPro/css/jquery.uls.css" rel="stylesheet" />
+    <link href="~/Sale_FrontUsersPro/css/jquery.uls.grid.css" rel="stylesheet" />
+    <link href="~/Sale_FrontUsersPro/css/jquery.uls.lcd.css" rel="stylesheet" />
+    <!-- Source -->
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.data.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.data.utils.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.lcd.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.languagefilter.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.regionfilter.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.core.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.uls-trigger').uls({
+                onSelect: function (language) {
+                    var languageName = $.uls.data.getAutonym(language);
+                    $('.uls-trigger').text(languageName);
+                },
+                quickList: ['en', 'hi', 'he', 'ml', 'ta', 'fr'] //FIXME
+            });
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="~/Sale_FrontUsersPro/css/easy-responsive-tabs.css " />
+    <script src="~/Sale_FrontUsersPro/js/easyResponsiveTabs.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#"><span>EOTA</span>Course</a>
+            </div>
+            <div class="header-right">
+
+
+                <!-- Large modal -->
+
+                <div class="selectregion">
+
+                    <button class="btn btn-primary" data-toggle="modal" data-target="">
+                        <a class="" href="~/Student/User_Profile">Back in profile</a>
+                    </button>
+                    @*<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                            Courses
+                        </button>*@
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        Please Choose Your Courses
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <select id="basic2" onchange="location = this.value;">
+                                                <optgroup label="Technical courses">
+                                                    <option selected style="display:none;color:#eee;">Select courses</option>
+                                                    if( @ViewBag.Techcourse==null)
+                                                    {
+                                                    }
+                                                    else
+                                                    {
+                                                    @*@foreach (var Tcrs in Model.Select(s => new { s.Title, s.Old_Price, s.New_Price, s.Course_Type, s.Secret_Code }).Distinct().Where(x => x.Course_Type == "T").ToArray())*@
+                                                    @foreach (var Tcrs in ViewBag.ss)
+
+                                                    {
+                                                        <option value="~/Training_main/CrsDetails/@Tcrs.Secret_Code">@Tcrs.Title</option>
+                                                    }
+                                                    }
+                                                </optgroup>
+                                                <optgroup label="Academic Courses">
+                                                    if( @ViewBag.Acacourse==null)
+                                                    {}
+                                                    else
+                                                    {
+                                                    @foreach (var Acrs in Model.Select(s => new { s.Title, s.Old_Price, s.New_Price, s.Course_Type, s.Secret_Code }).Distinct().Where(x => x.Course_Type == "A").ToArray())
+
+                                                    {
+                                                        <option value="~/Training_main/CrsDetails/@Acrs.Secret_Code">@Acrs.Title</option>
+                                                    }
+                                                    }
+                                                </optgroup>
+                                                <optgroup label="Management Courses">
+                                                    if( @ViewBag.Mngcourse==null)
+                                                    {}
+                                                    else
+                                                    {
+                                                    @foreach (var Mcrs in Model.Select(s => new { s.Title, s.Old_Price, s.New_Price, s.Course_Type, s.Secret_Code }).Distinct().Where(x => x.Course_Type == "M").ToArray())
+
+                                                    {
+                                                        <option value="~/Training_main/CrsDetails/@Mcrs.Secret_Code">@Mcrs.Title</option>
+                                                    }
+                                                    }
+                                                </optgroup>
+
+
+
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        $('#myModal').modal('');
+                    </script>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="main-banner banner text-center">
+        <div class="container">
+            <h1>Welcome To Institution <span class="segment-heading"> Payment Page</span></h1>
+            <p>You can access course after payment and you can put your discount code.</p>
+            <br />
+        </div>
+    </div>
+    <!--single-page-->
+    <div class="single-page main-grid-border">
+        <div class="container">
+            <ol class="breadcrumb" style="margin-bottom: 5px;">
+                @*<li><a href="~/Home/Index">Home</a></li>*@
+                <li><a href="~/Student/AllCanSub">All Courses</a></li>
+                @*@foreach (var crs in ViewBag.id)
+                    {Course Uploader
+
+                        <li>
+                            @Html.ActionLink("All Courses", "AllCourseView", "Training_main", new { id = crs.Admin_id }, null)
+                            </li>
+                            }*@
+                @*<li class="active"><a href="mobiles.html">Technical Courses</a></li>*@
+
+                @{
+
+
+                    foreach (var crs in Model.Select(s => new { s.Title, s.Secret_Code }).Distinct().Where(x => x.Secret_Code == ViewBag.secretcode).ToArray())
+                    {
+
+                        <li class="active">@crs.Title</li>
+                    }
+                }
+            </ol>
+            <div class="product-desc">
+                @{
+
+
+                    foreach (var crs in Model.Select(s => new { s.Title, s.Secret_Code, s.Course_Type, s.Admin_Id, s.Trainer_Id, s.Old_Price, s.Requirements, s.New_Price, s.Small_Description, s.Brief_Description, s.Learning_Point }).Distinct().Where(x => x.Secret_Code == ViewBag.secretcode).ToArray())
+                    {
+                        <div class="col-md-7 product-view">
+
+                            <h2>@crs.Title</h2>
+                            @*<p> <i class="glyphicon glyphicon-map-marker"></i><a href="#">state</a>, <a href="#">city</a>| Added at 06:55 pm, Ad ID: 987654321</p>*@
+                            <div class="flexslider">
+                                <ul class="slides">
+                                    @foreach (var img in Model.Select(s => new { s.Document_Image, s.Secret_Code }).Where(x => x.Secret_Code == ViewBag.secretcode))
+                                    {
+                                        if (img.Document_Image == null)
+                                        { }
+                                        else
+                                        {
+
+                                            <li data-thumb="@Url.Content(@img.Document_Image)" width="150" height="150">
+                                                <img src="@Url.Content(@img.Document_Image)" width="150" height="150" />
+                                            </li>
+
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                            <!-- FlexSlider -->
+                            <script defer src="~/Sale_FrontUsersPro/js/jquery.flexslider.js"></script>
+                            <link rel="stylesheet" href="~/Sale_FrontUsersPro/css/flexslider.css" type="text/css" media="screen" />
+
+                            <script>
+                                // Can also be used with $(document).ready()
+                                $(window).load(function () {
+                                    $('.flexslider').flexslider({
+                                        animation: "slide",
+                                        controlNav: "thumbnails"
+                                    });
+                                });
+                            </script>
+                            <!-- //FlexSlider -->
+                            <div class="product-details">
+                                @{
+                                    if (@crs.Course_Type == "T")
+                                    {
+                                        <h4>Course Type  <a href="#">Technical</a></h4>
+                                    }
+                                    else if (@crs.Course_Type == "A")
+                                    {
+                                        <h4>Course Type  <a href="#">Academic</a></h4>
+                                    }
+                                    else
+                                    {
+                                        <p>
+                                            <strong>
+                                                Course Type
+                                            </strong><a href="#">Management</a>
+                                        </p>
+                                    }
+                                }
+                                @*<p><strong>Your Course Secret code : </strong>@crs.Secret_Code</p>
+                                    @if (@crs.Admin_Id == null)
+                                    {
+                                        <p><strong>Course Uploader  </strong> @ViewBag.trnrnm</p>
+                                    }
+                                    else
+                                    {
+                                        <p><strong>Course Uploader  </strong> @ViewBag.admnm</p>
+                                    }*@
+                                <p><strong>Views  </strong>150</p>
+                                <p><strong>Requirements </strong> @crs.Requirements.</p>
+                                <p><strong>Curriculum For This Course </strong> @crs.Learning_Point.</p>
+                                <p><strong>Description </strong> @crs.Small_Description.</p>
+                                <p><strong>Summary</strong> @crs.Brief_Description.</p>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-5 product-details-grid">
+                            <div class="item-price">
+                                <div class="product-price">
+                                    <p class="p-price">Price</p>
+                                    @if (ViewBag.finalamount == null || ViewBag.finalamount == 0)
+                                    {
+                                        <h3 id="pd" class="rate">&#8377; @crs.New_Price <span>&nbsp;</span> <span style="text-decoration: line-through;color:black">&#8377;  @crs.Old_Price</span></h3>
+                                    }
+                                    else
+                                    {
+                                        <h3 id="pd" class="rate">&#8377; @ViewBag.finalamount <span>&nbsp;</span> <span style="text-decoration: line-through;color:black">&#8377;  @crs.New_Price</span> <span style="text-decoration: line-through;color:black">&#8377;  @crs.Old_Price</span></h3>
+                                    }
+                                    <div class="clearfix"></div>
+                                </div>
+
+                            </div>
+                            <div class="tips">
+                                <h4>Includes:</h4>
+                                <ol>
+                                    <li><i class="fa fa-life-ring"></i> Full Lifetime Access.</li>
+                                    <li>Access On Mobile and TV.</li>
+                                    <li>Certificate After Completion.</li>
+
+                                </ol>
+                            </div>
+                            <div class="interested text-center">
+
+                                <h4>Access Now?<small> </small></h4>
+                                <form method="post" action="@ConfigurationManager.AppSettings["PaymentSubmiturl"]">
+                                    @{
+                                        var pymnt = Model.Select(s => new { s.Title, s.Secret_Code, s.New_Price }).Distinct().Where(x => x.Secret_Code == ViewBag.secretcode).FirstOrDefault();
+
+                                        <input type="hidden" name="cmd" value="_xclick" />
+
+                                        <input type="hidden" name="upload" value="1" />
+                                        <input type="hidden" name="business" value="@ConfigurationManager.AppSettings["PaymentUsername"]" />
+
+                                        <input type="hidden" name="item_name" value="@pymnt.Title" />
+                                        if (ViewBag.finalamount == null || ViewBag.finalamount == 0)
+                                        {
+                                            <input type="hidden" name="amount" value="@pymnt.New_Price" />
+                                        }
+                                        else
+                                        {
+                                            <input type="hidden" name="amount" value="@ViewBag.finalamount" />
+                                        }
+                                        <input type="hidden" name="cancel_return" value="https://www.etreetraining.com/Student/CrsDetails/@ViewBag.userid`@crs.Secret_Code" />
+                                        <input type="hidden" name="return" value="https://www.etreetraining.com/Payment/Successinst/@ViewBag.userid`@crs.Secret_Code^@ViewBag.insid" />
+
+
+                                        <div class="form-actions no-color">
+                                            <p><i class="glyphicon glyphicon-usd"></i><input type="submit" value="Pay" class="btn btn-default" /></p>
+                                        </div>
+                                    }
+                                </form>
+                                <br />
+
+                                @using (Html.BeginForm("InstPaymnt", "Student", new { @id = @ViewBag.userid + "`" + @crs.Secret_Code + "^" + @ViewBag.insid }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    @*@Html.AntiForgeryToken()*@
+                                    var ds = Model.Select(s => new { s.Title, s.Secret_Code, s.Course_Type, s.Admin_Id, s.Trainer_Id, s.Old_Price, s.Learning_Point1, s.New_Price, s.Small_Description, s.Brief_Description, s.Learning_Point }).Distinct().Where(x => x.Secret_Code == ViewBag.secretcode).FirstOrDefault();
+                                    var cnt = Model.Select(s => new { s.Secret_Code, s.Learning_Point1 }).Distinct().Where(x => x.Secret_Code == ViewBag.secretcode).Count();
+                                    var i = 1;
+                                    <div class="form-actions no-color">
+
+                                        <p>
+                                            <i class="glyphicon glyphicon-gift"></i><button type="button">Have Promo Code / Discount Code?</button>
+                                        </p>
+
+                                        @foreach (var item in Model.Select(s => new { s.Secret_Code, s.Learning_Point }).Where(x => x.Secret_Code == ViewBag.secretcode).Distinct())
+                                        {
+                                            if (cnt == i)
+                                            {
+                                                @*@Html.EditorFor(modelItem => item.Learning_Point, new { htmlAttributes = new { @class = "form-control", @id="st" } })*@
+                                                <input type="text" class="phone" placeholder="" name="Learning_Point">
+                                            }
+
+                                            i++;
+                                        }
+                                        <br />
+                                        <button type="submit" @*style="background-color:yellow; color:black;width:35%;"*@ value="Apply Discount"><i class="glyphicon glyphicon-gift"></i> </button>
+
+                                        <div class="clearfix"></div>
+
+                                    </div>
+                                }
+
+                            </div>
+
+
+
+                        </div>
+                        <div class="clearfix"></div>
+                    }}
+            </div>
+        </div>
+    </div>
+    <!--//single-page-->
+    <!--footer section start-->
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="foo-grids">
+                    <div class="col-md-3 footer-grid">
+                        <h4 class="footer-head">Who We Are</h4>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                        <p>The point of using Lorem Ipsum is that it has a more-or-less normal letters, as opposed to using 'Content here.</p>
+                    </div>
+                    <div class="col-md-3 footer-grid">
+                        <h4 class="footer-head">Help</h4>
+                        <ul>
+                            <li><a href="howitworks.html">How it Works</a></li>
+                            <li><a href="sitemap.html">Sitemap</a></li>
+                            <li><a href="faq.html">Faq</a></li>
+                            <li><a href="feedback.html">Feedback</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="typography.html">Shortcodes</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 footer-grid">
+                        <h4 class="footer-head">Information</h4>
+                        <ul>
+                            <li><a href="regions.html">Locations Map</a></li>
+                            <li><a href="terms.html">Terms of Use</a></li>
+                            <li><a href="popular-search.html">Popular searches</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 footer-grid">
+                        <h4 class="footer-head">Contact Us</h4>
+                        <span class="hq">Our headquarters</span>
+                        <address>
+                            <ul class="location">
+                                <li><span class="glyphicon glyphicon-map-marker"></span></li>
+                                <li>CENTER FOR FINANCIAL ASSISTANCE TO DEPOSED NIGERIAN ROYALTY</li>
+                                <div class="clearfix"></div>
+                            </ul>
+                            <ul class="location">
+                                <li><span class="glyphicon glyphicon-earphone"></span></li>
+                                <li>+0 561 111 235</li>
+                                <div class="clearfix"></div>
+                            </ul>
+                            <ul class="location">
+                                <li><span class="glyphicon glyphicon-envelope"></span></li>
+                                <li><a href="mailto:info@example.com">mail@example.com</a></li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </address>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <div class="container">
+                <div class="footer-logo">
+                    <a href="index.html"><span>Re</span>sale</a>
+                </div>
+                <div class="footer-social-icons">
+                    <ul>
+                        <li><a class="facebook" href="#"><span>Facebook</span></a></li>
+                        <li><a class="twitter" href="#"><span>Twitter</span></a></li>
+                        <li><a class="flickr" href="#"><span>Flickr</span></a></li>
+                        <li><a class="googleplus" href="#"><span>Google+</span></a></li>
+                        <li><a class="dribbble" href="#"><span>Dribbble</span></a></li>
+                    </ul>
+                </div>
+                <div class="copyrights">
+                    <p> © 2017 EOTA MERIT TRAINING. All rights reserved | Design and Developed by <a href="http://www.elephanttreetech.com/">ELEPHANTTREE TECH PVT.LTD.</a></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </footer>
+    <!--footer section end-->
+    <script type="text/javascript" src="~/js/moment.js"></script>
+    <script type="text/javascript" src="~/js/moment-timezone-with-data.js"></script>
+    <script type="text/javascript" src="~/js/timer.js"></script>
+    <!-- //countdown-js -->
+    <!--light-box-files -->
+    <script src="~/js/jquery.chocolat.js"></script>
+    <link rel="stylesheet" href="~/css/chocolat.css" type="text/css" media="screen">
+
+    <!--//light-box-files -->
+    <script type="text/javascript">
+        $(function () {
+            $('.gallery a').Chocolat();
+        });
+    </script>
+    <!-- //js -->
+    <script type="text/javascript" src="~/js/numscroller-1.0.js"></script>
+    <script src="~/js/particles.js"></script>
+
+    <!-- text-effect -->
+    <script type="text/javascript" src="~/js/jquery.transit.js"></script>
+    <script type="text/javascript" src="~/js/jquery.textFx.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.test').textFx({
+                type: 'fadeIn',
+                iChar: 100,
+                iAnim: 1000
+            });
+        });
+    </script>
+    <!-- //text-effect -->
+    <script src="~/js/SmoothScroll.min.js"></script>
+    <script type="text/javascript">
+        /* init Jarallax */
+        $('.jarallax').jarallax({
+            speed: 0.5,
+            imgWidth: 1366,
+            imgHeight: 768
+        })
+    </script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+
+    <!-- smooth scrolling -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+    <a href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    <!-- //smooth scrolling -->
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+
+</body>
+</html>

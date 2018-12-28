@@ -1,0 +1,899 @@
+﻿@model IEnumerable<EtreetrainingUser.Models.Post_Cours>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>EOTA: Home-> Paid courses-> Materials</title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="EOTA: Home-> Paid courses-> Materials" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //custom-theme -->
+    <link href="~/FrontUsersPro/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/component.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/export.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/flipclock.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/circles.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/style_grid.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+    <!-- font-awesome-icons -->
+    <link href="~/FrontUsersPro/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+
+    <link href="~/FrontUsersPro/fonts/fontawesome-webfont.ttf" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/FontAwesome.otf" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/fontawesome-webfont.eot" rel="stylesheet">
+    @*<img src="~/FrontUsersPro/fonts/glyphicons-halflings-regular.svg" />*@
+    <link href="~/FrontUsersPro/fonts/glyphicons-halflings-regular.woff2" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/glyphicons-halflings-regular.ttf" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/glyphicons-halflings-regular.woff" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/glyphicons-halflings-regular.eot" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/fontawesome-webfont.woff2" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/fontawesome-webfont.woff" rel="stylesheet">
+    <link href="~/css/newcss/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/css/newcss/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="//FrontUsersPro/fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+            font-size: 17px;
+        }
+
+        #myVideo {
+            position: relative;
+            right: 0;
+            bottom: 0;
+        }
+
+        .content {
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            padding: 20px;
+        }
+
+        #myBtn {
+            width: 200px;
+            font-size: 18px;
+            padding: 10px;
+            border: none;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+            #myBtn:hover {
+                background: #ddd;
+                color: black;
+            }
+    </style>
+    
+</head>
+<body oncontextmenu="return false">
+    <style>
+        #ac-wrapper1 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,.6);
+            z-index: 1001;
+        }
+
+        #popup {
+            width: 555px;
+            height: 375px;
+            background: #FFFFFF;
+            border: 5px solid #000;
+            border-radius: 25px;
+            -moz-border-radius: 25px;
+            -webkit-border-radius: 25px;
+            box-shadow: #64686e 0px 0px 3px 3px;
+            -moz-box-shadow: #64686e 0px 0px 3px 3px;
+            -webkit-box-shadow: #64686e 0px 0px 3px 3px;
+            position: relative;
+            top: 150px;
+            left: 375px;
+        }
+    </style>
+    @*<div id="ac-wrapper1">
+            <div id="popup" style="background-color:#cfc7c7">
+                <button type="button" style="float:right" onClick="PopUp()">&times;</button>
+
+                <br />
+                <h3 class="agile_head text-center" style="color:black">User Feedback Form</h3>
+                <br />
+                <div>
+                    <h3 style="color:red">@ViewBag.error</h3>
+
+                    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+                    <link href="~/Sale_FrontUsersPro/css/ratings.css" rel="stylesheet" />
+
+                    <form action="~/Student/star?" method="post" class="agile_form" style="padding-left:90px">
+
+                        <div class="stars ">
+                            <input class="star star-5" id="star-5" type="radio" value="1" name="star" />
+                            <label class="star star-5" for="star-5"></label>
+                            <input class="star star-4" id="star-4" type="radio" value="2" name="star" />
+                            <label class="star star-4" for="star-4"></label>
+                            <input class="star star-3" id="star-3" type="radio" value="3" name="star" />
+                            <label class="star star-3" for="star-3"></label>
+                            <input class="star star-2" id="star-2" type="radio" value="4" name="star" />
+                            <label class="star star-2" for="star-2"></label>
+                            <input class="star star-5" id="star-1" type="radio" value="5" name="star" />
+                            <label class="star star-5" for="star-1"></label>
+
+                        </div>
+                        <br />
+                        <input type="hidden" name="userid" value="@ViewBag.id" />
+                        <input type="hidden" name="crscd" value="@ViewBag.Course_Code" />
+                        <input type="hidden" name="rsltid" value="@ViewBag.rsltid" />
+                        <div style="padding-left:10px">
+                            <textarea placeholder="Additional comments" name="cmmnts" cols="43" rows="7" style="background-color:antiquewhite"></textarea>
+                        </div>
+                        <div style="padding-left:10px">
+                            <input type="submit" value="Submit" style="background-color:burlywood;color:black" />
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <script type="text/javascript">
+
+            function PopUp() {
+                document.getElementById('ac-wrapper1').style.display = "none";
+
+            }
+            if (@ViewBag.succ=="1") {
+                $(document).ready(function () {
+                    setTimeout(function () {
+                        PopUp();
+                    }, 1000); // 5000 to load it after 5 seconds from page load
+                });
+            }
+              if (@ViewBag.succ=="2") {
+                  document.getElementById('ac-wrapper1').style.display = "none";
+            }
+
+        </script>*@
+
+
+    <!-- banner -->
+    <div class="wthree_agile_admin_info">
+        <!-- /w3_agileits_top_nav-->
+        <!-- /nav-->
+        <div class="w3_agileits_top_nav">
+            <ul id="gn-menu" class="gn-menu-main">
+                <!-- /nav_agile_w3l -->
+                <li class="gn-trigger">
+                    <a class="gn-icon gn-icon-menu"><i class="fa fa-bars" aria-hidden="true"></i><span>Menu</span></a>
+                    <nav class="gn-menu-wrapper">
+                        <div class="gn-scroller scrollbar1">
+                            <ul class="gn-menu agile_menu_drop">
+                                <li>
+                                    <a href="~/Student/paidcourse/@ViewBag.id"> <i class="fa fa-book" aria-hidden="true"></i>Paid Courses <i class="fa " aria-hidden="true"></i></a>
+
+                                </li>
+                                <li><a href="~/Student/Mocktst/@ViewBag.id"> <i class="fa fa-table" aria-hidden="true"></i> Mock Test</a></li>
+
+                                @*<li>
+                                        <a href="#"><i class="fa fa-list" aria-hidden="true"></i>Pay for Subject <i class="fa fa-angle-down" aria-hidden="true"> </i></a>
+                                        <ul class="gn-submenu">
+                                            <li class="mini_list_agile"><a href="typo.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Monthly Basis</a></li>
+                                            <li class="mini_list_w3"><a href="icons.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Subject Basis</a></li>
+
+                                        </ul>
+                                    </li>*@
+
+                                <li><a href="~/Student/Certificates/@ViewBag.id"> <i class="fa fa-line-chart" aria-hidden="true"></i> Certificate</a></li>
+
+
+                                <a href='@Url.Action("Help", "Student", new { id = @ViewBag.id })'><i class="fa fa-plus-square" aria-hidden="true"></i> Help/Training process</a>
+
+
+                                <li>
+
+
+                                    <a href='@Url.Action("Frndportal", "Student", new { id = @ViewBag.id })'><i class="fa  fa-user" aria-hidden="true"></i>Refer a friend</a>
+
+                                </li>
+
+                            </ul>
+                        </div><!-- /gn-scroller -->
+                    </nav>
+                </li>
+                <!-- //nav_agile_w3l -->
+
+
+                <li class="second logo"> <img src="~/Picture/logoeot.png" style="width:160px; padding:10px 0px 20px 0px; "></li>
+
+                <li class="second admin-pic">
+                    <ul class="top_dp_agile">
+                        <li class="dropdown profile_details_drop">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <div class="profile_img">
+                                    <span class="prfil-img"><img src="~/Picture/Avatar-male.png" style="width:50px;max-height:70px;padding:5px; border-radius: 100%;top:0"></span>
+                                    @*<span class="prfil-img"><img src="images/admin.jpg" alt=""> </span>*@
+                                </div>
+                            </a>
+                            @*<ul class="dropdown-menu drp-mnu">*@
+                            @{
+                                <ul class="dropdown-menu drp-mnu">
+                                    <li>
+                                        <a href="~/Student/Update/@ViewBag.id"><i class="fa fa-user"></i> Update profile</a>
+                                    </li>
+
+                                    <li> <a href="javascript:document.getElementById('logoutform').submit()"><i class="fa fa-sign-out"></i> Logout</a> </li>
+
+
+                                    @using (Html.BeginForm("Cand_Logout", "Student", FormMethod.Post, new { id = "logoutform" })) { }
+
+                                </ul>
+
+                            }
+                            @*<li> <a href="#"><i class="fa fa-cog" style="color:#000;"></i> Settings</a> </li>
+                                    <li> <a href="#"><i class="fa fa-user" style="color:#000;"></i> Profile</a> </li>
+                                    <li> <a href="#"><i class="fa fa-sign-out" style="color:#000;"></i> Logout</a> </li>
+                                </ul>*@
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="second top_bell_nav">
+                    <ul class="top_dp_agile ">
+                        <li class="dropdown head-dpdn">
+                            @*<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bell-o" aria-hidden="true"></i> <span class="badge blue">3</span></a>*@
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-book" aria-hidden="true"> Course</i> </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href='@Url.Action("Allcrs", "Student", new { id = "A`"+ @ViewBag.id })'>
+                                        <div class="user_img"><img src="~/FrontUsersPro/images/academic.jpg" alt=""></div>
+                                        <div class="task-info">
+                                            <div class="notification_desc">
+                                                <h6>
+                                                    Academic Course
+                                                </h6>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='@Url.Action("Allcrs", "Student", new { id = "T`"+ @ViewBag.id })'>
+                                        <div class="user_img"><img src="~/FrontUsersPro/images/Technical.png" alt=""></div>
+                                        <div class="task-info">
+                                            <div class="notification_desc">
+                                                <h6>
+                                                    Technical Course
+                                                </h6>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+
+                                    </a>
+                                </li>
+
+                                <li>
+
+                                    <a href='@Url.Action("Allcrs", "Student", new { id = "M`"+ @ViewBag.id })'>
+                                        <div class="user_img"><img src="~/FrontUsersPro/images/management.jpg" alt=""></div>
+                                        <div class="task-info">
+                                            <div class="notification_desc">
+                                                <h6> Management Course</h6>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href='@Url.Action("AllCanSub", "Student", new { id = @ViewBag.id })'>
+                                        <div class="notification_bottom">
+                                            <p>All Courses</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="second top_bell_nav">
+                    <ul class="top_dp_agile ">
+                        <li class="dropdown head-dpdn">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-envelope-o" aria-hidden="true" style="color:#fff;"></i></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="notification_header">
+                                        <h3>This portion will comming soon...</h3>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="second top_bell_nav hidden">
+                    <ul class="top_dp_agile ">
+                        <li class="dropdown head-dpdn">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-tasks" style="color:#fff;"></i></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="notification_header">
+                                        <h3>You have 4 Pending tasks</h3>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <span class="task-desc">Database update</span><span class="percentage">40%</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="bar yellow" style="width:40%;"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <span class="task-desc">Dashboard done</span><span class="percentage">90%</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="bar green" style="width:90%;"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <span class="task-desc">Mobile App</span><span class="percentage">33%</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="bar red" style="width: 33%;"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <span class="task-desc">Issues fixed</span><span class="percentage">80%</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="bar  blue" style="width: 80%;"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="notification_bottom">
+                                        <a href="#">See all pending tasks</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="second w3l_search">
+
+                    @using (Html.BeginForm("AllCanSub", "Student", new { id = @ViewBag.id }, FormMethod.Get))
+                    {
+                        <input type="search" name="search" placeholder="Search here..." required="">
+                        <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    }
+
+                </li>
+
+            </ul>
+            <!-- //nav -->
+
+        </div>
+        <div class="clearfix"></div>
+        <!-- //w3_agileits_top_nav-->
+        <!-- /inner_content-->
+        <div class="inner_content">
+            <!-- /inner_content_w3_agile_info-->
+            <!-- breadcrumbs -->
+            <div class="w3l_agileits_breadcrumbs">
+                <div class="w3l_agileits_breadcrumbs_inner">
+                    <ul>
+                        @*<li><a href="~/Home/Index">Home</a><span>«</span></li>*@
+                        <li><a href="~/Student/User_Profile">Home</a><span>«</span></li>
+                        @{
+                            var crs1 = Model.Select(s => new { s.Title, s.Video_Url, s.Video_Title, s.EnableDisable, s.Secret_Code }).Distinct().Where(x => x.EnableDisable == true).FirstOrDefault();
+                            {
+                                if (crs1.Video_Url == null)
+                                {
+                                    <li></li>
+                                }
+                                else
+                                {
+                                    <li>@crs1.Title</li>
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+            <!-- //breadcrumbs -->
+            @*<div id="ac-wrapper">
+                    <div id='myModal' class='modal'>
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div id='myModalContent'></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>*@
+            <div class="inner_content_w3_agile_info two_in">
+                <div class="container">
+
+                    <p class="w3_inner_tittle" style="font-size:25px; text-decoration:none"><b> @crs1.Title Materials :</b></p>
+                    <div>
+                        <h3 id="tstlink">
+
+                            <a href="~/Student/MocktstInstrction/@crs1.Secret_Code]@ViewBag.id">
+                                <span>
+                                    <i class="fa fa-file-code-o "> Skill Test</i>
+                                </span>
+                            </a>
+
+                        </h3>
+
+                        <style>
+                            #content12 {
+                                display: none;
+                            }
+
+                                #content12.show {
+                                    display: block; /* P.S: Use `!important` if missing `#content` (selector specificity). */
+                                }
+                        </style>
+
+                        <div >
+                            <div id="content12">
+                                <h4 style="color:brown;float:right"">You have to watch atleast first video to open test link</h4>
+                            </div>
+                            <a href="#" id="toggle1"><i class="fa fa-question-circle" aria-hidden="true" style="font-size:30px ;float:right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <script>
+                        var toggle = document.getElementById("toggle1");
+                        var content = document.getElementById("content12");
+
+                        toggle.addEventListener("click", function () {
+                            content.classList.toggle("show");
+                        }, false);
+                    </script>
+
+                </div>
+
+                <!-- /blank -->
+                <div class="blank_w3ls_agile">
+                    <div class="blank-page agile_info_shadow">
+
+                        <p>
+
+                            <div class="container">
+
+                                <br />
+
+                                @{
+
+                                    foreach (var crs in Model.Select(s => new { s.Title, s.Video_Url, s.Video_Title, s.EnableDisable }).Distinct().Where(x => x.EnableDisable == true).ToArray())
+                                    {
+                                        //count = count + 1;
+                                        if (crs.Video_Url == null)
+                                        {
+
+                                        }
+                                        else
+                                        {
+
+                                            <div class="col-md-4 top_brand_left">
+                                                <div class="hover14 column" style=" border: 1px solid #c0bebe;">
+                                                    <div class="agile_top_brand_left_grid" style="position: relative;display: block;">
+                                                        <div class="agile_top_brand_left_grid1" style="">
+                                                            <figure>
+                                                                <div class="snipcart-item block">
+
+                                                                    <div class="snipcart-thumb" style="  text-align: center;margin: 1em auto 1em">
+
+                                                                        <h2>@crs.Video_Title</h2>
+                                                                        <br />
+
+                                                                        <video controls controlsList="nodownload" id="mp4Source" width="350">
+                                                                            <source src="@Url.Content(crs.Video_Url)" type="video/mp4">
+
+                                                                        </video>
+
+                                                                        @{
+                                                                            string extension = (Path.GetExtension(@crs.Video_Url)).ToLower();
+                                                                            if ((extension == ".mp4") || (extension == ".flv") || (extension == ".3gp") || (extension == ".mpeg") || (extension == ".avi") || (extension == ".mkv") || (extension == ".webm"))
+                                                                            {
+
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <div>
+                                                                                    <a href="@Url.Content(crs.Video_Url)" class="wthree_facebook">
+
+                                                                                        <i class="fa fa-download" aria-hidden="true"></i>
+
+                                                                                        View document
+                                                                                    </a>
+
+                                                                                </div>
+                                                                            }
+
+
+                                                                        }
+                                                                    </div>
+
+
+
+                                                                </div>
+
+                                                            </figure>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        }
+
+
+                                    }
+                                }
+                            </div>
+                            <br />
+
+
+
+                        </p>
+                    </div>
+
+                </div>
+                <!-- //blank -->
+                <!-- /social_media-->
+                <!-- //social_media-->
+            </div>
+            <!-- //inner_content_w3_agile_info-->
+        </div>
+        <!-- //inner_content-->
+    </div>
+    <!-- banner -->
+    <!--copy rights start here-->
+    <div class="footer_agileinfo_topf">
+        <div class="container">
+            <div class="container">
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <h2>EOTA</h2>
+                    <p class="paragraphf">Providing best coaching at affordable prices.</p>
+                </div>
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <nav>
+                        <ul class="footer_w3layouts_gridf_list">
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#About" target="_blank">About Us</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#service" target="_blank">Services</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#products" target="_blank">Products</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <nav>
+                        <ul class="footer_w3layouts_gridf_list">
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#jobs" target="_blank">Careers</a>
+                            </li>
+
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#technology" target="_blank">Technology</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#contact" target="_blank">Contact</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+
+                </div>
+                <div class="clearfix"> </div>
+                <div class="w3ls-fsocial-grid">
+                    <h3 class="sub-w3ls-headf">Follow Us</h3>
+                    <div class="social-ficons">
+                        <ul>
+                            <li><a href="https://www.facebook.com/12Elephanttrees/" target="_blank"><span class="fa fa-facebook"></span> Facebook</a></li>
+                            <li><a href="https://twitter.com/12Elephanttrees" target="_blank"><span class="fa fa-twitter"></span> Twitter</a></li>
+                            <li><a href="https://www.linkedin.com/in/elephanttree-technologies-private-limited-174699145/" target="_blank"><span class="fa fa-linkedin-square"></span>Linkdin</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-wthree-copyf" style="background-color:lavender">
+        <div class="container">
+
+            <p>© 2018 EOTA MERIT TRAINING. All rights reserved | Design and Developed by <a href="http://www.elephanttreetech.com/" target="_blank"> ELEPHANTTREE TECH PVT.LTD.</a></p>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!--copy rights end here-->
+    <!-- js -->
+
+    <script type="text/javascript" src="~/FrontUsersPro/js/jquery-2.1.4.min.js"></script>
+    <script src="~/FrontUsersPro/js/modernizr.custom.js"></script>
+
+    <script src="~/FrontUsersPro/js/classie.js"></script>
+    <script src="~/FrontUsersPro/js/gnmenu.js"></script>
+    <script>
+        new gnMenu(document.getElementById('gn-menu'));
+    </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript">
+        google.maps.event.addDomListener(window, 'load', init);
+        function init() {
+            var mapOptions = {
+                zoom: 11,
+                center: new google.maps.LatLng(40.6700, -73.9400),
+                styles: [{ "featureType": "all", "elementType": "labels.text.fill", "stylers": [{ "saturation": 36 }, { "color": "#000000" }, { "lightness": 40 }] }, { "featureType": "all", "elementType": "labels.text.stroke", "stylers": [{ "visibility": "on" }, { "color": "#000000" }, { "lightness": 16 }] }, { "featureType": "all", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "administrative", "elementType": "geometry.fill", "stylers": [{ "color": "#000000" }, { "lightness": 20 }] }, { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#000000" }, { "lightness": 17 }, { "weight": 1.2 }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 20 }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 21 }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#000000" }, { "lightness": 17 }] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#000000" }, { "lightness": 29 }, { "weight": 0.2 }] }, { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 18 }] }, { "featureType": "road.local", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 16 }] }, { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 19 }] }, { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 17 }] }]
+            };
+            var mapElement = document.getElementById('map');
+            var map = new google.maps.Map(mapElement, mapOptions);
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(40.6700, -73.9400),
+                map: map,
+            });
+        }
+    </script>
+    <script src="~/FrontUsersPro/js/prettymaps.js"></script>
+    <script>
+
+        $(function () {
+            //default
+            $('.map-canvas').prettyMaps({
+                address: 'Melbourne, Australia',
+                image: 'map-icon.png',
+                hue: '#FF0000',
+                saturation: -20
+            });
+
+            //red map example
+            $('#default-map-btn').on('click', function () {
+                $('.map-canvas').prettyMaps();
+            });
+
+            //green map example
+            $('#green-map-btn').on('click', function () {
+                $('.map-canvas').prettyMaps({
+                    address: 'Melbourne, Australia',
+                    image: 'map-icon.png',
+                    hue: '#00FF55',
+                    saturation: -30
+                });
+            });
+
+            //blue map example
+            $('#blue-map-btn').on('click', function () {
+                $('.map-canvas').prettyMaps({
+                    address: 'Melbourne, Australia',
+                    image: 'map-icon.png',
+                    hue: '#0073FF',
+                    saturation: -30,
+                    zoom: 16,
+                    panControl: true,
+                    zoomControl: true,
+                    mapTypeControl: true,
+                    scaleControl: true,
+                    streetViewControl: true,
+                    overviewMapControl: true,
+                    scrollwheel: false,
+                });
+            });
+
+            //grey map example
+            $('#grey-map-btn').on('click', function () {
+                $('.map-canvas').prettyMaps({
+                    address: 'Melbourne, Australia',
+                    image: 'map-icon.png',
+                    saturation: -100,
+                    lightness: 10
+                });
+            });
+        });
+
+    </script>
+    <!-- //js -->
+    <script src="~/FrontUsersPro/js/screenfull.js"></script>
+    <script>
+        $(function () {
+            $('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+            if (!screenfull.enabled) {
+                return false;
+            }
+
+
+
+            $('#toggle').click(function () {
+                screenfull.toggle($('#container')[0]);
+            });
+        });
+    </script>
+    <script src="~/FrontUsersPro/js/jquery.nicescroll.js"></script>
+    <script src="~/FrontUsersPro/js/scripts.js"></script>
+
+    <script type="text/javascript" src="~/FrontUsersPro/js/bootstrap-3.1.1.min.js"></script>
+    <script>
+        var video = document.getElementById("myVideo");
+        var btn = document.getElementById("myBtn");
+
+        function myFunction() {
+            if (video.paused) {
+                video.play();
+                btn.innerHTML = "Pause";
+            } else {
+                video.pause();
+                btn.innerHTML = "Play";
+            }
+        }
+    </script>
+    <style >
+        #tstlink {
+            display: none;
+        }
+
+        #tstlink.show {
+            display: block;
+        }
+
+    </style>
+    <script type='text/javascript'>
+     
+        var player = document.getElementById('mp4Source');
+        //document.getElementById('tstlink').style.visibility = "hidden";
+
+        player.addEventListener('ended', function (e) {
+           // document.getElementById('tstlink').style.visibility = "visible";
+            document.getElementById('tstlink').classList.toggle("show");
+            //alert('The End');
+        })
+       
+    </script>
+    <script type="text/javascript">
+        var video = document.getElementById("myVideo");
+        var btn = document.getElementById("myBtn");
+
+        $(video).ready(function () {
+            //Disable cut copy paste
+            $('video').bind('cut copy paste', function (e) {
+                e.preventDefault();
+            });
+
+            //Disable mouse right click
+            $("video").on("contextmenu", function (e) {
+                return false;
+            });
+        });
+    </script>
+    <script language="JavaScript">
+
+        //////////F12 disable code////////////////////////
+        document.onkeypress = function (event) {
+            event = (event || window.event);
+            if (event.keyCode == 123 || event.keyCode == 16 || event.keyCode == 17 || event.keyCode == 85 || event.keyCode == 83) {
+                //alert('No F-12');
+                return false;
+
+            }
+            if (event.keyCode == 118 || event.keyCode == 99 || event.keyCode == 115 || event.keyCode == 117) {
+
+                return true;
+
+            }
+        }
+        document.onmousedown = function (event) {
+            event = (event || window.event);
+            //if (event.keyCode == 123 || event.keyCode == 16 || event.keyCode == 17 || event.keyCode == 85 || event.keyCode == 83) {
+            //    //alert('No F-keys');
+            //    return false;
+            //}
+            if (event.keyCode == 123) {
+                //alert('No F-keys');
+                return false;
+            }
+            if (event.ctrlKey && event.keyCode === 85) {
+                //alert('No F-keys');
+                return false;
+            }
+            if (event.keyCode == 118 || event.keyCode == 99 || event.keyCode == 115 || event.keyCode == 117) {
+
+                return true;
+
+            }
+        }
+        document.onkeydown = function (event) {
+            event = (event || window.event);
+            //if (event.keyCode == 123 || event.keyCode == 16 || event.keyCode == 17 || event.keyCode == 85 || event.keyCode == 83 || event.keyCode === 67 ||
+            //    event.keyCode == 86 ||
+            //    event.keyCode == 85) {
+            //    //alert('No F-keys');
+            //    return false;
+            //}
+            if (event.ctrlKey && event.keyCode === 85) {
+                //alert('No F-keys');
+                return false;
+            }
+            if (event.keyCode == 123) {
+                //alert('No F-keys');
+                return false;
+            }
+            if (event.keyCode == 118 || event.keyCode == 99 || event.keyCode == 115 || event.keyCode == 117) {
+
+                return true;
+
+            }
+        }
+                                    /////////////////////end///////////////////////
+
+    </script>
+    @*<script language="JavaScript">
+
+            document.onkeydown = function (e) {
+                if (e.ctrlKey &&
+                    (e.keyCode === 67 ||
+                        e.keyCode === 86 ||
+                        e.keyCode === 85 ||
+                        e.keyCode === 117)) {
+
+                    return false;
+                } else {
+                    return true;
+                }
+            };
+        </script>*@
+</body>
+</html>

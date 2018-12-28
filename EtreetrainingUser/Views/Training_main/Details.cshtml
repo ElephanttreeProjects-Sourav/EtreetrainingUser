@@ -1,0 +1,58 @@
+﻿@model EtreetrainingUser.Models.Tbl_Doc
+
+@{
+    ViewBag.Title = "Details";
+}
+<br /><br /><br /><br /><br />
+<h2>Details</h2>
+
+<div>
+    <h4>Tbl_Doc</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Doc_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doc_id)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doc_Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doc_Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doc_Path)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doc_Path)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doc_ImagePath)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.Doc_ImagePath)*@
+            @if (@Url.Content(Model.Doc_ImagePath) != null)
+            {
+                <img src="@Url.Content(Model.Doc_ImagePath)" width="150" height="150" />
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.Doc_ImagePath)
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Doc_id }) |
+    @Html.ActionLink("Back to List", "AllView")
+</p>

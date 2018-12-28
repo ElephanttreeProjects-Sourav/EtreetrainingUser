@@ -1,0 +1,841 @@
+﻿
+@model IEnumerable<EtreetrainingUser.Models.Post_Cours>
+@using System.Configuration
+
+@{
+    Layout = null;
+}
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>EOTA: Home-> Courses-> Details</title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="EOTA: Home-> Courses-> Details" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //custom-theme -->
+    <script src="~/js/jquery-1.11.1.min.js"></script>
+    @*<script src="~/js/bootstrap.js"></script>*@
+
+    <!-- start-smooth-scrolling -->
+    <script type="text/javascript" src="~/js/move-top.js"></script>
+    <script type="text/javascript" src="~/js/easing.js"></script>
+    <link href="~/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" />
+    <link href="~/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/chocolat.css" type="text/css" media="screen">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/FrontUsersPro/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/component.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/export.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/flipclock.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/circles.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/style_grid.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+    <!-- font-awesome-icons -->
+    <link href="~/FrontUsersPro/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <link rel="stylesheet" href="~/Sale_FrontUsersPro/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Sale_FrontUsersPro/css/bootstrap-select.css">
+    <link href="~/Sale_FrontUsersPro/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Content/st.css" type="text/css" media="all" />
+
+
+    <link href="~/FrontUsersPro/fonts/fontawesome-webfont.ttf" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/FontAwesome.otf" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/fontawesome-webfont.eot" rel="stylesheet">
+    @*<img src="~/FrontUsersPro/fonts/glyphicons-halflings-regular.svg" />*@
+    <link href="~/FrontUsersPro/fonts/glyphicons-halflings-regular.woff2" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/glyphicons-halflings-regular.ttf" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/glyphicons-halflings-regular.woff" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/glyphicons-halflings-regular.eot" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/fontawesome-webfont.woff2" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/fontawesome-webfont.woff" rel="stylesheet">
+    <link href="~/css/newcss/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="//FrontUsersPro/fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+    <style>
+        .dropbtn {
+            background-color: #808080;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #b4aea8;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: blue;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #f1f1f1
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <!-- banner -->
+    <div class="wthree_agile_admin_info">
+        <!-- /w3_agileits_top_nav-->
+        <!-- /nav-->
+        <div class="w3_agileits_top_nav">
+            <ul id="gn-menu" class="gn-menu-main">
+                <!-- /nav_agile_w3l -->
+                <li class="gn-trigger">
+                    <a class="gn-icon gn-icon-menu"><i class="fa fa-bars" aria-hidden="true"></i><span>Menu</span></a>
+                    <nav class="gn-menu-wrapper">
+                        <div class="gn-scroller scrollbar1">
+                            <ul class="gn-menu agile_menu_drop">
+
+                                <li>
+                                    <a href='@Url.Action("paidcourse", "Student", new { id = @ViewBag.userid})'> <i class="fa fa-book" aria-hidden="true"></i>Paid Courses <i class="fa " aria-hidden="true"></i></a>
+
+
+                                </li>
+                                <li><a href='@Url.Action("Mocktst", "Student", new { id = @ViewBag.userid})'> <i class="fa fa-table" aria-hidden="true"></i> Mock Test</a></li>
+
+                                @*<li>
+                                        <a href='@Url.Action("Certificates", "Student", new { id = @ViewBag.userid})'><i class="fa fa-list" aria-hidden="true"></i>Pay for Subject <i class="fa fa-angle-down" aria-hidden="true"> </i></a>
+                                        <ul class="gn-submenu">
+                                            <li class="mini_list_agile"><a href="typo.html"><i class="fa fa-caret-right" aria-hidden="true"></i> Monthly Basis</a></li>
+                                            <li class="mini_list_w3"><a href="icons.html"> <i class="fa fa-caret-right" aria-hidden="true"></i> Subject Basis</a></li>
+
+                                        </ul>
+                                    </li>*@
+
+                                <li><a href='@Url.Action("Certificates", "Student", new { id = @ViewBag.userid})'> <i class="fa fa-line-chart" aria-hidden="true"></i> Certificate</a></li>
+
+                                <li>
+                                    <a href='@Url.Action("Help", "Student", new { id = @ViewBag.userid})'><i class="fa fa-plus-square" aria-hidden="true"></i> Help/Training process</a>
+                                </li>
+
+                                <li>
+                                    <a href='@Url.Action("Frndportal", "Student", new { id = @ViewBag.userid})'> <i class="fa fa-user" aria-hidden="true"></i>Refer a friend <i class="fa " aria-hidden="true"></i></a>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </li>
+
+                <li class="second logo"> <img src="~/Picture/logoeot.png" style="width:160px; padding:10px 0px 20px 0px; "></li>
+
+                <li class="second admin-pic">
+                    <ul class="top_dp_agile">
+                        <li class="dropdown profile_details_drop">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <div class="profile_img">
+                                    <span class="prfil-img"><img src="~/Picture/Avatar-male.png" style="width:50px;max-height:70px;padding:5px; border-radius: 100%;top:0"></span>
+                                    @*<span class="prfil-img"><img src="images/admin.jpg" alt=""> </span>*@
+                                </div>
+                            </a>
+                            @*<ul class="dropdown-menu drp-mnu">*@
+                            @{
+                            <ul class="dropdown-menu drp-mnu">
+
+                                <li>
+
+                                    <a href="~/Student/Update/@ViewBag.userid"><i class="fa fa-user"></i> Update profile</a>
+                                </li>
+
+                                <li> <a href="javascript:document.getElementById('logoutform').submit()"><i class="fa fa-sign-out"></i> Logout</a> </li>
+
+
+                                @using (Html.BeginForm("Cand_Logout", "Student", FormMethod.Post, new { id = "logoutform" })) { }
+
+                            </ul>
+
+                            }
+                            @*<li> <a href="#"><i class="fa fa-cog" style="color:#000;"></i> Settings</a> </li>
+                                    <li> <a href="#"><i class="fa fa-user" style="color:#000;"></i> Profile</a> </li>
+                                    <li> <a href="#"><i class="fa fa-sign-out" style="color:#000;"></i> Logout</a> </li>
+                                </ul>*@
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="second top_bell_nav">
+                    <ul class="top_dp_agile ">
+                        <li class="dropdown head-dpdn">
+                            @*<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bell-o" aria-hidden="true"></i> <span class="badge blue">3</span></a>*@
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-book" aria-hidden="true"> Course</i> </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href='@Url.Action("Allcrs", "Student", new { id = "A`"+ @ViewBag.userid })'>
+                                        <div class="user_img"><img src="~/FrontUsersPro/images/academic.jpg" alt=""></div>
+                                        <div class="task-info">
+                                            <div class="notification_desc">
+                                                <h6>
+                                                    Academic Course
+                                                </h6>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='@Url.Action("Allcrs", "Student", new { id = "T`"+ @ViewBag.userid })'>
+                                        <div class="user_img"><img src="~/FrontUsersPro/images/Technical.png" alt=""></div>
+                                        <div class="task-info">
+                                            <div class="notification_desc">
+                                                <h6>
+                                                    Technical Course
+                                                </h6>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+
+                                    </a>
+                                </li>
+
+                                <li>
+
+                                    <a href='@Url.Action("Allcrs", "Student", new { id = "M`"+ @ViewBag.userid })'>
+                                        <div class="user_img"><img src="~/FrontUsersPro/images/management.jpg" alt=""></div>
+                                        <div class="task-info">
+                                            <div class="notification_desc">
+                                                <h6> Management Course</h6>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href='@Url.Action("AllCanSub", "Student", new { id = @ViewBag.userid })'>
+                                        <div class="notification_bottom">
+                                            <p>All Courses</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="second top_bell_nav">
+                    <ul class="top_dp_agile ">
+                        <li class="dropdown head-dpdn">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-envelope-o" aria-hidden="true" style="color:#fff;"></i></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="notification_header">
+                                        <h3>This portion will comming soon...</h3>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="second top_bell_nav hidden">
+                    <ul class="top_dp_agile ">
+                        <li class="dropdown head-dpdn">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-tasks" style="color:#fff;"></i></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="notification_header">
+                                        <h3>You have 4 Pending tasks</h3>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <span class="task-desc">Database update</span><span class="percentage">40%</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="bar yellow" style="width:40%;"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <span class="task-desc">Dashboard done</span><span class="percentage">90%</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="bar green" style="width:90%;"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <span class="task-desc">Mobile App</span><span class="percentage">33%</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="bar red" style="width: 33%;"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <span class="task-desc">Issues fixed</span><span class="percentage">80%</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="bar  blue" style="width: 80%;"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="notification_bottom">
+                                        <a href="#">See all pending tasks</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="second w3l_search">
+
+                    @using (Html.BeginForm("AllCanSub", "Student", new { id = @ViewBag.userid }, FormMethod.Get))
+                    {
+                        <input type="search" name="search" placeholder="Search here..." required="">
+                        <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    }
+
+                </li>
+            </ul>
+            <!-- //nav -->
+
+        </div>
+        <div class="clearfix"></div>
+        <!-- //w3_agileits_top_nav-->
+        <!-- /inner_content-->
+        <div class="inner_content">
+            <!-- /inner_content_w3_agile_info-->
+            <!-- breadcrumbs -->
+
+            @*<div class="container body-content">
+                <div class="single-page main-grid-border">*@
+                    <div class="container">
+                        <ol class="breadcrumb" style="margin-bottom: 5px;">
+
+                            <li><a href="~/Student/AllCanSub/@ViewBag.userid">All Courses</a></li>
+
+                            @{
+
+                                foreach (var crs in Model.Select(s => new { s.Title, s.Secret_Code }).Distinct().Where(x => x.Secret_Code == ViewBag.secretcode).ToArray())
+                                {
+
+                                    <li class="active">@crs.Title</li>
+                                }
+                            }
+                        </ol>
+                        <div class="product-desc">
+                            @{
+
+
+                                foreach (var crs in Model.Select(s => new { s.Title, s.Secret_Code, s.Course_Type, s.Admin_Id, s.Trainer_Id, s.Old_Price, s.Requirements, s.New_Price, s.Small_Description, s.Brief_Description, s.Learning_Point }).Distinct().Where(x => x.Secret_Code == ViewBag.secretcode).ToArray())
+                                {
+                                    <div class="col-md-7 product-view">
+
+                                        <h2>@crs.Title</h2>
+                                        @*<p> <i class="glyphicon glyphicon-map-marker"></i><a href="#">state</a>, <a href="#">city</a>| Added at 06:55 pm, Ad ID: 987654321</p>*@
+                                        <div class="flexslider">
+                                            <ul class="slides">
+                                                @foreach (var img in Model.Select(s => new { s.Document_Image, s.Secret_Code }).Where(x => x.Secret_Code == ViewBag.secretcode))
+    {
+        if (img.Document_Image == null)
+        { }
+        else
+        {
+
+            if (@Url.Content(@img.Document_Image) == null)
+            { }
+            else
+            {
+                
+                var absolutePath = HttpContext.Current.Server.MapPath(@Url.Content(@img.Document_Image));
+                if (System.IO.File.Exists(absolutePath))
+                {
+                                            <li data-thumb="@Url.Content(@img.Document_Image)" width="150" height="150">
+                                                <img src="@Url.Content(@img.Document_Image)" width="150" height="150" alt="@Url.Content(@img.Document_Image)" />
+                                            </li>
+}
+
+}
+}
+                                                }
+                                            </ul>
+                                        </div>
+                                        <!-- FlexSlider -->
+                                        <script defer src="~/Sale_FrontUsersPro/js/jquery.flexslider.js"></script>
+                                        <link rel="stylesheet" href="~/Sale_FrontUsersPro/css/flexslider.css" type="text/css" media="screen" />
+
+                                        <script>
+                                            // Can also be used with $(document).ready()
+                                            $(window).load(function () {
+                                                $('.flexslider').flexslider({
+                                                    animation: "slide",
+                                                    controlNav: "thumbnails"
+                                                });
+                                            });
+                                        </script>
+                                        <!-- //FlexSlider -->
+                                        <div class="product-details">
+                                            @{
+                                                if (@crs.Course_Type == "T")
+                                                {
+                                                    <h4>Course Type  <a href="#">Technical</a></h4>
+                                                }
+                                                else if (@crs.Course_Type == "A")
+                                                {
+                                                    <h4>Course Type  <a href="#">Academic</a></h4>
+                                                }
+                                                else
+                                                {
+                                                    <p>
+                                                        <strong>
+                                                            Course Type
+                                                        </strong><a href="#">Management</a>
+                                                    </p>
+                                                }
+                                            }
+                                            @*<p><strong>Your Course Secret code : </strong>@crs.Secret_Code</p>
+                                                @if (@crs.Admin_Id == null)
+                                                {
+                                                    <p><strong>Course Uploader  </strong> @ViewBag.trnrnm</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><strong>Course Uploader  </strong> @ViewBag.admnm</p>
+                                                }*@
+                                            <p><strong>Views  </strong>150</p>
+                                            <p><strong>Requirements </strong> @crs.Requirements.</p>
+                                            <p><strong>Curriculum For This Course </strong> @crs.Learning_Point.</p>
+                                            <p><strong>Description </strong> @crs.Small_Description.</p>
+                                            <p><strong>Summary</strong> @crs.Brief_Description.</p>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-5 product-details-grid">
+                                        <div class="item-price">
+                                            <div class="product-price">
+                                                <p class="p-price">Price</p>
+                                                @if (ViewBag.finalamount == null || ViewBag.finalamount == 0)
+            {
+                                    <h3 id="pd" class="rate">&#8377; @crs.New_Price <span>&nbsp;</span> <span style="text-decoration: line-through;color:black">&#8377;  @crs.Old_Price</span></h3>
+}
+else
+{
+                                    <h3 id="pd" class="rate">&#8377; @ViewBag.finalamount <span>&nbsp;</span> <span style="text-decoration: line-through;color:black">&#8377;  @crs.New_Price</span> <span style="text-decoration: line-through;color:black">&#8377;  @crs.Old_Price</span></h3>
+}
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            @*<div class="condition">
+                <p class="p-price">Condition</p>
+                <h4>Good</h4>
+                <div class="clearfix"></div>
+            </div>
+            <div class="itemtype">
+                <p class="p-price"></p>
+                <h4>ADD To Cart</h4>
+                <div class="clearfix"></div>
+            </div>*@
+                                        </div>
+                                        <div class="tips">
+                                            <h4>Includes:</h4>
+                                            <ol>
+                                                <li><i class="fa fa-life-ring"></i> Full Lifetime Access.</li>
+                                                <li>Access On Mobile and TV.</li>
+                                                <li>Certificate After Completion.</li>
+
+                                            </ol>
+                                        </div>
+
+                                        @if (ViewBag.pdcrschk != null)
+                                        {
+                                        <div class="interested text-center">
+                                            <h4>  <i class="fa fa-check-circle-o"></i> Already paid<small> </small></h4>
+                                            <br />
+                                            <a href="~/Student/Vid_CanAllView/@crs.Secret_Code`@ViewBag.userid" class="btn btn-info" role="button">My course</a>
+                                        </div>
+}
+else
+{
+
+
+                                        <div class="interested text-center">
+
+                                            <h4>Access Now?<small> </small></h4>
+                                            <form method="post" action="@ConfigurationManager.AppSettings["PaymentSubmiturl"]">
+                                                @{
+                                                    var pymnt = Model.Select(s => new { s.Title, s.Secret_Code, s.New_Price }).Distinct().Where(x => x.Secret_Code == ViewBag.secretcode).FirstOrDefault();
+
+                                    <input type="hidden" name="cmd" value="_xclick" />
+
+                                    <input type="hidden" name="upload" value="1" />
+                                    <input type="hidden" name="business" value="@ConfigurationManager.AppSettings["PaymentUsername"]" />
+
+                                    <input type="hidden" name="item_name" value="@pymnt.Title" />
+                                                    if (ViewBag.finalamount == null || ViewBag.finalamount == 0)
+                                                    {
+                                    <input type="hidden" name="amount" value="@pymnt.New_Price" />
+                                                    }
+                                                    else
+                                                    {
+                                    <input type="hidden" name="amount" value="@ViewBag.finalamount" />
+                                                    }
+                                    <input type="hidden" name="cancel_return" value="https://www.etreetraining.com/Student/CrsDetails/@ViewBag.userid`@crs.Secret_Code" />
+                                    <input type="hidden" name="return" value="https://www.etreetraining.com/Payment/Success/@ViewBag.userid`@crs.Secret_Code" />
+                                    @*<input type="hidden" name="lc" value="test lc country" />*@
+
+                                    <div class="form-actions no-color">
+                                        @*<p><i class="glyphicon glyphicon-usd"></i><input type="submit" value="Pay" class="btn btn-default" /></p>*@
+                                        <button type="submit" value="Pay"><i class="glyphicon glyphicon-usd"><b> Pay </b></i> </button>
+                                    </div>
+                                                }
+                                            </form>
+                                            <br />
+                                            <h4><small style="color:indianred"> Please NOTE: It is for them who not have banking cards or account. </small> <br />Pay through Institution/Organisation?</h4>
+                                            <br />
+                                            @*<a class="active" href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-sign-in" aria-hidden="true"></i> Search Institute</a>*@
+                                            <a class="active" data-toggle="modal" data-target="#myModal2"><i class="glyphicon glyphicon-search" aria-hidden="true"></i> <input type="button" value="  Search Institute" /></a>
+
+                                            <div class="modal fade active" id="myModal2" aria-hidden="true" tabindex="-1" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+
+                                                            <button type="button" style="float:right" data-dismiss="modal">&times;</button>
+                                                            <div class="signin-form profile" style="width:500px">
+
+                                                                <h3 class="agileinfo_sign">Pay through Institution</h3>
+                                                                <div class="login-form">
+
+                                                                    @Html.AntiForgeryToken()
+                                                                    <form action="~/Student/InstPaymnt/@ViewBag.userid`@crs.Secret_Code" id="instid" method="get">
+                                                                        <label class="control-label col-md-2">Instititute Code</label>
+                                                                        <div class="col-md-10">
+                                                                            <input type="text" name="instid" id="instid" required="required" onkeypress="return blockSpecialChar(event)" />
+                                                                        </div>
+                                                                        <script type="text/javascript">
+                                                                            function blockSpecialChar(e) {
+                                                                                var k;
+                                                                                document.all ? k = e.keyCode : k = e.which;
+                                                                                return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+                                                                            }
+                                                                        </script>
+                                                                        <div class="tp">
+                                                                            <div class="col-md-offset-2 col-md-10">
+                                                                                <input type="submit" value="Calculate Discount" class="btn btn-default" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+
+                                                                <div class="col-md-offset-2 col-md-10">
+                                                                    <br />
+                                                                    <div>
+
+                                                                        <a href="#" data-toggle="modal" data-target="#myModalfgps"><i class="fa fa-key"></i> Forgot code?</a>
+
+                                                                        <p><a href="#" data-toggle="modal" data-target="#myModal3"> <i class="fa fa-ban"></i> Don't have Institution Code?</a></p>
+                                                                        <br />
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            @*<form method="post" action="@ConfigurationManager.AppSettings["PaymentSubmiturl"]">
+
+                @{
+                    var pymnt1 = Model.Select(s => new { s.Title, s.Secret_Code, s.New_Price }).Distinct().Where(x => x.Secret_Code == ViewBag.secretcode).FirstOrDefault();
+
+                    <input type="hidden" name="cmd" value="_xclick" />
+
+                    <input type="hidden" name="upload" value="1" />
+                    <input type="hidden" name="business" value="@ConfigurationManager.AppSettings["PaymentUsername"]" />
+
+                    <input type="hidden" name="item_name" value="@pymnt1.Title" />
+                    if (ViewBag.finalamount == null || ViewBag.finalamount == 0)
+                    {
+                        <input type="hidden" name="amount" value="@pymnt1.New_Price" />
+                    }
+                    else
+                    {
+                        <input type="hidden" name="amount" value="@ViewBag.finalamount" />
+                    }
+                    <input type="hidden" name="cancel_return" value="https://www.etreetraining.com/Student/CrsDetails/@ViewBag.userid`@crs.Secret_Code" />
+                    <input type="hidden" name="return" value="https://www.etreetraining.com/Payment/Success/@ViewBag.userid`@crs.Secret_Code" />
+
+
+                    <div class="form-actions no-color">
+
+                        <p><i class="glyphicon glyphicon-usd"></i><input type="submit" value="Pay" class="btn btn-default" /></p>
+                    </div>
+                }
+            </form>*@
+
+
+                                            @using (Html.BeginForm("CrsDetails", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                            {
+                                    @*@Html.AntiForgeryToken()*@
+                                            var ds = Model.Select(s => new { s.Title, s.Secret_Code, s.Course_Type, s.Admin_Id, s.Trainer_Id, s.Old_Price, s.Learning_Point1, s.New_Price, s.Small_Description, s.Brief_Description, s.Learning_Point }).Distinct().Where(x => x.Secret_Code == ViewBag.secretcode).FirstOrDefault();
+                                            var cnt = Model.Select(s => new { s.Secret_Code, s.Learning_Point1 }).Distinct().Where(x => x.Secret_Code == ViewBag.secretcode).Count();
+                                            var i = 1;
+                                    <div class="form-actions no-color">
+                                        @*<p><i class="glyphicon glyphicon-usd"></i><input type="submit" value="Enroll" class="btn btn-default" /></p>*@
+
+                                        @*<p><i class="glyphicon glyphicon-gift"></i><input type="button" id="Add" value="Have Promo Code / Reference Code?" /></p>*@
+
+                                        <p>
+                                            @*<i class="glyphicon glyphicon-gift"></i>*@@*<button type="button" onClick="addBox()"></button>*@
+                                            <b> Have Promo Code / Reference Code?</b>
+                                        </p>
+                                        @*@Html.EditorFor(ds.Learning_Point1, new { htmlAttributes = new { @class = "form-control" } })*@
+                                        @foreach (var item in Model.Select(s => new { s.Secret_Code, s.Learning_Point }).Where(x => x.Secret_Code == ViewBag.secretcode).Distinct())
+                                        {
+                                            if (cnt == i)
+                                            {
+                                    @*@Html.EditorFor(modelItem => item.Learning_Point, new { htmlAttributes = new { @class = "form-control", @id="st" } })*@
+                                    <input type="text" class="phone" placeholder="" name="Learning_Point" required="required" onkeypress="return blockSpecialChar(event)">
+                                            }
+
+                                            i++;
+                                        }
+                                        <br />
+                                        <button type="submit" @*style="background-color:yellow; color:black;width:35%;"*@ value="Apply Discount"><i class="glyphicon glyphicon-gift"> Apply Discount</i> </button>
+
+                                        <div class="clearfix"></div>
+
+                                    </div>
+                                            }
+
+                                        </div>
+
+                                                    }
+
+                                    </div>
+                                        <div class="clearfix"></div>
+                                        }}
+                                    </div>
+                    </div>
+                @*</div>
+            </div>*@
+
+
+            <!-- //social_media-->
+        </div>
+        <!-- //inner_content_w3_agile_info-->
+    </div>
+    <!-- //inner_content-->
+   
+    <!-- banner -->
+    <!--copy rights start here-->
+    <div class="footer_agileinfo_topf">
+        <div class="container">
+            <div class="container">
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <h2>EOTA</h2>
+                    <p class="paragraphf">Providing best coaching at affordable prices.</p>
+                </div>
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <nav>
+                        <ul class="footer_w3layouts_gridf_list">
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#About" target="_blank">About Us</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#service" target="_blank">Services</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#products" target="_blank">Products</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <nav>
+                        <ul class="footer_w3layouts_gridf_list">
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#jobs" target="_blank">Careers</a>
+                            </li>
+
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#technology" target="_blank">Technology</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#contact" target="_blank">Contact</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+
+                </div>
+                <div class="clearfix"> </div>
+                <div class="w3ls-fsocial-grid">
+                    <h3 class="sub-w3ls-headf">Follow Us</h3>
+                    <div class="social-ficons">
+                        <ul>
+                            <li><a href="https://www.facebook.com/12Elephanttrees/" target="_blank"><span class="fa fa-facebook"></span> Facebook</a></li>
+                            <li><a href="https://twitter.com/12Elephanttrees" target="_blank"><span class="fa fa-twitter"></span> Twitter</a></li>
+                            <li><a href="https://www.linkedin.com/in/elephanttree-technologies-private-limited-174699145/" target="_blank"><span class="fa fa-linkedin-square"></span>Linkdin</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-wthree-copyf" style="background-color:lavender">
+        <div class="container">
+
+            <p>© 2018 EOTA MERIT TRAINING. All rights reserved | Design and Developed by <a href="http://www.elephanttreetech.com/" target="_blank"> ELEPHANTTREE TECH PVT.LTD.</a></p>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!--copy rights end here-->
+    <!-- js -->
+
+
+    <script type="text/javascript" src="~/FrontUsersPro/js/jquery-2.1.4.min.js"></script>
+    <script src="~/FrontUsersPro/js/modernizr.custom.js"></script>
+
+    <script src="~/FrontUsersPro/js/classie.js"></script>
+    <script src="~/FrontUsersPro/js/gnmenu.js"></script>
+    <script>
+        new gnMenu(document.getElementById('gn-menu'));
+    </script>
+    <!-- input-forms -->
+    <script type="text/javascript" src="~/FrontUsersPro/js/valida.2.1.6.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            // show Valida's version.
+            $('#version').valida('version');
+
+            // Exemple 1
+            $('.valida').valida();
+
+            // Exemple 2
+            /*
+            $('.valida').valida({
+
+                // basic settings
+                validate: 'novalidate',
+                autocomplete: 'off',
+                tag: 'p',
+
+                // default messages
+                messages: {
+                    submit: 'Wait ...',
+                    required: 'Este campo é obrigatório',
+                    invalid: 'Field with invalid data',
+                    textarea_help: 'Digitados <span class="at-counter">{0}</span> de {1}'
+                },
+
+                // filters & callbacks
+                use_filter: true,
+
+                // a callback function that will be called right before valida runs.
+                // it must return a boolan value (true for good results and false for errors)
+                before_validate: null,
+
+                // a callback function that will be called right after valida runs.
+                // it must return a boolan value (true for good results and false for errors)
+                after_validate: null
+
+            });
+            */
+
+            // setup the partial validation
+            $('#partial-1').on('click', function (ev) {
+                ev.preventDefault();
+                $('#res-1').click(); // clear form error msgs
+                $('form').valida('partial', '#field-1'); // validate only field-1
+                $('form').valida('partial', '#field-1-3'); // validate only field-1-3
+            });
+
+        });
+
+    </script>
+    <!-- //input-forms -->
+    <!--validator js-->
+    <script src="~/FrontUsersPro/js/validator.min.js"></script>
+    <script src="~/FrontUsersPro/js/screenfull.js"></script>
+    <script>
+        $(function () {
+            $('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+            if (!screenfull.enabled) {
+                return false;
+            }
+
+
+
+            $('#toggle').click(function () {
+                screenfull.toggle($('#container')[0]);
+            });
+        });
+    </script>
+    <script src="~/FrontUsersPro/js/jquery.nicescroll.js"></script>
+    <script src="~/FrontUsersPro/js/scripts.js"></script>
+
+    <script type="text/javascript" src="~/FrontUsersPro/js/bootstrap-3.1.1.min.js"></script>
+
+
+
+
+
+</body>
+</html>

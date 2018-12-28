@@ -1,0 +1,153 @@
+﻿@model EtreetrainingUser.Models.Reference_Calculator
+@{
+    ViewBag.Title = "EOTA: Discount for referal";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+<!DOCTYPE html>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- font files -->
+<link href="//fonts.googleapis.com/css?family=Viga" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+<!-- /font files -->
+<!-- css files -->
+<link href="~/discountfldr/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="~/discountfldr/css/style.css" rel="stylesheet" />
+
+<script src="~/discountfldr/js/jquery-1.11.1.min.js"></script>
+<div id="page-wrapper">
+    <div class="main-page">
+
+        <div class="grids">
+            <div class="progressbar-heading grids-heading">
+                <h2 style="color:black">Discount Page</h2>
+               
+            </div>
+            @*<div class="panel panel-widget">*@
+            <div class="block-page">
+
+                @*<div class="content-w3ls">*@
+                <div class="content1" style="background-color:black">
+                    <div class="wthree1">
+                        <h3 class="w3-agileits1">Grab Courses?</h3>
+                        <h4 class="agileits1"> </h4>
+                    </div>
+                    <div class="wthree2">
+                        <h3 class="w3-agileits2">Save Up To</h3>
+                        <h4 class="agileits2">@ViewBag.per</h4>
+                    </div>
+                    <div class="clear"></div>
+
+                </div>
+                <div class="content2">
+                    <p class="agileinfo2" style="text-align:center;color:black"> @ViewBag.UploadStatus</p>
+                    <form action="~/ADMIN/ReferenceDiscount" method="post" onsubmit="return validateForm2(event)">
+
+                        @*@Html.DropDownListFor(m => m.upldr, new List<SelectListItem>
+                       { new SelectListItem{Text="Admin", Value="A"},
+                         new SelectListItem{Text="Trainer", Value="T"}}, "Please Select As who you uploaded as", new { @id = "email" })
+            <br /><br />*@
+
+                        @*@Html.EditorFor(model => model.upldrid, new { htmlAttributes = new { id = "email", type = "number", placeholder = "Your Id", required = "required" } })
+
+            @Html.EditorFor(model => model.upldrpss, new { htmlAttributes = new { id = "email", type = "password", placeholder = "Your Password", required = "required" } })*@
+                        @*@Html.ValidationMessageFor(model => model.Reference_Code, "", new { @class = "text-danger " })
+            @Html.EditorFor(model => model.Reference_Code, new { htmlAttributes = new { id = "email", placeholder = "Reference Code" } })*@
+                        @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger " })
+                        <span id="emailerror2" class="text-danger"></span>
+                        @Html.EditorFor(model => model.EmailId, new
+        {
+            htmlAttributes = new
+            { id = "emailid2", style = "width:30%,position:center", placeholder = "User-mail@example.com", onmousedown = "return remve(event)" }
+        })
+                        <script language="Javascript">
+                            function validateForm2(event) {
+                                var pattern2 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+                                var userName2 = document.getElementById("emailid2").value;
+
+                                if (userName2.match(pattern2)) {
+
+                                    return true;
+                                } else {
+
+                                    document.getElementById("emailerror2").innerHTML = "Email is not valid";
+
+                                    return false;
+                                }
+
+                            }
+
+                        </script>
+                        <script type="text/javascript">
+                            function remve(evt) {
+                                document.getElementById("emailerror2").innerHTML = null;
+
+                                return true;
+                            }
+                        </script>
+                        @Html.ValidationMessageFor(model => model.Referral_Discount_Price, "", new { @class = "text-danger " })
+                        @Html.EditorFor(model => model.Referral_Discount_Price, new
+        {
+            htmlAttributes = new
+            { id = "email", onkeypress = "return isNumberKey(event)", min = "0", max = "100", placeholder = "Discount Percentage For Reference" }
+        })
+                        <script type="text/javascript">
+                            function isNumberKey(evt) {
+                                var charCode = (evt.which) ? evt.which : event.keyCode;
+                                if (charCode > 31
+                                    && (charCode < 48 || charCode > 57))
+                                    return false;
+
+                                return true;
+                            }
+                        </script>
+
+
+
+                        @Html.ValidationMessageFor(model => model.msgbox, "", new { @class = "text-danger " })
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        @Html.EditorFor(model => model.msgbox, new { htmlAttributes = new { id = "email", placeholder = "Message", rows = "5", cols = "45", maxlength = "250" } })
+                        <br /><br />
+
+                        <input type="submit" class="register" value="Post Offer">
+                    </form>
+
+
+                </div>
+
+                <div class="clear"></div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="~/discountfldr/js/jquery-1.11.1.min.js"></script>
+
+
+<script>
+    $(document).ready(function (c) {
+        $('.alert-close1').on('click', function (c) {
+            $('.content-w3ls').fadeOut('slow', function (c) {
+                $('.content-w3ls').remove();
+            });
+        });
+    });
+</script>
+<script type="text/javascript">
+
+    function setid() {
+
+        //var date1 =
+
+        document.getElementById("sec").textContent = remtime;
+
+
+    }
+
+</script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>

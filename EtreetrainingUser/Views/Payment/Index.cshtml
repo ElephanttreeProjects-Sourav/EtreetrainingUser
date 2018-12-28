@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EtreetrainingUser.Models.Post_Cours>
+@{
+    Layout = null;
+}
+@using System.Configuration
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    
+
+        <h4>Enroll now<small> </small></h4>
+        <form method="post" action="@ConfigurationManager.AppSettings["PaymentSubmiturl"]" enctype="multipart/form-data">
+           
+@*@using (Html.BeginForm("https://www.sandbox.paypal.com/cgi-bin/webscr","", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{*@  @{
+    var ds = Model.Select(s => new { s.Title, s.Secret_Code, s.Course_Type, s.Admin_Id, s.Trainer_Id, s.Old_Price, s.Learning_Point1, s.New_Price, s.Small_Description, s.Brief_Description, s.Learning_Point }).Distinct().Where(x => x.Secret_Code == ViewBag.secretcode).FirstOrDefault();
+}
+                <input type="hidden" name="cmd" value="_donations" />
+                                    <input type="hidden" name="upload" value="1" />
+                                    <input type="hidden" name="business" value="@ConfigurationManager.AppSettings["PaymentUsername"]" />
+            <input type="hidden" name="amount" value="5" />
+             <input type="hidden" name="fname" value="5"><br>
+            <input type="hidden" name="lname" value="9"><br>
+                                    <input type="hidden" name="return" value="@ConfigurationManager.AppSettings["returnurl"]" />
+                                    <input type="hidden" name="lc" value="test lc country" />
+
+
+
+
+                                    <div class="form-actions no-color">
+                                        <p><i class="glyphicon glyphicon-usd"></i><input type="submit" value="Enroll" class="btn btn-default" /></p>
+                                    </div>
+          @*}*@
+        </form>
+</body>
+</html>

@@ -1,0 +1,361 @@
+﻿@*@model EtreetrainingUser.Models.Post_Cours*@
+@model IEnumerable<EtreetrainingUser.Models.Post_Cours>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EOTA :: Course Details</title>
+    <link rel="stylesheet" href="~/Sale_FrontUsersPro/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Sale_FrontUsersPro/css/bootstrap-select.css">
+    <link href="~/Sale_FrontUsersPro/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="EOTA :: MERIT TRAINING" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <!--fonts-->
+    <link href='~/Sale_FrontUsersPro/fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <link href='~/Sale_FrontUsersPro/fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!--//fonts-->
+    <!-- js -->
+    <script type="text/javascript" src="~/Sale_FrontUsersPro/js/jquery.min.js"></script>
+    <!-- js -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Sale_FrontUsersPro/js/bootstrap.min.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/bootstrap-select.js"></script>
+    <script>
+        $(document).ready(function () {
+            var mySelect = $('#first-disabled2');
+
+            $('#special').on('click', function () {
+                mySelect.find('option:selected').prop('disabled', true);
+                mySelect.selectpicker('refresh');
+            });
+
+            $('#special2').on('click', function () {
+                mySelect.find('option:disabled').prop('disabled', false);
+                mySelect.selectpicker('refresh');
+            });
+
+            $('#basic2').selectpicker({
+                liveSearch: true,
+                maxOptions: 1
+            });
+        });
+    </script>
+    <script type="text/javascript" src="~/Sale_FrontUsersPro/js/jquery.leanModal.min.js"></script>
+    <link href="~/Sale_FrontUsersPro/css/jquery.uls.css" rel="stylesheet" />
+    <link href="~/Sale_FrontUsersPro/css/jquery.uls.grid.css" rel="stylesheet" />
+    <link href="~/Sale_FrontUsersPro/css/jquery.uls.lcd.css" rel="stylesheet" />
+    <!-- Source -->
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.data.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.data.utils.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.lcd.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.languagefilter.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.regionfilter.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.core.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.uls-trigger').uls({
+                onSelect: function (language) {
+                    var languageName = $.uls.data.getAutonym(language);
+                    $('.uls-trigger').text(languageName);
+                },
+                quickList: ['en', 'hi', 'he', 'ml', 'ta', 'fr'] //FIXME
+            });
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="~/Sale_FrontUsersPro/css/easy-responsive-tabs.css " />
+    <script src="~/Sale_FrontUsersPro/js/easyResponsiveTabs.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="~/Training_main/Doc_upload"><span>EOTA</span>UPLODER</a>
+            </div>
+            <div class="header-right">
+
+
+                <!-- Large modal -->
+
+                <div class="selectregion">
+                 
+                            <button class="btn btn-primary" data-toggle="modal" data-target="">
+                                <a class="" href="@ViewBag.url">Home</a>
+                            </button>
+                           
+                            <script>
+                                $('#myModal').modal('');
+                            </script>
+                        </div>
+                    </div>
+                </div>
+       
+          
+       
+    </div>
+
+    <div class="main-banner banner text-center">
+        <div class="container">
+            <h1>Mostly viewed <span class="segment-heading">    and popular </span> courses</h1>
+            <p>Please try courses in what you have interest</p>
+            <br />
+        </div>
+    </div>
+    <!--single-page-->
+    <div class="single-page main-grid-border">
+        <div class="container">
+            <ol class="breadcrumb" style="margin-bottom: 5px;">
+                <li><a href="~/Home/Index">Home</a></li>
+                <li><a href="~/Training_main/AllCourseView">All Courses</a></li>
+           
+@{
+    
+    foreach (var crs in Model.Select(s => new { s.Title, s.Secret_Code }).Distinct().Where(x => x.Secret_Code == ViewBag.secretcode).ToArray())
+    {
+
+         <li class="active">@crs.Title</li>
+    }
+}
+            </ol>
+            <div class="product-desc">
+@{
+    
+    foreach (var crs in Model.Select(s => new { s.Title, s.Secret_Code, s.Course_Type, s.Admin_Id,s.Trainer_Id, s.Old_Price, s.Requirements, s.New_Price, s.Small_Description, s.Brief_Description, s.Learning_Point }).Distinct().Where(x => x.Secret_Code == ViewBag.secretcode).ToArray())
+    {
+                <div class="col-md-7 product-view">
+
+                    <h2>@crs.Title</h2>
+                    @*<p> <i class="glyphicon glyphicon-map-marker"></i><a href="#">state</a>, <a href="#">city</a>| Added at 06:55 pm, Ad ID: 987654321</p>*@
+                    <div class="flexslider">
+                        <ul class="slides">
+                            @foreach (var img in Model.Select(s => new { s.Document_Image, s.Secret_Code }).Where(x => x.Secret_Code == ViewBag.secretcode))
+                            {
+                                if (img.Document_Image == null)
+                                { }
+                                else
+                                {
+                                   
+                                        <li data-thumb=  "@Url.Content(@img.Document_Image)" width="150" height="150">
+                                            <img src=  "@Url.Content(@img.Document_Image)" width="150" height="150"/>
+                                        </li>
+                                       
+                                }
+                            }
+                        </ul>
+                    </div>
+                    <!-- FlexSlider -->
+                    <script defer src="~/Sale_FrontUsersPro/js/jquery.flexslider.js"></script>
+                    <link rel="stylesheet" href="~/Sale_FrontUsersPro/css/flexslider.css" type="text/css" media="screen" />
+
+                    <script>
+                        // Can also be used with $(document).ready()
+                        $(window).load(function () {
+                            $('.flexslider').flexslider({
+                                animation: "slide",
+                                controlNav: "thumbnails"
+                            });
+                        });
+                    </script>
+                    <!-- //FlexSlider -->
+                    <div class="product-details">
+                        @{
+                            if (@crs.Course_Type == "T")
+                            {
+                                <h4>Course Type : <a href="#">Technical</a></h4>
+                            }
+                            else if (@crs.Course_Type == "A")
+                            {
+                                <h4>Course Type : <a href="#">Academic</a></h4>
+                            }
+                            else
+                            {
+                                <p>
+                                    <strong>
+                                        Course Type : </strong><a href="#">Management</a>
+                                </p>
+                            }
+                        }
+                        <p><strong>Your Course Secret code : </strong>@crs.Secret_Code</p>
+                        @if (@crs.Admin_Id == null)
+                        {
+                            <p><strong>Course Uploader : </strong> @ViewBag.trnrnm</p>
+                        }
+                        else
+                        {
+                            <p><strong>Course Uploader : </strong> @ViewBag.admnm</p>
+                        }
+                        
+                        <p><strong>Requirements: </strong> @crs.Requirements.</p>
+                        <p><strong>Curriculum For This Course </strong> @crs.Learning_Point.</p>
+                        <p><strong>Description: </strong> @crs.Small_Description.</p>
+                        <p><strong>Summary:</strong> @crs.Brief_Description.</p>
+
+                    </div>
+
+                </div>
+                <div class="col-md-5 product-details-grid">
+                    <div class="item-price">
+                        <div class="product-price">
+                            <p class="p-price">Price</p>
+                            <h3 class="rate">
+                                &#8377; @crs.New_Price <span>&nbsp;</span>
+                                @if (@crs.Old_Price != null)
+    {
+                            <span style="text-decoration: line-through;color:black">&#8377;  @crs.Old_Price</span>
+
+}
+
+                            </h3>
+                            <div class="clearfix"></div>
+                        </div>
+                        @*<div class="condition">
+                            <p class="p-price">Condition</p>
+                            <h4>Good</h4>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="itemtype">
+                            <p class="p-price"></p>
+                            <h4>ADD To Cart</h4>
+                            <div class="clearfix"></div>
+                        </div>*@
+                    </div>
+                    <div class="tips">
+                        <h4>Includes:</h4>
+                        <ol>
+                            <li><i class="fa fa-life-ring"></i> Full Lifetime Access.</li>
+                            <li>Access On Mobile and TV.</li>
+                            <li>Certificate After Completion.</li>
+
+                        </ol>
+                    </div>
+                    <div class="interested text-center">
+                        <h4>Are sure to delete this?<small> Click on Delete</small></h4>
+
+                        @*@using (Html.BeginForm())
+    {
+                    @Html.AntiForgeryToken()*@
+
+                    <div class="form-actions no-color">
+                        <p><i class="glyphicon glyphicon-trash"></i><input type="button" onclick="deleteconfirmation()" value="Delete" class="btn btn-default" /></p>
+
+
+                    </div>
+                    <script>
+                        function deleteconfirmation() {
+                            var txt;
+                            var r = confirm("Are sure to delete this?");
+                            if (r == true) {
+                                window.location.assign("/Training_main/CrsDetailsDelete/@ViewBag.secretcode")
+                            } else {
+                                txt = "You pressed Cancel!";
+                            }
+                           
+                        }
+                    </script>
+
+@*}*@
+                    </div>
+                    <div class="interested text-center">
+                        <h4>If You like to edit this<small> Click on Edit</small></h4>
+
+                       @using (Html.BeginForm("Edit", "Training_main",new { @id= @ViewBag.secretcode }, FormMethod.Get))
+                       {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <p><i class="glyphicon glyphicon-edit"></i><button >Edit</button></p>
+
+
+                            </div>
+                        }
+                    </div>
+                    
+                </div>
+                <div class="clearfix"></div>
+                }}
+            </div>
+        </div>
+    </div>
+    <!--//single-page-->
+    <!--footer section start-->
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="foo-grids">
+                    <div class="col-md-3 footer-grid">
+                        <h4 class="footer-head">Who We Are</h4>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                        <p>The point of using Lorem Ipsum is that it has a more-or-less normal letters, as opposed to using 'Content here.</p>
+                    </div>
+                    <div class="col-md-3 footer-grid">
+                        <h4 class="footer-head">Help</h4>
+                        <ul>
+                            <li><a href="howitworks.html">How it Works</a></li>
+                            <li><a href="sitemap.html">Sitemap</a></li>
+                            <li><a href="faq.html">Faq</a></li>
+                            <li><a href="feedback.html">Feedback</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="typography.html">Shortcodes</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 footer-grid">
+                        <h4 class="footer-head">Information</h4>
+                        <ul>
+                            <li><a href="regions.html">Locations Map</a></li>
+                            <li><a href="terms.html">Terms of Use</a></li>
+                            <li><a href="popular-search.html">Popular searches</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 footer-grid">
+                        <h4 class="footer-head">Contact Us</h4>
+                        <span class="hq">Our headquarters</span>
+                        <address>
+                            <ul class="location">
+                                <li><span class="glyphicon glyphicon-map-marker"></span></li>
+                                <li>CENTER FOR FINANCIAL ASSISTANCE TO DEPOSED NIGERIAN ROYALTY</li>
+                                <div class="clearfix"></div>
+                            </ul>
+                            <ul class="location">
+                                <li><span class="glyphicon glyphicon-earphone"></span></li>
+                                <li>+0 561 111 235</li>
+                                <div class="clearfix"></div>
+                            </ul>
+                            <ul class="location">
+                                <li><span class="glyphicon glyphicon-envelope"></span></li>
+                                <li><a href="mailto:info@example.com">mail@example.com</a></li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </address>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <div class="container">
+                <div class="footer-logo">
+                    <a href="index.html"><span>Re</span>sale</a>
+                </div>
+                <div class="footer-social-icons">
+                    <ul>
+                        <li><a class="facebook" href="#"><span>Facebook</span></a></li>
+                        <li><a class="twitter" href="#"><span>Twitter</span></a></li>
+                        <li><a class="flickr" href="#"><span>Flickr</span></a></li>
+                        <li><a class="googleplus" href="#"><span>Google+</span></a></li>
+                        <li><a class="dribbble" href="#"><span>Dribbble</span></a></li>
+                    </ul>
+                </div>
+                <div class="copyrights">
+                    <p> © 2017 EOTA MERIT TRAINING. All rights reserved | Design and Developed by <a href="http://www.elephanttreetech.com/">ELEPHANTTREE TECH PVT.LTD.</a></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </footer>
+    <!--footer section end-->
+</body>
+</html>

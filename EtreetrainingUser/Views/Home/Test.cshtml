@@ -1,0 +1,1788 @@
+﻿@model EtreetrainingUser.Models.Tbl_Cand_Main
+@{
+    Html.EnableClientValidation(true);
+}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EOTA :: Merit and Training Category For Freshers and Experience| Home :: ElephantTree Online Training Application</title>
+    <!-- Meta-tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="EOTA is the world's largest destination for online courses. Discover an online course on etreetraining.com and start learning a new skill today." />
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#sgnin").hide();
+            $("#fg").hide();
+            $("#sgnin").click(function () {
+                $("#sgnin").hide();
+                $("#sgnup").show();
+            });
+            $("#sgnup").click(function () {
+                $("#sgnup").hide();
+                $("#sgnin").show();
+            });
+            $("#fg").click(function () {
+                $("#fg").hide();
+                $("#sgnup2").show();
+            });
+            $("#sgnup2").click(function () {
+                $("#sgnup2").hide();
+                $("#fg").show();
+            });
+        });
+    </script>
+    <style>
+        .navbar-inverse {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+
+        .header_topw3layouts_bar {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+
+        .carousel-caption p {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+    </style>
+    <!--// Metga-tags -->
+    <!-- Styleshets -->
+    <link href="~/css/newcss/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// Bootstrap-css -->
+    <link href="~/css/newcss/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+    <!--// Responsive-tabs -->
+    <link href="~/css/newcss/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// Pop-up -->
+    <link href="~/css/newcss/css/banner.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// banner-css -->
+    <link rel="stylesheet" href="~/css/newcss/css/shop.css" type="text/css" media="screen" property="" />
+    <!--// shop-css -->
+    <link href="~/css/newcss/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- common-css -->
+    <link rel="stylesheet" href="~/css/newcss/css/client.css" type="text/css" media="all" />
+    <!-- // client-css -->
+    <link href="~/css/newcss/css/font-awesome.css" rel="stylesheet">
+
+    <!-- // Font-awesome-css -->
+    <!--// Styleshets -->
+    <!-- Online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Montserrat:300,500,600,700,800" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <!--// Online-fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!-- header -->
+
+
+    <div class="header" id="home">
+        @if (@ViewBag.discocde != null)
+        {
+            <div id="popupdis" style="background-color:cornflowerblue; ">
+                <button type="button" class="close" style="font-size:20px; color:wheat;background-color:black" onClick="PopUpdis('hide')" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                <h4 style="color:black; font-size: 15px; padding: 5px 0 5px 0; text-align:center; background:white;">
+                    Courses on sale | Get courses for @ViewBag.disper% discount and recommit to your learning goals
+                    <br /> Ends in <span id="demo"></span>
+                </h4>
+            </div>
+        }
+        <script type="text/javascript">
+            function PopUpdis(hideOrshow) {
+                if (hideOrshow == 'hide') document.getElementById('popupdis').style.display = "none";
+                else document.getElementById('popupdis').removeAttribute('style');
+            }
+            window.onload = function () {
+                setTimeout(function () {
+                    if (@ViewBag.discocde!=null) {
+                        PopUpdis('show');
+                    } else {
+                        PopUpdis('hide')
+                    }
+
+                }, 100);
+                }
+
+            var countDownDate = new Date().getTime();
+
+            var nowtm = new Date().getTime();
+            /**/
+            var cntminutes = new Date(countDownDate + (@ViewBag.disabledt * 60 * 1000));
+            /**/
+
+                    var mnstm = cntminutes - nowtm;
+
+                    // Update the count down every 1 second
+                    var x = setInterval(function () {
+
+                        // Get todays date and time
+                        var now = new Date().getTime();
+
+                        var distance = cntminutes - now;
+                        var sp = cntminutes - now;
+
+
+                        // Time calculations for days, hours, minutes and seconds
+                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                        // Output the result in an element with id="demo"
+
+                        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                            + minutes + "m " + seconds + "s ";
+
+
+                        if (distance < 0) {
+                            clearInterval(x);
+
+                            document.getElementById("demo").innerHTML = "EXPIRED";
+                            PopUpdis('hide');
+                            // window.location.href = "/Home/Index";
+
+                        }
+
+                    }, 1000);
+
+        </script>
+        <!-- header-top -->
+
+        <div class="header_topw3layouts_bar">
+            <div class="container">
+                <div class="header_agileits_left">
+                    <ul>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> +91 080-41141398</li>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@elephanttreetech.com">info@elephanttreetech.com</a></li>
+                    </ul>
+                </div>
+                <div class="header_right">
+                    <a href="#" class="log" data-toggle="modal" data-target="#myModal">Sign In/Up</a>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <!--// header-top -->
+        <!--Popup model-->
+
+        <div class="modal fade" id="myModalpopup" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                        <div class="signin-form profile ">
+                            @if (@ViewBag.errrid == "1")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Login Error</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:red"> Invalid credentials, Please Check your details and try again!</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "2")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Email Exists</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Your email already exists. Please try with another email or </h4>
+                                    <br />
+                                    <h4> <a href="#" data-toggle="modal" data-target="#myModalfgps" onClick="PopUperror('hide')" style="color:blue">reset your password</a></h4>
+                                    <br /><br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "3")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Successfull Registration</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Registration Successfully done. Account activation link has been sent to your email id. Please check.</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "4")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Registration Error</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:red"> Invalid registration. Please Try again</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "14")
+                            {
+                                @*<h3 class="agileinfo_sign" style="text-align:center">Registration Error</h3>
+                                    <br />*@
+                                <div class="login-form">
+                                    <h4 style="color:red"> @ViewBag.errrmsg14</h4>
+                                    @*<br />
+                                        <h4>Thank You</h4>*@
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "5")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Password Recovery</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Please check Your Email. Password recovery link has been sent.</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "6")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Password Recovery</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Something went wrong. Please try again</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "7")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center">Password Recovery</h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:red"> Email does not Exist. Please try again.</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "23")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center"></h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Account has been updated. Please re-login.</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+                            }
+                            @if (@ViewBag.errrid == "15")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center"></h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Thank You for your query! We will revert back you soon...</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+
+                            }
+                            @if (@ViewBag.errrid == "16")
+                            {
+                                <h3 class="agileinfo_sign" style="text-align:center"></h3>
+                                <br />
+                                <div class="login-form">
+                                    <h4 style="color:darkcyan"> Thank You for subscription! We will get all updation of this site...</h4>
+                                    <br />
+                                    <h4>Thank You</h4>
+                                </div>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- header-middle -->
+        @*<div class="header-middle">
+                <div class="container">
+                    <div class="logof-w3-agile">
+                        <h1><a href="~/Home/Index"><i class="fa fa-graduation-cap" aria-hidden="true"></i><span>EOTA</span></a></h1>
+                    </div>
+
+                    <div class="searchf-w3-agileits-headr">
+                        @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+                    {
+                        <input type="search" name="Search" placeholder="Search for a course..." required="" maxlength="500" onkeyup="javascript:RemoveSpecialChar(this)">
+                        <br />
+                        <label style="color:red" id="dngr"></label>
+                        <button type="submit" class="btn btn-default search" aria-label="Left Align" id="btnb">
+                            <i class="fa fa-search" aria-hidden="true" id="icn"> </i>
+                        </button>
+                }
+
+                    </div>
+
+                    <div class="cart-mainf" style="float:right">
+                        <a class="shop" style="float:right" href="~/Trainers/Trainrs_Login">Instructor</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>*@
+        <div class="header-middle">
+            <div class="container">
+                <div class="logof-w3-agile">
+                    <h1 style="padding-left: 70px;"><a href="~/Home/Index">@*<i class="fa fa-graduation-cap" aria-hidden="true"></i><span>*@EOTA@*</span>*@</a></h1>
+                </div>
+                <div class="searchf-w3-agileits-headr">
+                    @*@using (Html.BeginForm("Search", "Home", FormMethod.Get,new { accept - charset = "ISO-8859-1" }))
+                        {*@
+                    <form action="~/Home/Search" method="get" accept-charset="ISO-8859-1">
+                        <input type="search" name="Search" placeholder="Search for a course..." required="" maxlength="500" onkeyup="javascript:RemoveSpecialChar(this)">
+                        <button type="submit" class="btn btn-default search" aria-label="Left Align" id="btnb">
+                            <i class="fa fa-search" aria-hidden="true" id="icn"> </i>
+                        </button>
+                    </form>
+                    @*}*@
+                </div>
+                <div class="cart-mainf">
+                    <a class="shop" href="~/Trainers/Trainrs_Login">Instructor</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+        <!--// header-middle -->
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse js-navbar-collapse">
+                <ul class="head">
+
+
+                    <li><a href="~/Home/SearchOne/A">Academic courses</a></li>
+                    <li><a href="~/Home/SearchOne/T">Technical courses</a></li>
+                    <li><a href="~/Home/SearchOne/M">Management courses</a></li>
+                </ul>
+            </div>
+            <!-- /.nav-collapse -->
+        </nav>
+
+    </div>
+    <!-- banner -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="4" class=""></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <p>Courses</p>
+                        <h3 style="font-size: 2.8em;">We provide best courses <br>within the <span><br>shortest terms.</span></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="item item2">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <p>Technical</p>
+                        <h3 style="color:black; font-size: 2.3em;">Change your <br>thoughts for a<br> <span>better you.</span></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="item item3">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <p>Development</p>
+                        <h3>Simple ways to beat <span>procrastination.</span></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="item item4">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <p>Management</p>
+                        <h3>Modernizing, virtualizing your <span>business!</span></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="item item5">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <p>Academic</p>
+                        <h3>Achieve More with Grounding <span> Coaching Sessions.</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Arrows -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="fa fa-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="fa fa-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <!-- //Arrows -->
+    </div>
+    <!--//banner -->
+    <!-- about -->
+    <div class="aboutf">
+        <div class="container">
+            <h3 class="tittlef-agileits-w3layouts">Top most popular courses</h3>
+            <p class="paragraphf">
+                “Try to become not a man of success, but try rather <span style="color:darkblue">to become a man of value.</span>”<br /> –<span style="color:black"> Albert Einstein</span>
+            </p>
+        </div>
+        <div class="banner_bottom_tab_grids">
+            <div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;">
+                <ul class="resp-tabs-list">
+
+                    <li class="resp-tab-item resp-tab-active" style=" float:none;" aria-controls="tab_item-0" role="tab">Academic Courses</li>
+
+                    <li class="resp-tab-item " aria-controls="tab_item-1" style=" float:none;" role="tab">Technical Courses</li>
+                    <li class="resp-tab-item" aria-controls="tab_item-2" style=" float:none;" role="tab">Management Courses</li>
+
+                </ul>
+                <div class="resp-tabs-container">
+                    <!-- tab1 -->
+                    <div class="resp-tab-content resp-tab-content-active " style="display:block" aria-labelledby="tab_item-0">
+                        <!-- tabs-info -->
+                        <div class="main-topicsf">
+                            @{int count = 1; var scrt = 0; var chk = @ViewBag.academiccourses; int shwcnt = 0;}
+                            @{int count1 = 1; var scrt1 = 0; int shwcnt1 = 0; }
+                            @{int count2 = 1; var scrt2 = 0; int shwcnt2 = 0;}
+                            @if (chk.Count == 0)
+                            {
+                                <h4 style="color:red">No match found. Try another two tabs.</h4>
+                            }
+                            @foreach (var crs in @ViewBag.academiccourses)
+                            {
+                                if (crs != null)
+                                {
+                                    if (shwcnt > 7)
+                                    { }
+                                    else
+                                    {
+                                        if (count == 1)
+                                        {
+                                            shwcnt++;
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b> </p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt != @crs.Secret_Code)
+                                            {
+
+                                                shwcnt++;
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                    }
+                                    count++;
+                                    scrt = @crs.Secret_Code;
+                                }
+
+                            }
+
+
+
+                            <div class="clearfix"> </div>
+                        </div>
+                        <!-- //tabs-info -->
+                        <!-- tabs-info -->
+                        <!-- //tabs-info -->
+                        <br />
+                        @if (shwcnt > 7)
+                        {
+                            <label> Courses: 8  </label>
+                            @Html.ActionLink("Show more", "/SearchOne/A")
+                        }
+                        else
+                        {
+
+                        }
+                    </div>
+                    <!-- //tab1 -->
+                    <!-- tab2 -->
+                    <div class="resp-tab-content " aria-labelledby="tab_item-1">
+                        <!-- tabs-info -->
+                        <div class="main-topicsf">
+
+                            @foreach (var crs in @ViewBag.technicalcourses)
+                            {
+                                if (crs != null)
+                                {
+                                    if (shwcnt1 > 7)
+                                    { }
+                                    else
+                                    {
+                                        if (count1 == 1)
+                                        {
+                                            shwcnt1++;
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><b>@crs.Title</b></p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt1 != @crs.Secret_Code)
+                                            {
+
+                                                shwcnt1++;
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                    }
+                                    count1++;
+                                    scrt1 = @crs.Secret_Code;
+                                }
+                            }
+                            <div class="clearfix"> </div>
+                        </div>
+                        <!-- //tabs-info -->
+                        <!-- tabs-info -->
+                        <br />
+                        @if (shwcnt1 > 7 || shwcnt2 > 7)
+                        {
+                            <label> Courses: 8  </label>
+                            @Html.ActionLink("Show more", "/SearchOne/T")
+                        }
+                        else
+                        {
+
+                        }
+                    </div>
+                    <!--// tab2 -->
+                    <!-- tab3 -->
+                    <div class="resp-tab-content" aria-labelledby="tab_item-2">
+                        <!-- tabs-info -->
+                        <div class="main-topicsf">
+                            @foreach (var crs in @ViewBag.managementcourses)
+                            {
+                                if (crs != null)
+                                {
+                                    if (shwcnt2 > 7)
+                                    { }
+                                    else
+                                    {
+                                        if (count2 == 1)
+                                        {
+                                            shwcnt2++;
+                                            <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                <div class="fff">
+                                                    <div class="thumbnail">
+                                                        <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                        @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                    </div>
+
+                                                    <div class="caption thumbnail">
+                                                        <h3>@crs.Title</h3>
+
+                                                        <div class="matrlf-mid">
+                                                            <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                            <ul class="rating">
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                            </ul>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                            <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            if (scrt2 != @crs.Secret_Code)
+                                            {
+
+                                                shwcnt2++;
+                                                <li class="col-md-3 col-sm-6 col-xs-6 mtrl-f-grids">
+                                                    <div class="fff">
+                                                        <div class="thumbnail">
+                                                            <a href="~/Home/singlecrs/@crs.Secret_Code"><img src="~/css/newcss/images/mf6.jpg" alt=""></a>
+                                                            @*<p><span class="fa fa-hand-o-down" aria-hidden="true"></span>@crs.Title</p>*@
+                                                        </div>
+
+                                                        <div class="caption thumbnail">
+                                                            <h3>@crs.Title</h3>
+
+                                                            <div class="matrlf-mid">
+                                                                <h6><span>  &nbsp;&nbsp;<i class="fa fa-rupee"></i></span> @crs.New_Price</h6>
+                                                                <ul class="rating">
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star yellow-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                    <li><a href="#"><span class="fa fa-star gray-star" aria-hidden="true"></span></a></li>
+                                                                </ul>
+                                                                <div class="clearfix"> </div>
+                                                            </div>
+                                                            <form action="~/Home/singlecrs/@crs.Secret_Code">
+                                                                <button type="submit" class="edu-cart pedu-cart"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                    }
+                                    count2++;
+                                    scrt2 = @crs.Secret_Code;
+                                }
+                            }
+                            <div class="clearfix"> </div>
+                        </div>
+                        <!-- //tabs-info -->
+                        <!-- tabs-info -->
+                        <!-- //tabs-info -->
+                        <br />
+                        @if (shwcnt2 > 7)
+                        {
+                            <label> Courses: 8  </label>
+                            @Html.ActionLink("Show more", "/SearchOne/M")
+                        }
+                        else
+                        {
+
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- //about-->
+    <!-- Materials -->
+    <!-- //Materials-->
+    <!-- Reviews -->
+    <div class="reviewf-main">
+        <div class="container">
+            <h3 class="tittlef-agileits-w3layouts">User Feedback</h3>
+            <!-- reviewsf-left -->
+
+
+            <div class="col-md-6 reviewsf-left">
+                <div class="reviewsf-left">
+                    <div class="news-grids-bottom">
+                        <!-- cycler -->
+                        <div id="design" class="date">
+                            @*<div id="cycler">*@
+                            <div id="">
+                                <style>
+                                    .checked {
+                                        color: orange;
+                                    }
+                                </style>
+                                @{
+                                    foreach (var fdbck in @ViewBag.feedback)
+                                    {
+
+
+                                        <div class="rating">
+                                            @if (@fdbck.Review == "5")
+                                            {
+
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+
+                                            }
+                                            else if (@fdbck.Review == "4")
+                                            {
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star gray-star" aria-hidden="true"></span>
+
+                                            }
+                                            else if (@fdbck.Review == "3")
+                                            {
+
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star gray-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star gray-star" aria-hidden="true"></span>
+
+                                            }
+                                            else if (@fdbck.Review == "2")
+                                            {
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star gray-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star gray-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star gray-star" aria-hidden="true"></span>
+                                            }
+                                            else if (@fdbck.Review == "1")
+                                            {
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star gray-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star gray-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star gray-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star gray-star" aria-hidden="true"></span>
+                                            }
+                                            else
+                                            {
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star gray-star" aria-hidden="true"></span>
+                                                <span class="fa fa-star gray-star" aria-hidden="true"></span>
+                                            }
+
+                                            <div class="clientf-info">
+                                                <span class="fa fa-quote-left" aria-hidden="true"></span>
+                                                <p>
+                                                    @fdbck.Comment
+                                                </p>
+                                                @foreach (var p in ViewBag.usrnm)
+                                                {
+                                                    if (p.Cand_EmailId == @fdbck.User_Email)
+                                                    {
+                                                        <h5 style="color:blue"> @p.CandName</h5>
+                                                    }
+                                                }
+
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                            <br />
+                                        </div>
+                                    }
+                                }
+
+                                @*<div class="date-text">
+                                        <img src="~/css/newcss/images/letter-p.png" alt=" " class="img-responsive" />
+                                        <div class="clientf-info">
+                                            <span class="fa fa-quote-left" aria-hidden="true"></span>
+                                            <p>This course is really worth it. Instructor really comes across as a person described in her profile. Thank you EOTA and Indranil. I hope with your encouragement even this, little math goes along way.</p>
+                                            <h6>Pradip</h6>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>*@
+                            </div>
+                        </div>
+                        <!-- //cycler -->
+                    </div>
+                </div>
+            </div>
+            <!-- //reviewsf-left -->
+            <div class="col-md-6 reviewsf-right">
+                <h3 class="sub-w3ls-headf">
+                    If you're ready to take your visuals to the <span>Next level + save time and money</span>
+                    <br />
+                    JOIN EOTA TODAY!
+                </h3>
+                @foreach (var vid in ViewBag.vidlist)
+                {
+                    <div class="col-md-4 video-t2">
+                        <div class="demo-left small-demo">
+
+                            <video controls controlsList="nodownload" id="mp4Source" width="360" height="240">
+                                <source src="@Url.Content(vid.Video_Path)" type="video/mp4">
+
+                            </video>
+                            @*<iframe src="https://www.youtube.com/embed/V3dFHt9p5W8" allowfullscreen=""></iframe>*@
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                }
+                @*<div class="col-md-4 video-t2">
+                        <div class="demo-left small-demo row-3demov">
+                            <iframe src="https://www.youtube.com/embed/1CYBkEJV7T4" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-4 video-t2">
+                        <div class="demo-left  small-demo">
+                            <iframe src="https://www.youtube.com/embed/MYnnm8Klp6o" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>*@
+
+                <div class="buttonf-styl col-md-8 video-t2">
+                    <div class="demo-left  small-demo">
+                        <a href="#" class="log" data-toggle="modal" data-target="#myModal">Explore all courses</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //Reviews -->
+    <!--//mobile-app -->
+    <!--//mobile-app -->
+    <!-- Subscribe -->
+    @*<div class="wthree-subscribef-w3ls">
+            <div class="container">
+                <h3 class="tittlef-agileits-w3layouts white-clrf">Sign up for our Newsletter</h3>
+                <p class="white-clrf">Recieve our latest news straight to your inbox</p>
+                <div class="footer_w3layouts_gridf_right">
+
+                    <form action="~/Home/Subscribe" method="post">
+                        <input type="email" name="Email" placeholder="Email address..." required="">
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>*@
+    <!--// Subscribe -->
+    <!-- footer -->
+    <div class="footer_agileinfo_topf">
+        <div class="container">
+            <div class="container">
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <h2><a href="~/Home/Index">EOTA</a></h2>
+                    <p class="paragraphf">Providing best coaching at affordable prices.</p>
+                </div>
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <nav>
+                        <ul class="footer_w3layouts_gridf_list">
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#About" target="_blank">About Us</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#service" target="_blank">Services</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#products" target="_blank">Products</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <nav>
+                        <ul class="footer_w3layouts_gridf_list">
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#jobs" target="_blank">Careers</a>
+                            </li>
+
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#technology" target="_blank">Technology</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#contact" target="_blank">Contact</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+
+                </div>
+                <div class="clearfix"> </div>
+                <div class="w3ls-fsocial-grid" style="float:left">
+                    <h3 class="sub-w3ls-headf">Follow Us</h3>
+                    <div class="social-ficons">
+                        <ul>
+                            <li><a href="https://www.facebook.com/12Elephanttrees/" target="_blank"><span class="fa fa-facebook"></span> Facebook</a></li>
+                            <li><a href="https://twitter.com/12Elephanttrees" target="_blank"><span class="fa fa-twitter"></span> Twitter</a></li>
+                            <li><a href="https://www.linkedin.com/in/elephanttree-technologies-private-limited-174699145/" target="_blank"><span class="fa fa-linkedin-square"></span>Linkdin</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w3ls-fsocial-grid" style="float:right">
+
+                    <p style="float:right"><span class="fa fa-mail-forward" aria-hidden="true"></span>Recieve our latest news straight to your inbox.</p>
+                    <br /> <br />
+                    <div style="float:right">
+                        <form action="~/Home/Subscribe" method="post">
+                            <input type="email" name="Email" placeholder="Email address..." required="">
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+
+                </div>
+                <br />
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-wthree-copyf">
+        <div class="container">
+            @*<div class="addressf-agileits-w3layouts">
+                    <p style="float:left"><span class="fa fa-mail-forward" aria-hidden="true"></span>Recieve our latest news straight to your inbox.</p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="float:right">
+                        <form action="~/Home/Subscribe" method="post">
+                            <input type="email" name="Email" placeholder="Email address..." required="">
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>*@
+            <p>© 2018 EOTA MERIT TRAINING. All rights reserved | Design and Developed by <a href="http://www.elephanttreetech.com/" target="_blank"> ELEPHANTTREE TECH PVT.LTD.</a></p>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //footer -->
+    <!-- js -->
+    <!-- Common js -->
+    <script type="text/javascript" src="~/css/newcss/js/jquery-2.1.4.min.js"></script>
+    <!--// Common js -->
+    <!-- cart-js -->
+    <script src="~/css/newcss/js/minicart.js"></script>
+    <script>
+        edu.render();
+
+        edu.cart.on('edu_checkout', function (evt) {
+            var items, len, i;
+
+            if (this.subtotal() > 0) {
+                items = this.items();
+
+                for (i = 0, len = items.length; i < len; i++) { }
+            }
+        });
+    </script>
+    <!-- //cart-js -->
+    <!-- reviews -->
+    <script>
+        function blinker() {
+            $('.blinking').fadeOut(500);
+            $('.blinking').fadeIn(500);
+        }
+        setInterval(blinker, 1000);
+    </script>
+    <script>
+        function cycle($item, $cycler) {
+            setTimeout(cycle, 2000, $item.next(), $cycler);
+
+            $item.slideUp(1000, function () {
+                $item.appendTo($cycler).show();
+            });
+        }
+        cycle($('#cycler div:first'), $('#cycler'));
+    </script>
+    <!--// reviews -->
+    <!-- responsive-tabs -->
+    <script src="~/css/newcss/js/easy-responsive-tabs.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#verticalTab').easyResponsiveTabs({
+                type: 'vertical',
+                width: 'auto',
+                fit: true
+            });
+        });
+    </script>
+    <!-- //responsive-tabs -->
+    <!-- Carousel Auto-Cycle -->
+    <script>
+        $(document).ready(function () {
+            $('.carousel').carousel({
+                interval: 6000
+            })
+        });
+    </script>
+    <!-- // Carousel Auto-Cycle -->
+    <!-- Nav Js -->
+    <script type="text/javascript" src="~/css/newcss/js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!--// Nav Js -->
+    <!-- bootstrap-pop-up -->
+    <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Sign In/Up
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <section>
+
+                    <div class="modal-body">
+                        <div class="loginf_module">
+                            <div class="module form-module">
+                                <div class="toggle">
+                                    <i class="fa fa-times fa-pencil"></i>
+
+
+                                    <div class="tooltip" id="sgnin">Sign in </div>
+                                    <div class="tooltip" id="sgnup">Sign Up </div>
+
+                                </div>
+                                <div class="form">
+                                    <h3>Login to your account</h3>
+                                    <form action="~/Student/Cand_Login" method="post" onsubmit="return validateForm1(event)">
+                                        @Html.AntiForgeryToken()
+                                        <h4 id="emailerror1" class="text-danger text-center"></h4>
+                                        @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { id = "emailid1", placeholder = "Email", style = "text - align: left;", maxlength = "254", minlength = "4" } })
+
+                                        <h5 id="Upasswordtxt1" class="text-danger text-center"></h5>
+                                        @Html.ValidationMessageFor(model => model.Cand_Pass, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_Pass, new { htmlAttributes = new { id = "Upassword1", placeholder = "Password", maxlength = "16", minlength = "6" } })
+
+
+                                        <input type="submit" value="Login" style="background-color:lightseagreen">
+                                    </form>
+                                    <script language="Javascript">
+                                        function validateForm1(event) {
+                                            var pattern1 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                                            var re1 = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,16})$/;
+                                            var userName1 = document.getElementById("emailid1").value;
+                                            var upassword1 = document.getElementById("Upassword1").value;
+
+                                            if (userName1.match(pattern1)) {
+
+                                                if (upassword1.match(re1)) {
+
+
+
+                                                } else {
+
+                                                    document.getElementById("Upasswordtxt1").innerHTML = "Password must be between 8 to 16 characters,only contain at least one digit and one alphabetic character and no special characters";
+                                                    document.getElementById("emailerror1").innerHTML = "";
+
+                                                    return false;
+                                                }
+
+                                            } else {
+
+                                                document.getElementById("emailerror1").innerHTML = "Email is not valid";
+
+                                                document.getElementById("Upasswordtxt1").innerHTML = "";
+                                                return false;
+                                            }
+
+                                        }
+
+                                    </script>
+                                    <div class="cta">
+                                        <a href="#" class="log" data-toggle="modal" onClick="PopUp('hide')" data-target="#myModal1">Forgot password?</a>
+                                    </div>
+
+                                </div>
+                                <div class="form">
+                                    <h3>Sign Up</h3>
+                                    @using (Html.BeginForm("Cand_reg", "Student", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return validateForm(event)" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationMessageFor(model => model.CandName, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.CandName, new { htmlAttributes = new { placeholder = "Name" } })
+
+                                        <h4 id="emailerror" class="text-danger text-center"></h4>
+
+                                        @Html.ValidationMessage("EmailExist", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { id = "emailid", @type = "email", placeholder = "Email", maxlength = "254", minlength = "4" } })
+
+                                        @Html.ValidationMessageFor(model => model.Cand_MNum, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_MNum, new
+                                        {
+                                            htmlAttributes = new
+                                            {
+                                                @class = "form-control"@*, @type = "number"*@,
+onkeypress = "return isNumberKey(event)",
+maxlength = "10",
+minlength = "10",
+placeholder = "Phone Number"
+}
+})
+
+                                        <script type="text/javascript">
+                                            function isNumberKey(evt) {
+                                                var charCode = (evt.which) ? evt.which : event.keyCode;
+                                                if (charCode > 31
+                                                    && (charCode < 48 || charCode > 57))
+                                                    return false;
+
+                                                return true;
+                                            }
+                                        </script>
+
+                                        <h5 id="Upasswordtxt" class="text-danger text-center"></h5>
+                                        @Html.ValidationMessageFor(model => model.Cand_Pass, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_Pass, new { htmlAttributes = new { id = "Upassword", placeholder = "Password", maxlength = "16", minlength = "6" } })
+
+
+                                        <h5 id="Urepasswordtxt" class="text-danger text-center"></h5>
+                                        @Html.ValidationMessageFor(model => model.Cand_RePass, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_RePass, new
+                                        {
+                                            htmlAttributes = new
+                                            {
+                                                id = "Urepassword",
+
+                                                maxlength = "16",
+                                                minlength = "6",
+                                                placeholder = "Confirm Password"
+                                            }
+                                        })
+
+
+                                        <input type="submit" value="Register" style="background-color:lightseagreen">
+                                    }
+                                    <br />
+                                    <h6><a href="~/Home/termscond" target="_blank"> By clicking Register, you agree to our Terms and that you have read our Policy</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script language="Javascript">
+                        function validateForm(event) {
+                            var pattern = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                            var re = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,16})$/;
+                            var userName = document.getElementById("emailid").value;
+                            var upassword = document.getElementById("Upassword").value;
+                            var urepassword = document.getElementById("Urepassword").value;
+                            if (userName.match(pattern)) {
+
+                                if (upassword.match(re)) {
+
+                                    if (upassword == urepassword) {
+
+                                        return true;
+                                    } else {
+
+                                        document.getElementById("Urepasswordtxt").innerHTML = "Password and confirm password is not match";
+                                        document.getElementById("Upasswordtxt").innerHTML = "";
+                                        document.getElementById("emailerror").innerHTML = "";
+                                        return false;
+                                    }
+
+                                } else {
+
+                                    document.getElementById("Upasswordtxt").innerHTML = "Password must be between 8 to 16 characters,only contain at least one digit and one alphabetic character and no special characters";
+                                    document.getElementById("emailerror").innerHTML = "";
+                                    document.getElementById("Urepasswordtxt").innerHTML = "";
+                                    return false;
+                                }
+
+                            } else {
+
+                                document.getElementById("emailerror").innerHTML = "Email is not valid";
+                                document.getElementById("Urepasswordtxt").innerHTML = "";
+                                document.getElementById("Upasswordtxt").innerHTML = "";
+                                return false;
+                            }
+
+                        }
+
+                    </script>
+                    @if (@ViewBag.errrid == "1")
+                    {
+                        <h4 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Login Error</h4>
+                        <br />
+
+                        <h5 style="color:red;text-align:center"> Invalid credentials, Please Check your details and try again!</h5>
+                        <br />
+
+
+                    }
+                    @if (@ViewBag.errrid == "2")
+                    {
+                        <h4 class="agileinfo_sign" style="color:black;text-align:center">Email Exists</h4>
+                        <br />
+
+                        <h5 style="color:darkcyan;text-align:center"> Your email already exists. Please try with another email. </h5>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "3")
+                    {
+                        <h4 class="agileinfo_sign" style="color:black;text-align:center">Successfull Registration</h4>
+                        <br />
+
+                        <h5 style="color:darkcyan;text-align:center"> Registration Successfully done. Account activation link has been sent to your email id. Please check.</h5>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "4")
+                    {
+                        <h4 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Registration Error</h4>
+                        <br />
+
+                        <h5 style="color:red;text-align:center"> Invalid registration. Please Try again</h5>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "12")
+                    {
+                        <h4 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Login Error</h4>
+                        <br />
+
+                        <h5 style="color:red;text-align:center"> @ViewBag.errrmsg14</h5>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "13")
+                    {
+                        <h4 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Registration Error</h4>
+                        <br />
+
+                        <h5 style="color:red;text-align:center"> @ViewBag.errrmsg14</h5>
+                        <br />
+
+                    }
+
+                </section>
+            </div>
+        </div>
+    </div>
+    <script>
+        function PopUp(hideOrshow) {
+            if (hideOrshow == 'hide') $('#myModal').modal('hide');
+
+        }
+        function PopUp1(hideOrshow) {
+            if (hideOrshow == 'hide') $('#myModal1').modal('hide');
+
+        }
+    </script>
+    <div class="modal video-modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Sign In/Up
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <section>
+
+                    <div class="modal-body">
+                        <div class="loginf_module">
+                            <div class="module form-module">
+                                <div class="toggle">
+                                    <i class="fa fa-times fa-pencil"></i>
+                                    <div class="tooltip" id="fg">Back </div>
+                                    <div class="tooltip" id="sgnup2">Sign Up </div>
+
+                                </div>
+                                <div class="form">
+                                    <h3>Forgot Password Recovery</h3>
+
+                                    <form action="~/Student/Cand_Forgotpass" method="post" onsubmit="return validateForm2(event)">
+                                        <h4 id="emailerror2" class="text-danger text-center"></h4>
+                                        @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { id = "emailid2", style = "color: darkblue;", placeholder = "User email", @type = "email", maxlength = "254", minlength = "4" } })
+
+                                        <input type="submit" value="Submit" class="btn btn-default" style="background-color:lightseagreen" />
+                                    </form>
+                                    <script language="Javascript">
+                                        function validateForm2(event) {
+                                            var pattern2 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+                                            var userName2 = document.getElementById("emailid2").value;
+
+                                            if (userName2.match(pattern2)) {
+
+                                                return true;
+                                            } else {
+
+                                                document.getElementById("emailerror2").innerHTML = "Email is not valid";
+
+                                                return false;
+                                            }
+
+                                        }
+
+                                    </script>
+
+                                    <div class="cta">
+                                        <a href="#" class="log" data-toggle="modal" onClick="PopUp1('hide')" data-target="#myModal">Login</a>
+                                    </div>
+
+                                </div>
+
+                                <div class="form">
+                                    <h3>Sign Up</h3>
+                                    @using (Html.BeginForm("Cand_reg", "Student", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return validateForm3(event)" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationMessageFor(model => model.CandName, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.CandName, new { htmlAttributes = new { placeholder = "Name" } })
+
+                                        <h4 id="emailerror3" class="text-danger text-center"></h4>
+                                        @Html.ValidationMessage("EmailExist", new { @class = "text-danger" })
+                                        @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { id = "emailid3", @type = "email", placeholder = "Email", maxlength = "254", minlength = "4" } })
+
+
+                                        @Html.ValidationMessageFor(model => model.Cand_MNum, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_MNum, new
+                                        {
+                                            htmlAttributes = new
+                                            {
+                                                @class = "form-control"@*, @type = "number"*@,
+onkeypress = "return isNumberKey(event)",
+maxlength = "10",
+minlength = "10",
+placeholder = "Phone Number"
+}
+})
+
+                                        <script type="text/javascript">
+                                            function isNumberKey(evt) {
+                                                var charCode = (evt.which) ? evt.which : event.keyCode;
+                                                if (charCode > 31
+                                                    && (charCode < 48 || charCode > 57))
+                                                    return false;
+
+                                                return true;
+                                            }
+                                        </script>
+
+                                        <h5 id="Upasswordtxt3" class="text-danger text-center"></h5>
+                                        @Html.ValidationMessageFor(model => model.Cand_Pass, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_Pass, new { htmlAttributes = new { id = "Upassword3", placeholder = "Password", maxlength = "16", minlength = "6" } })
+
+
+                                        <h5 id="Urepasswordtxt3" class="text-danger text-center"></h5>
+                                        @Html.ValidationMessageFor(model => model.Cand_RePass, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Cand_RePass, new
+                                        {
+                                            htmlAttributes = new
+                                            {
+                                                id = "Urepassword3",
+                                                required = "required",
+                                                maxlength = "16",
+                                                minlength = "6",
+                                                placeholder = "Confirm Password"
+                                            }
+                                        })
+
+
+                                        <input type="submit" value="Register" style="background-color:lightseagreen">
+                                    }
+                                    <br />
+                                    <h6><a href="~/Home/termscond" target="_blank"> By clicking Register, you agree to our Terms and that you have read our Policy</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script language="Javascript">
+                        function validateForm3(event) {
+                            var pattern3 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                            var re3 = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,16})$/;
+                            var userName3 = document.getElementById("emailid3").value;
+                            var upassword3 = document.getElementById("Upassword3").value;
+                            var urepassword3 = document.getElementById("Urepassword3").value;
+                            if (userName3.match(pattern3)) {
+
+                                if (upassword3.match(re3)) {
+
+                                    if (upassword3 == urepassword3) {
+
+                                        return true;
+                                    } else {
+
+                                        document.getElementById("Urepasswordtxt3").innerHTML = "Password and confirm password is not match";
+                                        document.getElementById("Upasswordtxt3").innerHTML = "";
+                                        document.getElementById("emailerror3").innerHTML = "";
+                                        return false;
+                                    }
+
+                                } else {
+
+                                    document.getElementById("Upasswordtxt3").innerHTML = "Password must be between 8 to 16 characters,only contain at least one digit and one alphabetic character and no special characters";
+                                    document.getElementById("emailerror3").innerHTML = "";
+                                    document.getElementById("Urepasswordtxt3").innerHTML = "";
+                                    return false;
+                                }
+
+                            } else {
+
+                                document.getElementById("emailerror3").innerHTML = "Email is not valid";
+                                document.getElementById("Urepasswordtxt3").innerHTML = "";
+                                document.getElementById("Upasswordtxt3").innerHTML = "";
+                                return false;
+                            }
+
+                        }
+
+                    </script>
+                    @if (@ViewBag.errrid == "2")
+                    {
+                        <h3 class="agileinfo_sign" style="color:black;text-align:center">Email Exists</h3>
+                        <br />
+
+                        <h4 style="color:darkcyan;text-align:center"> Your email already exists. Please try with another email. </h4>
+                        <br />
+
+
+                    }
+                    @if (@ViewBag.errrid == "14")
+                    {
+                        <h3 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Recovery Error</h3>
+                        <br />
+
+                        <h4 style="color:red;text-align:center"> @ViewBag.errrmsg14</h4>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "5")
+                    {
+                        <h3 class="agileinfo_sign" style="color:black;text-align:center">Password Recovery</h3>
+                        <br />
+
+                        <h4 style="color:darkcyan;text-align:center"> Please check Your Email. Password recovery link has been sent.</h4>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "6")
+                    {
+                        <h3 class="agileinfo_sign" style="color:lightseagreen;text-align:center"> Recovery Error</h3>
+                        <br />
+
+                        <h4 style="color:red;text-align:center"> Something went wrong. Please try again</h4>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "7")
+                    {
+                        <h3 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Password Recovery</h3>
+                        <br />
+
+                        <h4 style="color:red;text-align:center"> Email does not Exist. Please try again.</h4>
+                        <br />
+
+                    }
+                </section>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="modal video-modal fade" id="subcribeModel" tabindex="-1" role="dialog" aria-labelledby="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <section>
+                    <div class="modal-body">
+                        <div class="loginf_module">
+                            <div class="module form-module">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <div class="form">
+                                    <h3>Subscription Box</h3>
+
+                                    <h4 style="color:lightseagreen"> Thank you for keeping in touch!</h4>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('#myModal').modal('hide');
+        function PopUp1(hideOrshow) {
+            if (hideOrshow == 'hide') {
+
+                $('#myModal1').modal('hide');
+            }
+            else document.getElementById('myModal1').removeAttribute('style');
+
+        }
+    </script>
+    <!-- JS includes -->
+    <script type="text/javascript">
+            /**/
+
+            /**/
+            if (@ViewBag.errrid=="1")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="2")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="3")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="4")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="5")
+/**/ {
+
+                $('#myModal1').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="6")
+/**/ {
+
+                $('#myModal1').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="7")
+/**/ {
+
+                $('#myModal1').modal('show');
+            }
+            /**/
+        if (@ViewBag.errrid=="12")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+        if (@ViewBag.errrid=="13")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            if (@ViewBag.errrid=="14")
+/**/ {
+
+                $('#myModal1').modal('show');
+            }
+
+            if (@ViewBag.errrid=="15")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            if (@ViewBag.errrid=="16")
+/**/ {
+
+                $('#subcribeModel').modal('show');
+            }
+    </script>
+
+    <script type="text/javascript">
+
+        function PopUperror(hideOrshow) {
+            if (hideOrshow == 'hide') {
+
+                $('#myModal').modal('hide');
+            }
+            else document.getElementById('myModal').removeAttribute('style');
+
+        }
+    </script>
+
+    <script>
+        $('.toggle').click(function () {
+            // Switches the Icon
+            $(this).children('i').toggleClass('fa-pencil');
+            // Switches the forms
+            $('.form').animate({
+                height: "toggle",
+                'padding-top': 'toggle',
+                'padding-bottom': 'toggle',
+                opacity: "toggle"
+            }, "slow");
+        });
+    </script>
+    <!-- //bootstrap-pop-up -->
+    <!--pop-up-box -->
+    <script src="~/css/newcss/js/jquery.magnific-popup.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+
+        });
+    </script>
+    <!-- //pop-up-box -->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/css/newcss/js/move-top.js"></script>
+    <script type="text/javascript" src="~/css/newcss/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+    <!-- smoothscroll -->
+    <script src="~/css/newcss/js/SmoothScroll.min.js"></script>
+    <!-- //smoothscroll -->
+
+
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</body>
+
+</html>

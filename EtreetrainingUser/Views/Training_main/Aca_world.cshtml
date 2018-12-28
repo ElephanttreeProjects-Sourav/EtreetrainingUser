@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Aca_world";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br /><br /><br /><br /><br /><br />
+<h2 style="color:wheat; text-align:center">Hello, @HttpContext.Current.User.Identity.Name ... This is EOTA Academic Training World... Thanks for the visit... </h2>
+@*@using (Html.BeginForm("Aca_world", "Training_main", FormMethod.Post))*@
+    
+        
+        <body style="background-color:burlywood; height:500px">
+            <FORM METHOD="POST" ACTION="/Training_main/DownloadFile">
+                <div allign="left">
+                    <table border="4" align="left" style="width:100%; height:130%">
+
+                        <tr>
+                            <td align="center" style="border:solid; background-color:burlywood" class="jumbotron; carousel slide " data-interval="3000" data-ride="carousel">
+                                <br /><br /><br /><br />
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <h2 style="height:50px"><b>We can not always build the futher for our youth,but we can build our youth for the futher...</b></h2>
+
+                                    </div>
+
+                                    <div class="item">
+                                        <h2 style="height:50px"><b>You must have an academic to lead Academics </b></h2>
+
+                                    </div>
+                                    <div class="item">
+                                        <h2 style="height:50px"><b>We are what we repeatedly do. Excellence, then, is not an act, but a habit... </b></h2>
+
+                                    </div>
+                                </div>
+                                <hr />
+                                <div style="width:100%; height:90%; text-align:left">
+                                    <h2></h2>
+                                    <br />
+                                    <p><a class="btn btn-default" style="font-style:oblique;font-size:large; font-weight:900;border:groove;border-color:brown" href="~/Training_main/Doc_upload"> &nbsp;<b>File uploader</b> &nbsp; </a></p><p>(e.g. .pdf, .doc, .docx, image file)</p>
+                                    <br />
+                                    <p><a class="btn btn-default" style="font-style:oblique;font-size:large;font-weight:900;border:groove;border-color:brown" href="~/Training_main/Tech_world"> &nbsp;<b>Video Uploader uploader </b> &nbsp; </a></p>
+                                    <br />
+                                    <p><a class="btn btn-default" style="font-style:oblique;font-size:large;font-weight:900;border:groove;border-color:brown" href="~/Training_main/Mgmt_world"> &nbsp;<b>exam Set for Students</b>&nbsp;</a></p>
+                                    @*<ImageButton ID="ImageButton1" runat="server" Height="87px" ImageUrl="~/NIIT.pdf" OnClick="ImageButton1_Click" Width="210px" />*@
+                                    @*<input type="image" name="ImageButton10" id="ImageButton10" src="~/Picture/1.jpg" />
+                                      <input type="submit" value="Submit" class="btn btn-success" />*@
+                                    @*<INPUT TYPE="image" SRC="~/Picture/1.jpg"
+                                           WIDTH="120" HEIGHT="30" value="filename"
+                                           BORDER="0" ALT="SUBMIT!">*@
+                                    
+                                    @*@foreach(var item in ViewData.Model)
+                                    {
+                                        @Html.ActionLink((string)item, "DownloadFile", new { filename = item });
+                                    }*@
+
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </FORM>
+
+</body>
+        

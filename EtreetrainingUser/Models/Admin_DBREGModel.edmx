@@ -1,0 +1,1029 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EOTAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADMIN">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="EmailId" Type="varchar" MaxLength="50" />
+          <Property Name="Number" Type="nvarchar" MaxLength="512" />
+          <Property Name="Image Path" Type="varchar(max)" />
+          <Property Name="Password" Type="nvarchar" MaxLength="512" />
+          <Property Name="Re-Password" Type="nvarchar" MaxLength="512" />
+        </EntityType>
+        <EntityType Name="Courses_Trainers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Course code" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Course name" Type="varchar" MaxLength="50" />
+          <Property Name="Occupation" Type="nvarchar" MaxLength="512" />
+          <Property Name="Biography" Type="varchar(max)" />
+          <Property Name="Image" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Discount Calculator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Discount Code" Type="nvarchar(max)" />
+          <Property Name="Admin Id" Type="int" />
+          <Property Name="Trainer Id" Type="int" />
+          <Property Name="Discount Price" Type="nvarchar(max)" />
+          <Property Name="EnableDisable" Type="bit" />
+          <Property Name="Enable Date" Type="datetime" />
+          <Property Name="Disable Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Course Code" Type="nvarchar(max)" />
+          <Property Name="User Email" Type="nvarchar(max)" />
+          <Property Name="Review" Type="nvarchar" MaxLength="512" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Feedback overview">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Course Code" Type="nvarchar(max)" />
+          <Property Name="User Email" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Institute Info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Institute Id" Type="nvarchar(max)" />
+          <Property Name="Institute Name " Type="nvarchar(max)" />
+          <Property Name="Location" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="IsHOD" Type="bit" />
+          <Property Name="Promocode" Type="varchar" MaxLength="250" />
+          <Property Name="Discount Percent" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Institute Paymnt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Institute Id" Type="nvarchar(max)" />
+          <Property Name="IsPaid " Type="bit" />
+          <Property Name="Course Code" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Mock Test">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Exam Code" Type="nvarchar(max)" />
+          <Property Name="Course Code" Type="nvarchar(max)" />
+          <Property Name="Question Type" Type="nvarchar" MaxLength="5" />
+          <Property Name="Ques No" Type="int" />
+          <Property Name="Question" Type="nvarchar(max)" />
+          <Property Name="Option1" Type="nvarchar(max)" />
+          <Property Name="Option2" Type="nvarchar(max)" />
+          <Property Name="Option3" Type="nvarchar(max)" />
+          <Property Name="Option4" Type="nvarchar(max)" />
+          <Property Name="Option5" Type="nvarchar(max)" />
+          <Property Name="Option6" Type="nvarchar(max)" />
+          <Property Name="Currect Option" Type="nvarchar(max)" />
+          <Property Name="EnableDisable" Type="bit" />
+          <Property Name="Exam Time" Type="nvarchar(max)" />
+          <Property Name="Exam Posting Date" Type="date" />
+          <Property Name="IsMocktest" Type="bit" />
+          <Property Name="Pass mark" Type="int" />
+        </EntityType>
+        <EntityType Name="Paid Courses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Course Code" Type="int" />
+          <Property Name="Course Name" Type="varchar(max)" />
+          <Property Name="User id" Type="int" />
+          <Property Name="User EmailId" Type="varchar(max)" />
+          <Property Name="IsPaid" Type="bit" />
+        </EntityType>
+        <EntityType Name="Paid Courses_Certificates">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Course Name" Type="varchar(max)" />
+          <Property Name="User id" Type="int" />
+          <Property Name="User EmailId" Type="varchar(max)" />
+          <Property Name="Certificate" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Post Courses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Secret Code" Type="int" />
+          <Property Name="Admin Id" Type="int" />
+          <Property Name="Trainer Id" Type="int" />
+          <Property Name="User Id" Type="int" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Course Type" Type="varchar" MaxLength="50" />
+          <Property Name="Learning Point" Type="varchar" MaxLength="250" />
+          <Property Name="Learning Point1" Type="varchar" MaxLength="250" />
+          <Property Name="Learning Point2" Type="varchar" MaxLength="250" />
+          <Property Name="Learning Point3" Type="varchar" MaxLength="250" />
+          <Property Name="Learning Point4" Type="varchar" MaxLength="250" />
+          <Property Name="Learning Point5" Type="varchar" MaxLength="250" />
+          <Property Name="Requirements" Type="varchar" MaxLength="250" />
+          <Property Name="Requirement1" Type="varchar" MaxLength="250" />
+          <Property Name="Requirement2" Type="varchar" MaxLength="250" />
+          <Property Name="Requirement3" Type="varchar" MaxLength="250" />
+          <Property Name="Small Description" Type="varchar(max)" />
+          <Property Name="Brief Description" Type="varchar(max)" />
+          <Property Name="New Price" Type="nvarchar(max)" />
+          <Property Name="Old Price" Type="nvarchar(max)" />
+          <Property Name="Video Title" Type="nvarchar(max)" />
+          <Property Name="Video Url" Type="nvarchar(max)" />
+          <Property Name="Document Image" Type="nvarchar(max)" />
+          <Property Name="EnableDisable" Type="bit" />
+          <Property Name="Course name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Chapter number" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Demo video Path" Type="nvarchar(max)" />
+          <Property Name="Course Image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Reference Calculator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Reference Code" Type="nvarchar(max)" />
+          <Property Name="Admin Id" Type="int" />
+          <Property Name="Trainer Id" Type="int" />
+          <Property Name="Referral Discount Price" Type="nvarchar(max)" />
+          <Property Name="EnableDisable" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tbl_ADMN">
+          <Key>
+            <PropertyRef Name="Admin_id" />
+          </Key>
+          <Property Name="Admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminName" Type="varchar" MaxLength="50" />
+          <Property Name="Admin_EmailId" Type="varchar" MaxLength="50" />
+          <Property Name="Admin_MNum" Type="nvarchar" MaxLength="512" />
+          <Property Name="admin_PicTitle" Type="varchar" MaxLength="250" />
+          <Property Name="Admin_ImagePath" Type="varchar(max)" />
+          <Property Name="admin_DocTitle" Type="varchar" MaxLength="250" />
+          <Property Name="Admin_DocPath" Type="varchar(max)" />
+          <Property Name="Admin_Pass" Type="nvarchar" MaxLength="512" />
+          <Property Name="Admin_RePass" Type="nvarchar" MaxLength="512" />
+          <Property Name="Admin_ResetPassCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsEmailVerified" Type="bit" />
+          <Property Name="ActivationCode" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Tbl_Cand_Main">
+          <Key>
+            <PropertyRef Name="Cand_id" />
+          </Key>
+          <Property Name="Cand_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CandName" Type="varchar" MaxLength="50" />
+          <Property Name="Cand_EmailId" Type="varchar" MaxLength="50" />
+          <Property Name="Cand_MNum" Type="nvarchar" MaxLength="512" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Cand_PicTitle" Type="varchar" MaxLength="250" />
+          <Property Name="Cand_ImagePath" Type="varchar(max)" />
+          <Property Name="Cand_DocTitle" Type="varchar" MaxLength="250" />
+          <Property Name="Cand_DocPath" Type="varchar(max)" />
+          <Property Name="Cand_Pass" Type="nvarchar" MaxLength="512" />
+          <Property Name="Cand_RePass" Type="nvarchar" MaxLength="512" />
+          <Property Name="Cand_ResetPassCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="Cand_IsEmailVerified" Type="bit" />
+          <Property Name="Cand_ActivationCode" Type="uniqueidentifier" />
+          <Property Name="cand_ReferenceCode" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Tbl_Doc">
+          <Key>
+            <PropertyRef Name="Doc_id" />
+          </Key>
+          <Property Name="Doc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Doc_Title" Type="varchar" MaxLength="250" />
+          <Property Name="Doc_Path" Type="varchar(max)" />
+          <Property Name="Doc_ImagePath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Tbl_Trainers">
+          <Key>
+            <PropertyRef Name="Trainr_id" />
+          </Key>
+          <Property Name="Trainr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Trainr_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Trainr_EmailId" Type="varchar" MaxLength="50" />
+          <Property Name="Trainr_MNum" Type="nvarchar" MaxLength="512" />
+          <Property Name="Trainr_ImagePath" Type="varchar(max)" />
+          <Property Name="Trainr_DocTitle" Type="varchar" MaxLength="250" />
+          <Property Name="Trainr_DocPath" Type="varchar(max)" />
+          <Property Name="Trainr_Pass" Type="nvarchar" MaxLength="512" />
+          <Property Name="Trainr_RePass" Type="nvarchar" MaxLength="512" />
+          <Property Name="Trainr_ResetPassCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="Trainr_IsEmailVerified" Type="bit" />
+          <Property Name="Trainr_ActivationCode" Type="uniqueidentifier" />
+          <Property Name="Trainr_ReferenceCode" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Tbl_Video">
+          <Key>
+            <PropertyRef Name="Video_id" />
+          </Key>
+          <Property Name="Video_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Video_Title" Type="varchar" MaxLength="250" />
+          <Property Name="Video_Path" Type="varchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Trainer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Email Id" Type="varchar" MaxLength="50" />
+          <Property Name="Number" Type="nvarchar" MaxLength="512" />
+          <Property Name="Photo Title" Type="varchar" MaxLength="250" />
+          <Property Name="Photo Path" Type="varchar(max)" />
+          <Property Name="Password" Type="nvarchar" MaxLength="512" />
+          <Property Name="Re-Password" Type="nvarchar" MaxLength="512" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Use Mock Test">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User Id" Type="int" />
+          <Property Name="User Email" Type="varchar" MaxLength="50" />
+          <Property Name="Exam Code" Type="nvarchar(max)" />
+          <Property Name="Course Code" Type="nvarchar(max)" />
+          <Property Name="Ques No" Type="int" />
+          <Property Name="Choosed Option" Type="nvarchar(max)" />
+          <Property Name="Marks" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Exam Date" Type="date" />
+          <Property Name="Exam Secretcode" Type="int" />
+        </EntityType>
+        <EntityType Name="Use Test counter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User Id" Type="int" />
+          <Property Name="Exam Code" Type="nvarchar(max)" />
+          <Property Name="Course Code" Type="nvarchar(max)" />
+          <Property Name="Exam Secretcode" Type="int" />
+          <Property Name="Marks" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Exam Time" Type="nvarchar(max)" />
+          <Property Name="Remaining Time" Type="nvarchar(max)" />
+          <Property Name="IsFinished" Type="bit" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="EmailId" Type="varchar" MaxLength="50" />
+          <Property Name="Number" Type="nvarchar" MaxLength="512" />
+          <Property Name="Photo Title" Type="varchar" MaxLength="250" />
+          <Property Name="Image Path" Type="varchar(max)" />
+          <Property Name="Document Title" Type="varchar" MaxLength="250" />
+          <Property Name="Document Path" Type="varchar(max)" />
+          <Property Name="Certificate" Type="varchar(max)" />
+          <Property Name="Password" Type="nvarchar" MaxLength="512" />
+          <Property Name="Retype Pass" Type="nvarchar" MaxLength="512" />
+          <Property Name="Reset PassCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsEmailVerified" Type="bit" />
+          <Property Name="ActivationCode" Type="uniqueidentifier" />
+          <Property Name="ReferenceCode" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityContainer Name="EOTAModelStoreContainer">
+          <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Courses_Trainers" EntityType="Self.Courses_Trainers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Discount Calculator" EntityType="Self.Discount Calculator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback overview" EntityType="Self.Feedback overview" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Institute Info" EntityType="Self.Institute Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Institute Paymnt" EntityType="Self.Institute Paymnt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mock Test" EntityType="Self.Mock Test" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paid Courses" EntityType="Self.Paid Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paid Courses_Certificates" EntityType="Self.Paid Courses_Certificates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post Courses" EntityType="Self.Post Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reference Calculator" EntityType="Self.Reference Calculator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_ADMN" EntityType="Self.Tbl_ADMN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Cand_Main" EntityType="Self.Tbl_Cand_Main" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Doc" EntityType="Self.Tbl_Doc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Trainers" EntityType="Self.Tbl_Trainers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Video" EntityType="Self.Tbl_Video" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trainer" EntityType="Self.Trainer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Use Mock Test" EntityType="Self.Use Mock Test" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Use Test counter" EntityType="Self.Use Test counter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EOTAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADMIN">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Number" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Image_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Re_Password" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Discount_Calculator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Discount_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Admin_Id" Type="Int32" />
+          <Property Name="Trainer_Id" Type="Int32" />
+          <Property Name="Discount_Price" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EnableDisable" Type="Boolean" />
+          <Property Name="Enable_Date" Type="DateTime" Precision="3" />
+          <Property Name="Disable_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Course_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="User_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Review" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Feedback_overview">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Course_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="User_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Institute_Info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Institute_Id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Institute_Name_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsHOD" Type="Boolean" />
+          <Property Name="Promocode" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Discount_Percent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Institute_Paymnt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Institute_Id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsPaid_" Type="Boolean" />
+          <Property Name="Course_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Mock_Test">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Exam_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Course_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Question_Type" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Ques_No" Type="Int32" />
+          <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Option1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Option2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Option3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Option4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Option5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Option6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Currect_Option" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EnableDisable" Type="Boolean" />
+          <Property Name="Exam_Time" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Exam_Posting_Date" Type="DateTime" Precision="0" />
+          <Property Name="IsMocktest" Type="Boolean" />
+          <Property Name="Pass_mark" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Paid_Cours">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Course_Code" Type="Int32" />
+          <Property Name="Course_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="User_id" Type="Int32" />
+          <Property Name="User_EmailId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsPaid" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Paid_Courses_Certificates">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Course_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="User_id" Type="Int32" />
+          <Property Name="User_EmailId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Certificate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Post_Cours">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Secret_Code" Type="Int32" />
+          <Property Name="Admin_Id" Type="Int32" />
+          <Property Name="Trainer_Id" Type="Int32" />
+          <Property Name="User_Id" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Course_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Learning_Point" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Learning_Point1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Learning_Point2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Learning_Point3" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Learning_Point4" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Learning_Point5" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Requirements" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Requirement1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Requirement2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Requirement3" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Small_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Brief_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="New_Price" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Old_Price" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Video_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Video_Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Document_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EnableDisable" Type="Boolean" />
+          <Property Name="Course_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Chapter_number" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Demo_video_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Course_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Reference_Calculator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Reference_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Admin_Id" Type="Int32" />
+          <Property Name="Trainer_Id" Type="Int32" />
+          <Property Name="Referral_Discount_Price" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EnableDisable" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Tbl_ADMN">
+          <Key>
+            <PropertyRef Name="Admin_id" />
+          </Key>
+          <Property Name="Admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Admin_EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Admin_MNum" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="admin_PicTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Admin_ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="admin_DocTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Admin_DocPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Admin_Pass" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Admin_RePass" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Admin_ResetPassCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsEmailVerified" Type="Boolean" />
+          <Property Name="ActivationCode" Type="Guid" />
+        </EntityType>
+        <EntityType Name="Tbl_Cand_Main">
+          <Key>
+            <PropertyRef Name="Cand_id" />
+          </Key>
+          <Property Name="Cand_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CandName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cand_EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cand_MNum" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cand_PicTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Cand_ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cand_DocTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Cand_DocPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cand_Pass" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Cand_RePass" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Cand_ResetPassCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Cand_IsEmailVerified" Type="Boolean" />
+          <Property Name="Cand_ActivationCode" Type="Guid" />
+          <Property Name="cand_ReferenceCode" Type="Guid" />
+        </EntityType>
+        <EntityType Name="Tbl_Doc">
+          <Key>
+            <PropertyRef Name="Doc_id" />
+          </Key>
+          <Property Name="Doc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Doc_Title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Doc_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Doc_ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tbl_Trainers">
+          <Key>
+            <PropertyRef Name="Trainr_id" />
+          </Key>
+          <Property Name="Trainr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Trainr_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Trainr_EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Trainr_MNum" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Trainr_ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Trainr_DocTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Trainr_DocPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Trainr_Pass" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Trainr_RePass" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Trainr_ResetPassCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Trainr_IsEmailVerified" Type="Boolean" />
+          <Property Name="Trainr_ActivationCode" Type="Guid" />
+          <Property Name="Trainr_ReferenceCode" Type="Guid" />
+        </EntityType>
+        <EntityType Name="Tbl_Video">
+          <Key>
+            <PropertyRef Name="Video_id" />
+          </Key>
+          <Property Name="Video_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Video_Title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Video_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Trainer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Number" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Photo_Title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Photo_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Re_Password" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Use_Mock_Test">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Id" Type="Int32" />
+          <Property Name="User_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Exam_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Course_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ques_No" Type="Int32" />
+          <Property Name="Choosed_Option" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Marks" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Exam_Date" Type="DateTime" Precision="0" />
+          <Property Name="Exam_Secretcode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Use_Test_counter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Id" Type="Int32" />
+          <Property Name="Exam_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Course_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Exam_Secretcode" Type="Int32" />
+          <Property Name="Marks" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Exam_Time" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remaining_Time" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsFinished" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Number" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Photo_Title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Image_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Document_Title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Document_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Certificate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Retype_Pass" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Reset_PassCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsEmailVerified" Type="Boolean" />
+          <Property Name="ActivationCode" Type="Guid" />
+          <Property Name="ReferenceCode" Type="Guid" />
+        </EntityType>
+        <EntityContainer Name="EOTAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADMINs" EntityType="Self.ADMIN" />
+          <EntitySet Name="Discount_Calculators" EntityType="Self.Discount_Calculator" />
+          <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+          <EntitySet Name="Feedback_overviews" EntityType="Self.Feedback_overview" />
+          <EntitySet Name="Institute_Infoes" EntityType="Self.Institute_Info" />
+          <EntitySet Name="Institute_Paymnts" EntityType="Self.Institute_Paymnt" />
+          <EntitySet Name="Mock_Tests" EntityType="Self.Mock_Test" />
+          <EntitySet Name="Paid_Courses" EntityType="Self.Paid_Cours" />
+          <EntitySet Name="Paid_Courses_Certificates" EntityType="Self.Paid_Courses_Certificates" />
+          <EntitySet Name="Post_Courses" EntityType="Self.Post_Cours" />
+          <EntitySet Name="Reference_Calculators" EntityType="Self.Reference_Calculator" />
+          <EntitySet Name="Tbl_ADMN" EntityType="Self.Tbl_ADMN" />
+          <EntitySet Name="Tbl_Cand_Main" EntityType="Self.Tbl_Cand_Main" />
+          <EntitySet Name="Tbl_Doc" EntityType="Self.Tbl_Doc" />
+          <EntitySet Name="Tbl_Trainers" EntityType="Self.Tbl_Trainers" />
+          <EntitySet Name="Tbl_Video" EntityType="Self.Tbl_Video" />
+          <EntitySet Name="Trainers" EntityType="Self.Trainer" />
+          <EntitySet Name="Use_Mock_Tests" EntityType="Self.Use_Mock_Test" />
+          <EntitySet Name="Use_Test_counters" EntityType="Self.Use_Test_counter" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Courses_Trainers" EntityType="EOTAModel.Courses_Trainers" />
+        </EntityContainer>
+        <EntityType Name="Courses_Trainers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Course_code" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Course_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Occupation" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Biography" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EOTAModelStoreContainer" CdmEntityContainer="EOTAEntities">
+          <EntitySetMapping Name="ADMINs">
+            <EntityTypeMapping TypeName="EOTAModel.ADMIN">
+              <MappingFragment StoreEntitySet="ADMIN">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Image_Path" ColumnName="Image Path" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Re_Password" ColumnName="Re-Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discount_Calculators">
+            <EntityTypeMapping TypeName="EOTAModel.Discount_Calculator">
+              <MappingFragment StoreEntitySet="Discount Calculator">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Discount_Code" ColumnName="Discount Code" />
+                <ScalarProperty Name="Admin_Id" ColumnName="Admin Id" />
+                <ScalarProperty Name="Trainer_Id" ColumnName="Trainer Id" />
+                <ScalarProperty Name="Discount_Price" ColumnName="Discount Price" />
+                <ScalarProperty Name="EnableDisable" ColumnName="EnableDisable" />
+                <ScalarProperty Name="Enable_Date" ColumnName="Enable Date" />
+                <ScalarProperty Name="Disable_Date" ColumnName="Disable Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="EOTAModel.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Course_Code" ColumnName="Course Code" />
+                <ScalarProperty Name="User_Email" ColumnName="User Email" />
+                <ScalarProperty Name="Review" ColumnName="Review" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedback_overviews">
+            <EntityTypeMapping TypeName="EOTAModel.Feedback_overview">
+              <MappingFragment StoreEntitySet="Feedback overview">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Course_Code" ColumnName="Course Code" />
+                <ScalarProperty Name="User_Email" ColumnName="User Email" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Institute_Infoes">
+            <EntityTypeMapping TypeName="EOTAModel.Institute_Info">
+              <MappingFragment StoreEntitySet="Institute Info">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Institute_Id" ColumnName="Institute Id" />
+                <ScalarProperty Name="Institute_Name_" ColumnName="Institute Name " />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IsHOD" ColumnName="IsHOD" />
+                <ScalarProperty Name="Promocode" ColumnName="Promocode" />
+                <ScalarProperty Name="Discount_Percent" ColumnName="Discount Percent" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Institute_Paymnts">
+            <EntityTypeMapping TypeName="EOTAModel.Institute_Paymnt">
+              <MappingFragment StoreEntitySet="Institute Paymnt">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Institute_Id" ColumnName="Institute Id" />
+                <ScalarProperty Name="IsPaid_" ColumnName="IsPaid " />
+                <ScalarProperty Name="Course_Code" ColumnName="Course Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mock_Tests">
+            <EntityTypeMapping TypeName="EOTAModel.Mock_Test">
+              <MappingFragment StoreEntitySet="Mock Test">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Exam_Code" ColumnName="Exam Code" />
+                <ScalarProperty Name="Course_Code" ColumnName="Course Code" />
+                <ScalarProperty Name="Question_Type" ColumnName="Question Type" />
+                <ScalarProperty Name="Ques_No" ColumnName="Ques No" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Option1" ColumnName="Option1" />
+                <ScalarProperty Name="Option2" ColumnName="Option2" />
+                <ScalarProperty Name="Option3" ColumnName="Option3" />
+                <ScalarProperty Name="Option4" ColumnName="Option4" />
+                <ScalarProperty Name="Option5" ColumnName="Option5" />
+                <ScalarProperty Name="Option6" ColumnName="Option6" />
+                <ScalarProperty Name="Currect_Option" ColumnName="Currect Option" />
+                <ScalarProperty Name="EnableDisable" ColumnName="EnableDisable" />
+                <ScalarProperty Name="Exam_Time" ColumnName="Exam Time" />
+                <ScalarProperty Name="Exam_Posting_Date" ColumnName="Exam Posting Date" />
+                <ScalarProperty Name="IsMocktest" ColumnName="IsMocktest" />
+                <ScalarProperty Name="Pass_mark" ColumnName="Pass mark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paid_Courses">
+            <EntityTypeMapping TypeName="EOTAModel.Paid_Cours">
+              <MappingFragment StoreEntitySet="Paid Courses">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Course_Code" ColumnName="Course Code" />
+                <ScalarProperty Name="Course_Name" ColumnName="Course Name" />
+                <ScalarProperty Name="User_id" ColumnName="User id" />
+                <ScalarProperty Name="User_EmailId" ColumnName="User EmailId" />
+                <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paid_Courses_Certificates">
+            <EntityTypeMapping TypeName="EOTAModel.Paid_Courses_Certificates">
+              <MappingFragment StoreEntitySet="Paid Courses_Certificates">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Course_Name" ColumnName="Course Name" />
+                <ScalarProperty Name="User_id" ColumnName="User id" />
+                <ScalarProperty Name="User_EmailId" ColumnName="User EmailId" />
+                <ScalarProperty Name="Certificate" ColumnName="Certificate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post_Courses">
+            <EntityTypeMapping TypeName="EOTAModel.Post_Cours">
+              <MappingFragment StoreEntitySet="Post Courses">
+                <ScalarProperty Name="Course_Image" ColumnName="Course Image" />
+                <ScalarProperty Name="Demo_video_Path" ColumnName="Demo video Path" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Chapter_number" ColumnName="Chapter number" />
+                <ScalarProperty Name="Course_name" ColumnName="Course name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Secret_Code" ColumnName="Secret Code" />
+                <ScalarProperty Name="Admin_Id" ColumnName="Admin Id" />
+                <ScalarProperty Name="Trainer_Id" ColumnName="Trainer Id" />
+                <ScalarProperty Name="User_Id" ColumnName="User Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Course_Type" ColumnName="Course Type" />
+                <ScalarProperty Name="Learning_Point" ColumnName="Learning Point" />
+                <ScalarProperty Name="Learning_Point1" ColumnName="Learning Point1" />
+                <ScalarProperty Name="Learning_Point2" ColumnName="Learning Point2" />
+                <ScalarProperty Name="Learning_Point3" ColumnName="Learning Point3" />
+                <ScalarProperty Name="Learning_Point4" ColumnName="Learning Point4" />
+                <ScalarProperty Name="Learning_Point5" ColumnName="Learning Point5" />
+                <ScalarProperty Name="Requirements" ColumnName="Requirements" />
+                <ScalarProperty Name="Requirement1" ColumnName="Requirement1" />
+                <ScalarProperty Name="Requirement2" ColumnName="Requirement2" />
+                <ScalarProperty Name="Requirement3" ColumnName="Requirement3" />
+                <ScalarProperty Name="Small_Description" ColumnName="Small Description" />
+                <ScalarProperty Name="Brief_Description" ColumnName="Brief Description" />
+                <ScalarProperty Name="New_Price" ColumnName="New Price" />
+                <ScalarProperty Name="Old_Price" ColumnName="Old Price" />
+                <ScalarProperty Name="Video_Title" ColumnName="Video Title" />
+                <ScalarProperty Name="Video_Url" ColumnName="Video Url" />
+                <ScalarProperty Name="Document_Image" ColumnName="Document Image" />
+                <ScalarProperty Name="EnableDisable" ColumnName="EnableDisable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reference_Calculators">
+            <EntityTypeMapping TypeName="EOTAModel.Reference_Calculator">
+              <MappingFragment StoreEntitySet="Reference Calculator">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Reference_Code" ColumnName="Reference Code" />
+                <ScalarProperty Name="Admin_Id" ColumnName="Admin Id" />
+                <ScalarProperty Name="Trainer_Id" ColumnName="Trainer Id" />
+                <ScalarProperty Name="Referral_Discount_Price" ColumnName="Referral Discount Price" />
+                <ScalarProperty Name="EnableDisable" ColumnName="EnableDisable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_ADMN">
+            <EntityTypeMapping TypeName="EOTAModel.Tbl_ADMN">
+              <MappingFragment StoreEntitySet="Tbl_ADMN">
+                <ScalarProperty Name="Admin_id" ColumnName="Admin_id" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+                <ScalarProperty Name="Admin_EmailId" ColumnName="Admin_EmailId" />
+                <ScalarProperty Name="Admin_MNum" ColumnName="Admin_MNum" />
+                <ScalarProperty Name="admin_PicTitle" ColumnName="admin_PicTitle" />
+                <ScalarProperty Name="Admin_ImagePath" ColumnName="Admin_ImagePath" />
+                <ScalarProperty Name="admin_DocTitle" ColumnName="admin_DocTitle" />
+                <ScalarProperty Name="Admin_DocPath" ColumnName="Admin_DocPath" />
+                <ScalarProperty Name="Admin_Pass" ColumnName="Admin_Pass" />
+                <ScalarProperty Name="Admin_RePass" ColumnName="Admin_RePass" />
+                <ScalarProperty Name="Admin_ResetPassCode" ColumnName="Admin_ResetPassCode" />
+                <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
+                <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Cand_Main">
+            <EntityTypeMapping TypeName="EOTAModel.Tbl_Cand_Main">
+              <MappingFragment StoreEntitySet="Tbl_Cand_Main">
+                <ScalarProperty Name="Cand_id" ColumnName="Cand_id" />
+                <ScalarProperty Name="CandName" ColumnName="CandName" />
+                <ScalarProperty Name="Cand_EmailId" ColumnName="Cand_EmailId" />
+                <ScalarProperty Name="Cand_MNum" ColumnName="Cand_MNum" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Cand_PicTitle" ColumnName="Cand_PicTitle" />
+                <ScalarProperty Name="Cand_ImagePath" ColumnName="Cand_ImagePath" />
+                <ScalarProperty Name="Cand_DocTitle" ColumnName="Cand_DocTitle" />
+                <ScalarProperty Name="Cand_DocPath" ColumnName="Cand_DocPath" />
+                <ScalarProperty Name="Cand_Pass" ColumnName="Cand_Pass" />
+                <ScalarProperty Name="Cand_RePass" ColumnName="Cand_RePass" />
+                <ScalarProperty Name="Cand_ResetPassCode" ColumnName="Cand_ResetPassCode" />
+                <ScalarProperty Name="Cand_IsEmailVerified" ColumnName="Cand_IsEmailVerified" />
+                <ScalarProperty Name="Cand_ActivationCode" ColumnName="Cand_ActivationCode" />
+                <ScalarProperty Name="cand_ReferenceCode" ColumnName="cand_ReferenceCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Doc">
+            <EntityTypeMapping TypeName="EOTAModel.Tbl_Doc">
+              <MappingFragment StoreEntitySet="Tbl_Doc">
+                <ScalarProperty Name="Doc_id" ColumnName="Doc_id" />
+                <ScalarProperty Name="Doc_Title" ColumnName="Doc_Title" />
+                <ScalarProperty Name="Doc_Path" ColumnName="Doc_Path" />
+                <ScalarProperty Name="Doc_ImagePath" ColumnName="Doc_ImagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Trainers">
+            <EntityTypeMapping TypeName="EOTAModel.Tbl_Trainers">
+              <MappingFragment StoreEntitySet="Tbl_Trainers">
+                <ScalarProperty Name="Trainr_id" ColumnName="Trainr_id" />
+                <ScalarProperty Name="Trainr_Name" ColumnName="Trainr_Name" />
+                <ScalarProperty Name="Trainr_EmailId" ColumnName="Trainr_EmailId" />
+                <ScalarProperty Name="Trainr_MNum" ColumnName="Trainr_MNum" />
+                <ScalarProperty Name="Trainr_ImagePath" ColumnName="Trainr_ImagePath" />
+                <ScalarProperty Name="Trainr_DocTitle" ColumnName="Trainr_DocTitle" />
+                <ScalarProperty Name="Trainr_DocPath" ColumnName="Trainr_DocPath" />
+                <ScalarProperty Name="Trainr_Pass" ColumnName="Trainr_Pass" />
+                <ScalarProperty Name="Trainr_RePass" ColumnName="Trainr_RePass" />
+                <ScalarProperty Name="Trainr_ResetPassCode" ColumnName="Trainr_ResetPassCode" />
+                <ScalarProperty Name="Trainr_IsEmailVerified" ColumnName="Trainr_IsEmailVerified" />
+                <ScalarProperty Name="Trainr_ActivationCode" ColumnName="Trainr_ActivationCode" />
+                <ScalarProperty Name="Trainr_ReferenceCode" ColumnName="Trainr_ReferenceCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Video">
+            <EntityTypeMapping TypeName="EOTAModel.Tbl_Video">
+              <MappingFragment StoreEntitySet="Tbl_Video">
+                <ScalarProperty Name="Video_id" ColumnName="Video_id" />
+                <ScalarProperty Name="Video_Title" ColumnName="Video_Title" />
+                <ScalarProperty Name="Video_Path" ColumnName="Video_Path" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trainers">
+            <EntityTypeMapping TypeName="EOTAModel.Trainer">
+              <MappingFragment StoreEntitySet="Trainer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email_Id" ColumnName="Email Id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Photo_Title" ColumnName="Photo Title" />
+                <ScalarProperty Name="Photo_Path" ColumnName="Photo Path" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Re_Password" ColumnName="Re-Password" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Use_Mock_Tests">
+            <EntityTypeMapping TypeName="EOTAModel.Use_Mock_Test">
+              <MappingFragment StoreEntitySet="Use Mock Test">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="User_Id" ColumnName="User Id" />
+                <ScalarProperty Name="User_Email" ColumnName="User Email" />
+                <ScalarProperty Name="Exam_Code" ColumnName="Exam Code" />
+                <ScalarProperty Name="Course_Code" ColumnName="Course Code" />
+                <ScalarProperty Name="Ques_No" ColumnName="Ques No" />
+                <ScalarProperty Name="Choosed_Option" ColumnName="Choosed Option" />
+                <ScalarProperty Name="Marks" ColumnName="Marks" />
+                <ScalarProperty Name="Exam_Date" ColumnName="Exam Date" />
+                <ScalarProperty Name="Exam_Secretcode" ColumnName="Exam Secretcode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Use_Test_counters">
+            <EntityTypeMapping TypeName="EOTAModel.Use_Test_counter">
+              <MappingFragment StoreEntitySet="Use Test counter">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="User_Id" ColumnName="User Id" />
+                <ScalarProperty Name="Exam_Code" ColumnName="Exam Code" />
+                <ScalarProperty Name="Course_Code" ColumnName="Course Code" />
+                <ScalarProperty Name="Exam_Secretcode" ColumnName="Exam Secretcode" />
+                <ScalarProperty Name="Marks" ColumnName="Marks" />
+                <ScalarProperty Name="Exam_Time" ColumnName="Exam Time" />
+                <ScalarProperty Name="Remaining_Time" ColumnName="Remaining Time" />
+                <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="EOTAModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Photo_Title" ColumnName="Photo Title" />
+                <ScalarProperty Name="Image_Path" ColumnName="Image Path" />
+                <ScalarProperty Name="Document_Title" ColumnName="Document Title" />
+                <ScalarProperty Name="Document_Path" ColumnName="Document Path" />
+                <ScalarProperty Name="Certificate" ColumnName="Certificate" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Retype_Pass" ColumnName="Retype Pass" />
+                <ScalarProperty Name="Reset_PassCode" ColumnName="Reset PassCode" />
+                <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
+                <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+                <ScalarProperty Name="ReferenceCode" ColumnName="ReferenceCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses_Trainers">
+            <EntityTypeMapping TypeName="EOTAModel.Courses_Trainers">
+              <MappingFragment StoreEntitySet="Courses_Trainers">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Biography" ColumnName="Biography" />
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="Course_name" ColumnName="Course name" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Course_code" ColumnName="Course code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

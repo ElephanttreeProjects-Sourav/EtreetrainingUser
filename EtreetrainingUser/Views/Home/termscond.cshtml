@@ -1,0 +1,1003 @@
+﻿@model EtreetrainingUser.Models.Tbl_Cand_Main
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Terms and Conditions | EOTA</title>
+    <!-- Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="EOTA is the world's largest destination for online courses. Discover an online course on etreetraining.com and start learning a new skill today." />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#sgnin").hide();
+            $("#fg").hide();
+            $("#sgnin").click(function () {
+                $("#sgnin").hide();
+                $("#sgnup").show();
+            });
+            $("#sgnup").click(function () {
+                $("#sgnup").hide();
+                $("#sgnin").show();
+            });
+            $("#fg").click(function () {
+                $("#fg").hide();
+                $("#sgnup2").show();
+            });
+            $("#sgnup2").click(function () {
+                $("#sgnup2").hide();
+                $("#fg").show();
+            });
+        });
+    </script>
+    <style>
+        .navbar-inverse {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+
+        .header_topw3layouts_bar {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+
+        .carousel-caption p {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+    </style>
+    <!-- //Meta Tags -->
+    <!-- Style-sheets -->
+    <link href="~/css/newcss/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// Bootstrap-css -->
+    <link href="~/css/newcss/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// Pop-up -->
+    <link href="~/css/newcss/css/banner.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// banner-css -->
+    <link rel="stylesheet" href="~/css/newcss/css/shop.css" type="text/css" media="screen" property="" />
+    <!--// shop-css -->
+    <link href="~/css/newcss/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- //common-css -->
+    <link href="~/css/newcss/css/terms.css" rel="stylesheet" type='text/css' media="all" />
+    <!--// terms-css -->
+    <link href="~/css/newcss/css/font-awesome.css" rel="stylesheet">
+    <!-- // Font-awesome-css -->
+    <!-- //Style-sheets -->
+    <!-- Web-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- //Web-fonts -->
+
+</head>
+
+<body>
+    <!-- header -->
+    <div class="header" id="home">
+
+        <!-- header-top -->
+        <div class="header_topw3layouts_bar">
+            <div class="container">
+                <div class="header_agileits_left">
+                    <ul>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> +91 080-41141398</li>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@elephanttreetech.com">info@elephanttreetech.com</a></li>
+                    </ul>
+                </div>
+                <div class="header_right">
+                    <a href="#" class="log" data-toggle="modal" data-target="#myModal">Sign In/Up</a>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <!--// header-top -->
+        <!--Popup model-->
+
+        <div class="modal fade" id="myModalpopup" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                        <div class="signin-form profile ">
+                            @if (@ViewBag.errrid == "1")
+                        {
+                            <h3 class="agileinfo_sign" style="text-align:center">Login Error</h3>
+                            <br />
+                            <div class="login-form">
+                                <h4 style="color:red"> Invalid credentials, Please Check your details and try again!</h4>
+                                <br />
+                                <h4>Thank You</h4>
+                            </div>
+                    }
+                            @if (@ViewBag.errrid == "2")
+                        {
+                            <h3 class="agileinfo_sign" style="text-align:center">Email Exists</h3>
+                            <br />
+                            <div class="login-form">
+                                <h4 style="color:darkcyan"> Your email already exists. Please try with another email or </h4>
+                                <br />
+                                <h4> <a href="#" data-toggle="modal" data-target="#myModalfgps" onClick="PopUperror('hide')" style="color:blue">reset your password</a></h4>
+                                <br /><br />
+                                <h4>Thank You</h4>
+                            </div>
+                    }
+                            @if (@ViewBag.errrid == "3")
+                        {
+                            <h3 class="agileinfo_sign" style="text-align:center">Successfull Registration</h3>
+                            <br />
+                            <div class="login-form">
+                                <h4 style="color:darkcyan"> Registration Successfully done. Account activation link has been sent to your email id. Please check.</h4>
+                                <br />
+                                <h4>Thank You</h4>
+                            </div>
+                    }
+                            @if (@ViewBag.errrid == "4")
+                        {
+                            <h3 class="agileinfo_sign" style="text-align:center">Registration Error</h3>
+                            <br />
+                            <div class="login-form">
+                                <h4 style="color:red"> Invalid registration. Please Try again</h4>
+                                <br />
+                                <h4>Thank You</h4>
+                            </div>
+                    }
+                            @if (@ViewBag.errrid == "14")
+                        {
+                            @*<h3 class="agileinfo_sign" style="text-align:center">Registration Error</h3>
+                            <br />*@
+                            <div class="login-form">
+                                <h4 style="color:red"> @ViewBag.errrmsg14</h4>
+                                @*<br />
+                                <h4>Thank You</h4>*@
+                            </div>
+                    }
+                            @if (@ViewBag.errrid == "5")
+                        {
+                            <h3 class="agileinfo_sign" style="text-align:center">Password Recovery</h3>
+                            <br />
+                            <div class="login-form">
+                                <h4 style="color:darkcyan"> Please check Your Email. Password recovery link has been sent.</h4>
+                                <br />
+                                <h4>Thank You</h4>
+                            </div>
+                    }
+                            @if (@ViewBag.errrid == "6")
+                        {
+                            <h3 class="agileinfo_sign" style="text-align:center">Password Recovery</h3>
+                            <br />
+                            <div class="login-form">
+                                <h4 style="color:darkcyan"> Something went wrong. Please try again</h4>
+                                <br />
+                                <h4>Thank You</h4>
+                            </div>
+                    }
+                            @if (@ViewBag.errrid == "7")
+                        {
+                            <h3 class="agileinfo_sign" style="text-align:center">Password Recovery</h3>
+                            <br />
+                            <div class="login-form">
+                                <h4 style="color:red"> Email does not Exist. Please try again.</h4>
+                                <br />
+                                <h4>Thank You</h4>
+                            </div>
+                    }
+                            @if (@ViewBag.errrid == "23")
+                        {
+                            <h3 class="agileinfo_sign" style="text-align:center"></h3>
+                            <br />
+                            <div class="login-form">
+                                <h4 style="color:darkcyan"> Account has been updated. Please re-login.</h4>
+                                <br />
+                                <h4>Thank You</h4>
+                            </div>
+                    }
+                            @if (@ViewBag.errrid == "15")
+                        {
+                            <h3 class="agileinfo_sign" style="text-align:center"></h3>
+                            <br />
+                            <div class="login-form">
+                                <h4 style="color:darkcyan"> Thank You for your query! We will revert back you soon...</h4>
+                                <br />
+                                <h4>Thank You</h4>
+                            </div>
+
+                    }
+                            @if (@ViewBag.errrid == "16")
+                        {
+                            <h3 class="agileinfo_sign" style="text-align:center"></h3>
+                            <br />
+                            <div class="login-form">
+                                <h4 style="color:darkcyan"> Thank You for subscription! We will get all updation of this site...</h4>
+                                <br />
+                                <h4>Thank You</h4>
+                            </div>
+
+                    }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- header-middle -->
+        <div class="header-middle">
+            <div class="container">
+                <div class="logof-w3-agile">
+                    <h1 style="padding-left: 70px;"><a href="~/Home/Index">@*<i class="fa fa-graduation-cap" aria-hidden="true"></i><span>*@EOTA@*</span>*@</a></h1>
+                </div>
+                <div class="searchf-w3-agileits-headr">
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+                {
+                    <input type="search" name="Search" placeholder="Search for a course..." required="" maxlength="500" onkeyup="javascript:RemoveSpecialChar(this)">
+                    <button type="submit" class="btn btn-default search" aria-label="Left Align" id="btnb">
+                        <i class="fa fa-search" aria-hidden="true" id="icn"> </i>
+                    </button>
+            }
+                </div>
+                <div class="cart-mainf">
+                    <a class="shop" href="~/Trainers/Trainrs_Login">Instructor</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!--// header-middle -->
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse js-navbar-collapse">
+                <ul class="head">
+
+
+                    <li><a href="~/Home/SearchOne/A">Academic courses</a></li>
+                    <li><a href="~/Home/SearchOne/T">Technical courses</a></li>
+                    <li><a href="~/Home/SearchOne/M">Management courses</a></li>
+                </ul>
+            </div>
+            <!-- /.nav-collapse -->
+        </nav>
+    </div>
+    <!-- banner -->
+    <div class="innerf-banner">
+    </div>
+    <!--//banner -->
+    <!-- Page details -->
+    <div class="services-agile-breadcrumb">
+        <div class="inner_breadcrumb">
+            <ul class="short_ls">
+                <li>
+                    <a href="~/Home/Index">Home</a>
+                    <span>| |</span>
+                </li>
+                <li>Terms and Conditions</li>
+            </ul>
+        </div>
+    </div>
+    <!-- //Page details -->
+    <!-- /inner_content -->
+    <section class="terms-of-use">
+        <!-- terms -->
+        <div class="terms">
+            <div class="container">
+                <h3 class="mm-head">Terms and Conditions</h3>
+                These Terms of Use were last updated on May 17, 2018.
+                <h6>Introduction</h6>
+                <ol start="1">
+                    <li>
+                        THESE TERMS OF USE ("TERMS") BIND YOU, THE COMPANY YOU REPRESENT, AND THE COMPANY THAT REGISTERED YOU (COLLECTIVELY "YOU") TO THE TERMS AND CONDITIONS SET FORTH HEREIN IN CONNECTION WITH YOUR USE OF EOTA, INC.'S ("OUR", "WE", "US", OR "EOTA") SOFTWARE, WEBSITE, MOBILE APPLICATIONS OR CONNECTED APPLICATIONS SUCH AS APPLE TV, SERVICES OR OTHER OFFERINGS ON OUR WEBSITE (COLLECTIVELY, OUR "SERVICES"). BY USING ANY OF THE EOTA SERVICES OR CLICKING ON THE "SIGNUP" BUTTON, YOU AGREE TO BECOME BOUND BY THE TERMS. IF YOU DO NOT AGREE TO ALL THESE TERMS, CLICK ON THE "X" BUTTON AND DO NOT USE THE EOTA SERVICES. EOTA'S ACCEPTANCE IS EXPRESSLY CONDITIONED UPON YOUR ASSENT TO ALL THESE TERMS, TO THE EXCLUSION OF ALL OTHER TERMS. IF THESE TERMS ARE CONSIDERED AN OFFER BY EOTA, ACCEPTANCE IS EXPRESSLY LIMITED TO THESE TERMS.
+                    </li>
+                    <li>
+                        Pre-arbitration clause:
+                        IMPORTANT: BY AGREEING TO THESE TERMS YOU AGREE TO RESOLVE DISPUTES WITH EOTA THROUGH BINDING ARBITRATION (AND WITH VERY LIMITED EXCEPTIONS, NOT IN COURT), AND YOU WAIVE CERTAIN RIGHTS TO PARTICIPATE IN CLASS ACTIONS, AS DETAILED IN SECTION 18.
+                    </li>
+                    <li>
+                        Any version of these Terms of Use in a language other than English is provided for convenience and you understand and agree that the English language will control if there is any conflict.
+                    </li>
+                </ol>
+                <h6>Additional Agreements</h6>
+                <ol start="1">
+                    <li>
+                        Any personal information submitted in connection with Your use of the Services is subject to Our Privacy Policy, which is hereby incorporated by reference into these Terms.
+                    </li>
+                    <li>
+                        Additionally, if You are an Instructor (as defined below), You are also subject to the Instructor Terms, which are hereby incorporated by reference into these Terms. If You are an Instructor, and there is a conflict between these Terms and the Instructor Terms, the Instructor Terms will govern.
+                    </li>
+
+                </ol>
+                <h6>General</h6>
+                <ol start="1">
+                    <li>
+                        Our Services enable students ("Students") to connect with independent contractor instructors (the "Instructors", collectively with Students, the "Users") who provide live and recorded instruction, tutoring, and learning services (the "Courses") via Our Services. The Services include, without limitation, facilitating and hosting Courses and supporting materials, and taking feedback from Users.
+                    </li>
+                    <li>
+                        From time to time, We may update these Terms to clarify our practices or to reflect new or different practices, such as when We add new features, and EOTA reserves the right in its sole discretion to modify and/or make changes to these Terms at any time. If We make any material change to these Terms, We will notify You using prominent means such as by email notice sent to the email address specified in Your Account or by posting a notice through Our Services. Modifications will become effective on the day they are posted unless stated otherwise.
+                    </li>
+                    <li>
+                        Your continued use of Our Services after changes become effective shall mean that You accept those changes. You should visit the Services regularly to ensure You are aware of the latest version of the Terms, as any revised Terms shall supersede all previous Terms.
+                    </li>
+                    <li>
+                        EOTA may modify the Services or discontinue their availability at any time.
+                    </li>
+                    <li>
+                        You are solely responsible for all service, telephony, data charges and/or other fees and costs associated with Your access to and use of the Services, as well as for obtaining and maintaining all telephone, computer hardware, and other equipment required for such access and use.
+                    </li>
+                    <li>
+                        If You elect to access or use Our Services that involve payment of a fee, then You agree to pay, and will be responsible for payment of, that fee and all taxes associated with such access or use. If You provide credit card information to pay for such fees then You hereby represent and warrant that You are authorized to supply such information and hereby authorize EOTA to charge Your credit card on a regular basis to pay the fees as they are due.
+                    </li>
+                    <li>
+                        If Your payment method fails or Your Account is past due, then We may collect fees owed using other collection mechanisms. This may include charging other payment methods on file with Us and/or retaining collection agencies and legal counsel. We may also block Your access to any Services pending resolution of any amounts due by You to EOTA.
+                    </li>
+                    <li>
+                        All of Your use, access and other activities relating to the Services must be in compliance with all applicable laws and regulations, including, without limitations, laws relating to copyright and other intellectual property use, and to privacy and personal identity. Further, access to Our Services from territories where their contents are illegal is prohibited. Those who choose to access or use the Services from locations outside of the United States do so at their own initiative and are responsible for compliance with all local rules including, without limitation, rules about the internet, data, e-mail, or privacy. You further agree to comply with all applicable laws regarding the transmission of technical data exported from the United States or the country in which You reside. If You use the Services or Third Party Platforms (as defined in the next section) from countries outside of the United States You must agree to abide by all local rules regarding online conduct and acceptable content.
+                    </li>
+                </ol>
+                <h6>General Disclaimer</h6>
+                <ol start="1">
+                    <li>
+                        The Services are only a marketplace for Instructors and Students. We do not hire or employ Instructors nor are We responsible or liable for any interactions involved between the Instructors and the Students who purchase an Instructor's Course via the Services. We are not responsible for disputes, claims, losses, injuries, or damage of any kind that might arise out of or relate to conduct of Instructors or Students, including, but not limited to, any Student's reliance upon any information provided by an Instructor.
+                    </li>
+                    <li>
+                        We do not control Submitted Content (as defined below) posted on the Services and, as such, do not guarantee in any manner the reliability, validity, accuracy or truthfulness of such Submitted Content. You also understand that by using the Services, EOTA may expose You to Submitted Content that You consider offensive, indecent, or objectionable. EOTA has no responsibility to keep such content from You and no liability for Your access or use of any Submitted Content, to the extent permissible under applicable law.
+                    </li>
+                    <li>
+                        The Services may give You access to links to third party platforms ("Third Party Platforms"), either directly or through Courses or Instructors. EOTA does not endorse any of these Third Party Platforms and does not control them in any manner. Accordingly, EOTA does not assume any liability associated with Third Party Platforms. You need to take appropriate steps to determine whether accessing a Third Party Platform is appropriate, and to protect Your personal information and privacy on such Third Party Platform.
+                    </li>
+                </ol>
+                <h6>Conduct</h6>
+                <ol start="1">
+                    <li>
+                        You may only access the Services for lawful purposes. You are solely responsible for the knowledge of and adherence to any and all laws, rules, and regulations pertaining to Your use of the Services. You agree not to use the Services or the Company Content (as defined below) to recruit, solicit, or contact in any form, Instructors or potential users for employment or contracting for a business not affiliated with Us without Our advance written permission, which may be withheld in Our sole discretion. You assume any and all risks from any meetings or contact between You and any Instructors or other Users of the Services.
+                    </li>
+
+                </ol>
+
+            </div>
+        </div>
+        <!-- /terms -->
+    </section>
+
+    <!-- footer -->
+    <div class="footer_agileinfo_topf">
+        <div class="container">
+            <div class="col-md-4 footer_w3layouts_gridf">
+                <h2><a href="~/Home/Index">EOTA</a></h2>
+                <p class="paragraphf">Providing best coaching at affordable prices.</p>
+            </div>
+            <div class="col-md-4 footer_w3layouts_gridf">
+                <nav>
+                    <ul class="footer_w3layouts_gridf_list">
+                        <li>
+                            <span class="fa fa-angle-right" aria-hidden="true"></span>
+                            <a href="http://www.elephanttreetech.com/#About" target="_blank">About Us</a>
+                        </li>
+                        <li>
+                            <span class="fa fa-angle-right" aria-hidden="true"></span>
+                            <a href="http://www.elephanttreetech.com/#service" target="_blank">Services</a>
+                        </li>
+                        <li>
+                            <span class="fa fa-angle-right" aria-hidden="true"></span>
+                            <a href="http://www.elephanttreetech.com/#products" target="_blank">Products</a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-4 footer_w3layouts_gridf">
+                <nav>
+                    <ul class="footer_w3layouts_gridf_list">
+                        <li>
+                            <span class="fa fa-angle-right" aria-hidden="true"></span>
+                            <a href="http://www.elephanttreetech.com/#jobs" target="_blank">Careers</a>
+                        </li>
+
+                        <li>
+                            <span class="fa fa-angle-right" aria-hidden="true"></span>
+                            <a href="http://www.elephanttreetech.com/#technology" target="_blank">Technology</a>
+                        </li>
+                        <li>
+                            <span class="fa fa-angle-right" aria-hidden="true"></span>
+                            <a href="http://www.elephanttreetech.com/#contact" target="_blank">Contact</a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+
+            </div>
+            <div class="clearfix"> </div>
+            <div class="w3ls-fsocial-grid" style="float:left">
+                <h3 class="sub-w3ls-headf">Follow Us</h3>
+                <div class="social-ficons">
+                    <ul>
+                        <li><a href="https://www.facebook.com/12Elephanttrees/" target="_blank"><span class="fa fa-facebook"></span> Facebook</a></li>
+                        <li><a href="https://twitter.com/12Elephanttrees" target="_blank"><span class="fa fa-twitter"></span> Twitter</a></li>
+                        <li><a href="https://www.linkedin.com/in/elephanttree-technologies-private-limited-174699145/" target="_blank"><span class="fa fa-linkedin-square"></span>Linkdin</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="w3ls-fsocial-grid" style="float:right">
+
+                <p style="float:right"><span class="fa fa-mail-forward" aria-hidden="true"></span>Recieve our latest news straight to your inbox.</p>
+                <br /> <br />
+                <div style="float:right">
+                    <form action="~/Home/Subscribe" method="post">
+                        <input type="email" name="Email" placeholder="Email address..." required="">
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+
+            </div>
+            <br />
+
+        </div>
+    </div>
+    <div class="footer-wthree-copyf">
+        <div class="container">
+           
+            <p>© 2018 EOTA MERIT TRAINING. All rights reserved | Design and Developed by <a href="http://www.elephanttreetech.com/" target="_blank"> ELEPHANTTREE TECH PVT.LTD.</a></p>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //footer -->
+    <!-- js files -->
+    <!-- jquery -->
+    <script src="~/css/newcss/js/jquery-2.1.4.min.js"></script>
+    <!-- //jquery -->
+    <!-- cart-js -->
+    <script src="~/css/newcss/js/minicart.js"></script>
+    <script>
+        edu.render();
+
+        edu.cart.on('edu_checkout', function (evt) {
+            var items, len, i;
+
+            if (this.subtotal() > 0) {
+                items = this.items();
+
+                for (i = 0, len = items.length; i < len; i++) { }
+            }
+        });
+    </script>
+    <!-- //cart-js -->
+    <!-- Nav Js -->
+    <script type="text/javascript" src="~/css/newcss/js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!--// Nav Js -->
+    <!-- bootstrap-pop-up -->
+    <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Sign In/Up
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <section>
+
+                    <div class="modal-body">
+                        <div class="loginf_module">
+                            <div class="module form-module">
+                                <div class="toggle">
+                                    <i class="fa fa-times fa-pencil"></i>
+                                    <div class="tooltip" id="sgnin">Sign in </div>
+                                    <div class="tooltip" id="sgnup">Sign Up </div>
+                                </div>
+                                <div class="form">
+                                    <h3>Login to your account</h3>
+                                    <form action="~/Student/Cand_Login" method="post">
+                                        @Html.AntiForgeryToken()
+
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { @class = "form-control", placeholder = "Email", required = "required", style = "text - align: left;", maxlength = "254", minlength = "4" } })
+                                        @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+
+                                        @Html.EditorFor(model => model.Cand_Pass, new { htmlAttributes = new { @class = "form-control", placeholder = "Password", required = "required", maxlength = "16", minlength = "6" } })
+                                        @Html.ValidationMessageFor(model => model.Cand_Pass, "", new { @class = "text-danger" })
+
+                                        <input type="submit" value="Login" style="background-color:lightseagreen">
+                                    </form>
+
+                                    <div class="cta">
+                                        <a href="#" class="log" data-toggle="modal" onClick="PopUp('hide')" data-target="#myModal1">Forgot password?</a>
+                                    </div>
+
+                                </div>
+                                <div class="form">
+                                    <h3>Sign Up</h3>
+                                    @using (Html.BeginForm("Cand_reg", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        @Html.EditorFor(model => model.CandName, new { htmlAttributes = new { @class = "form-control", required = "required", placeholder = "Name" } })
+                                        @Html.ValidationMessageFor(model => model.CandName, "", new { @class = "text-danger" })
+
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { @class = "form-control", @type = "email", placeholder = "Email", required = "required", maxlength = "254", minlength = "4" } })
+                                        @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+                                        @Html.ValidationMessage("EmailExist", new { @class = "text-danger" })
+
+                                        @Html.EditorFor(model => model.Cand_MNum, new
+                                        {
+                                            htmlAttributes = new
+                                            {
+                                                @class = "form-control"@*, @type = "number"*@,
+onkeypress = "return isNumberKey(event)",
+maxlength = "10",
+minlength = "10",
+placeholder = "Phone Number"
+}
+})
+                                        @Html.ValidationMessageFor(model => model.Cand_MNum, "", new { @class = "text-danger" })
+                                        <script type="text/javascript">
+                                            function isNumberKey(evt) {
+                                                var charCode = (evt.which) ? evt.which : event.keyCode;
+                                                if (charCode > 31
+                                                    && (charCode < 48 || charCode > 57))
+                                                    return false;
+
+                                                return true;
+                                            }
+                                        </script>
+
+                                        @Html.EditorFor(model => model.Cand_Pass, new { htmlAttributes = new { @class = "form-control", placeholder = "Password", required = "required", maxlength = "16", minlength = "6" } })
+                                        @Html.ValidationMessageFor(model => model.Cand_Pass, "", new { @class = "text-danger" })
+
+                                        @Html.EditorFor(model => model.Cand_RePass, new
+                                        {
+                                            htmlAttributes = new
+                                            {
+                                                @class = "form-control",
+                                                required = "required",
+                                                maxlength = "16",
+                                                minlength = "6",
+                                                placeholder = "Confirm Password"
+                                            }
+                                        })
+                                        @Html.ValidationMessageFor(model => model.Cand_RePass, "", new { @class = "text-danger" })
+
+                                        <input type="submit" value="Register" style="background-color:lightseagreen">
+                                    }
+                                    <br />
+                                    <h6><a href="~/Home/termscond" target="_blank"> By clicking Register, you agree to our Terms and that you have read our Policy</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @if (@ViewBag.errrid == "1")
+                    {
+                        <h4 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Login Error</h4>
+                        <br />
+
+                        <h5 style="color:red;text-align:center"> Invalid credentials, Please Check your details and try again!</h5>
+                        <br />
+
+
+                    }
+                    @if (@ViewBag.errrid == "2")
+                    {
+                        <h4 class="agileinfo_sign" style="color:black;text-align:center">Email Exists</h4>
+                        <br />
+
+                        <h5 style="color:darkcyan;text-align:center"> Your email already exists. Please try with another email. </h5>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "3")
+                    {
+                        <h4 class="agileinfo_sign" style="color:black;text-align:center">Successfull Registration</h4>
+                        <br />
+
+                        <h5 style="color:darkcyan;text-align:center"> Registration Successfully done. Account activation link has been sent to your email id. Please check.</h5>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "4")
+                    {
+                        <h4 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Registration Error</h4>
+                        <br />
+
+                        <h5 style="color:red;text-align:center"> Invalid registration. Please Try again</h5>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "12")
+                    {
+                        <h4 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Login Error</h4>
+                        <br />
+
+                        <h5 style="color:red;text-align:center"> @ViewBag.errrmsg14</h5>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "13")
+                    {
+                        <h4 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Registration Error</h4>
+                        <br />
+
+                        <h5 style="color:red;text-align:center"> @ViewBag.errrmsg14</h5>
+                        <br />
+
+                    }
+
+                </section>
+            </div>
+        </div>
+    </div>
+    <script>
+        function PopUp(hideOrshow) {
+            if (hideOrshow == 'hide') $('#myModal').modal('hide');
+
+        }
+        function PopUp1(hideOrshow) {
+            if (hideOrshow == 'hide') $('#myModal1').modal('hide');
+
+        }
+    </script>
+    <div class="modal video-modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Sign In/Up
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <section>
+
+                    <div class="modal-body">
+                        <div class="loginf_module">
+                            <div class="module form-module">
+                                <div class="toggle">
+                                    <i class="fa fa-times fa-pencil"></i>
+                                    <div class="tooltip" id="fg">Back </div>
+                                    <div class="tooltip" id="sgnup2">Sign Up </div>
+                                </div>
+                                <div class="form">
+                                    <h3>Forgot Password Recovery</h3>
+                                    <form action="~/Student/Cand_Forgotpass" method="post">
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { @class = "form-control", style = "color: darkblue;", placeholder = "User email", @type = "email", required = "required", maxlength = "254", minlength = "4" } })
+                                        @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+                                        <input type="submit" value="Submit" class="btn btn-default" style="background-color:lightseagreen" />
+                                    </form>
+
+                                    <div class="cta">
+                                        <a href="#" class="log" data-toggle="modal" onClick="PopUp1('hide')" data-target="#myModal">Login</a>
+                                    </div>
+
+                                </div>
+                                <div class="form">
+                                    <h3>Sign Up</h3>
+                                    @using (Html.BeginForm("Cand_reg", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        @Html.EditorFor(model => model.CandName, new { htmlAttributes = new { @class = "form-control", required = "required", placeholder = "Name" } })
+                                        @Html.ValidationMessageFor(model => model.CandName, "", new { @class = "text-danger" })
+
+                                        @Html.EditorFor(model => model.Cand_EmailId, new { htmlAttributes = new { @class = "form-control", @type = "email", placeholder = "Email", required = "required", maxlength = "254", minlength = "4" } })
+                                        @Html.ValidationMessageFor(model => model.Cand_EmailId, "", new { @class = "text-danger" })
+                                        @Html.ValidationMessage("EmailExist", new { @class = "text-danger" })
+
+                                        @Html.EditorFor(model => model.Cand_MNum, new
+                                        {
+                                            htmlAttributes = new
+                                            {
+                                                @class = "form-control"@*, @type = "number"*@,
+onkeypress = "return isNumberKey(event)",
+maxlength = "10",
+minlength = "10",
+placeholder = "Phone Number"
+}
+})
+                                        @Html.ValidationMessageFor(model => model.Cand_MNum, "", new { @class = "text-danger" })
+                                        <script type="text/javascript">
+                                            function isNumberKey(evt) {
+                                                var charCode = (evt.which) ? evt.which : event.keyCode;
+                                                if (charCode > 31
+                                                    && (charCode < 48 || charCode > 57))
+                                                    return false;
+
+                                                return true;
+                                            }
+                                        </script>
+
+                                        @Html.EditorFor(model => model.Cand_Pass, new { htmlAttributes = new { @class = "form-control", placeholder = "Password", required = "required", maxlength = "16", minlength = "6" } })
+                                        @Html.ValidationMessageFor(model => model.Cand_Pass, "", new { @class = "text-danger" })
+
+                                        @Html.EditorFor(model => model.Cand_RePass, new
+                                        {
+                                            htmlAttributes = new
+                                            {
+                                                @class = "form-control",
+                                                required = "required",
+                                                maxlength = "16",
+                                                minlength = "6",
+                                                placeholder = "Confirm Password"
+                                            }
+                                        })
+                                        @Html.ValidationMessageFor(model => model.Cand_RePass, "", new { @class = "text-danger" })
+
+                                        <input type="submit" value="Register" style="background-color:lightseagreen">
+                                    }
+                                    <br />
+                                    <h6><a href="~/Home/termscond" target="_blank"> By clicking Register, you agree to our Terms and that you have read our Policy</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @if (@ViewBag.errrid == "2")
+                    {
+                        <h3 class="agileinfo_sign" style="color:black;text-align:center">Email Exists</h3>
+                        <br />
+
+                        <h4 style="color:darkcyan;text-align:center"> Your email already exists. Please try with another email. </h4>
+                        <br />
+
+
+                    }
+                    @if (@ViewBag.errrid == "14")
+                    {
+                        <h3 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Recovery Error</h3>
+                        <br />
+
+                        <h4 style="color:red;text-align:center"> @ViewBag.errrmsg14</h4>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "5")
+                    {
+                        <h3 class="agileinfo_sign" style="color:black;text-align:center">Password Recovery</h3>
+                        <br />
+
+                        <h4 style="color:darkcyan;text-align:center"> Please check Your Email. Password recovery link has been sent.</h4>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "6")
+                    {
+                        <h3 class="agileinfo_sign" style="color:lightseagreen;text-align:center"> Recovery Error</h3>
+                        <br />
+
+                        <h4 style="color:red;text-align:center"> Something went wrong. Please try again</h4>
+                        <br />
+
+                    }
+                    @if (@ViewBag.errrid == "7")
+                    {
+                        <h3 class="agileinfo_sign" style="color:lightseagreen;text-align:center">Password Recovery</h3>
+                        <br />
+
+                        <h4 style="color:red;text-align:center"> Email does not Exist. Please try again.</h4>
+                        <br />
+
+                    }
+                </section>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="modal video-modal fade" id="subcribeModel" tabindex="-1" role="dialog" aria-labelledby="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <section>
+                    <div class="modal-body">
+                        <div class="loginf_module">
+                            <div class="module form-module">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <div class="form">
+                                    <h3>Subscription Box</h3>
+
+                                    <h4 style="color:lightseagreen"> Thank you for keeping in touch!</h4>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('#myModal').modal('hide');
+        function PopUp1(hideOrshow) {
+            if (hideOrshow == 'hide') {
+
+                $('#myModal1').modal('hide');
+            }
+            else document.getElementById('myModal1').removeAttribute('style');
+
+        }
+    </script>
+    <!-- JS includes -->
+    <script type="text/javascript">
+            /**/
+
+            /**/
+            if (@ViewBag.errrid=="1")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="2")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="3")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="4")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="5")
+/**/ {
+
+                $('#myModal1').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="6")
+/**/ {
+
+                $('#myModal1').modal('show');
+            }
+            /**/
+            if (@ViewBag.errrid=="7")
+/**/ {
+
+                $('#myModal1').modal('show');
+            }
+            /**/
+        if (@ViewBag.errrid=="12")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+        if (@ViewBag.errrid=="13")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            if (@ViewBag.errrid=="14")
+/**/ {
+
+                $('#myModal1').modal('show');
+            }
+
+            if (@ViewBag.errrid=="15")
+/**/ {
+
+                $('#myModal').modal('show');
+            }
+            if (@ViewBag.errrid=="16")
+/**/ {
+
+                $('#subcribeModel').modal('show');
+            }
+    </script>
+
+    <script type="text/javascript">
+
+        function PopUperror(hideOrshow) {
+            if (hideOrshow == 'hide') {
+
+                $('#myModal').modal('hide');
+            }
+            else document.getElementById('myModal').removeAttribute('style');
+
+        }
+    </script>
+
+    <script>
+        $('.toggle').click(function () {
+            // Switches the Icon
+            $(this).children('i').toggleClass('fa-pencil');
+            // Switches the forms
+            $('.form').animate({
+                height: "toggle",
+                'padding-top': 'toggle',
+                'padding-bottom': 'toggle',
+                opacity: "toggle"
+            }, "slow");
+        });
+    </script>
+    <!-- //bootstrap-pop-up -->
+    <!--pop-up-box -->
+    <script src="~/css/newcss/js/jquery.magnific-popup.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+
+        });
+    </script>
+    <!-- //pop-up-box -->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/css/newcss/js/move-top.js"></script>
+    <script type="text/javascript" src="~/css/newcss/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+    <!-- smoothscroll -->
+    <script src="~/css/newcss/js/SmoothScroll.min.js"></script>
+    <!-- //smoothscroll -->
+    <!-- js files -->
+
+</body>
+
+</html>

@@ -1,0 +1,346 @@
+﻿@model EtreetrainingUser.Models.Trainer
+
+@{
+    ViewBag.Title = "EOTA :: Trainer's Login";
+
+}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>EOTA Trainer Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="EOTA Trainer Panel" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/admnfont/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="~/admnfont/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- font CSS -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- font-awesome icons -->
+    <link href="~/admnfont/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!-- chart -->
+    <script src="~/admnfont/js/Chart.js"></script>
+    <!-- //chart -->
+    <!-- js-->
+    <script src="~/admnfont/js/jquery-1.11.1.min.js"></script>
+    <script src="~/admnfont/js/modernizr.custom.js"></script>
+    <!--webfonts-->
+    <link href='//admnfont/fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <!--//webfonts-->
+    <!--animate-->
+    <link href="~/admnfont/css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script src="~/admnfont/js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <!--//end-animate-->
+    <!-- Metis Menu -->
+    <script src="~/admnfont/js/metisMenu.min.js"></script>
+    <script src="~/admnfont/js/custom.js"></script>
+    <link href="~/admnfont/css/custom.css" rel="stylesheet">
+    <!--//Metis Menu -->
+</head>
+<body class="cbp-spmenu-push">
+    <div class="main-content">
+        <!--left-fixed -navigation-->
+        <!--left-fixed -navigation-->
+        <!-- header-starts -->
+        <div class="sticky-header header-section ">
+            <div class="header-left">
+                <!--logo -->
+                <div class="logo">
+                    <a href="#">
+                        <ul>
+                            <li>
+                                <img src="~/Picture/logo1.png" alt="" />
+                            </li>
+                            <li>
+                                <h1>Trainer </h1>
+                            </li>
+                            <div class="clearfix"> </div>
+                        </ul>
+                    </a>
+                </div>
+                <!--//logo-->
+                <div class="header-right header-right-grid">
+                    <div class="profile_details_left">
+
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+
+
+                <div class="clearfix"> </div>
+            </div>
+            <!--search-box-->
+            <!--//end-search-box-->
+            <div class="header-right">
+
+                <!--notification menu end -->
+                <div class="profile_details">
+                    <ul></ul>
+                </div>
+                <!--toggle button start-->
+                <button id="showLeftPush"> <i class="fa fa-home"></i></button>
+                <!--toggle button end-->
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+     
+        <!-- //header-ends -->
+        <!-- main content start-->
+        <div id="page-wrapper">
+            <div class="main-page">
+                <!--grids-->
+                <div class="grids">
+                    <div class="progressbar-heading grids-heading">
+                        <h2>Welcome to Trainers' Login Page</h2>
+                    </div>
+                    <div class="panel panel-widget">
+                        <div class="block-page">
+                            <p>
+
+                            <p>
+                                @Html.ActionLink("Not registered till now? Contact to Admin ", "Contact", "Home")
+                            </p>
+
+                            @using (Html.BeginForm("Trainrs_Login", "Trainers", FormMethod.Post, new { onsubmit = "return validateForm2(event)" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                <div>
+                                    <div class="form-group col-md-12">
+                                        @Html.LabelFor(model => model.Email_Id, htmlAttributes: new { @class = "control-label col-md-2 col-lg-2 col-sm-2 col-xs-4 " })
+                                        <div class="col-md-10 col-sm-10 col-lg-4 col-xs-8 ">
+                                            @Html.EditorFor(model => model.Email_Id, new { htmlAttributes = new { @class = "form-control", id = "emailid2", onmouseout = "mailcheck(this)" } })
+                                            @Html.ValidationMessageFor(model => model.Email_Id, "", new { @class = "text-danger" })
+                                            <h4 id="emailerror2" class="text-danger text-left"></h4>
+                                            <script language="Javascript">
+                                                function validateForm2(event) {
+                                                    var pattern2 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                                                    document.getElementById("emailerror2").innerHTML = "";
+                                                    var userName2 = document.getElementById("emailid2").value;
+                                                    if (userName2 == null || userName2 == "") {
+                                                        document.getElementById("emailerror2").innerHTML = "";
+                                                        return true;
+                                                    } else {
+                                                        if (userName2.match(pattern2)) {
+                                                            document.getElementById("emailerror2").innerHTML = "";
+                                                            return true;
+                                                        } else {
+
+                                                            document.getElementById("emailerror2").innerHTML = "Email is not valid";
+
+                                                            return false;
+                                                        }
+
+                                                    }
+
+                                                }
+
+                                            </script>
+                                            <script language="Javascript">
+                                                function mailcheck(event) {
+                                                    var pattern2 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                                                    document.getElementById("emailerror2").innerHTML = "";
+                                                    var userName2 = document.getElementById("emailid2").value;
+                                                    if (userName2 == null || userName2 == "") {
+                                                        document.getElementById("emailerror2").innerHTML = "";
+                                                        return true;
+                                                    } else {
+                                                        if (userName2.match(pattern2)) {
+                                                            document.getElementById("emailerror2").innerHTML = "";
+                                                            return true;
+                                                        } else {
+
+                                                            document.getElementById("emailerror2").innerHTML = "Email is not valid";
+
+                                                            return false;
+                                                        }
+
+                                                    }
+
+                                                }
+
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label  col-md-2 col-lg-2 col-sm-2 col-xs-4" })
+                                    <div class="col-md-10 col-sm-10 col-lg-4 col-xs-8">
+                                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", id = "pss" } })
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-4   col-md-1 col-xs-3 col-lg-1 col-sm-2">
+
+                                        <input type="submit" value="Login" class="btn btn-default" />
+                                    </div>
+
+                                    <div class="col-md-1 col-xs-1 col-lg-1">
+                                        <input type="RESET" value="Clear" class="btn btn-default" />
+                                    </div>
+
+                                </div>
+                                @if (@ViewBag.Duplicatemessage != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-lg-offset-2 col-sm-offset-2 col-xs-offset-2 col-md-11 col-sm-11 col-lg-10 col-xs-11">
+                                        <label class="label-danger">@ViewBag.Duplicatemessage</label>
+                                    </div>
+                                </div>
+                                <br />
+                        }
+                            </div>
+                    }
+                            @using (Html.BeginForm("Frgtpass", "Trainers", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-horizontal">
+                                <div class="form-group ">
+                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-4  col-md-2 col-xs-7 col-lg-2 col-sm-2">
+                                        <button type="button" value="Forgot password" onclick="myFunction()" class="btn btn-default">Forgot password</button>
+                                    </div>
+
+                                    <div class="col-xs-7 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-4">
+                                        <input type="email" placeholder="Give your email" name="email" id="frgttxt" required="" />
+                                    </div>
+                                    <div class="col-xs-6 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-4">
+                                        <input type="submit" value="Submit" id="frgttxtsbmt" class="btn btn-default" />
+                                    </div>
+                                </div>
+                                @if (@ViewBag.success != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-20 col-xs-6">
+                                        <label class="label-success">@ViewBag.success</label>
+                                    </div>
+                                </div>
+                        }
+                                @if (@ViewBag.error != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-20 col-xs-6">
+                                        <label class="label-danger">@ViewBag.error</label>
+                                    </div>
+                                </div>
+                        }
+                            </div>
+                    }
+
+                            <script type="text/javascript">
+                                document.getElementById("frgttxt").style.visibility = "hidden";
+                                document.getElementById("frgttxtsbmt").style.visibility = "hidden";
+                                function myFunction() {
+                                    var x = document.getElementById("frgttxt");
+                                    if (x.style.visibility == "hidden") {
+                                        x.style.visibility = "visible";
+                                        document.getElementById("frgttxtsbmt").style.visibility = "visible";
+                                    } else {
+                                        x.style.visibility = "hidden";
+                                        document.getElementById("frgttxtsbmt").style.visibility = "hidden";
+                                    }
+                                }
+
+                            </script>
+
+
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!--//grids-->
+
+            </div>
+        </div>
+
+        <!--footer-->
+        <div class="dev-page">
+
+            <!-- page footer -->
+            <!-- dev-page-footer-closed dev-page-footer-fixed -->
+            <div class="dev-page-footer dev-page-footer-fixed">
+                <!-- container -->
+                <div class="container">
+                    <div class="copyright">
+                        <p>
+                            © 2018 EOTA MERIT TRAINING. All rights reserved | Design and Developed by
+                            <a href="http://www.elephanttreetech.com/">ELEPHANTTREE TECH PVT.LTD.</a>
+                        </p>
+                    </div>
+                    <!-- page footer buttons -->
+                    @*<ul class="dev-page-footer-buttons">
+                        <li><a href="#footer_content_1" class="dev-page-footer-container-open"><span class="glyphicon glyphicon glyphicon-sort" aria-hidden="true"></span></a></li>
+                        <li><a href="#footer_content_2" class="dev-page-footer-container-open"><span class="glyphicon glyphicon glyphicon-signal" aria-hidden="true"></span></a></li>
+                        <li><a href="#footer_content_3" class="dev-page-footer-container-open"><span class="glyphicon glyphicon glyphicon glyphicon-file" aria-hidden="true"></span></a></li>
+                    </ul>*@
+                    <!-- //page footer buttons -->
+                    <!-- page footer container -->
+            
+                    <!-- //page footer container -->
+
+                </div>
+                <!-- //container -->
+            </div>
+            <!-- /page footer -->
+        </div>
+        <!--//footer-->
+    </div>
+    <!-- Classie -->
+    <script src="~/admnfont/js/classie.js"></script>
+    <script>
+        //window.location.href = "~/Home/Index";
+        var menuLeft = document.getElementById('cbp-spmenu-s1'),
+            showLeftPush = document.getElementById('showLeftPush'),
+            body = document.body;
+
+        showLeftPush.onclick = function () {
+            window.location.href = "/Home/Index";
+          
+        };
+
+
+         
+    </script>
+    <!-- Bootstrap Core JavaScript -->
+
+    <script type="text/javascript" src="~/admnfont/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="~/admnfont/js/dev-loaders.js"></script>
+    <script type="text/javascript" src="~/admnfont/js/dev-layout-default.js"></script>
+    <script type="text/javascript" src="~/admnfont/js/jquery.marquee.js"></script>
+    <link href="~/admnfont/css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="~/admnfont/js/jquery.jqcandlestick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/admnfont/css/jqcandlestick.css" />
+
+    <!--max-plugin-->
+    <script type="text/javascript" src="~/admnfont/js/plugins.js"></script>
+    <!--//max-plugin-->
+    <!--scrolling js-->
+    <script src="~/admnfont/js/jquery.nicescroll.js"></script>
+    <script src="~/admnfont/js/scripts.js"></script>
+    <!--//scrolling js-->
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>

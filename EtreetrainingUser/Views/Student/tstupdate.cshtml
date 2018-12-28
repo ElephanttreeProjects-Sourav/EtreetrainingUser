@@ -1,0 +1,334 @@
+﻿
+@model EtreetrainingUser.Models.Mock_Test
+
+@{
+    ViewBag.Title = "EOTA: Home-> Test-> Test Updation...";
+    Layout = "~/Views/Student/_Mockttststart.cshtml";
+
+    var qno = @ViewBag.qno + 1;
+}
+
+<p id="demo"></p>
+
+<form action="~/Student/tstnext/@ViewBag.tstcd!@ViewBag.id]@qno^" onclick="myFunction1()" id="pp" method="post">
+    @Html.AntiForgeryToken()
+    <p class="hidden" id="hdfValue1"> <label id="hdfValue"> </label></p>
+ 
+    @{
+        if (@ViewBag.qno > 1)
+        {
+            if (@ViewBag.qno != @ViewBag.tstmaxques)
+            {
+               <button type="button" class="glyphicon glyphicon-forward" onclick="myFunction4()" style="background-color:darkgray; color:black; float:right;height:30px"><b> Next</b></button>
+            }
+               <button type="button" class="glyphicon glyphicon-backward" onclick="myFunction3()" style="background-color:darkgray; color:black; float:right;height:30px"><b> Previous</b></button> 
+    
+        }
+        if (@ViewBag.qno == 1)
+        {
+            if (@ViewBag.qno != @ViewBag.tstmaxques)
+            {
+    <button type="button" class="glyphicon glyphicon-forward" onclick="myFunction4()" style="background-color:darkgray; color:black; float:right;height:30px"> <b> Next</b></button>
+            }
+            
+        }
+    }
+
+   
+    @foreach (var i in ViewBag.mctstlst)
+    {
+        <div style="position:center">
+            <h3>[@i.Ques_No]  @i.Question </h3>
+        </div>
+
+        <hr />
+
+        <div class="form-horizontal">
+            @if (i.Question_Type == "O")
+            {
+                <div class="form-group">
+
+                    <div style="width:1140px; margin:0 auto;">
+
+                        <h4>
+                           
+                            @if (ViewBag.anschecked == "1")
+                            {
+                                @Html.RadioButtonFor(Model => Model.Checked, "1", new { @checked = true }) @i.Option1
+                            }
+                            else
+                            {
+                                @Html.RadioButtonFor(Model => Model.Checked, "1") @i.Option1
+                            }
+                            <br /><br />
+                            @if (ViewBag.anschecked == "2")
+                            {
+                                @Html.RadioButtonFor(Model => Model.Checked, "2", new { @checked = true }) @i.Option2
+                            }
+                            else
+                            {
+                                @Html.RadioButtonFor(Model => Model.Checked, "2") @i.Option2
+                            }
+                            
+
+                            <br /><br />
+                            @if (i.Option3 != null)
+                            {
+                                if (ViewBag.anschecked == "3")
+                                {
+                                    @Html.RadioButtonFor(Model => Model.Checked, "3", new { @checked = true }) @i.Option3
+                                }
+                                else
+                                {
+                                    @Html.RadioButtonFor(Model => Model.Checked, "3") @i.Option3
+                                }
+                                <br /><br />
+                            }
+
+                            @if (i.Option4 != null)
+                            {
+                                if (ViewBag.anschecked == "4")
+                                {
+                                    @Html.RadioButtonFor(Model => Model.Checked, "4", new { @checked = true }) @i.Option4
+                                }
+                                else
+                                {
+                                    @Html.RadioButtonFor(Model => Model.Checked, "4") @i.Option4
+                                }
+                                <br /><br />
+                            }
+                            @if (i.Option5 != null)
+                            {
+                                if (ViewBag.anschecked == "5")
+                                {
+                                    @Html.RadioButtonFor(Model => Model.Checked, "5", new { @checked = true }) @i.Option5
+                                }
+                                else
+                                {
+                                    @Html.RadioButtonFor(Model => Model.Checked, "5") @i.Option5
+                                }
+                                <br /><br />
+                            }
+                            @if (i.Option6 != null)
+                            {
+                                @*@Html.RadioButtonFor(Model => Model.Checked, new { Style = "vertical-            align:3px}" })  @i.Option6*@
+                                if (ViewBag.anschecked == "6")
+                                {
+                                    @Html.RadioButtonFor(Model => Model.Checked, "6", new { @checked = true }) @i.Option6
+                                }
+                                else
+                                {
+                                    @Html.RadioButtonFor(Model => Model.Checked, "6") @i.Option6
+                                }
+                            }
+
+
+                        </h4>
+
+
+                    </div>
+
+                </div>
+            }
+            else if (i.Question_Type == "MO")
+            {
+                if (ViewBag.op1 == 1)
+                {
+                    @Html.CheckBoxFor(m => m.Optio1, new { @checked = "checked" })  @i.Option1
+                }
+                else
+                {
+                    @Html.CheckBoxFor(m => m.Optio1, false)  @i.Option1
+                }
+
+                <br /><br />
+                if (ViewBag.op2 == 2)
+                {
+                    @Html.CheckBoxFor(m => m.Optio2, new { @checked = "checked" })  @i.Option2
+                }
+                else
+                {
+                    @Html.CheckBoxFor(m => m.Optio2, false)  @i.Option2
+                }
+                   <br /><br />
+                if (i.Option3 != null)
+                {
+                    if (ViewBag.op3 == 3)
+                    {
+                        @Html.CheckBoxFor(m => m.Optio3, new { @checked = "checked" })  @i.Option3
+                    }
+                    else
+                    {
+                        @Html.CheckBoxFor(m => m.Optio3, false)  @i.Option3
+                    }
+                    <br /><br />
+                }
+                if (i.Option4 != null)
+                {
+                    if (ViewBag.op4 == 4)
+                    {
+                        @Html.CheckBoxFor(m => m.Optio4, new { @checked = "checked" })  @i.Option4
+                    }
+                    else
+                    {
+                        @Html.CheckBoxFor(m => m.Optio4, false)  @i.Option4
+                    }
+                    <br /><br />
+                }
+                if (i.Option5 != null)
+                {
+                    if (ViewBag.op5 == 5)
+                    {
+                        @Html.CheckBoxFor(m => m.Optio5, new { @checked = "checked" })  @i.Option5
+                    }
+                    else
+                    {
+                        @Html.CheckBoxFor(m => m.Optio5, false)  @i.Option5
+                    } 
+                    <br /><br />
+                }
+                if (i.Option6 != null)
+                {
+                    if (ViewBag.op6 == 6)
+                    {
+                        @Html.CheckBoxFor(m => m.Optio6, new { @checked = "checked" })  @i.Option6
+                    }
+                    else
+                    {
+                        @Html.CheckBoxFor(m => m.Optio6, false)  @i.Option6
+                    }
+                }
+                
+            }
+            else if (i.Question_Type == "T")
+            {
+                if (ViewBag.txt == null)
+                {
+                    @Html.EditorFor(m => m.Textbx, new { htmlAttributes = new { @class = "form-control" } })
+                }
+                else
+                {
+                    
+                   @*@Html.EditorFor(m => m.Textbx, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Your wrote(Non-Updatable):  " + @ViewBag.txt, id = "textbox1" } })*@
+                    <textarea name="Textbx" id="Textbx" rows="10" cols="100">@ViewBag.txt</textarea>
+                }   
+
+
+            }
+            else
+            {
+
+            }
+
+            <div class="form-group">
+                <br />
+                &nbsp;&nbsp;&nbsp;
+                @if (i.Ques_No == @ViewBag.tstmaxques)
+                {
+                    <input type="submit" value="update" class="btn btn-default"  style="background-color:black; color:wheat; width:60; margin:0 auto;" />
+                    <input type="reset" value="Reset" class="btn btn-default" style="background-color:black; color:wheat; width:60; margin:0 auto;" />
+                    <input type="button" value="Finish" class="btn btn-default" onclick="myFunction2()" style="background-color:black; color:wheat; width:60; margin:0 auto;" />
+                }
+                else
+                {
+                    <input type="submit" value="update & Next" class="btn btn-default" style="background-color:black; color:wheat; width:60; margin:0 auto;" />
+                    <input type="reset" value="Reset" class="btn btn-default" style="background-color:black; color:wheat; width:60; margin:0 auto;" />
+                    <input type="button" value="Finish" class="btn btn-default" onclick="myFunction2()" style="background-color:black; color:wheat; width:60; margin:0 auto;" />
+                }
+
+                <br />
+                <div class="col-md-offset-2 col-md-10">
+                    @ViewBag.message
+                </div>
+
+            </div>
+        </div>
+    }
+</form>
+<script>
+        // Set the date we're counting down to
+    var countDownDate = new Date().getTime();
+
+    var nowtm = new Date().getTime();
+      var cntminutes = new Date(countDownDate + (@ViewBag.tsttm * 60 * 1000));
+    var mnstm = cntminutes - nowtm;
+    @*if (@ViewBag.qno>1) {*@
+        var cntminutesrmtm = mnstm- @ViewBag.rmtm;
+        var distance2 = cntminutes - cntminutesrmtm;
+    //}
+
+
+
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+        // Get todays date and time
+        var now = new Date().getTime();
+        @*if (@ViewBag.qno==1) {
+            var distance = cntminutes - now;
+            var sp = cntminutes - now;
+        }
+        if (@ViewBag.qno>1) {*@
+
+
+            var distance = distance2 - now;
+            var sp = distance2 - now;
+        //}
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        // Output the result in an element with id="demo"
+
+        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+        document.getElementById("hdfValue").innerHTML = sp;
+
+            if (distance < 0) {
+                clearInterval(x);
+
+                document.getElementById("demo").innerHTML = "EXPIRED";
+
+                window.location.href = "/Student/Tstresult/@ViewBag.uid^@ViewBag.tstcd!@ViewBag.id]@ViewBag.exmsecretcd";
+
+            }
+
+        }, 1000);
+
+
+    function myFunction1() {
+
+        document.getElementById("pp").action = '/Student/tstupdate/@ViewBag.uid^@ViewBag.tstcd!@ViewBag.id]@qno^' + document.getElementById("hdfValue").innerHTML  + "`" + @ViewBag.exmsecretcd + ")" + "up";
+
+    }
+    function myFunction2() {
+
+        window.location.href = "/Student/Tstresult/@ViewBag.uid^@ViewBag.tstcd!@ViewBag.id]@ViewBag.exmsecretcd";
+
+        }
+     function myFunction3() {
+         var prq =@qno-2;
+         window.location.href = "/Student/tstupdate/@ViewBag.uid^@ViewBag.tstcd!@ViewBag.id]" + prq + "^" + document.getElementById("hdfValue").innerHTML  + "`" + @ViewBag.exmsecretcd + ")" +"up" ;
+
+    }
+     function myFunction4() {
+         var prq =@qno;
+         window.location.href = "/Student/tstupdate/@ViewBag.uid^@ViewBag.tstcd!@ViewBag.id]" + prq + "^" + document.getElementById("hdfValue").innerHTML  + "`" + @ViewBag.exmsecretcd + ")" +"up" ;
+
+        }
+</script>
+<script>
+    function myFunction() {
+        var txt;
+        var r = confirm("Are you sure to finish!\nIf you don't save your current answere will be lost.");
+        if (r == true) {
+            window.location.href = "/Student/Tstresult/@ViewBag.uid^@ViewBag.tstcd!@ViewBag.id]@ViewBag.exmsecretcd";
+            } else {
+
+            }
+    }
+</script>

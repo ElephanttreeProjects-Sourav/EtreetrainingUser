@@ -1,0 +1,51 @@
+﻿@model EtreetrainingUser.Models.Tbl_Video
+
+@{
+    ViewBag.Title = "Video upload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br /><br /><br /><br /><br /><br />
+
+<h2>Video upload</h2>(.mp4, .MPEG etc.)
+<br /><br />
+<p>
+    @Html.ActionLink("View All uploaded Videos ", "Vid_AllView")
+</p>
+@using (Html.BeginForm("Ved_upload", "Training_main", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <nav class="collapse navbar-collapse navbar-header" style="padding-left:1%" role="navigation">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Video_Title, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Video_Title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Video_Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.Video_Path, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" name="VidFile" required />
+                    
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </nav>
+    </div>
+}
+

@@ -1,0 +1,141 @@
+﻿@model EtreetrainingUser.Models.Tbl_Cand_Main
+
+@{
+    ViewBag.Title = "EOTA: Paid users";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="main-page">
+        <!--grids-->
+        <div class="grids">
+            <div class="progressbar-heading grids-heading">
+                <h2>User Details</h2>
+            </div>
+            <div class="panel panel-widget">
+                <div class="block-page">
+
+                    <p>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Cand_id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Cand_id)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CandName)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CandName)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Cand_EmailId)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Cand_EmailId)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Cand_MNum)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Cand_MNum)
+                            </dd>
+
+                            @*@*<dt>
+                                @Html.DisplayNameFor(model => model.Cand_PicTitle)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Cand_PicTitle)
+                            </dd>
+
+                            <dt>
+                                <label><b>Candidate Image</b> </label>
+                            </dt>
+
+                            <dd>
+                             
+                                <img src="@Url.Content(Model.Cand_ImagePath)" width="150" height="150" />
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Cand_DocTitle)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Cand_DocTitle)
+                            </dd>
+
+                            <dt>
+                                <label><b>Candidate Document</b> </label>
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Cand_DocPath)
+
+                            </dd>*@
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Cand_Pass)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Cand_Pass)
+                            </dd>
+
+                            <dt>
+                                <label><b>Email Verification</b> </label>
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Cand_IsEmailVerified)
+                            </dd>
+
+                            <dt>
+                                <label><b>Activation CD</b> </label>
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Cand_ActivationCode)
+                            </dd>
+
+                            <dt>
+                                <label><b>REff. CD</b> </label>
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.cand_ReferenceCode)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.inputEmail)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.inputEmail)
+                            </dd>
+
+
+
+
+                        </dl>
+                </div>
+                <p>
+
+                    @Html.ActionLink("Back to List", "allviews")
+                </p>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--//grids-->
+</div>
+    </div>

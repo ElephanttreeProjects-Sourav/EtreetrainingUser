@@ -1,0 +1,90 @@
+﻿@model EtreetrainingUser.Models.Tbl_Cand_Main
+@{
+    ViewBag.Title = "EOTA: Home-> Refer to friend";
+    Layout = "~/Views/_Users.cshtml";
+}
+
+<div class="w3l_agileits_breadcrumbs">
+    <div class="w3l_agileits_breadcrumbs_inner">
+        <ul>
+            <li><a href="~/Student/User_Profile">Home</a><span>«</span></li>
+
+            <li>Reference</li>
+        </ul>
+    </div>
+</div>
+<!-- //breadcrumbs -->
+
+<div class="inner_content_w3_agile_info two_in">
+    @*<p class="w3_inner_tittle" style="font-size:25px; text-decoration:none"><b> Reference Portal</b></p>
+   
+
+    <br />*@
+    <!-- /blank -->
+    <div class="blank_w3ls_agile" >
+        <div class="blank-page agile_info_shadow" style="background-color:black; color:yellow">
+            <p>
+                @using (Html.BeginForm("Frndportal", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                <div>
+                    <h2 >Friends Reference Portal</h2>
+
+</div>
+                    <br /><br />
+                    <div class="form-horizontal">
+                        @*<div class="form-group">
+                            @Html.LabelFor(model => model.Cand_Pass, htmlAttributes: new { @class = "control-label col-md-2", @Value = "Enter your password", style = "color: yellow;" })
+                            <div class="col-md-10">
+
+                                @Html.EditorFor(model => model.Cand_Pass, new { htmlAttributes = new { @class = "form-control", style = "color: darkblue;", @Value = "   ", placeholder = "Please give your new password", required = "required" } })
+                                @Html.ValidationMessageFor(model => model.Cand_Pass, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+                        
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.inputEmail, htmlAttributes: new { @class = "control-label col-md-2", @Value = "Friend's Email", style = "color: yellow;",required="required" })
+                            <div class="col-md-10">
+                                <input type="email" name="inputEmail" required="" class="form-control" placeholder=" Friend's Email" />
+                                    @*<input type="email" class="form-control" id="inputEmail" placeholder="Email" data-error="Bruh, that email address is invalid" required="">*@
+                                    @*<span class="glyphicon form-control-feedback" aria-hidden="true"></span>*@
+                               
+                                </div>
+                            </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Send Reference" class="btn btn-default" />
+                            </div>
+                            
+                            <div class="col-md-offset-2 col-md-10">
+                                @if (@ViewBag.message != null)
+    {
+                            <br />
+                            <h4 style="color:red">
+                                @ViewBag.message
+                            </h4>
+}
+                                @if (@ViewBag.message1 != null)
+    {
+                            <br />
+                            <h4 style="color:lightseagreen">
+                                @ViewBag.message1
+                            </h4>
+}
+                            </div>
+                            </div>
+                    </div>
+                }
+                </p>
+        </div>
+
+        <div class="clearfix"> </div>
+    </div>
+</div>
+   
+<br />
+
+
+<div class="clearfix"></div>
+
+

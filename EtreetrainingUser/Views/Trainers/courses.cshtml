@@ -1,0 +1,211 @@
+﻿@model EtreetrainingUser.Models.Trainer
+@{
+    ViewBag.Title = "EOTA :: Courses";
+    Layout = "~/Views/Shared/_TrainersMaster.cshtml";
+}
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Trnr_Logout", "Trainers", FormMethod.Post, new { id = "logoutform" }))
+    {
+        <a href="javascript:document.getElementById('logoutform').submit()">Logout</a>
+    }
+}
+<link href="~/admnfont/css/hover.css" rel='stylesheet' type='text/css' />
+<div id="page-wrapper">
+    <div class="main-page">
+        @*@HttpContext.Current.User.Identity.Name*@
+     
+        <!--grids-->
+        <div class="grids">
+            <div class="progressbar-heading grids-heading">
+                <h2>Courses</h2>
+            </div>
+            <div class="panel panel-widget">
+                <div class="block-page">
+                    <p>
+
+                        <br />
+                        <div class="but_list">
+                            <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                                <ul id="myTab" class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class=""><a href="#crs" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Courses</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="myTabContent" class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade " id="crs" aria-labelledby="home-tab">
+
+                                @foreach (var crs in ViewBag.id)
+                                {
+
+                        <p>Hello @crs.Name Welcome to Course Section. If you want to see all courses or to upload course then please click on below button</p>
+                                        <a href="#" class="hvr-icon-wobble-horizontal">click here</a>@*<a href="~/Training_main/AllCourseView">Courses</a>*@
+                                        @Html.ActionLink("Courses", "AllCourseView", "Training_main", new { id = crs.Id }, null)
+                                        <br />
+                                        <p>Thank you for viewing</p>
+
+
+                                }
+
+
+                            </div>
+
+                            @*<div role="tabpanel" class="tab-pane fade" id="trnr" aria-labelledby="profile-tab">
+                                    <p><b><u> EOTA Trainers</u>.</b></p>
+                                    <table class="table">
+                                        <tr>
+                                            <th>
+                                                <b>ID</b>
+                                            </th>
+                                            <th>
+                                                <b>Name</b>
+                                            </th>
+                                            <th>
+                                                <b> Email Id</b>
+                                            </th>
+                                            <th>
+                                                <b>Number</b>
+                                            </th>
+                                            <th></th>
+                                        </tr>
+
+                                        @foreach (var crs in ViewBag.trainers)
+                                        {
+                                            if (crs == null)
+                                            {
+                                                <tr>gcgdvcdvcvcvgvc</tr>
+                                            }
+                                            else
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @crs.Id
+                                                    </td>
+                                                    <td>
+                                                        @crs.Name
+                                                    </td>
+                                                    <td>
+                                                        @crs.Email_Id
+                                                    </td>
+                                                    <td>
+                                                        @crs.Number
+
+                                                    </td>
+                                                    <td>
+                                                        ||  @Html.ActionLink("Details", "TRainersdetails", "ADMIN", new
+                                                       { id = crs.Id }, null) ||
+
+                                                    </td>
+                                                </tr>
+
+                                            }
+                                        }
+
+                                    </table>
+
+
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="dropdown1" aria-labelledby="dropdown1-tab">
+                                    <p><b><u> Paid Users</u>.</b></p>
+                                    <table class="table">
+                                        <tr>
+                                            <th>
+                                                <b>ID</b>
+                                            </th>
+                                            <th>
+                                                <b>Name</b>
+                                            </th>
+                                            <th>
+                                                <b> Email Id</b>
+                                            </th>
+                                            <th>
+                                                <b>Reference Code</b>
+                                            </th>
+                                            <th></th>
+                                        </tr>
+
+                                        @foreach (var crs in ViewBag.Paidcand)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @crs.Cand_id
+                                                </td>
+                                                <td>
+                                                    @crs.CandName
+                                                </td>
+                                                <td>
+                                                    @crs.Cand_EmailId
+                                                </td>
+                                                <td>
+                                                    @crs.cand_ReferenceCode
+
+                                                </td>
+                                                <td>
+                                                    ||  @Html.ActionLink("Details", "pdcanddetails", "ADMIN", new
+                                                  { id = crs.Cand_id }, null) ||
+
+
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </table>
+
+
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="dropdown2" aria-labelledby="dropdown2-tab">
+                                    <p><b><u> NON Paid Users</u>.</b></p>
+                                    <table class="table">
+                                        <tr>
+                                            <th>
+                                                <b>ID</b>
+                                            </th>
+                                            <th>
+                                                <b>Name</b>
+                                            </th>
+                                            <th>
+                                                <b> Email Id</b>
+                                            </th>
+                                            <th>
+                                                <b>Reference Code</b>
+                                            </th>
+                                            <th></th>
+                                        </tr>
+
+                                        @foreach (var crs in ViewBag.Nonpaid)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @crs.Cand_id
+                                                </td>
+                                                <td>
+                                                    @crs.CandName
+                                                </td>
+                                                <td>
+                                                    @crs.Cand_EmailId
+                                                </td>
+                                                <td>
+                                                    @crs.cand_ReferenceCode
+
+                                                </td>
+                                                <td>
+                                                    ||  @Html.ActionLink("Details", "pdcanddetails", "ADMIN", new
+                                                  { id = crs.Cand_id }, null) ||
+
+
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </table>
+
+                                </div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+

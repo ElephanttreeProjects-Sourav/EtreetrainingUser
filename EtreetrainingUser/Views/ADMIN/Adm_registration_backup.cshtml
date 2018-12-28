@@ -1,0 +1,300 @@
+﻿@model EtreetrainingUser.Models.Tbl_ADMN
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EOTA: Admin registration</title>
+    <link rel="stylesheet" href="~/Sale_FrontUsersPro/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Sale_FrontUsersPro/css/bootstrap-select.css">
+    <link href="~/Sale_FrontUsersPro/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="EOTA :: MERIT TRAINING" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <!--fonts-->
+    <link href='~/Sale_FrontUsersPro/fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <link href='~/Sale_FrontUsersPro/fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!--//fonts-->
+    <!-- js -->
+    <script type="text/javascript" src="~/Sale_FrontUsersPro/js/jquery.min.js"></script>
+    <!-- js -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Sale_FrontUsersPro/js/bootstrap.min.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/bootstrap-select.js"></script>
+    <script>
+  $(document).ready(function () {
+    var mySelect = $('#first-disabled2');
+
+    $('#special').on('click', function () {
+      mySelect.find('option:selected').prop('disabled', true);
+      mySelect.selectpicker('refresh');
+    });
+
+    $('#special2').on('click', function () {
+      mySelect.find('option:disabled').prop('disabled', false);
+      mySelect.selectpicker('refresh');
+    });
+
+    $('#basic2').selectpicker({
+      liveSearch: true,
+      maxOptions: 1
+    });
+  });
+    </script>
+    <script type="text/javascript" src="~/Sale_FrontUsersPro/js/jquery.leanModal.min.js"></script>
+    <link href="~/Sale_FrontUsersPro/css/jquery.uls.css" rel="stylesheet" />
+    <link href="~/Sale_FrontUsersPro/css/jquery.uls.grid.css" rel="stylesheet" />
+    <link href="~/Sale_FrontUsersPro/css/jquery.uls.lcd.css" rel="stylesheet" />
+    <!-- Source -->
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.data.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.data.utils.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.lcd.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.languagefilter.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.regionfilter.js"></script>
+    <script src="~/Sale_FrontUsersPro/js/jquery.uls.core.js"></script>
+    <script>
+			$( document ).ready( function() {
+				$( '.uls-trigger' ).uls( {
+					onSelect : function( language ) {
+						var languageName = $.uls.data.getAutonym( language );
+						$( '.uls-trigger' ).text( languageName );
+					},
+					quickList: ['en', 'hi', 'he', 'ml', 'ta', 'fr'] //FIXME
+				} );
+			} );
+    </script>
+    <link rel="stylesheet" type="text/css" href="~/Sale_FrontUsersPro/css/easy-responsive-tabs.css " />
+    <script src="~/Sale_FrontUsersPro/js/easyResponsiveTabs.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="~/Training_main/Doc_upload"><span>EOTA</span>UPLODER</a>
+            </div>
+            <div class="header-right">
+
+
+                <!-- Large modal -->
+
+                <div class="selectregion">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="">
+                        <a class="" href="~/Home/Index">Home</a>
+                    </button>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="">
+                        <a class="" href="~/ADMIN/Adm_Login">Login</a>
+                    </button>
+                    @*<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                            Courses
+                        </button>*@
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        Please Choose Your Courses
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <select id="basic2" class="show-tick form-control" multiple></select>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        $('#myModal').modal('');
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner text-center">
+        <div class="container">
+            <h1>Welcome Admin  <span class="segment-heading"></span></h1>
+
+
+        </div>
+    </div>
+    <!-- Submit Ad -->
+
+    <div class=" main-grid-border">
+
+        <div class="container">
+            <h2 class="head">Admin Registration</h2>
+
+            @if (@ViewBag.UploadStatus != null)
+            {
+                @ViewBag.UploadStatus
+            }
+            @if (@ViewBag.Message != null)
+            {
+                @ViewBag.Message
+            }
+
+
+
+
+            <div class="post-ad-form">
+
+                @using (Html.BeginForm("Adm_reg", "ADMIN", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return validateForm2(event)" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <form>
+                        <div class="row">
+                            <label style="text-align: left;">Name <span>*</span></label>
+                            <div class="photos-upload-view">
+
+                                @Html.EditorFor(model => model.AdminName, new { htmlAttributes = new { @class = "form-control" } })
+
+                                @Html.ValidationMessageFor(model => model.AdminName, "", new { @class = "text-danger" })
+
+
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <label style="text-align: left;">Email Id <span>*</span></label>
+
+                            <div class="photos-upload-view">
+
+
+                                @Html.EditorFor(model => model.Admin_EmailId, new { htmlAttributes = new { @class = "form-control", id = "emailid2" } })
+                                @Html.ValidationMessageFor(model => model.Admin_EmailId, "", new { @class = "text-danger" })
+                                @Html.ValidationMessage("EmailExist", new { @class = "text-danger" })
+                                <h4 id="emailerror2" class="text-danger text-center"></h4>
+                                <script language="Javascript">
+                                function validateForm2(event) {
+                                    var pattern2 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+                                    var userName2 = document.getElementById("emailid2").value;
+
+                                    if (userName2.match(pattern2)) {
+
+                                        return true;
+                                    } else {
+
+                                        document.getElementById("emailerror2").innerHTML = "Email is not valid";
+
+                                        return false;
+                                    }
+
+                                }
+
+                                </script>
+
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <label style="text-align: left;">Phone Number :</label>
+
+                            <div class="photos-upload-view">
+
+                                @Html.EditorFor(model => model.Admin_MNum, new { htmlAttributes = new { @class = "form-control", style = "width:70%", onkeypress = "return isNumberKey(event)" } })
+                                @Html.ValidationMessageFor(model => model.Admin_MNum, "", new { @class = "text-danger" })
+                            </div>
+                            <script type="text/javascript">
+                            function isNumberKey(evt) {
+                                var charCode = (evt.which) ? evt.which : event.keyCode;
+                                if (charCode > 31
+                                    && (charCode < 48 || charCode > 57))
+                                    return false;
+
+                                return true;
+                            }
+                            </script>
+
+
+                            <div class="clearfix"></div>
+
+                            <label style="text-align: left;">Photo <span>*</span></label>
+
+                            <div class="photos-upload-view">
+
+
+                                @Html.TextBoxFor(model => model.image, "", new { @type = "file", @multiple = "multiple", name = "image" })
+                                @Html.ValidationMessageFor(model => model.image, "", new { @class = "text-danger" })
+
+
+                            </div>
+
+                            <div class="clearfix"></div>
+
+
+                            <label style="text-align: left;">Password <span>*</span></label>
+
+                            <div class="photos-upload-view">
+
+                                @Html.EditorFor(model => model.Admin_Pass, new { htmlAttributes = new { @class = "form-control", style = "width:70%" } })
+                                @Html.ValidationMessageFor(model => model.Admin_Pass, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <label style="text-align: left;">Re-Enter Password <span>*</span></label>
+
+                            <div class="photos-upload-view">
+
+                                @Html.EditorFor(model => model.Admin_RePass, new { htmlAttributes = new { @class = "form-control", style = "width:70%" } })
+                                @Html.ValidationMessageFor(model => model.Admin_RePass, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="clearfix"></div>
+                            <script src="js/filedrag.js"></script>
+
+
+                            <div class="personal-details">
+
+                                <p class="post-terms">By clicking <strong>Create Button</strong> you accept our <a href="terms.html" target="_blank">Terms of Use </a> and <a href="privacy.html" target="_blank">Privacy Policy</a></p>
+                                <input type="submit" style="background-color:yellow; color:black; float:right;width:10%;" value="Create">
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </form>
+
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- // Submit Ad -->
+    <!--footer section start-->
+    <footer>
+
+        <div class="footer-bottom text-center">
+            <div class="container; footer-bottom text-center">
+                <div class="footer-logo">
+                    <a href="~/Training_main/Doc_upload"><span>EOTA</span>UPLOADER</a>
+                </div>
+                <div class="footer-social-icons">
+                    <ul>
+                        <li><a class="facebook" href="#"><span>Facebook</span></a></li>
+                        <li><a class="twitter" href="#"><span>Twitter</span></a></li>
+                        <li><a class="flickr" href="#"><span>Flickr</span></a></li>
+                        <li><a class="googleplus" href="#"><span>Google+</span></a></li>
+                        <li><a class="dribbble" href="#"><span>Dribbble</span></a></li>
+                    </ul>
+                </div>
+                <div class="copyrights">
+                    <p> © 2017 EOTA MERIT TRAINING. All rights reserved | Design and Developed by <a href="http://www.elephanttreetech.com/">ELEPHANTTREE TECH PVT.LTD.</a></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </footer>
+    <!--footer section end-->
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>

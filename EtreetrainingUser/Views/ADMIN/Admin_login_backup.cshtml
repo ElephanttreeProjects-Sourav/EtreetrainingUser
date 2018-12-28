@@ -1,0 +1,600 @@
+﻿@model EtreetrainingUser.Models.Tbl_ADMN
+
+@{
+    ViewBag.Title = "EOTA: Admin login";
+
+}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>EOTA Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="EOTA Admin Panel" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/admnfont/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="~/admnfont/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- font CSS -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- font-awesome icons -->
+    <link href="~/admnfont/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!-- chart -->
+    <script src="~/admnfont/js/Chart.js"></script>
+    <!-- //chart -->
+    <!-- js-->
+    <script src="~/admnfont/js/jquery-1.11.1.min.js"></script>
+    <script src="~/admnfont/js/modernizr.custom.js"></script>
+    <!--webfonts-->
+    <link href='//admnfont/fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <!--//webfonts-->
+    <!--animate-->
+    <link href="~/admnfont/css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script src="~/admnfont/js/wow.min.js"></script>
+    <script>
+		 new WOW().init();
+    </script>
+    <!--//end-animate-->
+    <!-- Metis Menu -->
+    <script src="~/admnfont/js/metisMenu.min.js"></script>
+    <script src="~/admnfont/js/custom.js"></script>
+    <link href="~/admnfont/css/custom.css" rel="stylesheet">
+    <!--//Metis Menu -->
+</head>
+<body class="cbp-spmenu-push">
+    <div class="main-content">
+
+        <!--left-fixed -navigation-->
+        <!-- header-starts -->
+        <div class="sticky-header header-section ">
+            <div class="header-left">
+                <!--logo -->
+                <div class="logo">
+                    <a href="#">
+                        <ul>
+                            <li><img src="~/Picture/logo1.png" alt="" /></li>
+                            <li><h1>Admin</h1></li>
+                            <div class="clearfix"> </div>
+                        </ul>
+                    </a>
+                </div>
+                <!--//logo-->
+                <div class="header-left header-left">
+                    <div class="profile_details_left">
+
+                        <!--notifications of menu start -->
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+
+
+                <div class="clearfix"> </div>
+            </div>
+
+            <!--//end-search-box-->
+            <div class="header-right">
+
+                <!--notification menu end -->
+                <div class="profile_details">
+                    <ul></ul>
+                </div>
+
+                <!--toggle button start-->
+                <button id="showLeftPush"> <i class="fa fa-home"></i></button>
+                <!--toggle button end-->
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <!-- //header-ends -->
+        <!-- main content start-->
+        <div id="page-wrapper">
+            <div class="main-page">
+                <!--grids-->
+                <div class="grids">
+                    <div class="progressbar-heading grids-heading">
+                        <h2>Welcome to Login Page</h2>
+
+                        <h3 style="color:forestgreen">@ViewBag.successmessage</h3>
+                    </div>
+                    <div class="panel panel-widget">
+                        <div class="block-page">
+                            <p>
+
+                            <p>
+                                &nbsp;&nbsp; @Html.ActionLink("New in Elephanttree? Register first ", "Adm_reg", "ADMIN")
+                            </p>
+
+                            @using (Html.BeginForm("Adm_Login", "ADMIN", FormMethod.Post, new { onsubmit = "return validateForm2(event)" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+
+                                    <hr />
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                                    <div class="form-group">
+                                        @*@Html.LabelFor(model => model.Admin_EmailId, htmlAttributes: new { @class = "col-md-2", style = "text-align: left;" })*@
+                                        <label class="col-md-2 col-xs-4" style="text-align: left;">Email ID <span style="color:red">*</span> </label>
+                                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.Admin_EmailId, new { htmlAttributes = new { @class = "form-control", id = "emailid2", onmouseout = "mailcheck(this)" } })
+                                            @Html.ValidationMessageFor(model => model.Admin_EmailId, "", new { @class = "text-danger" })
+                                            <h4 id="emailerror2" class="text-danger text-left"></h4>
+                                            <script language="Javascript">
+                                                function validateForm2(event) {
+                                                    var pattern2 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                                                    document.getElementById("emailerror2").innerHTML = "";
+                                                    var userName2 = document.getElementById("emailid2").value;
+                                                    if (userName2 == null || userName2 == "") {
+                                                        document.getElementById("emailerror2").innerHTML = "";
+                                                        return true;
+                                                    } else {
+                                                        if (userName2.match(pattern2)) {
+                                                            document.getElementById("emailerror2").innerHTML = "";
+                                                            return true;
+                                                        } else {
+
+                                                            document.getElementById("emailerror2").innerHTML = "Email is not valid";
+
+                                                            return false;
+                                                        }
+
+                                                    }
+
+                                                }
+
+                                            </script>
+                                            <script language="Javascript">
+                                                function mailcheck(event) {
+                                                    var pattern2 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                                                    document.getElementById("emailerror2").innerHTML = "";
+                                                    var userName2 = document.getElementById("emailid2").value;
+                                                    if (userName2 == null || userName2 == "") {
+                                                        document.getElementById("emailerror2").innerHTML = "";
+                                                        return true;
+                                                    } else {
+                                                        if (userName2.match(pattern2)) {
+                                                            document.getElementById("emailerror2").innerHTML = "";
+                                                            return true;
+                                                        } else {
+
+                                                            document.getElementById("emailerror2").innerHTML = "Email is not valid";
+
+                                                            return false;
+                                                        }
+
+                                                    }
+
+                                                }
+
+                                            </script>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @*@Html.LabelFor(model => model.Admin_Pass, htmlAttributes: new { @class = "control-label col-md-2" , style = "text-align: left;" })*@
+                                        <label class="col-md-2 col-xs-5" style="text-align: left;">Password <span style="color:red">*</span> </label>
+                                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                                            @Html.EditorFor(model => model.Admin_Pass, new { htmlAttributes = new { @class = "form-control", id = "pss" } })
+                                            @Html.ValidationMessageFor(model => model.Admin_Pass, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Login" class="btn btn-default" />
+                                            &nbsp; &nbsp;
+                                            <input type="button" id="clearButton" value="Clear" class="btn btn-default" />
+
+                                        </div>
+
+                                    </div>
+                                    @if (@ViewBag.Duplicatemessage != null)
+                                    {
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-20">
+                                                <label class="label-danger">@ViewBag.Duplicatemessage</label>
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                            }
+                            <p class="col-md-offset-2 col-md-20">
+                                <a href="#" onclick="PopUp()"> Forgot password?</a>
+                                &nbsp;&nbsp;&nbsp;
+                                @*<form action="~/ADMIN/Forgotpass" method="post">*@
+                                @using (Html.BeginForm("Forgotpass", "ADMIN", FormMethod.Post, new { @class = "col-md-offset-2 col-md-20" }))
+                                {
+                                    <input type="email" id="myModalfgps1" name="myModalfgps1" placeholder="Email" required />
+
+                                    <input type="submit" id="myModalfgps2" value="Submit" />
+                                }
+                                @*</form>*@
+                                <h4 style="color:forestgreen">@ViewBag.successmessage1</h4>
+                                <h4 style="color:red">@ViewBag.error</h4>
+                            </p>
+
+                            <script type="text/javascript">
+                                document.getElementById('myModalfgps1').style.visibility = "hidden";
+                                document.getElementById('myModalfgps2').style.visibility = "hidden";
+                                function PopUp() {
+                                    document.getElementById('myModalfgps1').style.visibility = "visible";
+                                    document.getElementById('myModalfgps2').style.visibility = "visible";
+                                }
+                            </script>
+                            <script>
+
+                                $("#clearButton").click(function () {
+                                    $("#id1").val("");
+                                    $("#eid").val("");
+                                    $("#pss").val("");
+                                });
+                            </script>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!--//grids-->
+
+            </div>
+        </div>
+
+        <!--footer-->
+
+
+        <div class="dev-page">
+
+            <!-- page footer -->
+            <!-- dev-page-footer-closed dev-page-footer-fixed -->
+            <div class="dev-page-footer dev-page-footer-fixed">
+                <!-- container -->
+                <div class="container">
+                    <div class="copyright">
+                        <p> © 2017 EOTA MERIT TRAINING. All rights reserved | Design and Developed by <a href="http://www.elephanttreetech.com/">ELEPHANTTREE TECH PVT.LTD.</a></p>
+                    </div>
+                    <!-- page footer buttons -->
+                    @*<ul class="dev-page-footer-buttons">
+                            <li><a href="#footer_content_1" class="dev-page-footer-container-open"><span class="glyphicon glyphicon glyphicon-sort" aria-hidden="true"></span></a></li>
+                            <li><a href="#footer_content_2" class="dev-page-footer-container-open"><span class="glyphicon glyphicon glyphicon-signal" aria-hidden="true"></span></a></li>
+                            <li><a href="#footer_content_3" class="dev-page-footer-container-open"><span class="glyphicon glyphicon glyphicon glyphicon-file" aria-hidden="true"></span></a></li>
+                        </ul>*@
+                    <!-- //page footer buttons -->
+                    <!-- page footer container -->
+                    <div class="dev-page-footer-container">
+
+                        <!-- loader and close button -->
+                        <div class="dev-page-footer-container-layer">
+                            <a href="#" class="dev-page-footer-container-layer-button"></a>
+                        </div>
+                        <!-- //loader and close button -->
+                        <!-- informers -->
+                        <div class="dev-page-footer-container-content" id="footer_content_1">
+                            <div class="block-hdnews">
+                                <div class="list-wrpaaer" style="height:200px;">
+                                    <ul class="list-aggregate" id="marquee-horizontal">
+                                        <li class="fat-l" style="width:300px">
+                                            <a href="#">Lorem ipsum dolor</a>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            </p>
+                                        </li>
+
+                                        <li class="fat-l" style="width:300px">
+                                            <a href="#">Consectetur</a>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            </p>
+                                        </li>
+
+                                        <li class="fat-l" style="width:300px">
+                                            <a href="#">Adipiscing elit</a>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            </p>
+                                        </li>
+
+                                        <li class="fat-l" style="width:300px">
+                                            <a href="#">Lorem ipsum dolor</a>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            </p>
+                                        </li>
+                                        <li class="fat-l" style="width:300px">
+                                            <a href="#">Consectetur</a>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            </p>
+                                        </li>
+
+                                        <li class="fat-l" style="width:300px">
+                                            <a href="#">Adipiscing elit</a>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            </p>
+                                        </li>
+
+                                    </ul>
+                                </div><!-- list-wrpaaer -->
+
+                            </div> <!-- block-hdnews -->
+
+                            <script type="text/javascript">
+
+                                $(function () {
+
+
+                                    $('#marquee-vertical').marquee();
+                                    $('#marquee-horizontal').marquee({ direction: 'horizontal', delay: 0, timing: 50 });
+
+                                });
+
+                            </script>
+                        </div>
+                        <!-- //informers -->
+                        <!-- informers -->
+                        <div class="dev-page-footer-container-content" id="footer_content_2">
+                            <div class="graphs">
+                                <div class="col-md-4 graph-points">
+                                    <div class="graph-left">
+                                        <script type="text/javascript">
+                                            // Generate data
+
+                                            var data = [];
+
+                                            var time = new Date('Dec 1, 2013 12:00').valueOf();
+
+                                            var h = Math.floor(Math.random() * 100);
+                                            var l = h - Math.floor(Math.random() * 20);
+                                            var o = h - Math.floor(Math.random() * (h - l));
+                                            var c = h - Math.floor(Math.random() * (h - l));
+
+                                            var v = Math.floor(Math.random() * 1000);
+
+                                            for (var i = 0; i < 30; i++) {
+                                                data.push([time, o, h, l, c, v]);
+                                                h += Math.floor(Math.random() * 10 - 5);
+                                                l = h - Math.floor(Math.random() * 20);
+                                                o = h - Math.floor(Math.random() * (h - l));
+                                                c = h - Math.floor(Math.random() * (h - l));
+                                                v += Math.floor(Math.random() * 100 - 50);
+                                                time += 30 * 60000; // Add 30 minutes
+                                            }
+                                        </script>
+                                        <div id="example-1"></div>
+                                        <script type="text/javascript">
+                                            $(function () {
+                                                $('#example-1').jqCandlestick({
+                                                    data: data,
+                                                    theme: 'light',
+                                                    series: [{
+                                                    }],
+                                                });
+                                            });
+                                        </script>
+                                    </div>
+                                    <div class="graph-right">
+                                        <h3>TODAY'S STATS</h3>
+                                        <p>Duis aute irure dolor in reprehenderit.</p>
+                                        <ul>
+                                            <li>Earning: $400 USD</li>
+                                            <li>Items Sold: 20 Items</li>
+                                            <li>Last Hour Sales: $34 USD</li>
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="col-md-4 bar-grid">
+                                    <div class="graph-left">
+                                        <canvas id="line"></canvas>
+                                        <script>
+                                            var lineChartData = {
+                                                labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Mon"],
+                                                datasets: [
+                                                    {
+                                                        fillColor: "rgba(202, 202, 202, 0)",
+                                                        strokeColor: "#3E495A",
+                                                        pointColor: "#fbfbfb",
+                                                        pointStrokeColor: "#fbfbfb",
+                                                        data: [20, 35, 45, 30, 10, 65, 40]
+                                                    }
+                                                ]
+
+                                            };
+                                            new Chart(document.getElementById("line").getContext("2d")).Line(lineChartData);
+                                        </script>
+                                    </div>
+                                    <div class="graph-right">
+                                        <h3>TODAY'S STATS</h3>
+                                        <p>Duis aute irure dolor in reprehenderit.</p>
+                                        <ul>
+                                            <li>Earning: $400 USD</li>
+                                            <li>Items Sold: 20 Items</li>
+                                            <li>Last Hour Sales: $34 USD</li>
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="col-md-4 switch-right">
+                                    <div class="graph-left">
+                                        <canvas id="bar"></canvas>
+                                        <script>
+                                            var barChartData = {
+                                                labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Mon", "Tue", "Wed", "Thu"],
+                                                datasets: [
+                                                    {
+                                                        fillColor: "#fbc02d",
+                                                        strokeColor: "#fbc02d",
+                                                        highlightFill: "rgba(220,220,220,0.75)",
+                                                        highlightStroke: "rgba(220,220,220,1)",
+                                                        data: [25, 40, 50, 65, 55, 30, 20, 10, 6, 4]
+                                                    },
+                                                    {
+                                                        fillColor: "#3E495A",
+                                                        strokeColor: "#3E495A",
+                                                        data: [30, 45, 55, 70, 40, 25, 15, 8, 5, 2]
+                                                    }
+                                                ]
+
+                                            };
+                                            new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
+                                        </script>
+                                    </div>
+                                    <div class="graph-right">
+                                        <h3>TODAY'S STATS</h3>
+                                        <p>Duis aute irure dolor in reprehenderit.</p>
+                                        <ul>
+                                            <li>Earning: $400 USD</li>
+                                            <li>Items Sold: 20 Items</li>
+                                            <li>Last Hour Sales: $34 USD</li>
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <!-- //informers -->
+                        <!-- projects -->
+                        <div class="dev-page-footer-container-content" id="footer_content_3">
+                            <div class="social">
+                                <div class="col-md-3 top-comment-grid">
+                                    <div class="comments">
+                                        <div class="comments-icon">
+                                            <i class="fa fa-comments"></i>
+                                        </div>
+                                        <div class="comments-info">
+                                            <h3>
+                                                85</h5>
+                                                <a href="#">Comments</a>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 top-comment-grid">
+                                    <div class="comments likes">
+                                        <div class="comments-icon">
+                                            <i class="fa fa-facebook"></i>
+                                        </div>
+                                        <div class="comments-info likes-info">
+                                            <h3>
+                                                2150</h5>
+                                                <a href="#">Likes</a>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 top-comment-grid">
+                                    <div class="comments tweets">
+                                        <div class="comments-icon">
+                                            <i class="fa fa-twitter"></i>
+                                        </div>
+                                        <div class="comments-info tweets-info">
+                                            <h3>
+                                                325</h5>
+                                                <a href="#">Tweets</a>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 top-comment-grid">
+                                    <div class="comments views">
+                                        <div class="comments-icon">
+                                            <i class="fa fa-eye"></i>
+                                        </div>
+                                        <div class="comments-info views-info">
+                                            <h3>
+                                                471</h5>
+                                                <a href="#">Views</a>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <!-- //projects -->
+                    </div>
+                    <!-- //page footer container -->
+
+                </div>
+                <!-- //container -->
+            </div>
+            <!-- /page footer -->
+        </div>
+        <!--//footer-->
+    </div>
+    <!-- Classie -->
+    <script src="~/admnfont/js/classie.js"></script>
+    <script>
+        //window.location.href = "~/Home/Index";
+        var menuLeft = document.getElementById('cbp-spmenu-s1'),
+            showLeftPush = document.getElementById('showLeftPush'),
+            body = document.body;
+
+        showLeftPush.onclick = function () {
+            window.location.href = "/Home/Index";
+            //	classie.toggle( this, 'active' );
+            //	classie.toggle( body, 'cbp-spmenu-push-toright' );
+            //	classie.toggle( menuLeft, 'cbp-spmenu-open' );
+            //	disableOther( 'showLeftPush' );
+        };
+
+
+        //function disableOther( button ) {
+        //	if( button !== 'showLeftPush' ) {
+        //		classie.toggle( showLeftPush, 'disabled' );
+        //	}
+        //}
+    </script>
+    <!-- Bootstrap Core JavaScript -->
+
+    <script type="text/javascript" src="~/admnfont/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="~/admnfont/js/dev-loaders.js"></script>
+    <script type="text/javascript" src="~/admnfont/js/dev-layout-default.js"></script>
+    <script type="text/javascript" src="~/admnfont/js/jquery.marquee.js"></script>
+    <link href="~/admnfont/css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="~/admnfont/js/jquery.jqcandlestick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/admnfont/css/jqcandlestick.css" />
+
+    <!--max-plugin-->
+    <script type="text/javascript" src="~/admnfont/js/plugins.js"></script>
+    <!--//max-plugin-->
+    <!--scrolling js-->
+    <script src="~/admnfont/js/jquery.nicescroll.js"></script>
+    <script src="~/admnfont/js/scripts.js"></script>
+    <!--//scrolling js-->
+    <script type="text/javascript">
+        function myFunction() {
+            var x = document.getElementById("eye");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>

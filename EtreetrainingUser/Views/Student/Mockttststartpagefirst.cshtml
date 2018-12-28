@@ -1,0 +1,289 @@
+﻿@*@model IEnumerable<EtreetrainingUser.Models.Mock_Test>*@
+@model EtreetrainingUser.Models.Mock_Test
+
+@{
+    ViewBag.Title = "EOTA: Home-> Test running...";
+    Layout = "~/Views/Student/_Mockttststart.cshtml";
+
+  
+    var qno = @ViewBag.qno + 1;
+}
+
+<label  id="demo" ></label>
+
+@*@using (Html.BeginForm("tstnext", "Student",  FormMethod.Post, new { enctype = "multipart/form-data", id = "hdfValue" }))
+
+{*@
+<form action="~/Student/tstnext/@ViewBag.tstcd!@ViewBag.id]@qno^" onclick="myFunction1()" id="pp" method="post">
+    @Html.AntiForgeryToken()
+    <p class="hidden" id="hdfValue1"> <label id="hdfValue"> </label></p>
+    <h4>@ViewBag.errer</h4>
+    @{
+        if (@ViewBag.qno > 1)
+        {
+            <button type="button" class="glyphicon glyphicon-backward" onclick="myFunction3()" style="background-color:darkgray; color:black; float:right;height:30px"><b> Previous</b></button>
+        }
+    }
+
+    @*<td>@((ViewBag.mctstlst as ICollection<EtreetrainingUser.Models.Mock_Test>).Where(x => x.Course_Code == ViewBag.id && x.EnableDisable == true && x.Exam_Code == ViewBag.tstcd && x.Ques_No == ViewBag.qno).FirstOrDefault().Exam_Time)</td>*@
+    @if(ViewBag.mctstlst!=null)
+    {
+    foreach (var i in ViewBag.mctstlst)
+    {
+        <div style="position:center">
+            <h3>[@i.Ques_No]  @i.Question </h3>
+        </div>
+
+        <hr />
+
+        <div class="form-horizontal">
+            @if (i.Question_Type == "O")
+            {
+                <div class="form-group">
+
+                    <div style="width:1140px; margin:0 auto;">
+
+                        <h4>
+                            @Html.RadioButtonFor(Model => Model.Checked, "1",new { @id = "option1" }) @i.Option1
+
+                            <br /><br />
+                            @Html.RadioButtonFor(Model => Model.Checked, "2", new { @id = "option2" })  @i.Option2
+
+                            <br /><br />
+                            @if (i.Option3 != null)
+                            {
+                                @Html.RadioButtonFor(Model => Model.Checked, "3", new { @id = "option3" }) @i.Option3
+                                <br /><br />
+                            }
+
+                            @if (i.Option4 != null)
+                            {
+                                @Html.RadioButtonFor(Model => Model.Checked, "4", new { @id = "option4" }) @i.Option4
+                                <br /><br />
+                            }
+                            @if (i.Option5 != null)
+                            {
+                                @Html.RadioButtonFor(Model => Model.Checked, "5", new { @id = "option5" }) @i.Option5
+                                <br /><br />
+                            }
+                            @if (i.Option6 != null)
+                            {
+                                @*@Html.RadioButtonFor(Model => Model.Checked, new { Style = "vertical-            align:3px}" })  @i.Option6*@
+                                @Html.RadioButtonFor(Model => Model.Checked, "6", new { @id = "option6" })@i.Option6
+                            }
+
+
+                        </h4>
+
+
+                    </div>
+
+                </div>
+            }
+            else if (i.Question_Type == "MO")
+            {
+                @Html.CheckBoxFor(m => m.Optio1,false) @i.Option1
+                <br /><br />
+                @Html.CheckBoxFor(m => m.Optio2, false) @i.Option2
+                <br /><br />
+                if (i.Option3 != null)
+                {
+                    @Html.CheckBoxFor(m => m.Optio3, false) @i.Option3
+                    <br /><br />
+                }
+                if (i.Option4 != null)
+                {
+                    @Html.CheckBoxFor(m => m.Optio4, false) @i.Option4
+                    <br /><br />
+                }
+                if (i.Option5 != null)
+                {
+                    @Html.CheckBoxFor(m => m.Optio5, false) @i.Option5
+                    <br /><br />
+                }
+                if (i.Option6 != null)
+                {
+                    @Html.CheckBoxFor(m => m.Optio6, false) @i.Option6
+                }
+
+            }
+            else if (i.Question_Type == "T")
+            {
+
+                @*@Html.EditorFor(m => m.Textbx, new { htmlAttributes = new { @cla ss = "form-control" } })*@
+
+                <textarea name="Textbx" id="Textbx" rows="10" cols="100"></textarea>
+            }
+            else
+            {
+
+            }
+
+            <div class="form-group">
+                <br />
+                &nbsp;&nbsp;&nbsp;
+                @if (i.Ques_No == @ViewBag.tstmaxques)
+                {
+                    <input type="submit" value="Save" class="btn btn-default" id="sbmt" style="background-color:black; color:wheat; width:60; margin:0 auto;" />
+                    <input type="reset" value="Reset" class="btn btn-default" style="background-color:black; color:wheat; width:60; margin:0 auto;" />
+                }
+                else
+                {
+                    <input type="submit" value="Save & Next" id="svnxt" class="btn btn-default" style="background-color:black; color:wheat; width:60; margin:0 auto;" />
+                    <input type="reset" value="Reset" class="btn btn-default" style="background-color:black; color:wheat; width:60; margin:0 auto;" />
+                }
+                &nbsp;&nbsp;
+                @if (i.Ques_No == @ViewBag.tstmaxques)
+                {
+                    <input type="button" value="Finish" class="btn btn-default" onclick="myFunction2()" style="background-color:black; color:wheat; width:60; margin:0 auto;" />
+                }
+                <br />
+                <div class="col-md-offset-2 col-md-10">
+                    @ViewBag.message
+                </div>
+
+            </div>
+        </div>
+    }
+    }
+</form>
+@*<script type="text/javascript">
+    window.onbeforeunload = function () {
+        return "Dude, are you sure you want to leave? Think of the kittens!";
+    }
+</script>*@
+
+<script>
+        // Set the date we're counting down to
+    var countDownDate = new Date().getTime();
+
+    var nowtm = new Date().getTime();
+      var cntminutes = new Date(countDownDate + (@ViewBag.tsttm * 60 * 1000));
+    var mnstm = cntminutes - nowtm;
+    if (@ViewBag.frst!=1) {
+        var cntminutesrmtm = mnstm- @ViewBag.rmtm;
+        var distance2 = cntminutes - cntminutesrmtm;
+    }
+
+
+
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+        // Get todays date and time
+        var now = new Date().getTime();
+        if (@ViewBag.frst==1) {
+            var distance = cntminutes - now;
+            var sp = cntminutes - now;
+        }
+        if (@ViewBag.frst!=1) {
+
+
+            var distance = distance2 - now;
+            var sp = distance2 - now;
+        }
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        // Output the result in an element with id="demo"
+
+        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+        document.getElementById("hdfValue").innerHTML = sp;
+
+            if (distance < 0) {
+                clearInterval(x);
+
+                document.getElementById("demo").innerHTML = "EXPIRED";
+
+                window.location.href = "/Student/Tstresult/@ViewBag.uid^@ViewBag.tstcd!@ViewBag.id]@ViewBag.exmsecretcd";
+
+            }
+            if (document.getElementById('option1').checked == true || document.getElementById('option2').checked == true || document.getElementById('option3').checked == true || document.getElementById('option4').checked == true || document.getElementById('option5').checked == true || document.getElementById('option6').checked == true || document.getElementById("Textbx").value != null  ) {
+                document.getElementById("svnxt").disabled = false;
+                document.getElementById("sbmt").disabled = false;
+            } else if (document.getElementById('option1').checked == false || document.getElementById('option2').checked == false || document.getElementById('option3').checked == false || document.getElementById('option4').checked == false || document.getElementById('option5').checked == false || document.getElementById('option6').checked == false || document.getElementById("Textbx").value == null) {
+                document.getElementById("svnxt").disabled = true;
+                document.getElementById("sbmt").disabled = true;
+            }
+
+            else {
+                document.getElementById("svnxt").disabled = false;
+                document.getElementById("sbmt").disabled = false;
+            }
+            
+        }, 1000);
+
+
+    function myFunction1() {
+        //if (document.getElementById('option1').checked) {
+        //    document.getElementById("svnxt").disabled = false;
+        //    document.getElementById("sbmt").disabled = false;
+        //} else {
+        //    document.getElementById("svnxt").disabled = true;
+        //    document.getElementById("sbmt").disabled = true;
+        //}
+        //if (document.getElementById("Textbx").value == null) {
+        //    document.getElementById("svnxt").disabled = true;
+        //    document.getElementById("sbmt").disabled = true;
+        //} else {
+        //    document.getElementById("svnxt").disabled = false;
+        //    document.getElementById("sbmt").disabled = false;
+        //}
+        var prq =@qno-1;
+        if (prq==1)
+        {
+             document.getElementById("pp").action = '/Student/tstnext/@ViewBag.uid^@ViewBag.tstcd!@ViewBag.id]@qno^' + document.getElementById("hdfValue").innerHTML;
+        } else
+        {
+            document.getElementById("pp").action = '/Student/tstnext/@ViewBag.uid^@ViewBag.tstcd!@ViewBag.id]@qno^' + document.getElementById("hdfValue").innerHTML + "`" + @ViewBag.exmsecretcd;
+        }
+
+
+    }
+    function myFunction2() {
+
+        window.location.href = "/Student/Tstresult/@ViewBag.uid^@ViewBag.tstcd!@ViewBag.id]@ViewBag.exmsecretcd";
+
+        }
+     function myFunction3() {
+         var prq =@qno-2;
+         var cd=@ViewBag.exmsecretcd;
+         window.location.href = "/Student/tstupdate/@ViewBag.uid^@ViewBag.tstcd!@ViewBag.id]" + prq + "^" + document.getElementById("hdfValue").innerHTML + "`" + cd + ")" + "up";
+
+        }
+</script>
+<script>
+    function myFunction() {
+        var txt;
+        var r = confirm("Are you sure to finish!\nIf you don't save your current answere will be lost.");
+        if (r == true) {
+            window.location.href = "/Student/Tstresult/@ViewBag.uid^@ViewBag.tstcd!@ViewBag.id]@ViewBag.exmsecretcd";
+            } else {
+
+            }
+    }
+</script>
+<script>
+    if (document.getElementById('option1').checked == false || document.getElementById('option2').checked == false || document.getElementById('option3').checked == false || document.getElementById('option4').checked == false || document.getElementById('option5').checked == false || document.getElementById('option6').checked == false || document.getElementById("Textbx").value == "") {
+        document.getElementById("svnxt").disabled = true;
+        document.getElementById("sbmt").disabled = true;
+    }
+
+    function empty() {
+        document.getElementById("svnxt").disabled = true;
+        var x;
+        x = document.getElementById("pp").action;
+
+        if (x == "https://www.etreetraining.com/Student/tstnext/@ViewBag.tstcd!@ViewBag.id]@qno%5E") {
+
+            alert("Please select a option" );
+            return false;
+        };
+    }
+</script>

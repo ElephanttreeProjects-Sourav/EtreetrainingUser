@@ -1,0 +1,724 @@
+﻿@model EtreetrainingUser.Models.Post_Cours
+@{
+    
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+    <title>Exam Arrow  | Home page :: Snipe IT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Skill Point Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#sgnin").hide();
+            $("#fg").hide();
+            $("#sgnin").click(function () {
+                $("#sgnin").hide();
+                $("#sgnup").show();
+            });
+            $("#sgnup").click(function () {
+                $("#sgnup").hide();
+                $("#sgnin").show();
+            });
+            $("#fg").click(function () {
+                $("#fg").hide();
+                $("#sgnup2").show();
+            });
+            $("#sgnup2").click(function () {
+                $("#sgnup2").hide();
+                $("#fg").show();
+            });
+        });
+    </script>
+    <style>
+        .navbar-inverse {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+
+        .header_topw3layouts_bar {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+
+        .carousel-caption p {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+    </style>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Snipe/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <!-- animation -->
+    <link href="~/Snipe/css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <link href="~/Snipe/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/Snipe/css/screenshot_view.css" rel='stylesheet' type='text/css' />
+    <!-- font-awesome icons -->
+    <link href="~/Snipe/css/fontawesome-all.min.css" rel="stylesheet">
+    <!-- //Custom Theme files -->
+    <!-- online fonts -->
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Gentium+Book+Basic:400,400i,700i" rel="stylesheet">
+    @*==================================================*@
+    <link href="~/css/newcss/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+    <!--// Responsive-tabs -->
+    <link href="~/css/newcss/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// Pop-up -->
+    <link href="~/css/newcss/css/banner.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// banner-css -->
+    <link rel="stylesheet" href="~/css/newcss/css/shop.css" type="text/css" media="screen" property="" />
+    <!--// shop-css -->
+    <link href="~/css/newcss/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- common-css -->
+    <link rel="stylesheet" href="~/css/newcss/css/client.css" type="text/css" media="all" />
+    <!-- // client-css -->
+    <link href="~/css/newcss/css/font-awesome.css" rel="stylesheet">
+    <link href="~/css/newcss/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- // Font-awesome-css -->
+    <!--// Styleshets -->
+    <!-- Online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Montserrat:300,500,600,700,800" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <!--// Online-fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Snipe/css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <link href="~/Snipe/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/Snipe/css/screenshot_view.css" rel='stylesheet' type='text/css' />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+
+    <!--//online fonts -->
+</head>
+
+<body>
+    <div class="se-pre-con"></div>
+    <!-- header -->
+    
+   
+    <!-- //header -->
+    <!-- banner -->
+    <div class="screenview_bg row bg-theme px-3" style="background: url(../Snipe/Videocapt.png);min-height:450px;background-size: cover;">
+
+        <div class=" col-lg-5 col-md-5 screen-view-img order-md-0 order-0 img-fluid" style="padding-left:100px;padding-top:50px">
+            <div style="max-width: 510px;color: #fff;">
+                <h1 style="font-size:34px;color:#fff;font-weight:bold;line-height:1;margin-bottom:16px">Make a global impact</h1>
+                <h2 style="color: #fff;color: #fff;
+  padding:20px 0px 50px 0px;
+    line-height: 26px;
+    font-size: 18px;font-weight: 400;text-shadow: 0 2px 4px rgba(41,48,59,.5);margin: 0 0 10px;">
+                    Create an online video course and earn money by teaching people around the world.
+                </h2>
+            </div>
+            @*<div>
+                            <span>
+                                <a href="~/Trainers/Trainrs_Login">
+                                    <button data-purpose="bai-cta" type="button" style="padding: 17px 60px;color: #fff;
+                background-color: #ec5252;
+                border: 1px solid transparent;line-height: 1.35135;" class="has-sticky teaching-signup-button--cta--fMxEG btn btn-primary">
+                                        Become an instructor
+                                    </button>
+                                </a>
+                            </span>
+                        </div>*@
+        </div>
+
+
+    </div>
+    <!-- //banner -->
+    <!-- pages grid-->
+    <script>
+$(window).load(function(){
+});
+    </script>
+    <section id="practice-level-up" class="landing-sections" style="background:#f8f8f8;padding-bottom:40px;padding:40px 0px 32px 0px;font-family:'lato', Arial, Helvetica, sans-serif;line-height:1.4;font-size:1em">
+        <div class="container">
+            <div class="row">
+                <h1 class="title">Envision your success</h1>
+                <div class="row stat-row  position-relative text-center col-lg-12 col-md-12" style="margin-top:0px">
+                    @*<img src="images/slide.jpg" alt="" class="img-fluid position-absolute" />*@
+
+                    <div class="col-lg-4 col-md-3">
+                        <div class="counter py-4 px-3 bg1-theme tablinks" onmouseover="openCity(event, 'pyc')" onclick="mycrsFunction()" style="cursor:pointer">
+
+                            <i class="far fa-smile"></i>
+                            <p class="count-text text-capitalize pyt">
+                                1 Plan your course
+                            </p>
+
+                            <div class="timer count-title count-number mt-2" data-to="9890" data-speed="1500"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1 col-md-1 fx how-it-works--line--2-RRE" style="margin-top:70px; background-color: rgba(41,48,59,.25);
+    height: 1px;flex: 1;
+    min-width: 1px;"></div>
+                    <div class="col-lg-3 col-md-3 mt-md-0 mt-sm-5 mt-3">
+                        <div class="counter py-4 px-3 bg2-theme tablinks" style="cursor:pointer" onmouseover="openCity(event, 'ryv')" onclick="myFunction()">
+                            <i class="fas fa-video"></i>
+                            <p class="count-text text-capitalize">2 Record your video</p>
+                            <div class="timer count-title count-number mt-2" data-to="6799" data-speed="1500"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1 col-md-1 fx how-it-works--line--2-RRE" style="margin-top:70px; background-color: rgba(41,48,59,.25);
+    height: 1px;flex: 1;
+    min-width: 1px;"></div>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                    <div class="col-lg-3 col-md-3 mt-lg-0 mt-sm-5 mt-3">
+
+                        <div class="counter py-4 px-3 bg3-theme tablinks" style="cursor:pointer" onmouseover="openCity(event, 'byc')" onclick="myFunctiontrnr()">
+                            <i class="fa fa-wechat"></i>
+                            <p class="count-text text-capitalize">3 Trainer Biography</p>
+                            <div class="timer count-title count-number mt-2" data-to="733" data-speed="100"></div>
+                        </div>
+
+                    </div>
+
+                    <div id="pyc" class="tabcontent" style="margin-top:10px;display:none">
+                        <div class=" col-xxs-5 " style="margin-bottom: 0;width: 41.66666667%;float: left;text-align:left;position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;">
+                            <div class="a3 mb20 semibold text-midnight-light " style="float: left;text-align:left;margin-bottom: 20px;color: #505763;font-weight: 600;font-size: 18px;line-height: 1.2;">Plan your course</div>
+                            <div class="a10" style="text-align:left; margin-top:5px">
+                                <div style="float: left; margin-top: 10px;" class="mt10 text-midnight-lighter">
+                                    You start with your passion and knowledge. Then choose a topic and plan
+                                    your lectures in Google Docs, Microsoft Excel, or your favorite notebook.<br><br>You get to teach the way you want — even create courses in multiple languages
+                                    and inspire more students.
+                                </div><div style="float: left;margin-top: 20px;margin-bottom: 20px;" class="mt20 text-midnight-light">How we help you</div><div style="float: left;margin-top: 10px;" class="mt10 text-midnight-lighter">
+                                    We offer free courses on how to build your own course, complete with
+                                    worksheets and real-world examples. Plus, our instructor dashboard and curriculum pages help keep you on track.
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" col-xxs-7 fx-rc " style="margin-bottom: 0;height: auto!important;align-items: center;    display: flex;
+    justify-content: flex-end;width: 58.33333333%;position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;margin-top:50px"><img src="~/Snipe/Sign_up_illustration.svg" alt="Sign up illustration" width="426" height="236" class="pl30 how-it-works--carousel-img--3_rRJ"></div>
+                    </div>
+                    <div id="pyc1" class="dropdown-content" style="margin-left: 15px;text-align: center;margin-top: 160px;background-color:#02b3e4;">
+                        <button type="button" class="close" onclick="closefunction()" aria-label="Close" style="padding:5px 5px 5px 5px"><span aria-hidden="true">&times;</span></button>
+                        <div style="padding:15px 15px 15px 15px">
+
+                            <a onclick="NEETfunc()" style=" cursor:pointer; font-weight: 600;font-size: 15px;line-height: 1.43;color: white;">NEET</a>
+                            <a onclick="KCETfunc()" style="cursor:pointer;font-weight: 600;font-size: 15px;line-height: 1.43;color: white;">KCET</a>
+                            <a onclick="JEEfunc()" style="cursor:pointer;font-weight: 600;font-size: 15px;line-height: 1.43;color: white;">JEE</a>
+                        </div>
+                    </div>
+                    <div id="pyc2" class="dropdown-content" style="margin-left: 125px;width:79%; text-align: center;margin-top: 160px;background-color:#02b3e4;">
+                        <label style="text-align:center;color:white;padding:10px 0px 0px 0px">Details for NEET </label>
+                        <button type="button" class="close" onclick="closefunction1()" aria-label="Close" style="padding:5px 5px 5px 5px"><span aria-hidden="true">&times;</span></button>
+                        <div style="padding:5px 5px 5px 5px">
+                            <button id="submit" type="button" style="width:80px;margin-top:20px ; float:right;padding:5px 5px 5px 5px" class="btn btn-success"><i class="fas fa-save"></i></button>
+                        </div>
+                        <div style="padding:15px 15px 15px 15px" id="mainrow">
+                            <label class="hidden crsnm">NEET</label>
+                            <label style="float:left;color:white;padding:10px 10px 10px 10px">Chapter </label>
+                            @Html.EditorFor(model => model.Chapter_number, new { htmlAttributes = new { @class = "chno", @style = "float:left; width:70px;padding:10px 10px 10px 5px", @placeholder = "No." } })
+
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "ttl", @style = "float:left;padding:10px 10px 10px 10px", @placeholder = "Title" } })
+
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "des", @style = "float:left;padding:10px 100px 10px 10px", @placeholder = "Description" } })
+
+                            @*<input type="text" style="float:left; width:50px;padding:10px 10px 10px 5px" placeholder="No." />*@
+                            @*<input type="text" style="float:left;padding:10px 10px 10px 10px" placeholder="Title" />
+
+                    <input type="text" style="float:left;padding:10px 100px 10px 10px" placeholder="Description" />*@
+                            <input type="button" value="+" style="width:80px" class="btn btn-success addfst" />
+                            <input type="button" value="-" style="width:80px" class="btn btn-danger removefst" />
+
+
+                        </div>
+
+                        <div id="orderdetailsItems">
+
+                        </div>
+                    </div>
+                    <div id="pyc3" class="dropdown-content" style="margin-left: 125px;width:79%; text-align: center;margin-top: 160px;background-color:#02b3e4;">
+                        <label style="text-align:center;color:white;padding:10px 0px 0px 0px">Details for KCET </label>
+                        <button type="button" class="close" onclick="closefunction2()" aria-label="Close" style="padding:5px 5px 5px 5px"><span aria-hidden="true">&times;</span></button>
+                        <div style="padding:5px 5px 5px 5px">
+                            <button type="button" style="width:80px;margin-top:20px ; float:right;padding:5px 5px 5px 5px" class="btn btn-success"><i class="fas fa-save"></i></button>
+                        </div>
+                        <div style="padding:15px 15px 15px 15px" id="mainrow">
+                            <label style="float:left;color:white;padding:10px 10px 10px 10px">Chapter </label>
+                            <input type="text" style="float:left; width:50px;padding:10px 10px 10px 5px" placeholder="No." />
+                            <input type="text" style="float:left;padding:10px 10px 10px 10px" placeholder="Title" />
+
+                            <input type="text" style="float:left;padding:10px 100px 10px 10px" placeholder="Description" />
+                            <input type="button" value="+" style="width:80px" class="btn btn-success addfst" />
+                            <input type="button" value="-" style="width:80px" class="btn btn-danger removefst" />
+
+                            @*<a href="/Home/TestForInstructor" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: white;">NEET</a>
+                    <a href="/Home/TestForInstructor" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: white;">KCET</a>
+                    <a href="/Home/TestForInstructor" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: white;">JEE</a>*@
+                        </div>
+
+                        <div id="orderdetailsItems">
+
+                        </div>
+                    </div>
+                    <div id="pyc4" class="dropdown-content" style="margin-left: 125px;width:79%; text-align: center;margin-top: 160px;background-color:#02b3e4;">
+                        <label style="text-align:center;color:white;padding:10px 0px 0px 0px">Details for JEE </label>
+                        <button type="button" class="close" onclick="closefunction3()" aria-label="Close" style="padding:5px 5px 5px 5px"><span aria-hidden="true">&times;</span></button>
+                        <div style="padding:5px 5px 5px 5px">
+                            <button type="button" style="width:80px;margin-top:20px ; float:right;padding:5px 5px 5px 5px" class="btn btn-success"><i class="fas fa-save"></i></button>
+                        </div>
+                        <div style="padding:15px 15px 15px 15px" id="mainrow">
+                            <label style="float:left;color:white;padding:10px 10px 10px 10px">Chapter </label>
+                            <input type="text" style="float:left; width:50px;padding:10px 10px 10px 5px" placeholder="No." />
+                            <input type="text" style="float:left;padding:10px 10px 10px 10px" placeholder="Title" />
+
+                            <input type="text" style="float:left;padding:10px 100px 10px 10px" placeholder="Description" />
+                            <input type="button" value="+" style="width:80px" class="btn btn-success addfst" />
+                            <input type="button" value="-" style="width:80px" class="btn btn-danger removefst" />
+
+                            @*<a href="/Home/TestForInstructor" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: white;">NEET</a>
+                    <a href="/Home/TestForInstructor" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: white;">KCET</a>
+                    <a href="/Home/TestForInstructor" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: white;">JEE</a>*@
+                        </div>
+
+                        <div id="orderdetailsItems">
+
+                        </div>
+                    </div>
+                    <div id="trnr" class="dropdown-content" style="margin-left: 125px;width:79%; text-align: center;margin-top: 160px;background-color:#02ccba;">
+                        <label style="text-align:center;color:white;padding:10px 0px 0px 0px">Instructor Biography </label>
+                        <button type="button" class="close" onclick="closefunctiontrnr()" aria-label="Close" style="padding:5px 5px 5px 5px"><span aria-hidden="true">&times;</span></button>
+                        @using (Html.BeginForm("TrnrBiography", "Home", FormMethod.Post, new { enctype = "multipart/form-data", role = "form" }))
+                        {
+                        <div style="padding:5px 5px 5px 5px;float:right" class="col-md-1">
+                            <button id="submit" type="submit" style="width:80px;margin-top:20px ; float:right;padding:5px 5px 5px 5px" class="btn btn-success"><i class="fas fa-save"></i></button>
+                        </div>
+                        <div style="padding:15px 15px 15px 15px;" id="mainrow_trnr" class="col-md-12">
+                            @Html.EditorFor(model => model.Course_code, new { htmlAttributes = new { @class = "hidden ",  @value = @ViewBag.resultforGetNEETCourses } })
+                            <input type="text" class="hidden Course_code"value="@ViewBag.resultforGetNEETCourses" />
+                            <label style="float:left;color:white;padding:10px 10px 10px 10px;" class="col-md-2 ">Material </label>
+                            @Html.EditorFor(model => model.Coursename, new { htmlAttributes = new { @class = "chno ", @style = "float:left; width:80px;padding:10px 10px 10px 5px", @placeholder = "NEET", @value = "NEET", @disabled = "disabled" } })
+
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "ttl col-md-8", @style = "text-align:left;padding:10px 10px 10px 10px", @placeholder = "Instructor name" } })
+                            <label class="col-md-2" style="float:left;color:white; padding:10px 10px 10px 10px">Instructor Image</label>
+                            <input type="file" class="col-md-7" name="TrnrImage" required="required" style="float:left;padding:10px 10px 10px 10px" />
+                            @Html.EditorFor(model => model.Occupation, new { htmlAttributes = new { @class = "ttl col-md-offset-2 col-md-9", @style = "text-align:left;padding:10px 10px 10px 10px", @placeholder = "Occupation" } })
+                            @Html.TextAreaFor(model => model.Biography, new { @class = "des col-md-offset-2 col-md-9", @style = "text-align:left;padding:10px 10px 10px 10px", @placeholder = "Biography in details" })
+                            @*@Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "des col-md-8", @style = "text-align:left;padding:10px 10px 10px 10px", @placeholder = "Description" } })*@
+
+                            @*<input type="text" style="float:left; width:50px;padding:10px 10px 10px 5px" placeholder="No." />*@
+                            @*<input type="text" style="float:left;padding:10px 10px 10px 10px" placeholder="Title" />
+
+        <input type="text" style="float:left;padding:10px 100px 10px 10px" placeholder="Description" />*@
+
+                        </div>
+                        }
+
+
+                    </div>
+                </div>
+                <div id="ryv" class="tabcontent" style="margin-top:10px;display:none">
+                    <div class=" col-xxs-5 " style="margin-bottom: 0;width: 41.66666667%;float: left;text-align:left;position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;">
+                        <div class="a3 mb20 semibold text-midnight-light " style="float: left;text-align:left;margin-bottom: 20px;color: #505763;font-weight: 600;font-size: 18px;line-height: 1.2;">Record your video</div>
+                        <div class="a10" style="text-align:left; margin-top:5px">
+                            <div style="float: left; margin-top: 10px;" class="mt10 text-midnight-lighter">
+                                Got a smartphone or a DSLR? Add a microphone and you’re ready to film your
+                                first course from your home or wherever you happen to be.
+                            </div><div style="float: left;margin-top: 20px;margin-bottom: 20px;" class="mt20 text-midnight-light">
+                                Camera shy? No Worries. Use screencasting software, like Camtasia, to
+                                screencast demos.
+                            </div><div style="float: left;margin-top: 10px;" class="mt10 text-midnight-lighter">
+                                How we help you. Our support team is available to help and offers free review of your videos.
+                                And our online instructor community is here to offer advice and inspiration.
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class=" col-xxs-7 fx-rc " style="margin-bottom: 0;height: auto!important;align-items: center;    display: flex;
+    justify-content: flex-end;width: 58.33333333%;position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;margin-top:50px"><img src="~/Snipe/Create_course_illustration_v2.svg" alt="Sign up illustration" width="426" height="236" class="pl30 how-it-works--carousel-img--3_rRJ"></div>
+                </div>
+    
+                <div id="ryv1" class="dropdown-content" style="margin-left: 468px;text-align: center;margin-top: 287px;background-color:#a951ed;">
+                    <button type="button" class="close" onclick="closeryv1function()" aria-label="Close" style="padding:5px 5px 5px 5px"><span aria-hidden="true">&times;</span></button>
+                    <div style="padding:15px 15px 15px 15px">
+
+                        @using (Ajax.BeginForm("updateforneet", "Home", new AjaxOptions
+                        {
+                            HttpMethod = "GET", // HttpMethod to use, GET or POST
+                            UpdateTargetId = "ryv28", // ID of the HTML element to update
+                            InsertionMode = InsertionMode.Replace
+                        }))
+
+                        {
+                            <a @*onclick="NEETryv1func()"*@ name="keyword" style=" cursor:pointer; font-weight: 600;font-size: 15px;line-height: 1.43;color: white;">   <button style="background-color:#a951ed;" type="submit">NEET</button></a>
+
+                        }
+                        @*<a onclick="NEETryv1func()" style=" cursor:pointer; font-weight: 600;font-size: 15px;line-height: 1.43;color: white;">NEET</a>*@
+                        <a onclick="KCETryv1func()" style="cursor:pointer;font-weight: 600;font-size: 15px;line-height: 1.43;color: white;">KCET</a>
+                        <a onclick="JEEryv1func()" style="cursor:pointer;font-weight: 600;font-size: 15px;line-height: 1.43;color: white;">JEE</a>
+                    </div>
+                </div>
+                <div id="ryv28" class="dropdown-content" style="display:none; margin-left: 125px;width:79%; text-align: center;margin-top: 287px;background-color:rgb(169, 81, 237);">
+
+                </div>
+                <div id="byc" class="tabcontent" style="margin-top:10px;display:none">
+                    <div class=" col-xxs-5 " style="margin-bottom: 0;width: 41.66666667%;float: left;text-align:left;position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;">
+                        <div class="a3 mb20 semibold text-midnight-light " style="float: left;text-align:left;margin-bottom: 20px;color: #505763;font-weight: 600;font-size: 18px;line-height: 1.2;">Build papers</div>
+                        <div class="a10" style="text-align:left; margin-top:5px">
+                            <div style="float: left; margin-top: 10px;" class="mt10 text-midnight-lighter">
+                                Create quizzes, exercises, and assignments to build interactivity. Write
+                                welcome messages for your students and answer their questions. Because our students
+                                don’t just watch, they do.
+                            </div><div style="float: left;margin-top: 20px;margin-bottom: 20px;" class="mt20 text-midnight-light">How we help you</div><div style="float: left;margin-top: 10px;" class="mt10 text-midnight-lighter">
+                                We provide all the tools for messaging, Q&As, course announcements, and
+                                quizzes, all in one one place.
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-xxs-7 fx-rc " style="margin-bottom: 0;height: auto!important;align-items: center;    display: flex;
+    justify-content: flex-end;width: 58.33333333%;position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;margin-top:50px"><img src="~/Snipe/Start_sharing_illustration_v2.svg" alt="Sign up illustration" width="426" height="236" class="pl30 how-it-works--carousel-img--3_rRJ"></div>
+                </div>
+            </div>
+                <style>
+
+                    .show {
+                        display: block;
+                    }
+                </style>
+                <script src="~/js1/jquery-2.1.4.min.js"></script>
+                <script src="~/Scripts/Addrow.js"></script>
+
+                <script>
+                    function NEETfunc() { document.getElementById('pyc3').style.display = 'none'; document.getElementById('pyc4').style.display = 'none'; document.getElementById('pyc2').style.display = 'block'; }
+                    function KCETfunc() { document.getElementById('pyc2').style.display = 'none'; document.getElementById('pyc4').style.display = 'none'; document.getElementById('pyc3').style.display = 'block'; }
+                    function JEEfunc() { document.getElementById('pyc2').style.display = 'none'; document.getElementById('pyc3').style.display = 'none'; document.getElementById('pyc4').style.display = 'block'; }
+
+                    function NEETryv1func() { document.getElementById('pyc3').style.display = 'none'; document.getElementById('pyc4').style.display = 'none'; document.getElementById('ryv1').style.display = 'none'; document.getElementById('ryv2').style.display = 'block'; }
+                    function KCETryv1func() { document.getElementById('pyc2').style.display = 'none'; document.getElementById('pyc4').style.display = 'none'; document.getElementById('pyc3').style.display = 'block'; }
+                    function JEEryv1func() { document.getElementById('pyc2').style.display = 'none'; document.getElementById('pyc3').style.display = 'none'; document.getElementById('pyc4').style.display = 'block'; }
+
+                    function myFunction() {
+                        document.getElementById("ryv1").style.display = "block";
+
+                    }
+                    function myFunctiontrnr() {
+                        document.getElementById("trnr").style.display = "block";
+
+                    }
+                    
+                    function mycrsFunction(){
+                         document.getElementById("pyc1").style.display = "block";
+                    }
+                    function closeryv1function()
+                    {
+                        document.getElementById("ryv1").style.display = "none";
+                    }
+                    function closefunction() {
+                        document.getElementById("pyc1").style.display = "none";
+                    }
+                    function closefunction1() {
+                        document.getElementById("pyc2").style.display = "none";
+                    }
+                    function closefunction2() {
+                        document.getElementById("pyc3").style.display = "none";
+                    }
+                    function closefunction3() {
+                        document.getElementById("pyc4").style.display = "none";
+                    }
+                    
+                    function closefunctiontrnr() {
+                        document.getElementById("trnr").style.display = "none";
+                    }
+                    function closeryv1function1()
+                    {
+                        document.getElementById("ryv28").style.display = "none";
+                    }
+                </script>
+
+
+                <script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+                </script>
+                @*<div class="col-lg-12 col-md-12" style="padding-top: 55px;
+                    padding-bottom: 70px;">
+                                    <h2 style="margin-top:24px; font-size:28px; font-weight:bold;color:#19171a;margin-bottom:16px;text-align:center">Become an instructor today</h2>
+                                    <p class="lead" style="margin-top: 20px;
+                    margin-bottom: 40px;font-size: 18px;line-height: 25px;color: #666666;font-weight: 400;line-height: 1.2;;text-align:center">Join the world's largest online learning marketplace.</p>
+                                     Stats
+                                    <div style="text-align:center">
+                                        <span>
+                                            <a href="~/Trainers/Trainrs_Login">
+                                                <button data-purpose="bai-cta" type="button" style="padding: 17px 60px;color: #fff;
+                    background-color: #ec5252;
+                    border: 1px solid transparent;line-height: 1.35135;" class="has-sticky teaching-signup-button--cta--fMxEG btn btn-primary">
+                                                    Become an instructor
+                                                </button>
+                                            </a>
+                                        </span>
+                                    </div>
+
+                                </div>*@
+
+            </div>
+        </div>
+    </section>
+    <script>
+$(document).ready(function() {
+	Tg_CommonFunction.movingSlider();
+});
+    </script>
+    <script>
+$( document ).ready(function() {
+	if ($(window).width() < 767) {
+		Tg_CommonFunction.set_slider_list ('users-word', 150, 1, 1, 1000, false);
+	}else{
+		Tg_CommonFunction.set_slider_list ('users-word', 500, 2, 2, 1000, false);
+	}
+});
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="~/Snipe/js/CourseAdding.js"></script>
+    <!-- //pages grid-->
+    <!-- footer top -->
+    <div class="footer-top py-5">
+        <div class="container">
+            <div class="row footer-cform pt-lg-5">
+                <div class="col-lg-6">
+                    <h5 class="footer-top-title">site navigation</h5>
+                    <div class="footer-top-agileits">
+                        <ul class="list-agileits d-flex">
+                            <li>
+                                <a href="index.html" class="nav-link py-0 pl-0">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="about.html" class="nav-link py-0">
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="services.html" class="nav-link py-0">
+                                    Services
+                                </a>
+                            </li>
+                            <li>
+                                <a href="portfolio.html" class="nav-link py-0">
+                                    portfolio
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="list-agileits d-flex">
+                            <li>
+                                <a href="courses.html" class="nav-link py-0 pl-0">
+                                    courses
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html" class="nav-link py-0">
+                                    privacy policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="contact.html" class="nav-link py-0">
+                                    Contact Us
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-cont-btm">
+                        <h5 class="footer-top-title">contact information</h5>
+                        <address class="my-4">
+                            <p>+4667 Woodland Terrace Folsom, California 916-983-6577.</p>
+                        </address>
+                        <ul class="d-flex header-agile pt-0">
+                            <li>
+                                <span class="fas fa-envelope-open"></span>
+                                <a href="mailto:example@email.com" class="text-secondary">info@example.com</a>
+                            </li>
+                            <li>
+                                <span class="fas fa-phone-volume"></span>
+                                <p class="d-inline text-secondary">+456 123 7890</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 wthree-form-left my-lg-0 mt-4">
+                    <h5 class="footer-top-title">send us a message</h5>
+                    <div class="footer-top-form">
+                        <form action="#" method="get" class="footer-top-wthree">
+                            <div class="form-group d-flex">
+                                <label>
+                                    Name
+                                </label>
+                                <input class="form-control" type="text" placeholder="Johnson" name="email" required="">
+                            </div>
+                            <div class="form-group d-flex">
+                                <label>
+                                    Email
+                                </label>
+                                <input class="form-control" type="email" placeholder="example@email.com" name="email"
+                                       required="">
+                            </div>
+                            <div class="form-group d-flex">
+                                <label>
+                                    Phone
+                                </label>
+                                <input class="form-control" type="text" placeholder="XXXX XXXX XX" name="email"
+                                       required="">
+                            </div>
+                            <div class="form-group d-flex">
+                                <label>
+                                    Message
+                                </label>
+                                <textarea class="form-control" rows="5" id="contactcomment" placeholder="Your message"
+                                          required></textarea>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-agile btn-block w-25">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //footer top -->
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="social-icons d-flex  my-auto justify-content-lg-start justify-content-center">
+                        <h2 class="mr-4">stay connected :</h2>
+                        <ul class="social-iconsv2 agileinfo">
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-google-plus-g"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 my-lg-auto mt-3">
+                    <div class="cpy-right text-lg-right text-center">
+                        <p class="text-secondary">
+                            © 2018 Exam Arrow. All rights reserved | Developed by
+                            <a href="http://www.elephanttreetech.com/"> Elephanttree Tech. Pvt. Ltd.</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+    <!-- js-->
+    <script src="~/Snipe/js/jquery-2.2.3.min.js"></script>
+    <!-- loading-gif Js -->
+    <script src="~/Snipe/js/modernizr.js"></script>
+    <script>
+        //paste this code under head tag or in a seperate js file.
+        // Wait for window load
+        $(window).load(function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
+    <!--// loading-gif Js -->
+    <!-- Multiple select filter using jQuery -->
+    <script src="~/Snipe/js/custom-select.js"></script>
+    <!-- //Multiple select filter using jQuery -->
+    <!-- start-smooth-scrolling -->
+    <script src="~/Snipe/js/move-top.js">
+    </script>
+    <script src="~/Snipe/js/easing.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    <!-- //end-smooth-scrolling -->
+    <!-- smooth-scrolling-of-move-up -->
+    <script>
+        $(document).ready(function () {
+            /*
+             var defaults = {
+            	 containerID: 'toTop', // fading element id
+            	 containerHoverID: 'toTopHover', // fading element hover id
+            	 scrollSpeed: 1200,
+            	 easingType: 'linear'
+             };
+             */
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <script src="~/Snipe/js/SmoothScroll.min.js"></script>
+
+    <!-- //smooth-scrolling-of-move-up -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Snipe/js/bootstrap.js">
+    </script>
+    <!-- //Bootstrap Core JavaScript -->
+</body>
+
+</html>

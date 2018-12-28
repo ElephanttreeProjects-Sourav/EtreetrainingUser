@@ -1,0 +1,149 @@
+﻿@model EtreetrainingUser.Models.Discount_Calculator
+@{
+    ViewBag.Title = "EOTA :: Discount for course";
+    Layout = "~/Views/Shared/_TrainersMaster.cshtml";
+}
+<!DOCTYPE html>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- font files -->
+<link href="//fonts.googleapis.com/css?family=Viga" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+<!-- /font files -->
+<!-- css files -->
+<link href="~/discountfldr/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="~/discountfldr/css/style.css" rel="stylesheet" />
+
+<script src="~/discountfldr/js/jquery-1.11.1.min.js"></script>
+<div id="page-wrapper">
+    <div class="main-page">
+
+        <div class="grids">
+            <div class="progressbar-heading grids-heading">
+                <h2 style="color:black">Discount Page</h2>
+              
+            </div>
+            @*<div class="panel panel-widget">*@
+            <div class="block-page">
+
+                @*<div class="content-w3ls">*@
+                <div class="content1" style="background-color:black">
+                    <div class="wthree1">
+                        <h3 class="w3-agileits1">Grab Courses?</h3>
+                        <h4 class="agileits1"> </h4>
+                    </div>
+                    <div class="wthree2">
+                        <h3 class="w3-agileits2">Save Up To</h3>
+                        <h4 class="agileits2">@ViewBag.per</h4>
+                    </div>
+                    <div class="clear"></div>
+                    @*<a href="#" class="w3l1">click Here</a>*@
+                </div>
+                <div class="content2">
+                    <p class="agileinfo2" style="text-align:center;color:black;text-decoration:none;"> @ViewBag.UploadStatus</p>
+                    <form action="~/Trainers/Discount" method="post">
+
+                        @Html.ValidationMessageFor(model => model.Discount_Code, "", new { @class = "text-danger " })
+
+                        @Html.EditorFor(model => model.Discount_Code, new { htmlAttributes = new { id = "email", placeholder = "Discount Code" } })
+
+                        @Html.ValidationMessageFor(model => model.Discount_Price, "", new { @class = "text-danger text-center" })
+                        @Html.EditorFor(model => model.Discount_Price, new { htmlAttributes = new { id = "email", min = "0", max = "100", placeholder = "Discount percentage", onkeypress = "return isNumberKey(event)" } })
+
+                        <script type="text/javascript">
+                            function isNumberKey(evt) {
+                                var charCode = (evt.which) ? evt.which : event.keyCode;
+                                if (charCode > 31
+                                    && (charCode < 48 || charCode > 57))
+                                    return false;
+
+                                return true;
+                            }
+                        </script>
+
+
+                        @Html.ValidationMessageFor(model => model.Enable_Date, "", new { @class = "text-danger text-center" })
+                        @Html.EditorFor(model => model.Enable_Date, new { htmlAttributes = new { id = "email", type = "datetime-local" } })
+
+                        @Html.ValidationMessageFor(model => model.Disable_Date, "", new { @class = "text-danger text-center" })
+                        @Html.EditorFor(model => model.Disable_Date, new { htmlAttributes = new { id = "email", type = "datetime-local" } })
+
+                        @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger text-center" })
+                        <span id="emailerror2" class="text-danger"></span>
+                        @Html.EditorFor(model => model.EmailId, new { htmlAttributes = new { id = "emailid2", style = "width:30%,position:center", placeholder = "User-mail@example.com", onmousedown = "return remve(event)" } })
+
+                        <script language="Javascript">
+                            function validateForm2(event) {
+                                var pattern2 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+                                var userName2 = document.getElementById("emailid2").value;
+
+                                if (userName2.match(pattern2) || userName2 == "") {
+
+                                    return true;
+                                } else {
+
+                                    document.getElementById("emailerror2").innerHTML = "Email is not valid";
+
+                                    return false;
+                                }
+
+                            }
+
+                        </script>
+                        <script type="text/javascript">
+                            function remve(evt) {
+                                document.getElementById("emailerror2").innerHTML = null;
+
+                                return true;
+                            }
+                        </script>
+                        @Html.ValidationMessageFor(model => model.msgbox, "", new { @class = "text-danger text-center" })
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        @Html.EditorFor(model => model.msgbox, new { htmlAttributes = new { id = "email", placeholder = "Message", maxlength = "250", rows = "5", cols = "45" } })
+
+                        <br /><br />
+
+                        <input type="submit" class="register" style="text-align:center" value="Post Offer">
+                    </form>
+
+                    @*<p id="demo"  ></p>*@
+                </div>
+                @*<p id="hour"></p>
+                    <p id="min"></p>
+                    <p id="sec"></p>*@
+                <div class="clear"></div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="~/discountfldr/js/jquery-1.11.1.min.js"></script>
+
+
+<script>
+    $(document).ready(function (c) {
+        $('.alert-close1').on('click', function (c) {
+            $('.content-w3ls').fadeOut('slow', function (c) {
+                $('.content-w3ls').remove();
+            });
+        });
+    });
+</script>
+<script type="text/javascript">
+
+    function setid() {
+
+        //var date1 =
+
+        document.getElementById("sec").textContent = remtime;
+
+
+    }
+
+</script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>

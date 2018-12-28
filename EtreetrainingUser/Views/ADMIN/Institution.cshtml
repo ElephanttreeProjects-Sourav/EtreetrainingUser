@@ -1,0 +1,182 @@
+﻿@model EtreetrainingUser.Models.Institute_Info
+
+@{
+    ViewBag.Title = "EOTA: Creation of Institution";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+<div id="page-wrapper">
+    <div class="main-page">
+
+        <!--grids-->
+        <div class="grids">
+            <div class="progressbar-heading grids-heading">
+                <h2>Institute Information</h2>
+            </div>
+            <div class="panel panel-widget" style="background-color:cadetblue">
+                <div class="block-page">
+                    <p>
+                        <h3 style="color:olive">@ViewBag.message</h3>
+                        <br />
+                        @using (Html.BeginForm("Institution", "ADMIN", FormMethod.Post, new {  onsubmit = "return validateForm2(event)" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Institute_Id, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Institute_Id, new { htmlAttributes = new { @class = "form-control", style = "width:35%" } })
+                                    @Html.ValidationMessageFor(model => model.Institute_Id, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Institute_Name_, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Institute_Name_, new { htmlAttributes = new { @class = "form-control", style = "width:35%" } })
+
+                                    @Html.ValidationMessageFor(model => model.Institute_Name_, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control",rows = "5", cols = "33", style = "width:35%" } })
+                                    @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", id = "emailid2", style = "width:35%" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    <h4 id="emailerror2" class="text-danger text-left"></h4>
+                                    <script language="Javascript">
+                                        function validateForm2(event) {
+                                            var pattern2 = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+                                            var userName2 = document.getElementById("emailid2").value;
+
+                                            if (userName2.match(pattern2)) {
+
+                                                return true;
+                                            } else {
+
+                                                document.getElementById("emailerror2").innerHTML = "Email is not valid";
+
+                                                return false;
+                                            }
+
+                                        }
+
+                                    </script>
+                                </div>
+                            </div>
+                            
+                           
+                            <div class="form-group">
+                              
+                                <div class="col-md-offset-2 col-md-10">
+
+                                    @Html.CheckBoxFor(model => Model.option, new { id = "toggle" })<label><b> Discount for HOD</b></label>
+                                    @*<input type="checkbox" id="toggle" /><label><b> Discount for HOD</b></label>*@
+
+                                </div>
+                            </div>
+
+                            <div class="form-group" id="content">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Promocode, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Promocode, new { htmlAttributes = new { @class = "form-control",id = "pmcd", name = "fname", style = "width:35%" } })
+                                        @Html.ValidationMessageFor(model => model.Promocode, "", new { @class = "text-danger" })
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Discount_Percent, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Discount_Percent, new { htmlAttributes = new { @class = "form-control", id = "pmcdper", style = "width:35%", onkeypress = "return isNumberKey(event)", min = "1", max = "100" } })
+                                        @Html.ValidationMessageFor(model => model.Discount_Percent, "", new { @class = "text-danger" })
+                                    </div>
+                                    <script type="text/javascript">
+                                        function isNumberKey(evt) {
+                                            var charCode = (evt.which) ? evt.which : event.keyCode;
+                                            if (charCode > 31
+                                                && (charCode < 48 || charCode > 57))
+                                                return false;
+
+                                            return true;
+                                        }
+                                    </script>
+                                </div>
+
+                            </div>
+
+                            @*<script>
+            document.getElementById("csh").style.visibility = "hidden";
+            document.getElementById("nonhodbtn").style.visibility = "visible";
+
+
+            function toggleCheckbox(element) {
+
+                if (element.checked == element.checked) {
+
+                    document.getElementById("csh").style.visibility = "visible";
+                    document.getElementById("nonhodbtn").style.visibility = "hidden";
+                    //document.getElementById("hodbtn").style.visibility = "visible";
+                } if (element.checked == false) {
+
+                    document.getElementById("csh").style.visibility = "hidden";
+                    document.getElementById("nonhodbtn").style.visibility = "visible";
+                    //document.getElementById("hodbtn").style.visibility = "hidden";
+                }
+            }
+
+        </script>*@
+                            <style>
+                                #content {
+                                    display: none;
+                                }
+
+                                    #content.show {
+                                        display: block;
+                                    }
+                            </style>
+                            <script>
+                                document.getElementById("toggle").checked = false;
+                                var toggle = document.getElementById("toggle");
+                                var content = document.getElementById("content");
+
+                                toggle.addEventListener("click", function () {
+                                    content.classList.toggle("show");
+                                    //document.getElementById('smt').disabled = true;
+                                }, false);
+
+
+                            </script>
+
+                            <div class="form-group" id="hodbtn">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Create" id="smt" class="btn btn-default" style="background-color:black;color:ghostwhite" />
+                                </div>
+                            </div>
+                        </div>
+                        }
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

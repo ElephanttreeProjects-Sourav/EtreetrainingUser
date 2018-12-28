@@ -1,0 +1,93 @@
+﻿@model EtreetrainingUser.Models.Trainer
+
+@{
+    ViewBag.Title = "EOTA: Trainers' list";
+    Layout = "~/Views/Shared/_AdminMaster.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="main-page">
+        <!--grids-->
+        <div class="grids">
+            <div class="progressbar-heading grids-heading">
+                <h2>Trainer Details</h2>
+            </div>
+            <div class="panel panel-widget">
+                <div class="block-page">
+
+                    <p>
+                        <table>
+                            <tr width="650">
+                                <td class="col-md-3" style="float:right"> <img src="@Url.Content(Model.Photo_Path)" width="150" height="150" style="float:right" /></td>
+
+                                <td class="dl-horizontal col-md-7" style="float:left">
+                                    <dt>
+                                        <h5><b>Name</b></h5>
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Name)
+                                    </dd>
+
+                                    <dt>
+                                        <h5><b> Email ID</b></h5>
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Email_Id)
+                                    </dd>
+
+                                    <dt>
+                                        <h5><b>Phone Number</b></h5>
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Number)
+                                    </dd>
+
+
+                                    @*<dt>
+                @Html.DisplayNameFor(model => model.Photo_Path)
+            </dt>*@
+
+                                    @*<dd>
+                <img src="@Url.Content(Model.Photo_Path)" width="150" height="150" />
+            </dd>*@
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Password)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Password)
+                                    </dd>
+                                    <dt>
+                                        <label><b>Uploaded Courses</b></label>
+                                    </dt>
+                                    @foreach (var crss in @ViewBag.crs)
+        {
+                            <dd>
+
+                                <i class="fa fa-check" aria-hidden="true">  &nbsp;@crss</i>
+
+
+                            </dd>
+}
+
+
+                                </td>
+                            </tr>
+                        </table>
+</div>
+                <p>
+                    @Html.ActionLink("Back to List", "allviews")
+                </p>
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--//grids-->
+
+</div>
+   

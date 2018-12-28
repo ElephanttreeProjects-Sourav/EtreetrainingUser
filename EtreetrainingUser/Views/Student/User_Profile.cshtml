@@ -1,0 +1,837 @@
+﻿@*@model IEnumerable<EtreetrainingUser.Models.Tbl_Cand_Main>*@
+@model EtreetrainingUser.Models.Tbl_Cand_Main
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Snipe Learning  | User profile :: Snipe IT</title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="EOTA: User profile" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //custom-theme -->
+    <link href="~/FrontUsersPro/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/component.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/export.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/flipclock.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/circles.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/style_grid.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/FrontUsersPro/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+    <!-- font-awesome-icons -->
+    <link href="~/FrontUsersPro/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/fontawesome-webfont.ttf" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/FontAwesome.otf" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/fontawesome-webfont.eot" rel="stylesheet">
+    @*
+        <img src="~/FrontUsersPro/fonts/glyphicons-halflings-regular.svg" />*@
+    <link href="~/FrontUsersPro/fonts/glyphicons-halflings-regular.woff2" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/glyphicons-halflings-regular.ttf" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/glyphicons-halflings-regular.woff" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/glyphicons-halflings-regular.eot" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/fontawesome-webfont.woff2" rel="stylesheet">
+    <link href="~/FrontUsersPro/fonts/fontawesome-webfont.woff" rel="stylesheet">
+
+    <link href="//FrontUsersPro/fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+
+    <link href="~/css/newcss/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    @*/////////////////////////////*@
+
+    <style>
+        .navbar-inverse {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+
+        .header_topw3layouts_bar {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+
+        .carousel-caption p {
+            background: linear-gradient(-45deg,#185a9d,#43cea2);
+        }
+    </style>
+    <!--// Metga-tags -->
+    <!-- Styleshets -->
+    <!--// Bootstrap-css -->
+    <link href="~/css/newcss/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+    <!--// Responsive-tabs -->
+    <link href="~/css/newcss/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// Pop-up -->
+    <link href="~/css/newcss/css/banner.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// banner-css -->
+    <link rel="stylesheet" href="~/css/newcss/css/shop.css" type="text/css" media="screen" property="" />
+    <!--// shop-css -->
+    <link href="~/css/newcss/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- common-css -->
+    <link rel="stylesheet" href="~/css/newcss/css/client.css" type="text/css" media="all" />
+    <!-- // client-css -->
+    <link href="~/css/newcss/css/font-awesome.css" rel="stylesheet">
+    <link href="~/css/newcss/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- // Font-awesome-css -->
+    <!--// Styleshets -->
+    <!-- Online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Montserrat:300,500,600,700,800" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <!--// Online-fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Snipe/css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <link href="~/Snipe/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/Snipe/css/screenshot_view.css" rel='stylesheet' type='text/css' />
+</head>
+
+<body style="background-color:#f6f6f6;">
+    <!-- banner -->
+    <div class="wthree_agile_admin_info">
+        <!-- /w3_agileits_top_nav-->
+        <!-- /nav-->
+        <div class="wthree_agile_admin_info">
+            <!-- /w3_agileits_top_nav-->
+            <!-- /nav-->
+            <div class="header" id="home">
+                <div>
+                    <ul id="gn-menu" class="gn-menu-main" style="box-shadow:none">
+                        <li class="gn-trigger">
+                            <a class="gn-icon gn-icon-menu"><i class="fa fa-bars" style="color:#fff;" aria-hidden="true"></i><span>Menu</span></a>
+                            <nav class="gn-menu-wrapper">
+                                <div class="gn-scroller scrollbar1">
+                                    <ul class="gn-menu agile_menu_drop" style="line-height: 40px;">
+                                        <li>
+                                            <a href='@Url.Action("paidcourse", "Student", new { id = Model.Cand_id})'> <i class="fa fa-book" aria-hidden="true"></i>Paid Courses <i class="fa " aria-hidden="true"></i></a>
+
+                                        </li>
+                                        <li><a href='@Url.Action("Mocktst", "Student", new { id = Model.Cand_id})'> <i class="fa fa-table" aria-hidden="true"></i> Mock Test</a></li>
+
+                                        <li><a href='@Url.Action("Certificates", "Student", new { id = Model.Cand_id})'> <i class="fa fa-line-chart" aria-hidden="true"></i> Certificate</a></li>
+
+                                        @*<li>
+                                                <a href='@Url.Action("Help", "Student", new { id = Model.Cand_id })'><i class="fa fa-plus-square" aria-hidden="true"></i> Help/Training process</a>
+                                            </li>
+
+                                            <li>
+                                                <a href='@Url.Action("Frndportal", "Student", new { id = Model.Cand_id })'><i class="fa  fa-user" aria-hidden="true"></i>Refer a friend</a>
+
+                                            </li>*@
+
+                                    </ul>
+                                </div><!-- /gn-scroller -->
+                            </nav>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header-middle" style="background:#131313">
+                    <div class="container">
+                        <div class="logof-w3-agile">
+                            <h4>
+                                <a href="~/" class="text-white"><span style="margin-right:0px;color: #ff1949;">S</span><span style="color:white">nipe</span> <span style="margin-right:0px;color: #ff1949;">L</span><span style="color:white">earning [SNL]</span></a>
+                            </h4>
+                        </div>
+                        <div class="searchf-w3-agileits-headr" style="background-color: transparent;
+    border-color: transparent;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    font-size: 13px;display: table-cell;width: 40%;">
+
+                            <form action="~/Home/Search" method="get" accept-charset="ISO-8859-1">
+
+                                <input type="search" name="Search" style="background-color:#f2f3f5;" placeholder="Search for a course..." required="" maxlength="500" onkeyup="javascript:RemoveSpecialChar(this)">
+
+                                <button aria-label="Search" type="submit" class="btn btn-link search" id="btnb" style="border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    color: #ec5252;width: 44px;
+    height: 40px;padding: 11px 12px;
+    font-size: 15px;border-color: transparent;background-color:#f2f3f5;">
+                                    <i class="fa fa-search" aria-hidden="true" id="icn" style="color: #ff1949;"> </i>
+                                </button>
+
+
+                            </form>
+
+                        </div>
+                        <div style="float:right">
+                            <li class="second admin-pic">
+                                <ul class="top_dp_agile">
+                                    <li class="dropdown profile_details_drop">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <div class="profile_img">
+                                                <span class="prfil-img"><img src="~/Picture/Avatar-male.png" style="width:50px;max-height:70px;padding:5px; border-radius: 100%;top:0"></span>
+                                                @*<span class="prfil-img"><img src="images/admin.jpg" alt=""> </span>*@
+                                            </div>
+                                        </a>
+                                        @*<ul class="dropdown-menu drp-mnu">
+                                        *@
+                                        @{
+                                            <ul class="dropdown-menu drp-mnu" style="padding:0;right:30px;margin-right:30px">
+
+                                                <li>
+                                                    @{
+                                                        ViewBag.hhh = Model.Cand_id;
+                                                    }
+
+                                                    <a href="~/Student/Update/@ViewBag.hhh"><i class="fa fa-user"></i> Update profile</a>
+                                                </li>
+                                                <li> <a href="javascript:document.getElementById('logoutform').submit()"><i class="fa fa-sign-out"></i> Logout</a> </li>
+
+
+                                                @using (Html.BeginForm("Cand_Logout", "Student", FormMethod.Post, new { id = "logoutform" })) { }
+
+                                            </ul>
+
+                                        }
+
+                                    </li>
+
+                                </ul>
+                            </li>
+                        </div>
+                        <style>
+
+                            .dropdown {
+                                position: relative;
+                                display: inline-block;
+                            }
+
+                            .dropdown-content {
+                                display: none;
+                                position: absolute;
+                                background-color: #f1f1f1;
+                                min-width: 90px;
+                                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                                z-index: 1;
+                            }
+
+                                .dropdown-content a {
+                                    color: black;
+                                    padding: 12px 16px;
+                                    text-decoration: none;
+                                    display: block;
+                                }
+
+                                    .dropdown-content a:hover {
+                                        background-color: #ddd;
+                                    }
+
+                            .dropdown:hover .dropdown-content {
+                                display: block;
+                            }
+
+                            .dropdown:hover .dropbtn {
+                                background-color: #3e8e41;
+                            }
+                        </style>
+
+                    </div>
+
+                </div>
+                <!--// header-middle -->
+                <nav @*class="navbar navbar-inverse"*@ style="background:#131313">
+
+
+                    <div class="collapse navbar-collapse js-navbar-collapse">
+                        <ul class="head">
+
+                            <li style="margin-top:0px;" class="dropdown">
+
+
+                                <div>
+                                    <h4> <a href="#" class="text-white">&nbsp; NEET </a></h4>
+                                    <div class="dropdown-content" style="width:30%;min-width: 350px;margin-top:17px;float:left;text-align:center">
+                                        <div style="padding:15px 15px 15px 15px; color:black">
+                                            The National Eligibility cum Entrance Test or NEET is an entrance examination in India, for students who wish to study graduate and postgraduate medical
+                                            course and dental course in government or private medical colleges and dental colleges respectively in India.
+                                            <br />
+                                            <a href="~/Student/singlecrs/@ViewBag.resultforGetNEETCourses" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: #007791;">Prepare your schedule</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li style="margin-top:0px;" class="dropdown">
+                                <div>
+                                    <h4> <a href="#" class="text-white">&nbsp; KCET</a></h4>
+                                    <div class="dropdown-content" style="width:30%;min-width: 350px;margin-top:17px;text-align:center">
+                                        <div style="padding:15px 15px 15px 15px; color:black">
+                                            Karnataka Common Entrance Test (KCET) is a state level exam that offers admission
+                                            in various government and private colleges in the state of Karnataka.
+                                            <br />
+                                            <a href="#" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: #007791;">We will meet very soon</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li style="margin-top:0px;" class="dropdown">
+                                <div>
+                                    <h4> <a href="#" class="text-white">&nbsp; JEE</a></h4>
+                                    <div class="dropdown-content" style="width:30%;min-width: 350px;margin-top:17px;text-align:center">
+                                        <div style="padding:15px 15px 15px 15px; color:black">
+                                            Joint Entrance Examination is an engineering entrance examination conducted for admission to various
+                                            engineering colleges in India. It is constituted by two different examinations - JEE Main and the JEE Advanced.
+                                            <br />
+                                            <a href="#" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: #007791;">We will meet very soon</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                            @*<li><a href="~/Home/SearchOne/A">Academic courses</a></li>
+                                <li><a href="~/Home/SearchOne/T">Technical courses</a></li>
+                                <li><a href="~/Home/SearchOne/M">Management courses</a></li>*@
+                        </ul>
+                    </div>
+                    <!-- /.nav-collapse -->
+                </nav>
+
+            </div>
+
+
+
+            <div class="clearfix"></div>
+            <!-- //w3_agileits_top_nav-->
+            <!-- /inner_content-->
+            <!-- //inner_content-->
+        </div>
+
+
+        <div class="reviewf-main" style="padding-bottom:0; padding-left:0; padding-right:0;padding-top:0;margin-bottom:0;margin-left:0;margin-right:0;margin-top:0;width:100%">
+            <div class="container" style="padding-bottom:0; padding-left:0; padding-right:0;padding-top:0;margin-bottom:0;margin-left:0;margin-right:0;margin-top:0;width:100%">
+
+                <section id="practice-level-up" class="landing-sections" style="background:#f8f8f8;padding-bottom:40px;padding:40px 0px 32px 0px;font-family:'lato', Arial, Helvetica, sans-serif;line-height:1.4;font-size:1em">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-6">
+                                <h2 style="margin-top:24px; font-size:28px; font-weight:bold;color:#19171a;margin-bottom:16px">Practice and Level Up</h2>
+                                <p class="lead" style="font-size: 16px;line-height: 25px;color: #666666;font-weight: normal;margin-bottom: 24px;">Improve your coding skills with TechGig, by browsing through our collection of tutorials, solving easy to complex coding problems and attempting past challenges which were organised by top IT companies.</p>
+                                <!-- Stats -->
+                                <ul class="stats clearfix" style="margin:0 0 30px; padding:0;list-style: none;">
+                                    <li style="padding-left: 0;font-size: 18px;
+    color: #19171a;
+    float: left;
+    border-right: 1px solid #dadada;
+    padding: 0px 24px 0px 24px;
+    font-weight: 600;">
+                                        <span>50,000+<small>Practice Problems</small></span>
+                                    </li>
+                                    <li style="border-right: 0;font-size: 18px;
+    color: #19171a;
+    float: left;
+    border-right: 1px solid #dadada;
+    padding: 0px 24px 0px 24px;
+    font-weight: 600;">
+                                        <span>50+<small>Past Challenges</small></span>
+                                    </li>
+                                </ul>
+                                <!-- /Stats -->
+                                <div class="dropdown">
+                                    <h4>
+                                        <a href="~/Home/singlecrs/@ViewBag.resultforGetNEETCourses" class="btn button1" style="min-width: 160px;border-radius: 3px;background: #d7263d;
+    color: #fff;
+    text-transform: capitalize;
+    border: 0;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 7px 10px;
+    font-weight: bold;">Begin Practice</a>
+                                    </h4>
+                                    <div class="dropdown-content" style="width:10%;min-width: 160px;text-align:center">
+                                        <div style="padding:15px 15px 15px 15px">
+
+                                            NEET
+                                            <br />
+                                            <a href="~/Home/singlecrs/@ViewBag.resultforGetNEETCourses" style="font-weight: 600;font-size: 15px;line-height: 1.43;color: #007791;">Take test</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-5 col-md-6">
+                                <div class="inner-wrap">
+                                    <h2 style="margin-top:24px; font-size:28px; font-weight:bold;color:#19171a;margin-bottom:16px">Introduction for NEET </h2>
+
+                                    <!-- Fade Slider -->
+                                    <div id="practice-levelup-slider" class="moving-slides hidden-xs fade-slider moving-left">
+                                        <div class="scroller">
+                                            <div class="wrapper">
+                                                <div class="item">
+                                                    <div class="story">
+                                                        @*@{
+                                                                var count = 1;
+                                                            }
+                                                            @foreach (var vid in ViewBag.vidlist)
+                                                            {
+                                                                if (count == 1)
+                                                                {*@
+                                                        <div class="col-md-4 video-t2">
+                                                            <div class="demo-left small-demo">
+
+                                                                <video controls controlsList="nodownload" id="mp4Source" width="360" height="240">
+                                                                    <source src="@Url.Content(@ViewBag.firstdemovideo)" type="video/mp4">
+
+                                                                </video>
+                                                                @*<iframe src="https://www.youtube.com/embed/V3dFHt9p5W8" allowfullscreen=""></iframe>*@
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                        @*}
+                                                                count++;
+                                                            }*@
+                                                        <br />
+                                                        <div class="col-md-4 video-t2">
+                                                            <a href="~/Home/singlecrs/@ViewBag.resultforGetNEETCourses" class="btn button1" style="min-width: 360px;border-radius: 3px;background: #d7263d;
+    color: #fff;
+    text-transform: capitalize;
+    border: 0;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 7px 10px;
+    font-weight: bold;">More videos for NEET</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="prev-arrow">
+                                            <div class="arrow"></div>
+                                        </div>
+                                        <div class="next-arrow">
+                                            <div class="arrow"></div>
+                                        </div>
+                                    </div>
+                                    <!-- /Fade Slider -->
+                                    <!-- Topic-List -->
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <!-- //inner_content-->
+    </div>
+    <!-- banner -->
+    <!--copy rights start here-->
+    <div class="footer_agileinfo_topf" style="background:#887a7a ; color:white">
+        <div class="container">
+            <div class="container">
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <h2><a href="~/Home/Index" style="color:white">SNL</a></h2>
+                    <p class="paragraphf" style="color:white">Providing best coaching at affordable prices.</p>
+                </div>
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <nav>
+                        <ul class="footer_w3layouts_gridf_list">
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#About" target="_blank" style="color:white">About Us</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#service" target="_blank" style="color:white">Services</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#products" target="_blank" style="color:white">Products</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-4 footer_w3layouts_gridf">
+                    <nav>
+                        <ul class="footer_w3layouts_gridf_list">
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#jobs" target="_blank" style="color:white">Careers</a>
+                            </li>
+
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#technology" target="_blank" style="color:white">Technology</a>
+                            </li>
+                            <li>
+                                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                                <a href="http://www.elephanttreetech.com/#contact" target="_blank" style="color:white">Contact</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+
+                </div>
+                <div class="clearfix"> </div>
+                <div class="w3ls-fsocial-grid" style="float:left">
+                    <h3 class="sub-w3ls-headf" style="color:white">Follow Us</h3>
+                    <div class="social-ficons">
+                        <ul>
+                            <li><a href="https://www.facebook.com/12Elephanttrees/" target="_blank" style="color:white"><span class="fa fa-facebook"></span> Facebook</a></li>
+                            <li><a href="https://twitter.com/12Elephanttrees" target="_blank"><span class="fa fa-twitter" style="color:white"></span> Twitter</a></li>
+                            <li><a href="https://www.linkedin.com/in/elephanttree-technologies-private-limited-174699145/" style="color:white" target="_blank"><span class="fa fa-linkedin-square"></span>Linkdin</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w3ls-fsocial-grid" style="float:right">
+
+                    <p style="float:right;color:white"><span class="fa fa-mail-forward" aria-hidden="true"></span>Recieve our latest news straight to your inbox.</p>
+                    <br /> <br />
+                    <div style="float:right">
+                        <form action="~/Home/Subscribe" method="post">
+                            <input type="email" name="Email" placeholder="Email address..." required="">
+                            <input type="submit" value="Submit" style="padding:2px 2px 2px 2px;color:black">
+                        </form>
+                    </div>
+
+                </div>
+                <br />
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-wthree-copyf">
+        <div class="container">
+            @*<div class="addressf-agileits-w3layouts">
+                    <p style="float:left"><span class="fa fa-mail-forward" aria-hidden="true"></span>Recieve our latest news straight to your inbox.</p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="float:right">
+                        <form action="~/Home/Subscribe" method="post">
+                            <input type="email" name="Email" placeholder="Email address..." required="">
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>*@
+            <p>© 2018 SNL MERIT TRAINING. All rights reserved | Design and Developed by <a href="http://www.elephanttreetech.com/" target="_blank"> ELEPHANTTREE TECH PVT.LTD.</a></p>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- js -->
+
+    <script type="text/javascript" src="~/FrontUsersPro/js/jquery-2.1.4.min.js"></script>
+
+    <!-- /amcharts -->
+    <script src="~/FrontUsersPro/js/amcharts.js"></script>
+    <script src="~/FrontUsersPro/js/serial.js"></script>
+    <script src="~/FrontUsersPro/js/export.js"></script>
+    <script src="~/FrontUsersPro/js/light.js"></script>
+    <!-- Chart code -->
+    <script>
+        var chart = AmCharts.makeChart("chartdiv", {
+            "theme": "light",
+            "type": "serial",
+            "startDuration": 2,
+            "dataProvider": [{
+                "country": "2018",
+                "visits": 4025,
+                "color": "#FF0F00"
+            }, {
+                "country": "2017",
+                "visits": 2398,
+                "color": "#FF6600"
+            }, {
+                "country": "2016",
+                "visits": 1809,
+                "color": "#FF9E01"
+            }, {
+                "country": "2015",
+                "visits": 1322,
+                "color": "#FCD202"
+            }, {
+                "country": "2014",
+                "visits": 1122,
+                "color": "#F8FF01"
+            }],
+            //, {
+            //    "country": "France",
+            //    "visits": 1114,
+            //    "color": "#B0DE09"
+            //}, {
+            //    "country": "India",
+            //    "visits": 984,
+            //    "color": "#04D215"
+            //}, {
+            //    "country": "Spain",
+            //    "visits": 711,
+            //    "color": "#0D8ECF"
+            //}, {
+            //    "country": "Netherlands",
+            //    "visits": 665,
+            //    "color": "#0D52D1"
+            //}, {
+            //    "country": "Russia",
+            //    "visits": 580,
+            //    "color": "#2A0CD0"
+            //}, {
+            //    "country": "South Korea",
+            //    "visits": 443,
+            //    "color": "#8A0CCF"
+            //}, {
+            //    "country": "Canada",
+            //    "visits": 441,
+            //    "color": "#CD0D74"
+            //}, {
+            //    "country": "Brazil",
+            //    "visits": 395,
+            //    "color": "#754DEB"
+            //}, {
+            //    "country": "Italy",
+            //    "visits": 386,
+            //    "color": "#DDDDDD"
+            //}, {
+            //    "country": "Taiwan",
+            //    "visits": 338,
+            //    "color": "#333333"
+            //}],
+            "valueAxes": [{
+                "position": "left",
+                "axisAlpha": 0,
+                "gridAlpha": 0
+            }],
+            "graphs": [{
+                "balloonText": "[[category]]: <b>[[value]]</b>",
+                "colorField": "color",
+                "fillAlphas": 0.85,
+                "lineAlpha": 0.1,
+                "type": "column",
+                "topRadius": 1,
+                "valueField": "visits"
+            }],
+            "depth3D": 40,
+            "angle": 30,
+            "chartCursor": {
+                "categoryBalloonEnabled": false,
+                "cursorAlpha": 0,
+                "zoomable": false
+            },
+            "categoryField": "country",
+            "categoryAxis": {
+                "gridPosition": "start",
+                "axisAlpha": 0,
+                "gridAlpha": 0
+
+            },
+            "export": {
+                "enabled": true
+            }
+
+        }, 0);
+    </script>
+    <!-- Chart code -->
+    <script>
+        var chart = AmCharts.makeChart("chartdiv1", {
+            "type": "serial",
+            "theme": "light",
+            "legend": {
+                "horizontalGap": 10,
+                "maxColumns": 1,
+                "position": "right",
+                "useGraphSettings": true,
+                "markerSize": 10
+            },
+            "dataProvider": [{
+                "year": 2017,
+                "europe": 2.5,
+                "namerica": 2.5,
+                "asia": 2.1,
+                "lamerica": 0.3,
+                "meast": 0.2,
+                "africa": 0.1
+            }, {
+                "year": 2016,
+                "europe": 2.6,
+                "namerica": 2.7,
+                "asia": 2.2,
+                "lamerica": 0.3,
+                "meast": 0.3,
+                "africa": 0.1
+            }, {
+                "year": 2015,
+                "europe": 2.8,
+                "namerica": 2.9,
+                "asia": 2.4,
+                "lamerica": 0.3,
+                "meast": 0.3,
+                "africa": 0.1
+            }],
+            "valueAxes": [{
+                "stackType": "regular",
+                "axisAlpha": 0.5,
+                "gridAlpha": 0
+            }],
+            "graphs": [{
+                "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                "fillAlphas": 0.8,
+                "labelText": "[[value]]",
+                "lineAlpha": 0.3,
+                "title": "Europe",
+                "type": "column",
+                "color": "#000000",
+                "valueField": "europe"
+            }, {
+                "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                "fillAlphas": 0.8,
+                "labelText": "[[value]]",
+                "lineAlpha": 0.3,
+                "title": "North America",
+                "type": "column",
+                "color": "#000000",
+                "valueField": "namerica"
+            }, {
+                "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                "fillAlphas": 0.8,
+                "labelText": "[[value]]",
+                "lineAlpha": 0.3,
+                "title": "Asia-Pacific",
+                "type": "column",
+                "color": "#000000",
+                "valueField": "asia"
+            }, {
+                "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                "fillAlphas": 0.8,
+                "labelText": "[[value]]",
+                "lineAlpha": 0.3,
+                "title": "Latin America",
+                "type": "column",
+                "color": "#000000",
+                "valueField": "lamerica"
+            }, {
+                "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                "fillAlphas": 0.8,
+                "labelText": "[[value]]",
+                "lineAlpha": 0.3,
+                "title": "Middle-East",
+                "type": "column",
+                "color": "#000000",
+                "valueField": "meast"
+            }, {
+                "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                "fillAlphas": 0.8,
+                "labelText": "[[value]]",
+                "lineAlpha": 0.3,
+                "title": "Africa",
+                "type": "column",
+                "color": "#000000",
+                "valueField": "africa"
+            }],
+            "rotate": true,
+            "categoryField": "year",
+            "categoryAxis": {
+                "gridPosition": "start",
+                "axisAlpha": 0,
+                "gridAlpha": 0,
+                "position": "left"
+            },
+            "export": {
+                "enabled": true
+            }
+        });
+    </script>
+
+    <!-- //amcharts -->
+    <script src="~/FrontUsersPro/js/chart1.js"></script>
+    <script src="~/FrontUsersPro/js/Chart.min.js"></script>
+    <script src="~/FrontUsersPro/js/modernizr.custom.js"></script>
+
+    <script src="~/FrontUsersPro/js/classie.js"></script>
+    <script src="~/FrontUsersPro/js/gnmenu.js"></script>
+    <script>
+        new gnMenu(document.getElementById('gn-menu'));
+    </script>
+    <!-- script-for-menu -->
+    <!-- /circle-->
+    <script type="text/javascript" src="~/FrontUsersPro/js/circles.js"></script>
+    <script>
+        var colors = [
+            ['#ffffff', '#fd9426'], ['#ffffff', '#fc3158'], ['#ffffff', '#53d769'], ['#ffffff', '#147efb']
+        ];
+        for (var i = 1; i <= 7; i++) {
+            var child = document.getElementById('circles-' + i),
+                percentage = 55 + (i * 10);
+
+            Circles.create({
+                id: child.id,
+                percentage: percentage,
+                radius: 80,
+                width: 10,
+                number: percentage / 1,
+                text: '%',
+                colors: colors[i - 1]
+            });
+        }
+
+    </script>
+    <!-- //circle -->
+    <!--skycons-icons-->
+    <script src="~/FrontUsersPro/js/skycons.js"></script>
+    <script>
+        var icons = new Skycons({ "color": "#fcb216" }),
+            list = [
+                "partly-cloudy-day"
+            ],
+            i;
+
+        for (i = list.length; i--;)
+            icons.set(list[i], list[i]);
+        icons.play();
+    </script>
+    <script>
+        var icons = new Skycons({ "color": "#fff" }),
+            list = [
+                "clear-night", "partly-cloudy-night", "cloudy", "clear-day", "sleet", "snow", "wind", "fog"
+            ],
+            i;
+
+        for (i = list.length; i--;)
+            icons.set(list[i], list[i]);
+        icons.play();
+    </script>
+    <!--//skycons-icons-->
+    <!-- //js -->
+    <script src="~/FrontUsersPro/js/screenfull.js"></script>
+    <script>
+        $(function () {
+            $('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+            if (!screenfull.enabled) {
+                return false;
+            }
+
+
+
+            $('#toggle').click(function () {
+                screenfull.toggle($('#container')[0]);
+            });
+        });
+    </script>
+    <script src="~/FrontUsersPro/js/flipclock.js"></script>
+
+    <script type="text/javascript">
+        var clock;
+
+        $(document).ready(function () {
+
+            clock = $('.clock').FlipClock({
+                clockFace: 'HourlyCounter'
+            });
+        });
+    </script>
+    <script src="~/FrontUsersPro/js/bars.js"></script>
+    <script src="~/FrontUsersPro/js/jquery.nicescroll.js"></script>
+    <script src="~/FrontUsersPro/js/scripts.js"></script>
+
+
+    <script type="text/javascript" src="~/FrontUsersPro/js/bootstrap-3.1.1.min.js"></script>
+
+
+</body>
+</html>
